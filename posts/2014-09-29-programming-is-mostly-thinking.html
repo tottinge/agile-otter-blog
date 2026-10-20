@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2014-09-29">
+
+<title>Programming Is Mostly Thinking – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo light-content">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Programming Is Mostly Thinking</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">programming
+thinking
+thought workers</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 29, 2014</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div dir="ltr" data-trbidi="on">
+<blockquote class="tr_bq blockquote">
+<span style="font-family: &quot;georgia&quot; , &quot;times new roman&quot; , serif; font-size: x-small;"><br></span><span style="font-family: &quot;georgia&quot; , &quot;times new roman&quot; , serif; font-size: x-small;">Pretend you have a really great programming day.</span>&nbsp;
+</blockquote>
+<blockquote class="tr_bq blockquote">
+<span style="font-family: &quot;georgia&quot; , &quot;times new roman&quot; , serif; font-size: x-small;">You only have to attend a few meetings, have only a few off-topic conversations, don’t get distracted or interrupted much, don’t have to do a bunch of status or time reporting, and you put in a good six hours of serious programming [note: this RARELY happens in an 8-10 hour day].</span>&nbsp;
+</blockquote>
+<blockquote class="tr_bq blockquote">
+<span style="font-family: &quot;georgia&quot; , &quot;times new roman&quot; , serif; font-size: x-small;">I want to review your work in the morning, so I print out a diff of your day’s work before going home.</span>&nbsp;
+</blockquote>
+<blockquote class="tr_bq blockquote">
+<span style="font-family: &quot;georgia&quot; , &quot;times new roman&quot; , serif; font-size: x-small;">Sadly, overnight the version control system crashes and they have to recover from the previous day’s backup. You have lost an entire day’s work.</span>&nbsp;
+</blockquote>
+<blockquote class="tr_bq blockquote">
+<span style="font-family: &quot;georgia&quot; , &quot;times new roman&quot; , serif; font-size: x-small;">If I give you the diff, how long will it take you to type the changes back into the code base and recover your six-hours’ work? </span>
+</blockquote>
+<br>
+<h3 class="anchored">
+Programming is 11/12ths Thinking
+</h3>
+<br> I’ve been touting this figure for some time now, and people keep asking me where the study is that produced such an odd number. <br><br> Well, it’s not pulled out of thin air and it’s not the result of a thorough scientific study. <br><br> I have done informal polls now for a few years, though I’ve not kept good records. My goal was not to become the scientist who cracks the statistical/mathematical code for programming activities. I was looking for a reasonable answer to a reasonable question. <br><br> However, this answer surprised me. In a long Quora post titled “<a href="#">How do programmers code so quickly?</a>” one responder offered that it was a combination of physical skills (muscle memory, skill with tools, debugging skills, typing skill) and knowing where to search for info. His post was swamped and overwhelmed by posts explaining that typing and tools are not the most important aid to quick code production.
+</div>
+<div dir="ltr" data-trbidi="on">
+<br>
+<h3 style="text-align: left;" class="anchored">
+Software Factories
+</h3>
+</div>
+<div dir="ltr" data-trbidi="on">
+&nbsp; <br>
+<div>
+I have seen the stickers and slogans on stickers and social media for a long time that “<a href="https://blog.ploeh.dk/2018/09/17/typing-is-not-a-programming-bottleneck/">typing is not the bottleneck</a>” (though every once in a while the inability of some programmers to type is <b>a </b>bottleneck).
+</div>
+<div>
+<br>
+</div>
+<div>
+I am keenly aware that most management still subscribes to the idea that <i>motion is work</i>. They are fairly convinced that a lack of <i>motion</i> is a lack of <i>work</i>. That makes sense in a lawn care service, a factory assembly line, or a warehouse operation.
+</div>
+<div>
+<br>
+</div>
+<div>
+Nearly all of the visible work done in producing physical goods is motion. People roll steel, stamp, press, mill, pick and place, bolt/screw/rivet, and on.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Modern factories produce goods with Computer Numerical Control machines, which produce perfect copies of an original model that may not even exist in real life. These machines work from abstract models – just data, really – and perform perfect motion. Humans tend the machines, rather than working the wood by hand.
+</div>
+<div>
+<br>
+</div>
+<div>
+I have some great guitars that were produced at affordable costs because of the degree of automation brought by such machines.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Great boutique guitars are produced entirely by hand at higher cost and I don’t put down that effort either. The world has room for both.
+</div>
+<div>
+<br>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="https://ytimg.googleusercontent.com/vi/PhOpgMDkfwc/0.jpg" height="266" width="320">
+<param name="movie" value="https://youtube.googleapis.com/v/PhOpgMDkfwc&amp;source=uds"><param name="bgcolor" value="#FFFFFF"><param name="allowFullScreen" value="true"><embed allowfullscreen="true" height="266" src="https://youtube.googleapis.com/v/PhOpgMDkfwc&amp;source=uds" type="application/x-shockwave-flash" width="320">
+</object>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+Software developers have perfected the factory. It runs flawlessly bit-perfect copies. You just click the “copy” or “download” button. It’s so cheap that the purchasers happily cover the costs of the factory. Those who are cautious will double check the checksums that come with the download, but most people don’t bother. The machines are reliable and efficient and quick and cheap.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Once the initial model (really, just data) exists, then the marginal cost of all the bit-perfect copies is essentially zero. Yes, this is just copying and not creating, but that’s what factories do. Custom shops might produce unique items (like guitars) but factories create copies of originals.
+</div>
+<div>
+<br>
+</div>
+<div>
+The software factory tends to give you a progress bar, so you can visualize the motion of bits, but in many ways you can say that the product doesn’t really exist. It’s a pattern of tiny charged v. uncharged areas of metal on a plate (well, probably) and you don’t even pay for the plate or the magnet or the laser when you create the copy. It’s already there.<br> <br> Software is an intellectual good.<br> <br>
+</div>
+<h3 class="anchored">
+The Design Shop
+</h3>
+<div>
+<br>
+</div>
+<div>
+In my years of working with Uncle Bob Martin, I heard him continually tell customers and students that software development is not a fabrication operation, but a design operation. Once the initial design is done, all the duplication is done by machines at nearly zero cost.
+</div>
+<div>
+<br>
+</div>
+<div>
+So what programmers and testers and POs and Scrum Masters and software management area all doing (if they’re doing it right) is designing the data model that will later be used by the factory to create copies for use by customers, patrons, and other people in the community the software is intended to serve.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Yet the mechanistic, Industrial-Age idea of software development as a factory persists, and developers dutifully try to make it look like they’re doing physical labor at the detriment of the process.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+All intellectual activities are hard to observe and monitor. An idea that is 80% complete has no physical manifestation. It’s an idea, and it’s not done yet. Sometimes we have experiments or proof-of-concept code or notes, but they don’t give an accurate “% complete” number as does physical work.
+</div>
+<div>
+<br>
+</div>
+<div>
+A chair being manufactured looks about 50% done at the 50% mark. &nbsp;When it’s done, it looks done.
+</div>
+<div>
+<br>
+</div>
+<div>
+A design for a chair may not exist on paper until it is more than 70% complete. And we don’t know that it’s really 70% done, because it’s not finished being designed yet.<br> <br>
+<h3 style="text-align: left;" class="anchored">
+The Answer: Really?
+</h3>
+</div>
+<div>
+<br>
+</div>
+I have asked this question at conventions, client companies, to my peers, to colleagues, and to strangers I have met for the first time when I find out they are programmers. <br><br> The answer I receive most often is “about half an hour.” <br><br> I could use the 8-hour day, ignoring meetings and interruptions and status reports, but that feels like padding the answer. I stick to the six hours doing things that programmers identify as programming work.<br> <br> There are twelve half-hours in six hours. One half-hour to retype all the changes made in six hours of hard programming work. <br><br>What in the world can that mean? How can it be so little?
+</div>
+<div dir="ltr" data-trbidi="on">
+<br>
+</div>
+<h3 style="text-align: left;" class="anchored">
+The Meaning Behind the Answer
+</h3>
+<div dir="ltr" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" data-trbidi="on">
+Right now I suspect a bunch of managers are about to go yell at their programmers for putting in a half-hour’s work in an 8-hour day! That would be a horrible misunderstanding of what was actually happening.
+</div>
+<div dir="ltr" data-trbidi="on">
+<br> <br> What is really happening? <br>
+<div>
+<ul>
+<li>
+Programmers were typing on and off all day. Those 30 minutes are to recreate the <i><b>net result</b></i> of all the work they wrote, un-wrote, edited, and reworked through the day. It is not all the effort they put in, it is only the <i>residue of the effort.</i>
+</li>
+<li>
+Programmers are <i><b>avoiding defects</b></i> as best they can. In order to do that, they have to be continuously evaluating the code as they write it, hypothesizing the kinds of defects or security vulnerabilities they might be introducing. After all, they receive their harshest criticism for introducing defects into the shared code base.&nbsp;
+</li>
+<li>
+Programming is a kind of <i><b>lossy compression</b></i>. The code only says what the program must do when it is running. Why a programmer chose one particular way over others, how it influences the rest of the system, what errors were introduced and removed, and what pitfalls it avoids are not (generally) present in the text of the program.
+</li>
+<li>
+Most of the work is not in making the change, but in <i><b>deciding how to make the change</b></i>. Deciding requires us to understand the code that already exists. This is especially time-consuming when the code is messy or the design is not very obvious in the source code.&nbsp;
+</li>
+<li>
+Programmers work in a <b><i>social context</i></b>&nbsp;since all their results are integrated into a shared code base (and most use pair programming or other “many eyes” techniques). Programmers may be helping other programmers or testers or operations people get a handle on their work. Connecting and communicating with others has benefits and costs that don’t appear in the code.&nbsp;
+</li>
+</ul>
+</div>
+<div>
+<br>
+</div>
+<div>
+Six hours of intellectual work (reading, researching, deciding, confirming, validating, verifying) translates to about 30 minutes worth of net lines-of-code change to a code base.<br> <br> That’s not additional lines of code. We often have weeks when we fix bugs and add features and have fewer lines of code at end of the week than we had at the beginning of the week. I once got in trouble for having multiple weeks where we had negative lines of code – we didn’t know the ‘grand boss’ over our team was reporting SLOC as if it measured progress. Sigh.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+<div>
+Programmers will gladly explain that the work they did was reading, learning, understanding, sometimes guessing, researching, debugging, testing, compiling, running, hypothesizing and disproving their ideas of what the code should look like. In short, they were thinking and deciding.<br>
+<div>
+Most of what goes on is intellectual work.<br> <br>
+<div>
+One of the quora responders wrote:<br> <br>
+<blockquote class="tr_bq blockquote">
+<span class="s1">You see the fingers flying over the keyboard; you don’t see the hours spent in talking to users, discussing the problems with coworkers, doing research and thinking the problems through.</span>
+</blockquote>
+</div>
+<div>
+Another suggested:<br> <br>
+<blockquote class="tr_bq blockquote">
+<span class="s1">I achieve it firstly (to the extent that I do) by ‘helping’ the customer to eliminate the unnecessary notions from their idea, which they often mistakenly call ‘requirements’ and sometimes even say they are ‘must have’. This is the biggest possible acceleration in the delivery of a solution because I can do an infinite amount of no work in no time at all.</span>
+</blockquote>
+</div>
+And yet another:<br> <br>
+<blockquote class="tr_bq blockquote">
+<span class="s1">Really good developers do 90% or more of the work before they ever touch the&nbsp; keyboard; really understanding the requirements and devising an appropriate solution.</span>
+</blockquote>
+These are not unique unusual answers. I find that most of the time, “knowing what not to write”, “doing less,” “working in smaller steps”, and “having first figured out what to do” are common answers. Programming is much more about thinking than about typing.
+</div>
+</div>
+</div>
+<div>
+<br>
+</div>
+<div>
+I have examined a lot of the change logs (diffs). It has consistently looked like 30+/-10 minutes of change on a good day (at least to me).&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+I’m confident enough to tout this number as effectively true, though I should mention that no company I work with has so far been willing to delete a whole day’s work to prove or disprove this experiment yet. &nbsp;Remember, I have only estimates and examinations of daily diffs to work from. The result here is not scientific.
+</div>
+<div>
+<br>
+</div>
+<div>
+I should also let you know that people who do more typing or more cut/paste are often doing less thinking and understanding, which results in more errors and more burden on other programmers to understand and correct their code.<br> <br>
+<div style="text-align: center;">
+<span style="font-size: large;"><i>Code is just the residue of the work.</i></span>
+</div>
+<h3 class="anchored">
+So What?
+</h3>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+If programming is 1/12th motion and 11/12ths thinking, then we shouldn’t push people to be typing 11/12ths of the time. We should instead provide the materials, environment, and processes necessary to ensure that the thinking we do is of high quality.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Doing otherwise is optimizing the system for the wrong effect.
+</div>
+<div>
+<br>
+</div>
+<div>
+What if we changed our tactics, and intentionally built systems for thinking together about software and making decisions easier to make? I think that productivity lies in this direction.<br> <br> So I invite you: how can you experiment with learning on-the-job to create systems where the thinking is optimized?&nbsp;
+</div>
+<div>
+<br>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
