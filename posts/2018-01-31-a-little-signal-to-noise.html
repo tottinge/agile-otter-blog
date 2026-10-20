@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2018-01-31">
+
+<title>A little signal-to-noise – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo light-content">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A little signal-to-noise</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 31, 2018</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br> <br> WARNING: the blogger “WYSIWYG” editor is really not very good about the “WYSIWYG” bit… so this article looks great in the editor but is a real crapshow in the actual post. I’m fixing it. Be kind, and bear with me.<br> <br> In <a href="https://elearning.industriallogic.com/gh/submit?Action=BrowseAlbumsAction">our eLearning</a>, we publish problems and solutions. Sometimes people contribute other solutions and we show those as well. Today’s sample comes from our Test-Driven Development album.<br> <br>
+<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><img alt="Album Art for Test-Driven Development" height="250" src="https://lh4.googleusercontent.com/rhQ5lDtf5Bnc8ZywYZetPzKzChINpt33KTm5agGsNBX5DVkYS6CpPJUC1x-k-tpPqGnKQu45_EaWsNyvgAp3md8IWre9iBb5l9MTnD5ZACn61dNkWgq0MDQfqFTnPT6l6slLFTGJ" style="-webkit-transform: rotate(0.00rad); border: none; transform: rotate(0.00rad);" width="250"></span>
+</div>
+<b style="font-weight: normal;"><br></b> <br> <br> Geepaw hill tells us “everything matters” – so today I’m going to nitpick at something that (in this case) is tiny and you might consider it insignificant. So be it.<br> <br> But just the same, I would like to introduce you to a process that can improve your code and design in ways subtle and profound.<br> <br> In this case, it stays a little to the subtle side, but that’s okay for a blog.<br> <br> Here is a source code example:<br> <br><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.GOLD, 900, 1), 49.95); <br>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.GOLD, 900, 2), 64.45); <br>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 1), 29.95); <br>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 3), 72.95);</span><br><br>This test is checking a hypothetical phone billing calculation.<br> <br> Let’s look at these lines and figure out how much unique content exists per line.<br>
+<h3 style="line-height: 1.38; margin-bottom: 2pt; margin-top: 12pt; text-align: left;" class="anchored">
+<span style="background-color: transparent; color: #434343; font-family: &quot;arial&quot;; font-size: 13.999999999999998pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br></span>
+</h3>
+<h3 style="line-height: 1.38; margin-bottom: 2pt; margin-top: 12pt; text-align: left;" class="anchored">
+<span style="background-color: transparent; color: #434343; font-family: &quot;arial&quot;; font-size: 13.999999999999998pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">De-Noise-Ify</span>
+</h3>
+<b style="font-weight: normal;"><br></b> <br> Duplicated:<br>
+<blockquote class="tr_bq blockquote">
+<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.</span>
+</blockquote>
+<b style="font-weight: normal;"><br></b> <br> 56 characters of every line are duplicated. You probably didn’t even read them after the first line.<b style="font-weight: normal;"><br></b> <br>
+<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br></span> <span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">Unique:</span><br> <span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br></span>
+</div>
+<blockquote class="tr_bq blockquote">
+<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">GOLD, 900, 1), 49.95);<br> </span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">GOLD, 900, 2), 64.45);<br> </span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">SILVER, 490, 1), 29.95);<br> </span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">SILVER, 490, 3), 72.95);</span>
+</blockquote>
+<p><br></p>
+<br> About 25 characters are <i>not</i> the duplicated prefix.<br> <br> Of these, even fewer are unique (if you drop punctuation).<br> <br> With 2/3 of every line being noise, it’s pretty obvious that this code is inviting you to copy and paste. Heck, it’s practically demanding it.<br> <br> How many times would you want to type those first 56 characters (plus indentation)?<br> <br> Most of the time when people copy and paste, it’s because the code asks them to do that.<br> <br> I’m willing to wager a pleasant adult beverage that the four-line test was written by copying the first line three times.<br> <br> If we were to get minimal noise, it might look like this:<b style="font-weight: normal;"><br></b> <br> <span style="font-family: Courier New, Courier, monospace; font-size: x-small;">
+<div>
+<span style="font-family: Courier New, Courier, monospace; font-size: x-small;"><br></span>
+</div>
+&nbsp; &nbsp; SILVER 490 3 72.95</span><b style="font-weight: normal;"><br></b> <br>
+<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">Now we’ve got it to four points of data, and that’s pretty noiseless. Do you know what it means? </span><span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span>
+</div>
+<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br></span> <span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">Nope. I didn’t think so.</span><br> <span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> </span><span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span>
+</div>
+<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">This has all the noise removed, but also all the information. </span>
+</div>
+<b style="font-weight: normal;"><br></b> <br>
+<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">If you have near-zero signal, then having low noise doesn’t help.</span>
+</div>
+<b style="font-weight: normal;"><br></b> <br>
+<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">But if you have little signal, having a lot of noise doesn’t make it any better either. </span>
+</div>
+<b style="font-weight: normal;"><br></b> <br>
+<h3 style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt; text-align: left;" class="anchored">
+<span style="background-color: transparent; color: #434343; font-family: &quot;arial&quot;; font-size: 13.999999999999998pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">Find Significance</span>
+</h3>
+<b style="font-weight: normal;"><br></b> <br> <br> There is a violation of the fidelity rule here. The fidelity rule tells us this:<br>
+<blockquote class="tr_bq blockquote">
+<b>One reads the tests to understand the code. One does not read the code to understand what the test does.</b>
+</blockquote>
+<br> The first three numbers describe facts about a simple phone bill.<br> <br>
+<blockquote class="tr_bq blockquote">
+<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">public static double calculateRate(int plan, int minutes, int numLines)</span>
+</blockquote>
+<br> <br> The other is the expected amount of the calculation (here done in decimal because it’s just a teaching example). <br> <br> So when the plan is type=SILVER, and billing is for 3 lines and 490 minutes of use, the expected result is $72.95. <br> <br> Now the question is how to phrase this. We are a little stymied because there are two different kinds of plans being tested here for two different conditions each. We’re not going to come up with a test name that reflects that because it’s a number of different ideas.<br> <br> Maybe the tests are too big.<br>
+<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
+<span style="text-decoration-color: initial; text-decoration-style: initial;"><span style="font-weight: normal;">We could divide the tests into GOLD tests and SILVER tests.&nbsp;</span></span>
+</h4>
+<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
+<span style="font-weight: normal;">We could make four different tests.</span>
+</h4>
+<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
+<span style="text-decoration-color: initial; text-decoration-style: initial;"><span style="font-weight: normal;">We could lean on naming.</span></span>
+</h4>
+<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
+<span style="text-decoration-color: initial; text-decoration-style: initial;"><span style="font-weight: normal;">We could add comments.</span></span>
+</h4>
+<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
+<span style="font-weight: normal;">We could just look more deeply at the code…</span>
+</h4>
+<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
+<span style="text-decoration-color: initial; text-decoration-style: initial;"><span style="font-weight: normal;">When we look at the code we see that the algorithm is the same regardless of plan. Only some numerical values change per plan. That’s interesting.</span></span>
+</h4>
+<h3 style="text-align: left;" class="anchored">
+<br>Exalt the Significant
+</h3>
+<div style="text-align: left;">
+
+</div>
+<br> <br> Possibly we could rework the code a bit. I’m going to take some liberties and not actually build and run this, but just examine some different organization.<br> <br>
+<div dir="ltr" style="line-height: 1.464; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var baseRate = 29.95;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var included=500;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var extraMinutesRate=0.54;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var extraLines=21.50;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var baseRate = 29.95;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var included=500;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var extraMinutesRate=0.54;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var extraLines=21.50;</span><span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> </span>
+</div>
+<b style="font-weight: normal;"><br></b> <br>
+<div dir="ltr" style="line-height: 1.464; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var silver = new Plan(baseRate, extraLines, quota, extraMin);</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> assertEqual(72.95, silver.calculate(lines=3, minutes=490));</span>
+</div>
+<b style="font-weight: normal;"><br></b> <br> There is more to this, though.<br>
+<div>
+<ul style="text-align: left;">
+<li>
+The significance of 490 minutes is that it is less than 500.&nbsp;
+</li>
+<li>
+The significance of 3 is that it’s two more lines than the 1 included in the plan.
+</li>
+<li>
+<span style="color: black; font-family: &quot;times new roman&quot;; font-size: 11pt; vertical-align: baseline; white-space: pre;">I</span>n this test, the extraMinutesRate is insignificant. It’s a shame we have to provide it.
+</li>
+</ul>
+<div style="line-height: 1.464; margin-bottom: 0pt; margin-top: 0pt;">
+<br> I’m not even going to talk about the primitive obsession, using floats for money, or any of the other obvious issues here. Especially not having small classes for minutes, and for money, and type-safe function parameters to keep us from shooting ourselves in the foot via mishandling of variables. Far be it from me to mention any of that. This is, after all, a training exercise.
+</div>
+<h3 style="text-align: left;" class="anchored">
+<br>Avoid Duplication
+</h3>
+<div style="text-align: left;">
+
+</div>
+<br> <br> Now we’re getting closer to something that can be understood from the test. The signal is increased considerably. That’s a good thing. Sadly, these numbers are going to be all over the tests and duplicated in the production code. <br> <br> That violates the Single Point Of Truth (SPOT) principle, and also damages our signal-to-noise ratio. <br> <br> Now we’ll have numbers all over the place duplicating numbers in other places, and we’ll have to be careful to ensure that they all agree when they should. Ew. We need something better.<br> <br> Maybe what we need now is to create a record type to hold the variables for different rates. Let’s call them GOLD_RATE_PACKAGE and SILVER_RATE_PACKAGE for now.<br> <br> And then we could create constants that further exalt the DIFFERENCES in numbers, rather than just stating a number and leaving it to the reader to reverse-engineer the tester’s choices.<br>
+<blockquote class="tr_bq blockquote">
+<span style="font-family: Courier New, Courier, monospace; font-size: x-small;"><br></span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">var silver = new Plan(SILVER_RATE_PACKAGE);</span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">var underQuota = SILVER_RATE_PACKAGE.minutes_quota - 1;<br> </span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AssertEqual( 29.95, silver.calculate(minutes=underQuota, lines=1));</span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AssertEqual( 72.95, silver.calculate(minutes=underQuota, lines=3));</span>
+</blockquote>
+<br>This could be taken further, but consider this example v. the original.<br> <span style="font-family: Courier New, Courier, monospace; font-size: x-small;"><br></span> <span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 1), 29.95); <br>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 3), 72.95);</span><br> <br> On one hand, they assertions are <i>almost</i> exactly the same. On the other hand, there is a <i>huge difference </i>in the signal-to-noise ratio and the places one has to look to research why the first answer should be 29.95.<br>
+<h3 style="text-align: left;" class="anchored">
+<br>So Friggin What?
+</h3>
+<br> The point of this is not “my code is better than yours” or “I’m cooler than you” (which is almost certainly false).<br> <br> What I’m suggesting is that there are subtle-but-different changes even in simple code if we consider the signal-to-noise ratio in our code.<br>
+<ul>
+<li>
+<i>De-Noise-ify </i>
+</li>
+<li>
+<i>Find and Exalt the Significant&nbsp;</i>
+</li>
+<li>
+<i>Avoid Duplication&nbsp;</i>
+</li>
+</ul>
+<br> As a result, you end up with code that is more obvious at a glance and likely has a better design as well.<br> <br> This matters to me because I care about the code rather deeply.
+</div>
+<div>
+<br> Maybe you don’t like it as well as the original.<br> <br> That’s okay, but what do you come up with when you follow the same process?
+</div>
+<div>
+<br>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

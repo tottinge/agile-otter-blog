@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2018-07-05">
+
+<title>The Scatter-Gather Method of Software Development – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo light-content">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Scatter-Gather Method of Software Development</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 5, 2018</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+There is a certain theory of agile development which is built on factory thinking, using division and management of labor to accomplish large&nbsp;projects.<br> <br>
+<h4 style="text-align: left;" class="anchored">
+The Plan
+</h4>
+<br> You have a big job to do?<br> <br>You are in luck!&nbsp; <br><br>We have a perfectly risky-to-unworkable, logical-sounding, emotionally-appealing, naive system for you:
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br> Scatter:<br> <br>
+<ul style="text-align: left;">
+<li>
+Divide the project into pieces
+</li>
+<li>
+Resource the project (acquire the right number of “teams”)
+</li>
+<li>
+Assign pieces of the project to “teams”&nbsp;
+</li>
+<li>
+In the “teams”, a lead character will divide the pieces into smaller and smaller jobs
+</li>
+<li>
+The small jobs will be assigned to individuals who work for the lead
+</li>
+</ul>
+<br> Gather:<br> <br>
+<ul style="text-align: left;">
+<li>
+Individuals complete their small jobs
+</li>
+<li>
+The small jobs are integrated/combined/summed by the lead
+</li>
+<li>
+When small jobs are done, the lead delivers the finished work of the “team”
+</li>
+<li>
+“Teams” who completed the work are released
+</li>
+<li>
+The project office then combines the parts
+</li>
+<li>
+The integrated, completed project is delivered
+</li>
+</ul>
+<div>
+<br>
+</div>
+<div>
+Please note that there is an inverse pattern here: “Teams” are gathered during the <i>scatter</i>&nbsp;part of the process, and scattered during the <i>gather</i> part. But let’s not focus on that right away.
+</div>
+<div>
+<br>
+</div>
+<h4 style="text-align: left;" class="anchored">
+Why do you put quotes on “team”?
+</h4>
+<div>
+A team is a group of people aligned on common goals, who work together to achieve those goals. Such a team works together every day, and each member works for the best team outcome. That is a team without quotes.
+</div>
+<div>
+<br>
+</div>
+<div>
+There is another use of the word, though. In many organizations, all the workers are individual contributors who are encouraged to get their own work done.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+They might occasionally offer advice or be a “second pair of eyes” (cf Rubber Ducking) for another person, but the only real connection between them is that they have the same boss.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+“Teams” (quotes included here) are an org chart conceit.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Scatter-gather style work <u>requires exquisite planning and estimation</u>, and a reliance on individual effort. <br><br>
+</div>
+<div>
+Each person absolutely must complete <i>their own piece</i> of the work on time, else the whole schedule cascades into failure. The work is so fully partitioned and aggressively scheduled that for one person to aid another puts their own schedule at risk. There is no “us” in “team!”
+</div>
+<div>
+<br>
+</div>
+<div>
+Quite often, the manager/lead is posted to act as a “<a href="https://en.wikipedia.org/wiki/Barrier_troops">blocking troop</a>” to punish any person who falls behind.&nbsp; Occasionally, a rank-and-file developer is promoted because they have a penchant for working as blocking troops.&nbsp;
+</div>
+<h4 style="text-align: left;" class="anchored">
+Integration
+</h4>
+In theory, when all the individuals finish their parts, then those can be integrated and tested, and the parts passed up the tree for integration and testing at a higher level, and then finally the organization will resolve all the integration problems and mismatches and release the software.<br> <br> Ideally, there will be no integration problems because of the upper-level project team’s exquisitely detailed design and&nbsp;planning. People are often promoted to this level because of past success and because of their talent and passion for planning. The goal is to have everything worked out up-front so that integration problems do not happen.<br> <br> But they do happen. They always happen. They’re happening right now.<br> <br> There are always some misunderstandings, some kind of design drift, some platform issues that had to be worked around, and some of the small jobs took longer than anyone expected. Some late parts had to be left out (temporarily) or revised during development (thus damaging the validity of the grand plan).<br> <br> How do scatter/gather organizations resolve those problems? Generally speaking, the people at the project level don’t have the technical skills to resolve these problems.&nbsp;<br> <br> Luckily, even though they tend to run as project organizations (a convenient but prevalent organizational conceit) “teams” tend to be composed of full-time employees working long-term on projects that tend to be related to a single code base. Therefore, the members from the original “team” may still be present, and may still be on the same “team.”<br> <br> Integration problems are addressed, then, by temporarily borrowing-back the members from the original “team” who can diagnose and resolve issues.&nbsp; Once the problems are resolved and the system is sufficiently tested, then the original “project” (really a product increment) can be “released” to customers.
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br> That integration problems happen, doctrinally speaking, because the planning and detail were not exquisite enough to avoid the failure. Without sufficient up-front planning, the project will not come in on time with full scope completed. Therefore, if it isn’t on time with full scope the problem was insufficient planning. What else could it be?&nbsp; Oh, well, it could be developer competence. Maybe that’s it. Perhaps it’s time to clean house.<br> <br> A lot of projects don’t come in on time with full scope (which suggests that a more agile approach is appropriate), but the scatter-gather system is so reasonable on the face of it that many people think it the only system that could possibly work.&nbsp;
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+&nbsp;Sometimes people say “at scale” or “at enterprise scale.” The goal of “scale” in this sense is to produce a product using several hundred or thousand programmers simultaneously and keeping them all busy.<br> <br> Some organizations have made&nbsp;<i>inevitable</i> late integration problems part of their standard process by adding hardening sprints.<br>
+<h4 style="text-align: left;" class="anchored">
+Busy Enough&nbsp;
+</h4>
+One of the problems with working at this scale is that programmers are not cheap. Even the cheap ones are not cheap. There is a constant “burn rate.” An hour of time costs the same whether the teams are productive or idle. And it’s a VERY LARGE NUMBER.<br> <br> If you are paying, and it’s a VERY LARGE NUMBER per hour, then it’s important that all the people (“resources”) are kept productive at all times. This isn’t snark, or hyperbole, or foolishness. It’s a VERY LARGE NUMBER and you need to be sure that you’re getting value for the cost of that hour.<br> <br> So when teams are released from one project, it’s keen to have them starting another ASAP. This is a tricky bit of “scheduling tetris”, but many managers above the project manager level have significant skill at scheduling. Sometimes, to make the scheduling work, they have to shuffle teams in or out of a project where the team “members” have no familiarity with the code base or domain, but we know that given time a developer (QA included) can develop skills in any code base or domain. It’s a matter of good communication and management, which the “leads” should be able to handle or they shouldn’t be leads.<br> <br> When I first began to manage teams, it was in a scatter/gather organization. I was told that the first rule of management is to always make sure all the team members have enough work to do.<br> <br> I was given the VERY LARGE NUMBER which is the hourly burn rate, and reminded that an idle team costs the company many many digits of loss per minute.<br> <br> Oddly, I have no idea how much value or income the team’s product produced per hour, day, month or year or what the ratio of cost:value was for the project. I was instructed to focus on the costs and get the maximum <i>quantity</i> of work&nbsp;possible to justify the burn rate.<br> <br> I’ve heard this&nbsp;First Law repeated many times. It is a corporate mania that the profitability of the organization will plummet at a rate of $VERYLARGE/HOUR if employees are <i>not busy enough</i>. It could destroy the company (and certainly would, if the burn rate exceeded the rate of income for even a relatively short period of time; days, weeks, months. It’s inevitable).<br> <br> This First Law is one of the problems with the hardening sprint. The staff in a hardening sprint end up waiting for something to be broken. Idle resources are expensive, and people must be kept busy, so hardening sprint staff tend to be part of some other scatter/gather project and likely on the critical path.<br> <br> In other words, the hardening sprint is usually another organizational conceit.<br> <br>
+<h4 style="text-align: left;" class="anchored">
+Some Flaws&nbsp;
+</h4>
+Since everyone must be busy enough, by the time an integration problem is visible (at the end of the “gather” process) most of the people who worked on the code have moved to other projects in order to satisfy scheduling Tetris.<br> <br> Also, as a result of “schedule Tetris” the project code is written partly by people who didn’t know the code base, or the domain, or the development stack. Because they needed to be productive and to stay busy, they did the best they could at the time. Naturally, there are some defects, integration faults, inconsistency, and schedule slips.<br> <br> Errors are the natural result of putting unfamiliar hands in complicated code.<br> <br> The people who can fix the problems are the people familiar with the system as a whole, and those familiar with the code that was written. Of course, they’re not on the “project” anymore, and may not even be familiar with the code they wrote anymore. They’ve moved on.<br> <br> To get the problem fixed, some of them will need to be pulled out of their new, exquisitely planned and scheduled project. They will be brought back for some time (period unknown) to the suffering complete-yet-non-working-so-unreleased project.<br> <br> This puts the new project at risk, which runs the risk of cascading schedule failure.<br> <br> Often the risk to the project schedule is such that more teams are brought to bear (also often unskilled in the development technology, unfamiliar with the code, and new to the domain) to try to make up for lost time. These teams are likely to introduce similar failures in the new project, adding to the integration risk.<br> <br> And the increased integration risk pulls more resources into the hardening sprint, putting another project at risk of cascading schedule failure, and a combination of scope reduction and staff increase is brought to bear again.<br> <br> Either a point of equilibrium is reached, projects are canceled&nbsp;to relieve the pressure, or some other form of hilarity ensues.<br> <br>
+<h4 style="text-align: left;" class="anchored">
+Faith
+</h4>
+Projects are late, schedules have cascading schedule failures, “team” members are unhappy because they can’t do their best work rushing around in the unfamiliar code, everyone is frustrated that “teams” can’t avoid making errors and “team” members don’t help each other to learn to work better.<br> <br> Managers are frustrated with descoping work to try to get projects back on schedule, with the frustration of trying to keep up on the status of each “team” member, with never knowing if the system will be delivered on time, with the nagging sense that the team is missing something or the plan is wrong in some way that will cascade into failures.<br> <br> But still. Still. Even in the face of years of struggle and repeated near-catastrophes and occasional failures, they are convinced that the system is entirely workable and the problem is either:<br>
+<ol style="text-align: left;">
+<li>
+they couldn’t plan and design well enough under the circumstances
+</li>
+<li>
+circumstances arose which shouldn’t have, and couldn’t have been predicted
+</li>
+<li>
+the plan wasn’t followed well enough this time and next time should be better
+</li>
+<li>
+our people just aren’t good enough
+</li>
+</ol>
+<div>
+Scatter/gather seems to be the only system that could conceivably work (at this scale).&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+It’s a tremendous act of faith, and the organization doubles-down on faith in the face of repeated failures. <i>Scatter/gather must be made to work. We just <b>have</b> to do it better.</i>
+</div>
+<div>
+<i><br></i>
+</div>
+<h4 style="text-align: left;" class="anchored">
+Alternatives
+</h4>
+<br> <br> Of course, much of the world has developed mature practices which use continuous integration to surface problems early, collaboration to resolve problems quickly, and using evolutionary design so that the product is runnable on day 1 and every other day.<br> <br> A lot of people don’t even use projects to build product increments. They add features one-at-a-time or one-“epic”-at-a-time. They build release candidates every day throughout the project. Some of them actually go live with their product increments several (to hundreds) of times a day.<br> <br> I know it sounds like heresy against the One True Way, but it’s still so.<br> <br> I know it doesn’t sound realistic. How in the world could you do this in a scatter/gather organization? Without screwing up the schedule Tetris?<br> <br> And to be fair, you couldn’t.<br> <br> You’d have to give up the faith. You would have to give up your core identity – you wouldn’t be a scatter/gather-based scheduling-Tetris organization.<br> <br> You might even have to admit that the old system that you spent (VERY_LARGE_NUMBER/hour X for N years) on is not very workable.<br> <br> There are often stiff penalties for being the first one to speak heresy against the Current Corporate Way. Worst than if you’d violated the First Law. Worse than if you failed to deliver. You could actually lose your position in the hierarchy, which is the Primary Topic in a large organization.<br> <br> Still, a lot of companies work alternative ways and have for decades.<br> <br>
+<h4 style="text-align: left;" class="anchored">
+Keeping the Faith
+</h4>
+But if you have great collective faith in scatter/gather as the only possible answer, alternatives sound ludicrous and couldn’t possibly work <i><a href="https://agileotter.blogspot.com/2016/11/but-in-real-world.html">in the real world.</a></i>&nbsp; Anyone who thinks that they could build a working system <i>at scale </i>without a scatter/gather plan must have lost touch with reality – lost the faith – possibly their whole way of working is a peyote-inspired fantasy.<br> <br> Denial is the first step in avoiding responsibility, and humanity has found a lot of success in denying facts for decades in order to maintain their conceits about how the world works. I can recommend this strategy. It keeps you from having to change right now, and if you discredit heretics then you might not have to hear from them again. And you will have no trouble finding like-minded supporters in the industry, so that’s nice.<br> <br> Of course, I recommend it if and only if your goal is to continue, undisturbed, in your current beliefs. The basis of the recommendation is its effectiveness and proven track record, not that it is wise or virtuous.<br> <br> The true believer in scatter/gather projects, schedule Tetris, and related organizational habits can find people in the world who are happy to sell agile frameworks entirely compatible with that way of working.<br> <br> Such people will also gladly rent out consultants to put the scatter/gather processes into place and certify a company’s staff to be practitioners of the True New Way of scaling.<br> <br> They’ll even give a prestigious “Agile” title to adorn press releases and recruiting posters.<br> <br> But maybe, just maybe,&nbsp; if you’ve suffered enough for your faith and find yourself filled with doubts, you might consider some of the alternatives.
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
