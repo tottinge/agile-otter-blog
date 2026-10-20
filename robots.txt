@@ -1,1 +1,1 @@
-Sitemap: https://tottinge.github.io/otter-static-blog/sitemap.xml
+Sitemap: https://tottinge.github.io/agile-otter-blog/sitemap.xml

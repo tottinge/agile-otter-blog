@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>Agile Otter Blog</title>
-<link>https://tottinge.github.io/otter-static-blog/</link>
-<atom:link href="https://tottinge.github.io/otter-static-blog/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://tottinge.github.io/agile-otter-blog/</link>
+<atom:link href="https://tottinge.github.io/agile-otter-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Tim Ottinger&#39;s thoughts on software development.</description>
 <generator>quarto-1.10.19</generator>
 <lastBuildDate>Mon, 29 Sep 2025 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Convenience Scripts for Projects</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2025-09-30-convenience-scripts-for-projectsw.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2025-09-30-convenience-scripts-for-projectsw.html</link>
   <description><![CDATA[ 
 
 
@@ -82,12 +82,12 @@ It can be helpful to have an LLM/agent/AI write these scripts initially and keep
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2025-09-30-convenience-scripts-for-projectsw.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2025-09-30-convenience-scripts-for-projectsw.html</guid>
   <pubDate>Mon, 29 Sep 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Why is working faster not working?</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2025-09-12-why-is-working-faster-not-working.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2025-09-12-why-is-working-faster-not-working.html</link>
   <description><![CDATA[ 
 
 
@@ -509,12 +509,12 @@ Expect Thru
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2025-09-12-why-is-working-faster-not-working.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2025-09-12-why-is-working-faster-not-working.html</guid>
   <pubDate>Thu, 11 Sep 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Subjectivity: Who is to say what’s right?</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2025-07-21-who-are-you-to-say-whats-right.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2025-07-21-who-are-you-to-say-whats-right.html</link>
   <description><![CDATA[ 
 
 
@@ -579,12 +579,12 @@ Expect Thru
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2025-07-21-who-are-you-to-say-whats-right.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2025-07-21-who-are-you-to-say-whats-right.html</guid>
   <pubDate>Sun, 20 Jul 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Who (the heck) Am I?</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2025-07-09-who-heck-am-i.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2025-07-09-who-heck-am-i.html</link>
   <description><![CDATA[ 
 
 
@@ -652,12 +652,12 @@ Expect Thru
   <category>skills</category>
   <category>history</category>
   <category>abilities</category>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2025-07-09-who-heck-am-i.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2025-07-09-who-heck-am-i.html</guid>
   <pubDate>Tue, 08 Jul 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A quick note on “At Scale”</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2025-07-09-a-quick-note-on-at-scale.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2025-07-09-a-quick-note-on-at-scale.html</link>
   <description><![CDATA[ 
 
 
@@ -722,12 +722,12 @@ Have to deal with “the law of the 2nd floor” (LO2F)
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2025-07-09-a-quick-note-on-at-scale.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2025-07-09-a-quick-note-on-at-scale.html</guid>
   <pubDate>Tue, 08 Jul 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How much rework do you WANT?</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2025-07-07-how-much-rework-do-you-want.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2025-07-07-how-much-rework-do-you-want.html</link>
   <description><![CDATA[ 
 
 
@@ -969,12 +969,12 @@ But of course, if you don’t have errors and rework so that all of your code go
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2025-07-07-how-much-rework-do-you-want.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2025-07-07-how-much-rework-do-you-want.html</guid>
   <pubDate>Sun, 06 Jul 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>There is No Automatic Reset for Engineering</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2025-03-03-there-is-no-automatic-reset-in.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2025-03-03-there-is-no-automatic-reset-in.html</link>
   <description><![CDATA[ 
 
 
@@ -1112,12 +1112,12 @@ Joshua Kerievsky is working on (and writing about) the business contexts of tech
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2025-03-03-there-is-no-automatic-reset-in.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2025-03-03-there-is-no-automatic-reset-in.html</guid>
   <pubDate>Mon, 03 Mar 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Pair Programming Listicle</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2025-02-11-pair-programming-listicle.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2025-02-11-pair-programming-listicle.html</link>
   <description><![CDATA[ 
 
 
@@ -1251,12 +1251,12 @@ David Bernstein’s video on <a href="https://youtu.be/aiXr7mEB4ms?si=K6K5gPwV34
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2025-02-11-pair-programming-listicle.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2025-02-11-pair-programming-listicle.html</guid>
   <pubDate>Tue, 11 Feb 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Irresponsibility: Estimates and NoEstimates</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2024-12-11-irresponsibility-estimates-and.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2024-12-11-irresponsibility-estimates-and.html</link>
   <description><![CDATA[ 
 
 
@@ -1375,12 +1375,12 @@ Be kind to each other. Don’t refuse to care or refuse to listen. If you exerci
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2024-12-11-irresponsibility-estimates-and.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2024-12-11-irresponsibility-estimates-and.html</guid>
   <pubDate>Wed, 11 Dec 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Basic Microphone Usage</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2024-08-06-basic-microphone-usage.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2024-08-06-basic-microphone-usage.html</link>
   <description><![CDATA[ 
 
 
@@ -1453,12 +1453,12 @@ Don’t tap the mic. The impact can damage the internal workings of the mic. It 
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2024-08-06-basic-microphone-usage.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2024-08-06-basic-microphone-usage.html</guid>
   <pubDate>Mon, 05 Aug 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Bonus for Productivity?</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2015-04-18-bonus-for-productivity.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2015-04-18-bonus-for-productivity.html</link>
   <description><![CDATA[ 
 
 
@@ -1486,19 +1486,19 @@ Then How Do We Reward Team Members?&nbsp;
   <category>HR</category>
   <category>leaders</category>
   <category>Scholtes</category>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2015-04-18-bonus-for-productivity.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2015-04-18-bonus-for-productivity.html</guid>
   <pubDate>Fri, 17 Apr 2015 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How Do Scrum Masters Know?</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2011-09-14-how-do-scrum-masters-know.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2011-09-14-how-do-scrum-masters-know.html</link>
   <description><![CDATA[ 
 
 
 
 
 <div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/Screen shot 2011-09-13 at 9.20.23 PM.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="Screen shot 2011-09-13 at 9.20.23 PM.png" border="0" height="245" src="https://tottinge.github.io/otter-static-blog/assets/Screen shot 2011-09-13 at 9.20.23 PM.png" width="400"></a>
+<a href="../assets/Screen shot 2011-09-13 at 9.20.23 PM.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="Screen shot 2011-09-13 at 9.20.23 PM.png" border="0" height="245" src="https://tottinge.github.io/agile-otter-blog/assets/Screen shot 2011-09-13 at 9.20.23 PM.png" width="400"></a>
 </div>
 <div class="separator" style="clear: both; text-align: center;">
 How do Scrum Masters Know?
@@ -1530,12 +1530,12 @@ Things missed
   <category>scrum</category>
   <category>scrum masters</category>
   <category>agile</category>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2011-09-14-how-do-scrum-masters-know.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2011-09-14-how-do-scrum-masters-know.html</guid>
   <pubDate>Tue, 13 Sep 2011 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>The Fast Food Chicken Dilemma</title>
-  <link>https://tottinge.github.io/otter-static-blog/posts/2009-10-06-fast-food-chicken-dilemma.html</link>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2009-10-06-fast-food-chicken-dilemma.html</link>
   <description><![CDATA[ 
 
 
@@ -1550,7 +1550,7 @@ What if someone told you that you were going to have to serve chicken less well-
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/otter-static-blog/posts/2009-10-06-fast-food-chicken-dilemma.html</guid>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2009-10-06-fast-food-chicken-dilemma.html</guid>
   <pubDate>Mon, 05 Oct 2009 23:00:00 GMT</pubDate>
 </item>
 </channel>
