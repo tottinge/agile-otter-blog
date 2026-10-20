@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2015-11-14">
+
+<title>Plate-Emptying – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo light-content">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Plate-Emptying</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 14, 2015</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br> <br> Over at <a href="https://www.reddit.com/r/programming/comments/3ahlyu/stop_perperson_swimlanes/" target="_blank">Reddit</a>&nbsp;there is a discussion about my <a href="https://www.industriallogic.com/blog/stop-per-person-swimlanes/" target="_blank">Stop Per-Person Swimlanes</a> article at <a href="https://www.industriallogic.com/" target="_blank">Industrial Logic</a>.<br> <br> This surfaced what seems to be a common misunderstanding.<br> <br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://jira.atlassian.com/browse/GHS-4518" target="_blank"><img alt="Kanban Rapid Board.png" border="0" height="183" src="https://jira.atlassian.com/secure/attachment/69680/Kanban%20Rapid%20Board.png" width="320"></a>
+</div>
+<br> <br> Some people think that the board was designed to facilitate public shaming.<br> <br>
+<blockquote class="tr_bq blockquote">
+<span style="background-color: white; color: #222222; font-family: &quot;verdana&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: 14px; line-height: 20px;">It’s to motivate members in a team to work harder. When your personal progress and responsibilities are put on a clearly visible chart somewhere it’s a bit different than a sea of todo’s some of which are labeled with your name.</span>
+</blockquote>
+&nbsp;There are a lot of answers, agreeing or disagreeing (mostly disagreeing). &nbsp;This one stands out:<br> <br>
+<blockquote class="tr_bq blockquote" style="background-color: white; color: #222222; font-family: verdana, arial, helvetica, sans-serif; font-size: 14px; line-height: 1.42857em; margin-top: 0.357143em; padding: 0px;">
+It’s different. Whether it’s a good thing or a bad thing is EXTREMELY unclear.<span style="background-color: transparent;">&nbsp;</span>
+</blockquote>
+<blockquote class="tr_bq blockquote" style="background-color: white; color: #222222; font-family: verdana, arial, helvetica, sans-serif; font-size: 14px; line-height: 1.42857em; margin-top: 0.357143em; padding: 0px;">
+My take is that in most corporate environments that is a BAD thing. Why? Because, rather than thinking about the overall health of the code, coder’s main concern <i>is getting that ticket closed [emphasis mine - tro]</i>.<span style="background-color: transparent;">&nbsp;</span>
+</blockquote>
+<blockquote class="tr_bq blockquote" style="background-color: white; color: #222222; font-family: verdana, arial, helvetica, sans-serif; font-size: 14px; line-height: 1.42857em; margin-top: 0.357143em; padding: 0px;">
+Which is a very straight path to the quick codebase degradation.<span style="background-color: transparent;">&nbsp;</span>
+</blockquote>
+<blockquote class="tr_bq blockquote" style="background-color: white; color: #222222; font-family: verdana, arial, helvetica, sans-serif; font-size: 14px; line-height: 1.42857em; margin-top: 0.357143em; padding: 0px;">
+Meanwhile, your velocity is high and management is happy while the project is quickly running into the ground.
+</blockquote>
+<br> This brings us to our topic of the day: <i>Plate-Emptying.</i><br> <i><br></i> <br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="../assets/PlateEmpty-Charlie.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img alt="PlateEmpty-Charlie.jpg" border="0" height="320" src="../assets/PlateEmpty-Charlie.jpg" width="315"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">
+Charlie developed a technique for getting the veggies off of his plate.
+</td>
+</tr>
+</tbody>
+</table>
+<i><br></i> <i><br></i> <b>Plate Emptying - However silly it sounds…</b><br> <br> Plate-emptying describes any behaviors which aim to increase performance in the small by minimizing the touch-time for each subtask performed.<br> <br> I have witnessed it wherever there is <a href="http://agileotter.blogspot.com/2013/05/pressure-to-produce.html" target="_blank">pressure put on people to “finish quickly,”</a>&nbsp; or to “increase velocity” without any sort of work off-loading. It’s especially visible where issues of quality are downplayed compared to speed task completion.<br> <br> A pathological made-up story:<br>
+<blockquote class="tr_bq blockquote">
+Imagine your dentist’s office is running behind. The oral hygienist skips cleaning your teeth, gives you the bill for work not done, and sends you home. &nbsp;Pretty soon the office is back on schedule and has more billed time on the books than usual!
+</blockquote>
+<blockquote class="tr_bq blockquote">
+Imagine that the dentist who heads the practice gives that hygienist a raise, and berates the others for being comparatively unproductive.
+</blockquote>
+<br> Yes, that’s absurd. But stay with me here, because many software companies operate by rewarding those who give their work short shrift and declare early completion for work partly done. Often they drive out developers who are more complete and disciplined in their work.<br> <br> <b>But… this is SOFTWARE!!!</b><br> <br> Yes, I know that software development is <a href="http://newsfeed.time.com/2011/05/09/overworked-make-a-leap-to-americas-10-least-stressful-jobs/" target="_blank">rumored to be a low-stress occupation</a>, pleasant and quiet, with good rates and plentiful employment. That is not how many corporate programmers experience it. In fact, their lives seem to be full of <a href="https://en.wikipedia.org/wiki/Death_march_(project_management)" target="_blank">death marches</a>, which are causing&nbsp;<a href="http://www.businessinsider.com/syndromes-drive-coders-crazy-2014-3" target="_blank">mental health issues</a> with plentiful stress.<br> <br> Managers are in a horrible crunch most of the time. Big customers demand, and therefore are promised, a lot of work.<br> <br> In software, <i>everything</i> is ASAP (or presented as if it is, to keep “motivation” high).<br> <br>
+<blockquote class="tr_bq blockquote">
+True Story:&nbsp;
+</blockquote>
+<blockquote class="tr_bq blockquote">
+Managers had a significant defect backlog (tens of thousands) and were talking about two teams.&nbsp;
+</blockquote>
+<blockquote class="tr_bq blockquote">
+One team is methodical, and sometimes could take a day or two to fix a defect, but they were always truly fixed and passed through testing and to deployment without any issues.&nbsp;
+</blockquote>
+<blockquote class="tr_bq blockquote">
+The other team emptied their plate quickly usually in less than a half-day, but often had to revisit the same bug several times because their fixes didn’t always really work or sometimes had troubling side effects. &nbsp;&nbsp;
+</blockquote>
+<blockquote class="tr_bq blockquote">
+After deliberation, the managers decided to give the lion’s share of bugs to the latter team because “they get things done faster.”&nbsp;
+</blockquote>
+<br> I suppose “done” in this case refers to plate-emptying, not full completion and deployment. All the numbers showed that tasks given to the “fast” team took considerably longer to deliver due to the rework involved, once you count in the round-trips to QA and the rework. &nbsp;But they only looked at micro-efficiency, not at the throughput of the whole system.<br> <br> Another true story, titled <a href="http://mikehadlow.blogspot.cl/2014/06/heisenberg-developers.html?m=1" target="_blank">“Heisenberg Developers”</a>&nbsp;was posted and came to my attention via twitter.<br> <br> If we use an industrial era kind of thinking, then we are limited by the speed of the slowest component in the chain, and since apparently software is the work of people, it is obvious that we need all the people to do their work faster. <br> <br> Surely, if everyone works faster, the whole line will be moving at maximum speed, and therefore the product will be done as soon as possible (in software, everything is ASAP!).<br> <br> The clear, simple, obvious answer, then is to get each person to do their fastest work. We will hold them to a short turn-around and reward them for reducing their time budget for the work being done.<br> <br> And since there is too much work, &nbsp;we need to start it as soon as possible by&nbsp;<a href="https://www.industriallogic.com/blog/over-starting-and-under-finishing/" target="_blank">cramming it all into a queue</a>&nbsp;until development staff (coders, testers, etc) are split between several (sometimes dozens) of tasks. They will “just have to <a href="http://blog.codinghorror.com/the-multi-tasking-myth/" target="_blank">multitask</a>.”<br> <br> <b>What could go wrong?</b> <br> <br> <img alt="For every complex problem there is an answer that is clear, simple, and wrong. - H. L. Mencken" height="210" src="https://www.brainyquote.com/photos_tr/en/h/hlmencken/129796/hlmencken1-2x.jpg" width="400"><br>
+<div class="separator" style="clear: both; text-align: center;">
+
+</div>
+<br> <br> Note how this theory of “go faster by rushing everyone” avoids looking at workflow and queues and Little’s law, and all the things we’ve learned about multitasking and cognitive function, and the basic principles of <a href="https://hbr.org/product/thinking-for-a-living-how-to-get-better-performanc/an/4236-HBK-ENG" target="_blank">knowledge work</a>&nbsp;and Lean management. This is conveniently, obviously, simply, horribly wrong thinking here.<br> <br> Nobody was counting the system’s time, only the worker’s time.<br> <br> Nobody is counting the wait states, only the touch-time.<br> <br> Lean thinking teaches us to watch lead time, and to understand the system. That keeps our optimization processes focused on actual bottlenecks and constraints.<br> <br> However, functional managers (over programming, over testing, over documentation, etc) don’t have authority or influence over the entire system, and tend to focus on their realm of influence – their specific function. I can hardly blame them.<br> <br>
+<h4 class="anchored">
+So what happens?
+</h4>
+<br> When a designer has too much work on his plate, he can always “abandon as done” when he has a rough idea, a couple of sketches, a wireframe, a spreadsheet, or maybe a proof of concept in powerpoint or visual basic. That’s close enough, and we need to get this off his plate (and onto someone else’s). Sometimes it’s “close enough” and developers will figure it out but if not, it will come back from UX or Acceptance testing and can be handled then. If it gets out the door and customers don’t like it, we can handle it with customer service and fix it in next release (taking it off the designer’s plate for weeks or maybe months).<br> <br class="Apple-interchange-newline"> An architect’s best tool for plate-emptying is to just say “no,” since it is faster than evaluating an alternative, and after all there is so much to do. &nbsp;Sadly, the architect is usually valued for how <i>many</i> things she has in process at once, rather than for her rate of completion or overall impact on the project. It hardly makes sense to defer, delegate, or refuse when one is being graded on how busy one is.<br> <br> A developer will probably short quality and avoid deep thinking about side effects and consequences, and avoid meetings and discussions by making guesses. After all, it has to go through testing anyway and they’ll send back any code that doesn’t really work (well enough).<br> <br> There isn’t time to spend on this feature, so she should not bother with refactoring and test-driving and pairing or reviewing. Those things feel like “taking time for quality” and she is being rewarded (reputation-wise at least) for turning things around quickly; emptying her plate.<br> <br> A tester will probably have to decide which tests he will not run this time, so that he can move forward quickly. Perhaps he can downgrade the severity of some bugs. Returning it to the developer will get it off his plate fastest, and is safer because testers tend to be blamed for every defect not caught.<br> <br> Of course, there may be <a href="http://agileotter.blogspot.com/2014/01/bug-teams-well-meaning-foolishness.html" target="_blank">bug teams</a>. &nbsp;My “true story” above describes how that works.<br> <br> Let’s not get into operations. There is no place that plate-emptying stress is higher, and tolerance for errors is lower. You’ve got to love ops people, because <a href="http://www.standalone-sysadmin.com/blog/2008/08/burnout-and-the-toll-it-takes/" target="_blank">everything is an emergency</a> and nothing is appreciated, and they still show up. In fact, they show up at insane hours and weekends and holidays and such. They miss the kids’ little league games and family birthdays. They work Christmas eve. Give your operations team some love; do something to make their job easier.<br> <br> Customer support is held to tight schedules. How can they empty their plate faster? What if they pass a client off to some other representative? What if they just give some stock advice and abandon the user? What if they just recommend “reboot and call back”? &nbsp;We have all seen instances of tech support people held to a standard of “45 seconds per call” so that they empty the queue rather than serving the customers.<br> <br class="Apple-interchange-newline"> Managers have to deal with plate emptying, too. They have to manage people less and shuffle lists and calendars more in order to keep up with the activity, all the while pushing to increase that very burden. Sometimes people-centric mentors who make it up the ranks are stuck being “meeting denizens” instead of really managing projects and people the way they always wanted to.<br>
+<div>
+<br>
+</div>
+Most everyone came to the industry intending to do good work well and proudly. But organizations that value plate-emptying and busyness can destroy pride in workmanship by demanding brute-force solutions and intense activity from employees while ignoring larger system problems (such as the turbulent work flows and deferring learning) which actually prevent building and shipping working software.<br> <br> <br> <b>What About Agile?</b><br> <br> When agile goes well, it makes good workmanship (craftsmanship) and good decision-making possible. &nbsp;It reduces stress and rework for everyone involved, and has a greater solidarity across roles due to the use of cross-functional teams.<br> <br> Ideally, agile methods make it possible for teams to work at a&nbsp;<a href="http://guide.agilealliance.org/guide/sustainable.html" target="_blank">sustainable pace</a>, and focus on value rather than quantity.&nbsp;There is focus on&nbsp;<a href="https://www.facebook.com/notes/kent-beck/economy-of-scope/1041710055861858" target="_blank">economy of scope</a>&nbsp;rather than economy of scale.<br> <br> In particular,&nbsp;<a href="https://www.industriallogic.com/blog/modern-agile/" target="_blank">modern agile</a>&nbsp;is built on safety, continuous definition and delivery of value, and continuous learning. Perhaps this is the way it was always supposed to be.<br> <br> BUT, what we tend to see in many organizations is a fascination with <a href="http://agileotter.blogspot.com/2012/09/14-weird-observations-about-agile-team.html" target="_blank">velocity</a>. &nbsp;When teams have pressure to not only take on the maximum workload but also to complete it within a too-short fixed period, they become exhausted and frustrated, and are driven to obsessive plate-emptying behaviors.<br> <br> This is all about the <a href="https://en.wikipedia.org/wiki/Yerkes%E2%80%93Dodson_law" target="_blank">stress-performance curve</a> at that point. Developers are stressed and exhausted past the point where they have <a href="http://www.nytimes.com/2011/08/21/magazine/do-you-suffer-from-decision-fatigue.html?_r=0" target="_blank">good cognitive function</a>, and plate-emptying is all that is really left for them.<br> <br> <b>Isn’t That A Good Thing?</b><br> <br> Yes, I realize that “the perfect is the enemy of the good” and that people really don’t have time for infinite gold-plating and “cadillac” answers. Who can afford <a href="http://swreflections.blogspot.com/2014/11/dont-waste-time-writing-perfect-code.html" target="_blank">perfect code</a>?<br> <br> But no legitimate business can survive, having <a href="http://effectivesoftwaredesign.com/2015/10/22/on-the-real-danger-of-quick-and-dirty-programming/" target="_blank">adopted “quick and dirty” as its standard</a> of excellence.<br> <br> Adding <a href="https://www.industriallogic.com/blog/sufficient-design/" target="_blank">sufficient design</a> and reasonable automated tests, software is transformed until most changes become reasonably easy and quickly-performed. Not all changes become “easy” but they become easier than they would be had the code been allowed to decline into a comical and tragic&nbsp;<a href="http://thedailywtf.com/" target="_blank">mess</a>.<br> <br> Many times plate-emptying <i>delays</i> release of useful software by weeks or months.<br> <br> And, thanks to <a href="http://agileotter.blogspot.com/2015/08/singhs-inevitable-avoidance-principle.html" target="_blank">Singh’s Inevitable Avoidance</a>, companies whose developers, testers, customer service, and operations have been playing “hot potato” with defects for months or years have developed much more efficient ways of playing hot potato, and have even come up with metrics to show how efficiently they are improving the speed of hand-offs.<br> <br> Often focusing on “minimal touch time” creates unproductive (even counter-productive) pressures, which in turn result in release disasters, interpersonal conflict, and loss of staff.<br> <br> Despite what you might read sometimes, being a software developer in some companies is <a href="http://www.businessinsider.com/syndromes-drive-coders-crazy-2014-3" target="_blank">disturbingly stressful</a>&nbsp;to the point of causing&nbsp;stress-related illnesses and panic attacks up to six months later.<br> <br> I suspect (and observe) that the reason behind poor craftsmanship, poor support, and poor service is often pressure for individual plate-emptying rather cooperative completion of tasks. This pressure often results in practices like “rank-and-yank” (AKA “hunger games”) where staff are retained or released based on speed of “productivity” measured in speed of plate-emptying.<br> <br> <b>Should We Bust Those Lazy Plate-Emptiers?</b><br> <br> Blaming and shaming is generally useless. In this case it is also unfair. It is wrong to demand people do a thing, reward them for it, and then blame them for not resisting the system and refusing the rewards.<br> <br> When I toured around the US with the “perfect day” exercise, I found that knowledge workers are almost never slackers. Their ambition, almost universally is to take on a problem that is hard (for them) and to work it to completion. A perfect day isn’t “goofing off and playing video games at work” for them. It’s doing good work and being respected for it.<br> <br> So what’s with the plate-emptying? What does it mean?<br> <br> People are doing what they are doing because <i>the system demands it </i>and because they are too <a href="http://jamesclear.com/willpower-decision-fatigue" target="_blank">fatigued</a> to fight it.<br> <br> If you don’t want people to abandon work for others to deal with, you have to give them enough time to work something to completion instead of racing through it to “get it off their plate.” &nbsp;In doing the work, they must be encouraged to find ways to make doing a complete job better, faster, and more consistent. There isn’t always such a way, but help people build habits that take a lot of stress and decision-making out of the equation.<br> <br> It is <a href="http://agileotter.blogspot.com/2009/09/elusive-code-quality-argument.html" target="_blank">hard for some to believe</a>, but if you want next month’s work to be faster, you have to spend a bit of this month <a href="http://agileotter.blogspot.com/2010/04/linear-and-radial-progress-means-taking.html" target="_blank">improving the code</a> that the developers will start with next month.<br> <br> Deming said long ago that all anyone wants is to take pride in their work. We need work systems that respect the human limits of the people who do the work, and we must not solve intellectual problems with brute force (more hours, more people, more typing).<br> <br> Alternatively, most programmers I know have had a job in the past where pressure and plate-emptying were common practice, and sometimes these practices are carried into new job situations where plate-emptying behaviors are unnecessary and unwanted.<br> <br> It’s good to reflect on where you are, and what is most important to your customers.<br> <br> <br>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

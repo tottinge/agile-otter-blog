@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2015-10-02">
+
+<title>Principles for Large Organizations – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo light-content">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Principles for Large Organizations</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">agile at scale</div>
+    <div class="quarto-category">developers</div>
+    <div class="quarto-category">scale</div>
+    <div class="quarto-category">Scaled Scrum</div>
+    <div class="quarto-category">Big Companies</div>
+    <div class="quarto-category">SAFe</div>
+    <div class="quarto-category">Rules</div>
+    <div class="quarto-category">Corporate Culture</div>
+    <div class="quarto-category">Principles</div>
+    <div class="quarto-category">Scaling</div>
+    <div class="quarto-category">agile</div>
+    <div class="quarto-category">managers</div>
+    <div class="quarto-category">Culture</div>
+    <div class="quarto-category">large company</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 2, 2015</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+I was speaking with my friend Bryan who, like myself, does a lot of work with very large organizations. Many of them are great places and have sincere interest in being wonderful places to work with wonderful people. Sometimes, though, they struggle.<br> <br> In considering the nature of their struggles, I realized that I’ve collected or formed some observations of dynamics and I’ve not really vetted them all publically. I’d like to take this moment to think out loud and, with kindness and curiosity and empathy, see if we can develop and refine these observations – or possibly strike them entirely if they seem utterly false.<br> <br> Please join me via comments or emails (tottinge@gmail.com or tottinge@industriallogic.com) to let me know what you think about these observations, what I’m missing, and what I can do to fill out the set better. Just remember, this is about curiosity and systems – I’m not here to tear anyone down.<br> <br>
+<h4 class="anchored">
+</h4>
+<h3 class="anchored">
+Dunbar’s Number
+</h3>
+<div>
+<br>
+</div>
+Researcher Dunbar noticed that primate “tribes” have a rough maximum size after which they can no longer maintain vital relationships. When primates exceed this number, the tribe splits. It doesn’t matter what events trigger the split, it’s more or less inevitable that the split will happen.<br> <br> Smaller primates tended to have smaller tribes, whereas others seemed to tolerate a larger tribe size.<br> <br> Dunbar discovered a correlation between the surface area of an animal’s brain and the tribal size of the species. This correlation seems pretty strong and has good predictive power when applied to other species of primates.<br> <br> By extension, Dunbar reasons that a human &nbsp;“tribe” can only have about 150 members or so before the tribe splits.<br> <br> In many small-to-medium-sized businesses and volunteer groups, especially churches in the US, this is referred to as the “200 Ceiling” because most organizations split when they have around 200 members. It takes different skills and organizing principles when an organization is so large that not all the members can all know and trust each other well, and keep up on each other’s lives.<br> <br> Each individual in the organization has other vital relationships besides those in the organization. Many “slots” are consumed by family and other organizations. Most of us can’t really work in teams of 40 or 50 comfortably, let alone 200, 500, or 8000.<br> <br> A corporation is often far beyond the “Dunbar number.”<br> <br> It may be an essential understanding that corporate life is ruled by Dunbar’s number; with the constant issue of working with people who are not “in our tribe” – with too many people and too infrequent an association to create and establish trusting, close, nurturing bonds.<br> <br> Corporate life takes place at a distance for most people, once you get past their local group. Note that a “team” on an org chart may contain members of entirely different tribes, and their split membership may put them at odds with each other or at least make it hard for them to establish and maintain any meaningful relationships.
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+This tends to give rise to unique and sometimes inconvenient software structures via <a href="https://en.wikipedia.org/wiki/Conway%27s_law">Conway’s Law</a><br>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h3 class="anchored">
+<br>The Law of the Second Floor
+</h3>
+<br> The “law” (not really a law, more of an observation) of the second floor builds on Dunbar’s Number by stating that “generally, no person two levels above OR below you on an org chart really understands what you do for a living.”<br> <br> The programmers and testers building a product don’t really understand the life their grand-boss is living. The distance is too great, which puts the grand boss into a different tribe. The grand boss and the front-line team deal with different problems and are all too busy to develop a deep understanding of each other.<br> <br> In the “trenches” where all the various kinds of developers work, management tends to be a remote “them” who are disconnected from the nature of the daily work. Their primary concern seems to be increasing workload and cutting costs. Policies seem arbitrary and fashion-driven, or else driven by political self-interest.<br> <br> Likewise, up in the executive suite, it is quite hard to remember that the front-line employees are meaningful human lives worthy of individual care, dignity, and respect. They all start looking like fixed expenses, sales numbers, say/do ratios, or other similar aggregations of numbers. There is a strong and growing suspicion that they are stealing money by wasting time and supplies (further reinforced by slipped estimate-driven schedules).<br> <br> This isn’t by choice but is a problem of scale and social distance. After all, those remote persons are not the people we interact with; they are the people who interact with people who interact with the people we interact with.<br> <br> You may have to read that last sentence three times.<br> <br> By the law of the second floor, dehumanization of remote bosses and/or employees tends to be the norm. Attempts by individuals to pierce the levels and establish human contact tend to be treated with suspicion and distrust.<br>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h3 class="anchored">
+<br>Role Success
+</h3>
+<br> Individuals working in a company are people who chose to come to work there. They tried hard. They went outside of their comfort zone to produce resumes or make contacts and have passed through layers of job interviews to try to acquire a position.<br> <br> That position is important. Eventually, the work done by individuals in a corporation becomes a secondary concern. The primary concern is to maintain or improve one’s position in the organization.<br> <br> While it’s not politically appropriate to speak in those terms while inside the organization, this concern imposes in conversations that take place across hierarchy levels.<br> <br> The concern for one’s position and longevity suggests that discussion you have with your boss is tainted to also be a discussion about your position in the company.<br> <br> The subtext of the conversation is overloaded with questions:<br> <br>
+<ul style="text-align: left;">
+<li>
+Do I seem like deserve to be here?&nbsp;
+</li>
+<li>
+Is it clear I am doing my part?&nbsp;
+</li>
+<li>
+Should I get promoted?&nbsp;
+</li>
+<li>
+Is this a reason I might be dismissed?&nbsp;
+</li>
+<li>
+Do I look redundant?&nbsp;
+</li>
+<li>
+Am I crucial?&nbsp;
+</li>
+<li>
+Do I get to stay here?
+</li>
+</ul>
+<br> <br> Because the boss is “of a different tribe” and has a strong influence on how or whether we will be perceived in our organization, and because the organization has a direct influence on our pay and social position, conversations in a power relationship inside the organization always have a subtext.<br> <br> In early 2019 Zach Bonaker suggested referring to this as “role success,” a term which I heartily endorse.<br> <br> Note that <i>role success</i> is independent of <i>organization success</i>, <i>team success</i>, or <i>customer success</i> in many cases. It is related to <i>The Iron Rule of Institutions</i>&nbsp;which lists the idea more as pathology than principle:<br><br>
+<blockquote class="tr_bq blockquote">
+The people who control institutions care first and foremost about their power within the institution rather than the power of the institution itself. Thus, they would rather the institution “fail” while they remain in power within the institution than for the institution to “succeed” if that requires them to lose power within the institution.
+</blockquote>
+<br> The idea of Role Success as a Dominant Concern here is presented as a principle you can be aware of, and even leverage, rather than as a condemnation of hierarchical power.<br><br>A software team can miss a release date and/or release bugs and still retain their places. However, one hears stories of people being released for careless “career-limiting moves” (CLMs, they are often called in the boardrooms) that have no effect on the company’s product.<br> <br> Projects and positions can evaporate for political reasons. This creates a sense of fear and vulnerability in people when they are speaking to the people above them in the official hierarchy.<br> <br> This is frustrating to all managers and to all employees and seriously gets in the way of discussions about the work, tactics, strategy, and performance of the company.<br> <br> As a manager, you should be doubly aware of the dominance of role success in your conversations and manage its effects. And maybe don’t use it as coercive pressure.<br> <br>
+<h3 class="anchored">
+Singh’s Inevitable Avoidance
+</h3>
+<br> Ashok Singh suggests that when organizations don’t know how to solve their problems, they will tweak their process to accommodate their dysfunctions.<br> <br> A company can’t afford to quit operating, nor can it afford to operate unprofitably. Therefore, it will maintain operation it the best way it knows, even when that way is painful or unpleasant or even self-defeating. We can’t ask people to behave better than they know how to behave, or produce more than they know how to produce.<br> <br> So when there is a problem, we route around it. It’s a wonderful testament to human ingenuity and flexibility. But it’s also another way to stockpile pain until it all blows up down the line.<br> <br> Why do organizations tend to have quasi-agile-like processes? Because they have to route around all the dysfunction that is associated with working beyond Dunbar’s number, across the 2nd-floor law, and in light of role success.<br> <br> This process work isn’t easy. It’s not like people are only working with their 12 best golfing/drinking/running buddies. In a large company, there will be issues that seem to be (and probably are) too large to address at the moment, and so they are avoided for a time.<br> <br> The important thing to remember is that “a problem deferred is not a problem avoided.”<br> <br> This problem was described (related to scrum) at the scrum.org site, and described as “scrumbut.”<br> While this describes SIA with reference to scrum, you will find the same problem regardless of the process, practice, or any other change in the du jour operating model of the organization.<br> <br> This is further described by others (including Josh Kerievsky) as “corporate antibodies.”<br> <br> Preserving a problem to avoid upset is common, and is likely to be related to the principles listed above. It is an unintended consequence of preserving an organization’s current culture. And on that note:<br> <br>
+<h3 class="anchored">
+Culture Distillation
+</h3>
+<br> A company’s processes are a distillation of the company’s culture into a set of rules.<br> <br> These rules may directly contradict the company’s stated values, in which case the stated values are ideas that some leaders have hopes to aspire to (an “end state”) and the actual policies are an indicator of the culture to date (the “beginning state” or “late status quo”).<br> <br> Sometimes, the stated values are a smokescreen, though, and attempts by people within the organization to move policy decisions into alignment with the stated values can be met with disciplinary measures or dismissal (see Role Success).
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+When the culture is dominated by fear, then the ruleset is structured around the organizational fears.<br> <br> There are people in the organization who want to move the company in the direction of values, and who have the authority to approve or support such attempts, but they may often be divided by more than two hierarchical levels, or worse have no knowledge of the people who need the support and encouragement.<br> <br>
+<h3 style="text-align: left;" class="anchored">
+Process Theater
+</h3>
+<div>
+<br> A process is successful because it is declared to be a success. This is the soul of process theater.
+</div>
+<div>
+<br>
+</div>
+<div>
+Organizations spend uncounted dollars and hours on maintaining the illusion that their processes are being followed and that they work. The more onerous and comprehensive the process, the more money and time is poured into making it look good.
+</div>
+<div>
+<br>
+</div>
+<div>
+This follows on the understanding that a company’s process is a distillation of the culture – it is “how things are done”, “how we aspire to do things,” and “how we keep from stepping on other people’s feet.”<br> <br> A process that has enough heft will require tooling, administration,&nbsp;and enforcement.&nbsp; Often the care and feeding of a process will create full-time positions for a number of people. Changing the process causes the company’s valuation of those people to be questioned (role success).&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+If there are jobs on the line and significant investment to date (see “sunk cost fallacy”) then it becomes very important to the organization that the process is seen as successful and is maintained in place. It doesn’t have to actually be so, it is assumed that the company is not foolish enough to have invested millions of dollars in a process that doesn’t really work.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+The goodness or badness of the process seems to be inconsequential. A bad process or a good process will be spun to look successful. Nobody will validate that the process is actually helpful, because measuring the ongoing investment seems an act of sedition. The process IS. It is unquestioned. It IS because it MUST Be.&nbsp; It is the distillation of our culture.
+</div>
+<div>
+<br>
+</div>
+<div>
+The more heavyweight, comprehensive, and complete the process is, the more cost and time are poured into making it seem to work. I often credit this feature with the widespread “success” of waterfall methods in the 80s and 90s, and with the “success” many companies report with their complicated scaled agile methods.&nbsp;&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+This makes a process change emotionally, culturally, and financially difficult for a large organization. This is true even if the culture and the process directly oppose the purpose of the company. For example, most of the policies and processes of software organizations focus on preventing the release of their software.
+</div>
+<br> I am not declaring that organizations are morally bankrupt, dishonest, and unchangeable. Please don’t take this as an indictment.<br> <br> But rather, this is a constraint on our ability to create change and will inform how we go into organizations. Don Gray and Esther Derby (Coaching Beyond The Team) suggest that we will have greater success if we <i>honor what has gone before. </i>Without surrendering our intention to make positive change, we should examine what the organization has done and what they aspire to do. We should recognize the heroes of the last transformation and the people who keep the lights on.<br> <br> We can recognize the human costs of changes and not be cavalier toward people who might suffer due to the changes. We can seek to find new ways to integrate our people into new processes. We can recruit them to aid in the change. We can try to “make them awesome” rather than make them redundant.<br> <br> And also, we should watch ourselves. We may be guilty of the same spin-doctoring. Are our processes and process changes really making the company more successful, or are we merely getting more people to act their part in our theater production?<br> <br>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h3 class="anchored">
+The Trust Transaction
+</h3>
+<div>
+<br>
+</div>
+<div>
+The trust transaction is the transaction of completing assignments well and in return having more autonomy and opportunity.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+When trust is low, governance is necessarily high.&nbsp;
+</div>
+<div>
+<br> When trust is particularly high, governance is largely unnecessary.<br> <br> Many organizations have very little trust or delivery until a facilitator with authority helps them to begin negotiating this transaction. Often teams need “enough trust to grow into” and this comes by trimming down the amount of per-person governance and bookkeeping. In return, if they deliver more often and with a higher level of transparency, it is easy to afford them a little more trust.<br> <br> In time, if there is enough progress or success, the managers are happy to treat a team as an atomic, autonomous unit. If, however, teams or individuals “go dark” (work is invisible) then governance is increased and management tends to micromanagement.<br> <br> This is only natural in light of the other principles in this blog.<br> <br>
+</div>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h4 class="anchored">
+</h4>
+<h3 class="anchored">
+Power of Agreements
+</h3>
+<div>
+<br>
+</div>
+<div>
+Finally, after all of these things are considered, the most important breakthroughs may come by realizing that policies and structures and all the elements of culture are not natural laws or government mandates.<br> <br>
+<div style="text-align: center;">
+<span style="font-size: large;"><b>Ultimately, how organizations work is just <br>a bunch of agreements made by people.</b></span>
+</div>
+<br> It’s all made up. None of it is real.&nbsp;Some of it is quite useful.<br> <br> If a company is made of agreements, then it’s up to the people working in it to ensure that their agreements were consciously-made and remain beneficial.<br> <br> Many people would be happy to endure the tirades and public shaming of a dictatorial boss who would also make them rich and famous. It’s a transaction. Others are happier working in more egalitarian environments and wouldn’t stand for it.<br> <br> Some people work in organizations where self-actualization is a primary cultural more, others where people are resources to consume. Some people value working on powerful teams, &nbsp;but others where they’re left alone to do their work as they choose without interaction. It’s all a set of choices.<br> <br> But it’s all made up.<br> <br> Possibility thinking begins with the understanding that an organization is pretty much what its people choose to make it. It grows and develops according to what its people are willing to trade, and what they’re willing to trade for it.&nbsp;
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

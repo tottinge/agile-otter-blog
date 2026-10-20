@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2015-09-17">
+
+<title>Confirmation Bias and The Twelve-Day Technical Problem – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo light-content">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Confirmation Bias and The Twelve-Day Technical Problem</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 17, 2015</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+Charlie is a developer. He’s just been assigned/volunteered to take on an interesting technical challenge. It will involve research, learning, and experimentation so it is exactly the kind of assignment that most developers would love to have. It is a problem that will take at least 10 days to solve.<br> <br> This problem, by its very nature, is a 12-day problem. Forget that, and this story will mean nothing to you.<br> <br> If the solution to the problem was clear-cut and obvious, then it would already exist in a library or a book or in google or StackOverflow. It doesn’t, to the best of Charlie’s knowledge. Of course, he looked. This isn’t Charlie’s first rodeo.<br> <br> Vinnie is Charlie’s manager. He’s a smart fellow and has quite a bit of experience. He has a good sense of organizational dynamics and deadlines and an amazing memory for minutiae that escapes other managers. He can juggle tasks and schedules like a wedding planner and never misses crucial dependencies. He knows all his employees’ spouses and children by name.<br> <br> Vinnie’s sense of deadlines and productivity naturally enough led him to ask Charlie how long this technical task will take. That’s a reasonable question. The only problem is that Charlie doesn’t really know how much research or experimentation might be necessary. He guesses that 10 days will be enough, and Vinnie marks the date on his calendar.<br> <br> Monday is the retrospective and sprint demo, so Vinnie and Charlie are very much involved in that work. Tuesday is planning meetings and the beginning of the sprint. Charlie nearly signed up for a sprint backlog item, but Vinnie (ever watchful) reminded him that he had a special task already assigned.<br> <br> Fast-forward 6 days. Vinnie comes to see if the task is half done. Charlie doesn’t know. He’s tried several things that didn’t work and has dropped two promising-seeming tools that can’t really handle this particular challenge. He’s got a new design. &nbsp;Vinnie asks if it’s hopeless, and Charlie lets him know that he’s vectoring in on an answer and that once he knows what to do the implementation will be quick. Vinnie checks his calendar and feels a rising nervousness.<br> <br> Day 7 comes, and there is no solution. Charlie’s abandoned a couple of more designs and has got an example in proof-of-concept form that handles most of the cases they’ll encounter in production (according to the data set they’ve generated) but won’t cover several very crucial examples. Charlie says some more digging is necessary.<br> <br> On day 9 Charlie still doesn’t have that last little bit done. Vinnie reminds him of the <i>deadline agreement</i> (actually an estimate, which we know is 2 days short). <br><br>The excuses begin to flow. The problem is <i>hard.</i>&nbsp;The solution is <i>novel</i>. It is a <i>research problem</i> and he shouldn’t be held to the deadline (estimate) because 10 days was just a “guess”. Besides, a day and a half of that time were dedicated to sprint activities and Charlie is still responsible to teammates for technical advice on other parts of the system.<br> <br> Vinnie turns red and leaves the room to ponder. On his way to the coffee machine in the afternoon he sees Charlie playing foosball. Vinnie <i>realizes</i>&nbsp;(decides and assigns) that Charlie is just not taking this seriously enough.&nbsp;
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+As an experienced manager, Vinnie understands how to motivate people.<br> <br> Vinnie sends Charlie back to his desk and vows to keep his eye on the recreational equipment for the next day or two. Charlie hoped that if he could just take his <a href="https://agileotter.blogspot.com/2013/05/wallas-four-stages-of-creative-thought.html">mind off the problem</a> for a few minutes, he could return with mental clarity. Instead, he just trudges on in a fog.<br> <br> Day 10 comes.
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+Charlie is talking on the phone to somebody. Vinnie demands that Charlie put the phone down and get back to work. Seeing Vinnie’s mood, Charlie offers no resistance. He shrugs, hangs up, and turns back to his computer.&nbsp;
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+Vinnie walks away satisfied that he’s made it clear to Charlie that he’s serious about this work. He’s “set him straight.”<br> <br> Charlie had been conversing about the work with a colleague who had more mental freshness and a different background. Had the conversation continued another 20 minutes, it could have saved Charlie at least a day’s work.<br> <br> Day 11 comes and goes.&nbsp;
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+On day 12 Vinnie is seen yelling at Charlie, not mincing words, using strong language, letting him know how much is on the line and how important the work is, and how Charlie needs to focus and take it seriously.<br> <br> Charlie is frustrated. He’s been working hard the whole time and suffering “abuse” for the last several days.&nbsp;Now he’s very nearly done, but he’s standing in Vinnie’s office listening to a motivational talk <i>about finishing the work</i> when he could <b>be</b> finishing the work.<br> <br> It’s frustrating&nbsp;Vinnie, who is in a position of power and in no mood for a counter-argument. Charlie holds his tongue and agrees to focus and keep working for an answer.<br> <br> He agrees to send bi-hourly status reports via email. Each takes about 15 minutes to write and edit to make sure that he doesn’t accidentally phrase things in a way that triggers Vinnie’s growing anxiety. Each editing session distracts him from the work he’s trying to do and focuses him on the frustration and rising anger he is feeling.<br> <br> He works late that night to make up for the time he’s spent trying to placate Vinnie.<br> <br>It is now day 12 and Charlie is fixing the mistakes he made while working into the night last night with anxiety and tiredness. <br><br>There is again a visit and lecture from Vinnie.<br> <br> This time, Charlie allowed his mind to wander (as tired as he is, the focus is difficult) he realized exactly what was needed to get that last little exception handled. He waits 20 minutes for the lecture to end and codes up the rest of the solution. By 4:20 in the evening, it works for all the cases in their data set and he pushes the code to QA.<br> <br>
+<h4 class="anchored">
+Dueling Conclusions
+</h4>
+Lessons learned here will be generalized and incorporated into the fabric of “what work is like.”<br> <br> To Charlie, this is a story of having to endure ridiculous motivational tirades in order to fix a problem that, fairly, would have taken 10 +/-&nbsp;2 days no matter what. It might have taken fewer days if it wasn’t for the manager’s interference, but it was still finished more or less on time.<br> <br> Charlie’s lesson learned: interacting with managers is distracting, unpleasant, and fraught with political peril. He will avoid Vinnie as much as possible in the future, and placate when avoidance isn’t possible.<br> <br> This is a regrettable theory of how people on the same team should work together, but from someone with little organizational power, it is the best he feels he can expect.<br> <br> To Vinnie it’s clear that the work was only being done once he started really pushing and leaning on Charlie, but once he sufficiently motivated him it was done in a couple of days.<br> <br> Vinnie doesn’t see it as a 12-day technical issue, but a ten-day motivation problem followed by two days of “real work.”&nbsp;
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+With fresh certainty that developers are lazy and self-indulgent by nature, he now knows to keep pressure on his developers so that they’ll do their work instead of goofing off.<br> <br> Vinnie is suffering from confirmation bias and will come to believe that stressing his people is the best way to get work done on time.<br> <br> The stories are misaligned, and the takeaway lessons are in strong conflict. There will be a downward spiral if neither viewpoint changes.<br> <br> In this way, the world keeps turning, and the stories we tell ourselves perpetuate bad theories about how people should work together.&nbsp;
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+The gap between us widens with social friction and mutual condemnation. How long before we lose all respect for each other?
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+Probably not long. How long did it take you?
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<br>
+</div>
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+Perhaps we should take a fresh look at how to deliver early and often, how to communicate up and down the command chain, and how to maintain some productive level of psychological safety instead of inventing hurtful stories about other people’s internal motivations?<br> <br>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
