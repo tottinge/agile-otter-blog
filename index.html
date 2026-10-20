@@ -85,10 +85,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       page: 25,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -138,7 +138,7 @@ window.Quarto = {
 
 <link rel="alternate" type="application/rss+xml" title="Agile Otter Blog" href="index.xml" data-external="1"></head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -185,7 +185,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Browse by topic</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(73)</span></div><div class="category" data-category="MTB4">10x <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWJpbGl0aWVz">abilities <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWdpbGU=">agile <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWdpbGUlMjBvdHRlcg==">agile otter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXV0b21hdGVkJTIwdGVzdGluZw==">automated testing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmlvZ3JhcGh5">biography <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9udXM=">bonus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YnJpYmVz">bribes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZSUyMHF1YWxpdHk=">code quality <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29tbXVuaWNhdGlvbg==">communication <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZHVwbGljYXRpb24=">duplication <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWZmZWN0aXZlbmVzcw==">effectiveness <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWZmaWNpZW5jeQ==">efficiency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmVlZGJhY2s=">feedback <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGlzdG9yeQ==">history <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SFI=">HR <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhZGVycw==">leaders <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGlzdGljbGU=">listicle <span class="quarto-category-count">(5)</span></div><div class="category" data-category="bWFuYWdlbWVudA==">management <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZXJuJTIwYWdpbGU=">modern agile <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TW90aXZhdGlvbg==">Motivation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZHVjdGl2aXR5">productivity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZmx1ZW5jZQ==">profluence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UUE=">QA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVsYXRpb25zaGlwcw==">relationships <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2Nob2x0ZXM=">Scholtes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NydW0=">scrum <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NydW0lMjBtYXN0ZXJz">scrum masters <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2tpbGxz">skills <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3BlY2lhbHRpZXM=">specialties <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGVzdGluZw==">testing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGltJTIwb3R0aW5nZXI=">tim ottinger <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dW5pdCUyMHRlc3Q=">unit test <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dmVsb2NpdHk=">velocity <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -225,6 +227,9 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="./posts/2025-09-30-convenience-scripts-for-projectsw.html" class="no-external">Convenience Scripts for Projects</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2025-09-30-convenience-scripts-for-projectsw.html" class="no-external">
 
 Recommended bash scripts for every project
@@ -249,6 +254,9 @@ Sep 30, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/2025-09-12-why-is-working-faster-not-working.html" class="no-external">Why is working faster not working?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2025-09-12-why-is-working-faster-not-working.html" class="no-external">
 
 <div class="feed-shared-inline-show-more-text feed-shared-update-v2__description feed-shared-inline-show-more-text--minimal-padding feed-shared-inline-show-more-text--3-lines feed-shared-inline-show-more-text--expanded" data-artdeco-is-focused="true" style="background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0.9); border-image: none 100% / 1 / 0 stretch; border-style: none; border-width: 0px; box-sizing: inherit; line-height: 2rem; margin: 0px 1.6rem; max-height: none; max-width: 928px; outline: none; overflow: hidden; padding: 0px; position: relative; vertical-align: baseline;" tabindex="-1">
@@ -284,6 +292,9 @@ Sep 12, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/2025-07-21-who-are-you-to-say-whats-right.html" class="no-external">Subjectivity: Who is to say what’s right?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2025-07-21-who-are-you-to-say-whats-right.html" class="no-external">
 
 &nbsp;<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: -apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">This is probably too snarky, but bear with me:</span>
@@ -308,6 +319,23 @@ Jul 21, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/2025-07-09-who-heck-am-i.html" class="no-external">Who (the heck) Am I?</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('YmlvZ3JhcGh5'); return false;">biography</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWdpbGUlMjBvdHRlcg=='); return false;">agile otter</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGltJTIwb3R0aW5nZXI='); return false;">tim ottinger</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3BlY2lhbHRpZXM='); return false;">specialties</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2tpbGxz'); return false;">skills</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aGlzdG9yeQ=='); return false;">history</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWJpbGl0aWVz'); return false;">abilities</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2025-07-09-who-heck-am-i.html" class="no-external">
 
 <span style="background-color: transparent; color: black; font-family: Arial,sans-serif; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre-wrap; white-space: pre;">I’m Tim Ottinger.</span>
@@ -332,6 +360,9 @@ Jul 9, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/2025-07-09-a-quick-note-on-at-scale.html" class="no-external">A quick note on “At Scale”</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2025-07-09-a-quick-note-on-at-scale.html" class="no-external">
 
 &nbsp;<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: -apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">i will submit that the problem of scale is mostly that you</span><span class="white-space-pre" style="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255); border-color: rgba(0, 0, 0, 0.9); border-image: none 100% / 1 / 0 stretch; border-style: none; border-width: 0px; box-sizing: inherit; color: rgba(0, 0, 0, 0.9); font-family: -apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif; font-size: 14px; line-height: inherit !important; margin: 0px; outline: rgba(0, 0, 0, 0.9) none 0px; padding: 0px; vertical-align: baseline; white-space: pre !important;"> </span>
@@ -356,6 +387,9 @@ Jul 9, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/2025-07-07-how-much-rework-do-you-want.html" class="no-external">How much rework do you WANT?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2025-07-07-how-much-rework-do-you-want.html" class="no-external">
 
 Obviously, nobody wants to have errors and failures in their system. We would like to see 100% success rates, right?&nbsp;
@@ -380,6 +414,9 @@ Jul 7, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/2025-03-03-there-is-no-automatic-reset-in.html" class="no-external">There is No Automatic Reset for Engineering</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2025-03-03-there-is-no-automatic-reset-in.html" class="no-external">
 
 <span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white; font-size: 14px;"></span>
@@ -394,7 +431,7 @@ Mar 3, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1792532992370" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="634">
+<div class="quarto-post image-right" data-index="7" data-categories="bGlzdGljbGU=" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1792533386059" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="634">
 <div class="thumbnail"><a href="./posts/2025-02-11-pair-programming-listicle.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -404,6 +441,11 @@ Mar 3, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/2025-02-11-pair-programming-listicle.html" class="no-external">Pair Programming Listicle</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGlzdGljbGU='); return false;">listicle</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2025-02-11-pair-programming-listicle.html" class="no-external">
 
 There are many ways to collaborate, and <b><i>pair programming</i></b> is the first many people consider.&nbsp;
@@ -428,6 +470,9 @@ Feb 11, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/2024-12-11-irresponsibility-estimates-and.html" class="no-external">Irresponsibility: Estimates and NoEstimates</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2024-12-11-irresponsibility-estimates-and.html" class="no-external">
 
 <span style="background-color: white; font-size: 20px; white-space-collapse: preserve;">Sometimes the argument is made that<i> not estimating</i> is <i>irresponsible</i>. </span>
@@ -452,6 +497,9 @@ Dec 11, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/2024-08-06-basic-microphone-usage.html" class="no-external">Basic Microphone Usage</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2024-08-06-basic-microphone-usage.html" class="no-external">
 
 <span style="color: var(--primary-text); font-family: inherit;">How to use&nbsp;</span><span style="color: var(--primary-text); font-family: inherit; font-size: 0.9375rem; white-space-collapse: preserve;">microphones (pay special attention to (3) and (12)!!!! :</span>
@@ -476,6 +524,9 @@ Aug 6, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/2024-05-24-profitable-struggle-and-unprofitable.html" class="no-external">Profitable Struggle and Unprofitable Struggle</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2024-05-24-profitable-struggle-and-unprofitable.html" class="no-external">
 
 <span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;"><br></span>
@@ -500,6 +551,9 @@ May 24, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/2024-02-27-definition-by-dysfunction.html" class="no-external">Definition-by-Dysfunction</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2024-02-27-definition-by-dysfunction.html" class="no-external">
 
 &nbsp;I’ve done it. You’ve seen me.
@@ -514,7 +568,7 @@ Feb 27, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="" data-listing-date-sort="1708992000000" data-listing-file-modified-sort="1792532992371" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="58">
+<div class="quarto-post image-right" data-index="12" data-categories="bGlzdGljbGU=" data-listing-date-sort="1708992000000" data-listing-file-modified-sort="1792533386060" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="58">
 <div class="thumbnail"><a href="./posts/2024-02-27-listicle-on-flow-and-teamwork.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -524,6 +578,11 @@ Feb 27, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/2024-02-27-listicle-on-flow-and-teamwork.html" class="no-external">Listicle on Flow and Teamwork</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGlzdGljbGU='); return false;">listicle</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2024-02-27-listicle-on-flow-and-teamwork.html" class="no-external">
 
 Some article links related to solo vs group, flow, productivity, and predictability.
@@ -548,6 +607,9 @@ Feb 27, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/2024-01-15-fundamentally-wrong.html" class="no-external">Fundamentally Wrong</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2024-01-15-fundamentally-wrong.html" class="no-external">
 
 The Problem
@@ -562,7 +624,7 @@ Jan 15, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="" data-listing-date-sort="1704412800000" data-listing-file-modified-sort="1792532992372" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="449">
+<div class="quarto-post image-right" data-index="14" data-categories="bGlzdGljbGU=" data-listing-date-sort="1704412800000" data-listing-file-modified-sort="1792533386058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="449">
 <div class="thumbnail"><a href="./posts/2024-01-05-python-listicle.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -572,6 +634,11 @@ Jan 15, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/2024-01-05-python-listicle.html" class="no-external">Python Listicle!</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGlzdGljbGU='); return false;">listicle</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2024-01-05-python-listicle.html" class="no-external">
 
 People often ask me (directly, or just generally posting to some social site) how they can learn Python quickly.&nbsp;&nbsp;
@@ -596,6 +663,9 @@ Jan 5, 2024
 <h3 class="no-anchor listing-title">
 <a href="./posts/2023-12-20-leadership.html" class="no-external">Leadership.</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2023-12-20-leadership.html" class="no-external">
 
 &nbsp;<span style="background-color: white; color: #050505; font-family: inherit; font-size: 15px; white-space-collapse: preserve;">I have this very simple/simplistic view on leadership.</span>
@@ -620,6 +690,9 @@ Dec 20, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/2023-11-22-choose-your-expression-structural.html" class="no-external">Choose your Expression: Structural Matching, IF-ELSE, and Dictionaries</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2023-11-22-choose-your-expression-structural.html" class="no-external">
 
 &nbsp;So, I have a command line utility that collects and presents some time-series data.<br><br>What it is isn’t important, but dates are involved.
@@ -644,6 +717,9 @@ Nov 22, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/2023-08-30-css-specificity-rundown.html" class="no-external">CSS Specificity Rundown</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2023-08-30-css-specificity-rundown.html" class="no-external">
 
 &nbsp;CSS really is fun.&nbsp;<br><br>No, seriously. I’m not being sarcastic here.&nbsp;
@@ -658,7 +734,7 @@ Aug 30, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="" data-listing-date-sort="1649199600000" data-listing-file-modified-sort="1792532992373" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
+<div class="quarto-post image-right" data-index="18" data-categories="bGlzdGljbGU=" data-listing-date-sort="1649199600000" data-listing-file-modified-sort="1792533386059" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
 <div class="thumbnail"><a href="./posts/2022-04-06-code-smells-listicle.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -668,6 +744,11 @@ Aug 30, 2023
 <h3 class="no-anchor listing-title">
 <a href="./posts/2022-04-06-code-smells-listicle.html" class="no-external">Code Smells Listicle</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGlzdGljbGU='); return false;">listicle</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2022-04-06-code-smells-listicle.html" class="no-external">
 
 &nbsp;After many times looking up various resources on code smells and code smell taxonomies, I finally decided to make a listicle (list article) of these.&nbsp;
@@ -692,6 +773,9 @@ Apr 6, 2022
 <h3 class="no-anchor listing-title">
 <a href="./posts/2022-03-14-what-does-tim-have-against-private.html" class="no-external">What does Tim have against “private” methods?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2022-03-14-what-does-tim-have-against-private.html" class="no-external">
 
 &nbsp;A big thread erupted, all full of misunderstandings and miscommunications, about the idea of “private” methods.&nbsp;
@@ -706,7 +790,7 @@ Mar 14, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="" data-listing-date-sort="1646265600000" data-listing-file-modified-sort="1792532992373" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
+<div class="quarto-post image-right" data-index="20" data-categories="bGlzdGljbGU=" data-listing-date-sort="1646265600000" data-listing-file-modified-sort="1792533386059" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
 <div class="thumbnail"><a href="./posts/2022-03-03-splitting-stories-resource-list.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -716,6 +800,11 @@ Mar 14, 2022
 <h3 class="no-anchor listing-title">
 <a href="./posts/2022-03-03-splitting-stories-resource-list.html" class="no-external">Splitting Stories - A Resource Listicle</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGlzdGljbGU='); return false;">listicle</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2022-03-03-splitting-stories-resource-list.html" class="no-external">
 
 &nbsp;I’ve noticed that for several years now, one of the most frequently asked questions in agile forums deals with the splitting of stories.&nbsp;
@@ -740,6 +829,9 @@ Mar 3, 2022
 <h3 class="no-anchor listing-title">
 <a href="./posts/2022-02-18-maximize-value-not-quantity.html" class="no-external">Maximize Value, not Quantity</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2022-02-18-maximize-value-not-quantity.html" class="no-external">
 
 <br>
@@ -764,6 +856,9 @@ Feb 18, 2022
 <h3 class="no-anchor listing-title">
 <a href="./posts/2022-02-15-can-teams-be-accountable-for-delivery.html" class="no-external">Can teams be accountable for delivery of features?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2022-02-15-can-teams-be-accountable-for-delivery.html" class="no-external">
 definition of done
 </a></div>
@@ -786,6 +881,9 @@ Feb 15, 2022
 <h3 class="no-anchor listing-title">
 <a href="./posts/2021-10-11-the-inefficiency-of-tests.html" class="no-external">The inefficiency of tests</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2021-10-11-the-inefficiency-of-tests.html" class="no-external">
 
 So a given web application has an architecture that involves a UI and an API and under that some domain objects, data, etc.
@@ -810,6 +908,9 @@ Oct 11, 2021
 <h3 class="no-anchor listing-title">
 <a href="./posts/2021-09-10-first-idea-that-ran-away-from-home.html" class="no-external">FIRST: an idea that ran away from home</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2021-09-10-first-idea-that-ran-away-from-home.html" class="no-external">
 
 <br>
@@ -834,6 +935,9 @@ Sep 10, 2021
 <h3 class="no-anchor listing-title">
 <a href="./posts/2021-08-11-changing-axioms.html" class="no-external">Reimagining Work vs Doing The Same Better</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2021-08-11-changing-axioms.html" class="no-external">
 
 &nbsp;(originally posted in march 2008, republished with edits)
@@ -858,6 +962,9 @@ Aug 11, 2021
 <h3 class="no-anchor listing-title">
 <a href="./posts/2021-08-06-outliving-great-variable-shortage.html" class="no-external">Outliving The Great Variable Shortage</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2021-08-06-outliving-great-variable-shortage.html" class="no-external">
 
 &nbsp;
@@ -882,6 +989,9 @@ Aug 6, 2021
 <h3 class="no-anchor listing-title">
 <a href="./posts/2020-06-01-a-whole-lot-of-nope.html" class="no-external">A Whole Lot Of Nope</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2020-06-01-a-whole-lot-of-nope.html" class="no-external">
 
 In light of recent outrages, there are a lot of people posting bloodthirsty things on social media. If you post bloodthirsty things, I want you to know I don’t stand with…<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -905,6 +1015,9 @@ Jun 1, 2020
 <h3 class="no-anchor listing-title">
 <a href="./posts/2020-05-04-speech-hacks-to-be-more-decisive.html" class="no-external">Speech Hacks to be More Decisive</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2020-05-04-speech-hacks-to-be-more-decisive.html" class="no-external">
 
 I was in a leadership program with Christoper Avery some years ago. In that program, people would say “don’t should on yourself.”<br> <br> Another friend had years ago told me that…<br><br><br><br><ul style="text-align: left;"><li></li><li></li><li></li><li><x></x><x><x></x></x></li></ul><br><br><br><br><br><br><br><br><br><br><br><br><br><br><ul style="text-align: left;"><li></li><li></li><li></li></ul><br><br><br><br><br><br><br><br><i></i><br><br>
@@ -928,6 +1041,9 @@ May 4, 2020
 <h3 class="no-anchor listing-title">
 <a href="./posts/2020-03-17-some-covid-19-information.html" class="no-external">Some Covid-19 Information</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2020-03-17-some-covid-19-information.html" class="no-external">
 
 Hello all.<br> <br> From time to time, I will post something that is not on-brand for Agile Otter Blog at all, but is of concern at a point in time or in celebration or mourning.<br> <br> T…<br><br><br><br><br><br><br><br><br><ul style="text-align: left;"><li></li><li></li><li></li><li></li><li></li></ul><div></div><ul style="text-align: left;"><li></li><li></li><li></li></ul><br><br><br><br>
@@ -951,6 +1067,9 @@ Mar 17, 2020
 <h3 class="no-anchor listing-title">
 <a href="./posts/2020-02-27-the-laptop-problem.html" class="no-external">The Laptop “Problem”</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2020-02-27-the-laptop-problem.html" class="no-external">
 
 A few friends of mine have been pretty down on people using computing devices during meetings. The very presence of open laptops, tablets, phones, etc, gives them the…<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div><br></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div><br><br></div><div><br></div><div></div><div><br></div><div></div><div><ul style="text-align: left;"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><div></div><div><br></div><div><br><br></div></div><div><br></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div><br><br></div><div><br></div><div></div><div><br></div>
@@ -974,6 +1093,9 @@ Feb 27, 2020
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-10-05-disciplined-breaks-two-years-on.html" class="no-external">Disciplined Breaks, Two Years On</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-10-05-disciplined-breaks-two-years-on.html" class="no-external">
 
 I described Disciplined Breaks here in 2017.<br> <br> Sometimes people ask me how that’s working.<br> <br> I wish my answer was more confident and assertive, but what I can say is “it…<br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><span style="font-size: large;"></span></blockquote><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"><br></div><div style="clear: both; text-align: left;"></div><div style="clear: both; text-align: left;"><br></div><div style="clear: both; text-align: left;"></div><div style="clear: both; text-align: left;"><br></div><div style="clear: both; text-align: left;"></div><div style="clear: both; text-align: left;"><br></div><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"></div><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><span style="font-size: large;"></span></blockquote><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"></div><br><br><br><br><br><br><br><br><br><br>
@@ -997,6 +1119,9 @@ Oct 5, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-09-26-the-cowards-confrontation-leadership.html" class="no-external">The Coward’s Confrontation: Leadership fail</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-09-26-the-cowards-confrontation-leadership.html" class="no-external">
 
 I want to introduce you all to a term:<br> <br>
@@ -1022,6 +1147,9 @@ Sep 26, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-09-23-is-it-my-fault-you-cant-handle-truth.html" class="no-external">Is It My Fault You Can’t Handle The Truth?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-09-23-is-it-my-fault-you-cant-handle-truth.html" class="no-external">
 
 <div class="separator" style="clear: both; text-align: center;">
@@ -1073,6 +1201,9 @@ Sep 23, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-09-02-q-and-on-velocity-part-x.html" class="no-external">Q and A on Velocity, part X</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-09-02-q-and-on-velocity-part-x.html" class="no-external">
 
 <br class="Apple-interchange-newline"> In the last installment&nbsp;we talked about communication between managers and employees, efficiency notions, and other key continuous improvement ideas.<br> <br> This installment…<br><br><br><blockquote class="tr_bq blockquote"><br><i></i></blockquote><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><i></i><br><br><br></blockquote><br><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><br></blockquote><br><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><br><i></i></blockquote><br><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><br><br><span style="font-family: &quot;times&quot;;"></span><u style="font-family: times;"></u><span style="font-family: &quot;times&quot;;"></span></blockquote><span style="font-family: &quot;times&quot;;"><br></span><span style="font-family: &quot;times&quot;;"></span><br><span style="font-family: &quot;times&quot;;"><br></span><i></i><span style="font-family: &quot;times&quot;;"><br></span><span style="font-family: &quot;times&quot;;"></span><br><br><ul style="text-align: left;"><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li></ul><br><span style="font-family: &quot;times&quot;;"></span><br><br><ol style="text-align: left;"><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li><li><span style="font-family: &quot;times&quot;;"></span></li></ol><br><span style="font-family: &quot;times&quot;;"></span><br><span style="font-family: &quot;times&quot;;"><br><br><br><i><b></b></i></span><br><span style="font-family: &quot;times&quot;;"><br></span><span style="font-family: &quot;times&quot;;"></span><br><span style="font-family: &quot;times&quot;;"><br></span><span style="font-family: &quot;times&quot;;"></span><br><span style="font-family: &quot;times&quot;;"><br></span><span style="font-family: &quot;times&quot;;"></span><br><span style="font-family: &quot;times&quot;;"><br></span><span style="font-family: &quot;times&quot;;"><br><br></span>
@@ -1096,6 +1227,9 @@ Sep 2, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-08-26-no-common-sense-in-agile.html" class="no-external">No Common Sense in Agile</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-08-26-no-common-sense-in-agile.html" class="no-external">
 
 <div style="font-family: Helvetica; font-size: 12px; font-stretch: normal; line-height: normal;">
@@ -1138,6 +1272,9 @@ Aug 26, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-08-24-the-relationship-between-agile-and-scrum.html" class="no-external">The relationship between Agile and Scrum</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-08-24-the-relationship-between-agile-and-scrum.html" class="no-external">
 
 <div class="separator" style="clear: both; text-align: left;">
@@ -1162,6 +1299,31 @@ Aug 24, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-08-23-q-and-on-velocity-part-ix.html" class="no-external">Q and A on Velocity, Part IX</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWZmZWN0aXZlbmVzcw=='); return false;">effectiveness</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVsYXRpb25zaGlwcw=='); return false;">relationships</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWZmaWNpZW5jeQ=='); return false;">efficiency</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvZHVjdGl2aXR5'); return false;">productivity</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWFuYWdlbWVudA=='); return false;">management</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('MTB4'); return false;">10x</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvZmx1ZW5jZQ=='); return false;">profluence</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9kZXJuJTIwYWdpbGU='); return false;">modern agile</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dmVsb2NpdHk='); return false;">velocity</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tbXVuaWNhdGlvbg=='); return false;">communication</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHVwbGljYXRpb24='); return false;">duplication</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-08-23-q-and-on-velocity-part-ix.html" class="no-external">
 
 In the last installment, we talked about reasons that velocity goes up without any more accomplishment by the team. This is a disturbing occurrence to many managers who…<br><br><br><br><blockquote class="tr_bq blockquote"><i></i><br></blockquote><br><br><br><i></i><i></i><br><br><br><br><br><br><i></i><br><br><br><br><blockquote class="tr_bq blockquote"><br><br><br><i></i><i></i><br></blockquote><br><br><br><br><br><br><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><br><br><br></blockquote><br><br><br><br><blockquote class="tr_bq blockquote"><b></b></blockquote><i></i><i></i><br><br><br><br><br>
@@ -1185,6 +1347,9 @@ Aug 23, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-08-23-my-favorite-estimates-vs-noestimates.html" class="no-external">My favorite Estimates and NoEstimates exchange so far.</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-08-23-my-favorite-estimates-vs-noestimates.html" class="no-external">
 <span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0" style="border: 0px solid black; box-sizing: border-box; color: inherit; display: inline; font-family: , , &quot;blinkmacsystemfont&quot; , &quot;segoe ui&quot; , &quot;roboto&quot; , &quot;ubuntu&quot; , &quot;helvetica neue&quot; , sans-serif; font-size: inherit; font-stretch: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.3125; margin: 0px; min-width: 0px; overflow-wrap: break-word; padding: 0px; white-space: inherit;">Likewise, how much will you pay for electricity in the house you live in, all totaled up? Or my earlier grocery example. You don’t consider those “buying a lifetime’s…</span>
 </a></div>
@@ -1207,6 +1372,19 @@ Aug 23, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-04-18-improve-your-unit-testing-12-ways.html" class="no-external">Improve Your Unit Testing 12 Ways</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('UUE='); return false;">QA</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVzdGluZw=='); return false;">testing</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGVkJTIwdGVzdGluZw=='); return false;">automated testing</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29kZSUyMHF1YWxpdHk='); return false;">code quality</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dW5pdCUyMHRlc3Q='); return false;">unit test</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-04-18-improve-your-unit-testing-12-ways.html" class="no-external">
 
 <div>
@@ -1231,6 +1409,9 @@ Apr 18, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-03-26-software-development-as-buying-thing-or.html" class="no-external">Software Development as Buying-A-Thing Or Co-Creating?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-03-26-software-development-as-buying-thing-or.html" class="no-external">
 
 <div class="row t-tweet" style="background-color: white; box-sizing: border-box; color: rgba(0, 0, 0, 0.84); display: flex; flex-wrap: wrap; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, &quot;Lucida Sans&quot;, Geneva, Arial, sans-serif; margin-left: -15px; margin-right: -15px;">
@@ -1263,6 +1444,9 @@ Mar 26, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2019-03-11-signal-to-noise-workspace-application.html" class="no-external">Signal-to-Noise: The Workspace Application</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2019-03-11-signal-to-noise-workspace-application.html" class="no-external">
 
 <div data-originalcomputedfontsize="16" data-removefontsize="true" dir="auto" style="-webkit-text-size-adjust: auto; caret-color: rgb(49, 49, 49); color: #313131; font-family: -apple-system, HelveticaNeue; font-size: 1rem; word-spacing: 1px;">
@@ -1293,6 +1477,9 @@ Mar 11, 2019
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-12-20-q-and-on-velocity-part-viii.html" class="no-external">Q and A on velocity, Part VIII</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-12-20-q-and-on-velocity-part-viii.html" class="no-external">
 
 In our previous post, we discussed doing smaller units of work, and doing no more of them than we need to fulfill an end-user’s&nbsp;needs. This way, we get many things done, we…<br><br><br><br><br><blockquote class="tr_bq blockquote"><br><br><br><i></i><br></blockquote><br><br><i></i><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><ul style="text-align: left;"><li></li><li></li><li></li><li></li><li></li><li></li></ul><br><b></b><br><br><br><br><br><br><br><br>
@@ -1316,6 +1503,9 @@ Dec 20, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-11-05-q-and-on-velocity-part-vii.html" class="no-external">Q and A on Velocity, part VII</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-11-05-q-and-on-velocity-part-vii.html" class="no-external">
 
 In Part VI we discussed faux bottlenecks and blaming. These are often the result of having expectations that cannot be met, a phenomenon that was discussed in the last…<br><br><br><br><blockquote class="tr_bq blockquote"><br><br><br></blockquote><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"><iframe allowfullscreen="" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/y5OV3RmXhbg/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/y5OV3RmXhbg?feature=player_embedded" width="320"></iframe></div><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"></div><br><br><div style="text-align: center;"><span style="text-align: left;"></span></div><br><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><br></blockquote><br><blockquote class="tr_bq blockquote"><br><br><br></blockquote><br><br><br><br>
@@ -1339,6 +1529,9 @@ Nov 5, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-10-29-q-and-on-velocity-part-vi.html" class="no-external">Q and A on Velocity, Part VI</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-10-29-q-and-on-velocity-part-vi.html" class="no-external">
 
 <br class="Apple-interchange-newline"> In Part V, we examined the relationship between working harder and going faster. I hope that the message you came away with was that we want people to work less hard and…<br><br><br><br><blockquote class="tr_bq blockquote"><br><br><br><br><br></blockquote><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div style="text-align: left;"><i></i><span style="background-color: white; color: #222222; text-align: center;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><i></i></span></span></div><div style="text-align: left;"><br></div><div style="text-align: left;"><br><div class="separator" style="clear: both; text-align: center;"></div><br><br><b></b><b></b><b></b></div><div style="text-align: left;"><br></div><div style="text-align: left;"><br><br></div><div style="text-align: left;"><br></div><blockquote class="tr_bq blockquote"><i></i><br><br><br></blockquote><br><br><blockquote class="tr_bq blockquote"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: large;"><br></span></blockquote><br><br><br><br><br>
@@ -1362,6 +1555,9 @@ Oct 29, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-10-24-q-and-on-velocity-part-v.html" class="no-external">Q and A on Velocity, part V</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-10-24-q-and-on-velocity-part-v.html" class="no-external">
 
 <br class="Apple-interchange-newline"> In Part IV, we talked about the thorny clashes between the&nbsp;reality of promises, and the reality of development. This installment picks up on some truths about working…<br><br><blockquote class="tr_bq blockquote"><br><br><i></i><br></blockquote><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><i><b></b></i><i></i><br><br><br><br><div style="text-align: center;"><b><br></b></div><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><br><br><br></blockquote><br><br><br><br><br><br><b></b><br><blockquote class="tr_bq blockquote"><br><i></i><br><br></blockquote><br><br><br><br><br><br><br><ul style="text-align: left;"><li></li><li></li><li></li><li></li><li></li></ul><div></div><div><br></div><div style="text-align: center;"><b></b></div><div style="text-align: center;"><b></b></div><div><br></div><div><br><br></div><div><br></div><div></div>
@@ -1385,6 +1581,9 @@ Oct 24, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-10-15-q-and-on-velocity-part-iv.html" class="no-external">Q and A on Velocity, Part IV</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-10-15-q-and-on-velocity-part-iv.html" class="no-external">
 
 In our last installment, part III, we talked about the reality of reality and contrasted that to the made-up-ness of schedules and estimates and promises.<br> <br> Today we take a…<br><br><blockquote class="tr_bq blockquote"><br><br><br></blockquote><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -1408,6 +1607,9 @@ Oct 15, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-07-28-q-and-on-velocity-part-iii.html" class="no-external">Q and A on Velocity, part III</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-07-28-q-and-on-velocity-part-iii.html" class="no-external">
 
 <br class="Apple-interchange-newline"> In Part II, we talked about velocity and the (glossed-over) line about making it easier to get work done instead of pushing harder.&nbsp; A was asking if changing the <i>units</i> used…<br><br><br><br><blockquote class="tr_bq blockquote"><br><br><br></blockquote><br><br><br><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"></div><ul><li></li><li></li><li></li><li></li><li></li></ul><div><b></b></div><div><br></div><div></div><div><br></div><div></div><br><i></i><br><div><br></div><div><i></i><br><div><br></div><div></div><div><br></div><div><i><b></b></i><i style="font-weight: bold;"></i></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div><i></i></div><div><i></i></div><div><br></div><div><i></i></div><div><br><br><br><br><br></div><div><br><div style="text-align: center;"><span style="font-size: large;"></span><br><span style="font-size: large;"><br></span></div></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div></div>
@@ -1431,6 +1633,9 @@ Jul 28, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-07-25-q-on-velocity-part-ii.html" class="no-external">Q&amp;A on Velocity, Part II</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-07-25-q-on-velocity-part-ii.html" class="no-external">
 
 See Part 1, in which we present a deep truth about velocity and story points. A’s team has turned in two sprints, with velocity of 19 on the first and 23 on the second.<br> <br>
@@ -1456,6 +1661,9 @@ Jul 25, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-07-19-dont-be-dreadful.html" class="no-external">Don’t Be Dreadful</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-07-19-dont-be-dreadful.html" class="no-external">
 
 A few weeks back, I published a blog about people complaining&nbsp;in a company.&nbsp; The article has received a lot of attention and love, and I appreciate all of you who retweeted…<br><br><br><br><i></i><br><br><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"><span id="goog_1498750567"></span><span id="goog_1498750568"></span></div><br><br><br><blockquote class="tr_bq blockquote"><span style="font-size: x-large;"></span></blockquote><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><ul style="text-align: left;"><li></li><li></li><li><br></li><li></li><li></li><li></li><li><br></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><br><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div><br><br></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div><i><b></b></i></div><div><br></div><div><br></div>
@@ -1479,6 +1687,9 @@ Jul 19, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-07-17-q-on-velocity-part-i.html" class="no-external">Q&amp;A on Velocity, Part I</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-07-17-q-on-velocity-part-i.html" class="no-external">
 
 <br> Having had many conversations about velocity (and many blog posts here and at the Industrial Logic Blog) one day I decided to write up an example of the conversation as if…<br><br><br><br><br><br><br><br><br><br><i></i><br><br><br><br><blockquote class="tr_bq blockquote"><br><br><br><br><br><br><br></blockquote><br><br><br><br><br><br><br><br><i></i><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -1502,6 +1713,9 @@ Jul 17, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-07-05-the-scatter-gather-method-of-software.html" class="no-external">The Scatter-Gather Method of Software Development</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-07-05-the-scatter-gather-method-of-software.html" class="no-external">
 
 There is a certain theory of agile development which is built on factory thinking, using division and management of labor to accomplish large&nbsp;projects.<br> <br>
@@ -1527,6 +1741,9 @@ Jul 5, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-06-27-peace-and-curiosity-against-righteous.html" class="no-external">Peace and Curiosity against Righteous Indignation</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-06-27-peace-and-curiosity-against-righteous.html" class="no-external">
 
 All anger presents as righteous indignation. <br><br>Have you ever been angry without thinking you had every right to be so?<br>
@@ -1554,6 +1771,9 @@ Jun 27, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-06-26-organizational-dysfunction.html" class="no-external">Organizational Dysfunction</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-06-26-organizational-dysfunction.html" class="no-external">
 
 For decades now, people are taught a definition of “success”:<br>
@@ -1581,6 +1801,9 @@ Jun 26, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-06-25-agile-in-nutshell.html" class="no-external">Agile In A Nutshell</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-06-25-agile-in-nutshell.html" class="no-external">
 
 I had answered a question on LinkedIn, after which a friend was kind enough to quote my answer on twitter&nbsp;with a kind recommendation.<br> <br> I decided to reproduce that answer…<br><br><blockquote class="tr_bq blockquote"><br></blockquote><br><br><br><br><br>
@@ -1604,6 +1827,9 @@ Jun 25, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-06-14-owner-renter-guest-vandal.html" class="no-external">Owner, Renter, Guest, Vandal?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-06-14-owner-renter-guest-vandal.html" class="no-external">
 
 <div class="row t-tweet" style="background-color: #f8f8f8; box-sizing: border-box; color: #575553; display: flex; flex-wrap: wrap; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, &quot;Lucida Sans&quot;, Geneva, Arial, sans-serif; font-size: 16px; letter-spacing: -0.32px; margin-left: -15px; margin-right: -15px; transition: all 300ms;">
@@ -1637,6 +1863,9 @@ Jun 14, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-06-13-piecing-it-together-without-tests.html" class="no-external">Piecing it together without tests…</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-06-13-piecing-it-together-without-tests.html" class="no-external">
 
 I wrote a thing yesterday…. it was in python, and I was using PyCharm (which is very nice, and a departure from using vim + sniffer).<br> <br> It was something I didn’t know how to…<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><i></i><br><br>
@@ -1660,6 +1889,9 @@ Jun 13, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-06-12-complainers.html" class="no-external">Complainers</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-06-12-complainers.html" class="no-external">
 
 
@@ -1691,6 +1923,9 @@ Jun 12, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-04-20-the-world-joyfully-shining-from-desktop.html" class="no-external">The world, joyfully shining from a desktop.</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-04-20-the-world-joyfully-shining-from-desktop.html" class="no-external">
 
 Sometimes this world gives me joy.<br> <br> I take photos as I travel. I also try to take some time to see the world and take extra photos.&nbsp; One day I realized that I could set…<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -1714,6 +1949,9 @@ Apr 20, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-03-09-the-impossible-every-day.html" class="no-external">The Impossible Every Day</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-03-09-the-impossible-every-day.html" class="no-external">
 
 <span style="font-size: x-small;">This is a slightly-edited re-presentation of a thread in Twitter.&nbsp;</span><br> <br>
@@ -1746,6 +1984,9 @@ Mar 9, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-03-05-predictability-as-maturity-or-system.html" class="no-external">Predictability as Maturity or System?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-03-05-predictability-as-maturity-or-system.html" class="no-external">
 
 The <u>predictability of a team</u> is subject to the <u>predictability of the work</u>.<br> <br> Duration of a task depends on three things primarily:<br>
@@ -1775,6 +2016,9 @@ Mar 5, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-01-31-a-little-signal-to-noise.html" class="no-external">A little signal-to-noise</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-01-31-a-little-signal-to-noise.html" class="no-external">
 <br>
 </a></div>
@@ -1797,6 +2041,9 @@ Jan 31, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-01-25-how-to-be-miserable-or-not.html" class="no-external">How To Be Miserable (or Not)</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2018-01-25-how-to-be-miserable-or-not.html" class="no-external">
 
 <div style="box-sizing: inherit; line-height: 33px; margin: 33px 0px; padding: 0px;">
@@ -1834,6 +2081,9 @@ Jan 25, 2018
 <h3 class="no-anchor listing-title">
 <a href="./posts/2017-12-11-feeling-safe.html" class="no-external">Feeling Safe?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2017-12-11-feeling-safe.html" class="no-external">
 
 I finally got around to watching <i>Frozen</i>.<br> <br> I don’t have any small children of my own and wasn’t really interested in it for my own viewing pleasure, so it took a long time.…<br><br><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><i></i></blockquote><br><br><br><i></i><i></i><br><br><br><br><i></i><b></b><br><br><br><ul style="text-align: left;"><li></li><li></li><li></li></ul><br><br><br><br><br><br><br><div style="text-align: center;"><b><i></i></b></div><br><br><br><br><br><br><br><br>
@@ -1857,6 +2107,9 @@ Dec 11, 2017
 <h3 class="no-anchor listing-title">
 <a href="./posts/2017-11-27-taking-breaks-in-disciplined-way.html" class="no-external">Taking Breaks in a Disciplined Way</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2017-11-27-taking-breaks-in-disciplined-way.html" class="no-external">
 
 I worked with a team where everyone was trying to do pair-programming, but it was too hard for them.<br> <br> I asked what made it so hard, and they told me it was simply so…<br><br><em></em><br><br><br><br><br><i></i><br><br><br><br><br><br><br><br><br><br><br><br><br><br><b></b><br><br><br><br><br><br><br><br><br><br><br><i></i><i></i><br><br><br><br><br><br><br><br><br><br><b></b><b></b><br><br><br><br><br><br><br><br><br><br><span style="color: blue; font-size: large;"></span><br><br><br><br><br><br><br><br><br><br><br><br><br><blockquote class="tr_bq blockquote"><span style="background-color: white; font-family: &quot;open sans&quot; , sans-serif; font-size: 18px;"></span></blockquote><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><b></b><br><br><br><br><br><br><i></i><b><i></i></b><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="separator" style="clear: both; text-align: center;"></div><br><br><ol style="text-align: left;"><li><b></b><br><br></li><li><b></b><br></li><li><b></b><br></li><li><b></b><br></li><li><b></b><br><br></li></ol><br><br><br><br><br><br><br><br><br>
@@ -1880,6 +2133,9 @@ Nov 27, 2017
 <h3 class="no-anchor listing-title">
 <a href="./posts/2017-09-26-why-tdd.html" class="no-external">Why TDD?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2017-09-26-why-tdd.html" class="no-external">
 
 <br> Why do we care if people call what they’re doing TDD or BDD or why do we care if they actually do it?<br> <br>
@@ -1905,6 +2161,9 @@ Sep 26, 2017
 <h3 class="no-anchor listing-title">
 <a href="./posts/2017-09-18-the-5-ts.html" class="no-external">The 5 Ts</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2017-09-18-the-5-ts.html" class="no-external">
 
 When I’m talking to Agile teams, we often talk about the role of management: whether it exists, and if so what it is.<br> <br> I always fall back to the principles of the agile…<br><br><blockquote class="tr_bq blockquote"><br></blockquote><blockquote class="tr_bq blockquote"><br><br></blockquote><br><br><br><br><br><br><br><ul style="text-align: left;"><li></li><li></li><li></li><li></li><li></li></ul><div></div><div></div><br><br><br><br><br><div><br><br><br></div><div><br><br><br><br></div><div><br><br><br></div><div><br></div><div><br><br><br><br><br><div><span style="font-weight: normal;"></span></div><div><span style="font-weight: normal;"><br></span></div><div><span style="font-weight: normal;"></span><br><span style="font-weight: normal;"><br></span></div><div></div><div></div><div><br></div><div><br><br></div><div></div><div><br></div><div></div><div><br></div><div></div><div><br></div><div><br><br><br><br><br><br><b></b><br><br><br><br><br><br><br><br><br><br><br><br></div><div><br></div></div>
@@ -1928,6 +2187,9 @@ Sep 18, 2017
 <h3 class="no-anchor listing-title">
 <a href="./posts/2017-08-18-it-begins-as-reaction-people-who-are.html" class="no-external">Can We Process Our Hurts Without Going To Categories?</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2017-08-18-it-begins-as-reaction-people-who-are.html" class="no-external">
 
 
@@ -1963,6 +2225,9 @@ Aug 18, 2017
 <h3 class="no-anchor listing-title">
 <a href="./posts/2017-08-15-a-very-brief-note-on-certification.html" class="no-external">A VERY brief note on certification..</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2017-08-15-a-very-brief-note-on-certification.html" class="no-external">
 
 I’m well-known for my distaste of certifications for software developers, trainers, and coaches.<br> <br> What seems to be less-well-known is the reasoning behind that.<br> <br> GETTING…<br><ul style="text-align: left;"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li><b><i></i></b></li></ul><b><br></b><b></b><br><br><br><br><br><br><br><br><i></i><i></i><br><br><br><br><b></b><br><br><br><br><br><br><br><br>
@@ -1986,6 +2251,9 @@ Aug 15, 2017
 <h3 class="no-anchor listing-title">
 <a href="./posts/2017-07-19-there-is-no-such-thing-as-scrum-team.html" class="no-external">There is no such thing as a scrum development team….</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2017-07-19-there-is-no-such-thing-as-scrum-team.html" class="no-external">
 
 <div class="tr_bq">
@@ -2014,6 +2282,21 @@ Jul 19, 2017
 <h3 class="no-anchor listing-title">
 <a href="./posts/2015-04-18-bonus-for-productivity.html" class="no-external">Bonus for Productivity?</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TW90aXZhdGlvbg=='); return false;">Motivation</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YnJpYmVz'); return false;">bribes</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ym9udXM='); return false;">bonus</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SFI='); return false;">HR</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGVhZGVycw=='); return false;">leaders</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2Nob2x0ZXM='); return false;">Scholtes</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2015-04-18-bonus-for-productivity.html" class="no-external">
 <br> At Industrial Logic, we have bonuses. <br> <br> We have a health-n-safety bonus which we spend making our lives better. Some pay gym memberships. Others buy standing desks or…<br><br><br><br><br><br><br><br>
 </a></div>
@@ -2036,6 +2319,17 @@ Apr 18, 2015
 <h3 class="no-anchor listing-title">
 <a href="./posts/2011-09-14-how-do-scrum-masters-know.html" class="no-external">How Do Scrum Masters Know?</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZmVlZGJhY2s='); return false;">feedback</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2NydW0='); return false;">scrum</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2NydW0lMjBtYXN0ZXJz'); return false;">scrum masters</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWdpbGU='); return false;">agile</div>
+
+</div>
 <div class="delink listing-description"><a href="./posts/2011-09-14-how-do-scrum-masters-know.html" class="no-external">
 Overall, not a bad list. Your thoughts?
 </a></div>
@@ -2058,6 +2352,9 @@ Sep 14, 2011
 <h3 class="no-anchor listing-title">
 <a href="./posts/2009-10-06-fast-food-chicken-dilemma.html" class="no-external">The Fast Food Chicken Dilemma</a>
 </h3>
+<div class="listing-categories">
+
+</div>
 <div class="delink listing-description"><a href="./posts/2009-10-06-fast-food-chicken-dilemma.html" class="no-external">
 <br><br>Let’s say you are working in a fast-food restaurant that is attempting to keep up with Chick-Fil-A and KFC and Brown’s Fried Chicken. Speed and quality are important, but…<br><br><br><br><br><br><br><br><br><br><br><br>
 </a></div>
