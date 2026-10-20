@@ -1457,101 +1457,1207 @@ Don’t tap the mic. The impact can damage the internal workings of the mic. It 
   <pubDate>Mon, 05 Aug 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Bonus for Productivity?</title>
-  <link>https://tottinge.github.io/agile-otter-blog/posts/2015-04-18-bonus-for-productivity.html</link>
+  <title>Profitable Struggle and Unprofitable Struggle</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2024-05-24-profitable-struggle-and-unprofitable.html</link>
   <description><![CDATA[ 
 
 
 
 
-<h4 class="anchored">
-The Whole Idea Is A Little Insulting
-</h4>
-<br> <a href="http://pscholtes.com/handbook.htm" target="_blank">Scholtes’</a> /The Leader’s Handbook/ says that motivation through reward is insulting – it assumes that you have been withholding effort all this time, waiting for someone to offer you an incentive to actually do your work.<br> <br> Hadn’t really thought much about it before. <br> <br> But yes, it does assume you have effort on tap that you’re not applying to your work.<br> And yes, it is a little insulting.<br> And yes, you could intentionally hold back until offered another bribe (but just enough not to be punished).<br> <br> Everyone wants a little more money, but P. Scholtes notes that it’s out of alignment with the idea of humanitarian management who realize that the employees are their greatest asset.<br>
-<h4 class="anchored">
-<br>Not Only That, But It Doesn’t Work
-</h4>
-<br> <br> Likewise, <a href="https://player.vimeo.com/video/15488784" target="_blank">Daniel Pink reports</a> that rewards for knowledge workers tend to have the opposite effect of that intended. It might not be a good idea for programmers and managers in non-manual-labor fields.<br> <br> Pink does mention that the system works great for physical labor.<br> <br>
-<h4 class="anchored">
-Then How Do We Reward Team Members?&nbsp;
-</h4>
-<p><br> At I<a href="http://industriallogic.com/" target="_blank">ndustrial Logic</a>, we have bonuses. <br> <br> We have a <a href="https://www.pinterest.com/industriallogic/health-and-safety-bonus/" target="_blank">health-n-safety bonus </a>which we spend making our lives better. Some pay gym memberships. Others buy <a href="http://www.industriallogic.com/blog/are-you-risking-your-health-and-creativity-by-sitting-all-day/" target="_blank">standing desks</a> or treadmills or bicycles to help them keep fit. &nbsp;It’s not guaranteed every year, and the amount reflects profitability or generosity instead of performance.<br> <br> We also sometimes have a profitability bonus, split evenly across the board, to celebrate another great year. We don’t count on them, but they’ve been helpful to us as well.<br> <br> The bonuses don’t buy loyalty or effort. They’re congratulatory and helpful rather than transactional.<br> <br> Do you have any stories to share about your great (or awful) bonus system?<br> <br> What do you feel about what Pink and Scholtes have to say about knowledge workers and bonus programs?</p>
-
-
-
- ]]></description>
-  <category>Motivation</category>
-  <category>bribes</category>
-  <category>bonus</category>
-  <category>HR</category>
-  <category>leaders</category>
-  <category>Scholtes</category>
-  <guid>https://tottinge.github.io/agile-otter-blog/posts/2015-04-18-bonus-for-productivity.html</guid>
-  <pubDate>Fri, 17 Apr 2015 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>How Do Scrum Masters Know?</title>
-  <link>https://tottinge.github.io/agile-otter-blog/posts/2011-09-14-how-do-scrum-masters-know.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/Screen shot 2011-09-13 at 9.20.23 PM.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="Screen shot 2011-09-13 at 9.20.23 PM.png" border="0" height="245" src="https://tottinge.github.io/agile-otter-blog/assets/Screen shot 2011-09-13 at 9.20.23 PM.png" width="400"></a>
-</div>
-<div class="separator" style="clear: both; text-align: center;">
-How do Scrum Masters Know?
-</div>
-This time the question is how the scrum masters know if they’re doing a good job. They answered with this short list of feedback mechanisms.<br>
-<ul>
+<p>
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;"><br></span>
+</p>
+<p>
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;">Imagine I have to work in an unfamiliar and tough passage of code.</span>
+</p>
+<h2 style="text-align: left;" class="anchored">
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white; font-size: small;">Unprofitable Code</span>
+</h2>
+<p>
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;">I spend time and effort to puzzle it out, and all I get from it is that now I understand that tough passage.</span>
+</p>
+<p>
+If it was written in the most primitive way possible, using no interesting language or library features (which might have made it less puzzling) then it is <i><b>unprofitable</b></i><span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;">.&nbsp; I have invested my time in “playing computer,” simulating every line of code and tracking each value in my head, or perhaps I walked through every line and watched every variable in a debugger.&nbsp;</span>
+</p>
+<p>
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;">I have expended this effort of will and focus but received little in return. I know what this bit of code is doing (for now) but I won’t be any faster to write or read other code because of it.</span>
+</p>
+<p>
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;">That knowledge will be lost in months, possibly weeks or days.</span>
+</p>
+<p>
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;">The unprofitable code, left in its original form, will require as much effort next year as it did this time. It is a productivity speed bump.</span>
+</p>
+<h2 style="text-align: left;" class="anchored">
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white; font-size: small;">Profitable Code</span>
+</h2>
+<p style="text-align: left;">
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;">OTOH, if I dig into some unfamiliar and tough passage and learn some idioms, standard library functions, built-in syntax, or framework capabilities then I have been rewarded for my pains.&nbsp;</span>
+</p>
+<p style="text-align: left;">
+<span color="rgba(0, 0, 0, 0.9)" data-face="-apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif" style="background-color: white;">This is <i><b>profitable</b></i> work; I know how to read and write similar code more fluently. It may save me minutes, hours, or even days of work. My investment will pay dividends for a long time.</span>
+</p>
+<p style="text-align: left;">
+People familiar with the idioms and method will move quickly through this code, and others will only have to suffer that initial shock of newness once.&nbsp;
+</p>
+<div>
+<h2 style="text-align: left;" class="anchored">
+<span style="font-size: small;">The Scouting Rule</span>
+</h2>
+<div>
+<div style="text-align: left;">
+<p style="text-align: left;">
+I like the “leave it better than you found it” rule.&nbsp;
+</p>
+<p style="text-align: left;">
+I could rewrite the unprofitable code as profitable code if I have the time and there are enough tests to make refactoring or rewriting safe.&nbsp;
+</p>
+<p style="text-align: left;">
+Without the safety of tests, I wouldn’t want to take the chance of breaking all the code that depends on this passage.
+</p>
+<p style="text-align: left;">
+If I can’t make it profitable, I can make the code less <i>un</i>profitable.
+</p>
+<ul style="text-align: left;">
 <li>
-Scrum of Scrums
-</li>
-<li>
-Changes embodied in team behavior.
-</li>
-<li>
-Retrospectives
-</li>
-<li>
-Status of Kanban boards
-</li>
-<li>
-Things missed
+I could add tests so that the next person to encounter this code has more safety than I had.
 </li>
 </ul>
-<p>Overall, not a bad list. Your thoughts?</p>
+<ul style="text-align: left;">
+<li>
+I could do safe refactorings (rename variables, extract expressions, extract methods) to make it less puzzling.
+</li>
+</ul>
+<ul style="text-align: left;">
+<li>
+If all else fails, I can add some comments.&nbsp;
+</li>
+</ul>
+</div>
+<div style="text-align: left;">
+<h2 style="text-align: left;" class="anchored">
+<span style="font-size: small;">Is This The Right Thing To Do?</span>
+</h2>
+<p>
+</p>
+<p style="text-align: left;">
+That’s all probably obvious and straightforward, but there is a more interesting question underlying all of this:
+</p>
+<p style="text-align: left;">
+</p>
+<blockquote class="blockquote">
+Does the team <i>want</i> to learn the language and libraries fluently, or are they striving to <i>avoid learning</i> how to use those?
+</blockquote>
+<p>
+</p>
+<div>
+<p>
+Readability is present in the relationship between a code artifact and its audience; its ENTIRE audience.
+</p>
+<p style="text-align: left;">
+I am an author or an editor, but that makes me a minority part of the audience of this source code. All my colleagues and future colleagues who share the codebase are also the audience.
+</p>
+<p style="text-align: left;">
+If<i> the last thing they want </i>is to profit from this example then fluent use of the stack is a failing.
+</p>
+<p style="text-align: left;">
+If becoming more competent is a goal, then avoiding fluent use is failing.
+</p>
+<p style="text-align: left;">
+<span style="color: #351c75;">The important thing is not my writing, but their reading.&nbsp;</span>
+</p>
+<h2 style="text-align: left;" class="anchored">
+<span style="font-size: small;">And so…. what?</span>
+</h2>
+<p style="text-align: left;">
+<span style="font-size: small;">Since readability is a quality of a relationship between the artifact and its audience, I have some choices.&nbsp;</span>
+</p>
+<p style="text-align: left;">
+<span style="font-size: small;">We can change the artifact to meet the audience’s requirements and make the code more readable without changing or improving the audience.</span>
+</p>
+<p style="text-align: left;">
+<span style="font-size: small;">We can change the knowledge and comfort of the audience and thereby raise the readability of the code without changing the code in any way.</span>
+</p>
+<p style="text-align: left;">
+There is also a middle path: we can change the code and the audience’s expectations. It does not have to be all one thing or all the other.
+</p>
+<p style="text-align: left;">
+What is your strategy for code readability and developer competence?&nbsp;&nbsp;
+</p>
+<p style="text-align: left;">
+<br>
+</p>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 
  ]]></description>
-  <category>feedback</category>
-  <category>scrum</category>
-  <category>scrum masters</category>
-  <category>agile</category>
-  <guid>https://tottinge.github.io/agile-otter-blog/posts/2011-09-14-how-do-scrum-masters-know.html</guid>
-  <pubDate>Tue, 13 Sep 2011 23:00:00 GMT</pubDate>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2024-05-24-profitable-struggle-and-unprofitable.html</guid>
+  <pubDate>Thu, 23 May 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>The Fast Food Chicken Dilemma</title>
-  <link>https://tottinge.github.io/agile-otter-blog/posts/2009-10-06-fast-food-chicken-dilemma.html</link>
+  <title>Definition-by-Dysfunction</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2024-02-27-definition-by-dysfunction.html</link>
   <description><![CDATA[ 
 
 
 
 
-One question for you:<br>
+<p>
+&nbsp;I’ve done it. You’ve seen me.
+</p>
+<p>
+You’ve done it. I watched you do it.<br>
+</p>
+<p>
+We’ve probably argued about it.
+</p>
+<h2 style="text-align: left;" class="anchored">
+The Defining Dysfunctions
+</h2>
+<p>
+I published a <a href="https://www.industriallogic.com/blog/programming-under-surveillance/">blog post some time ago on the Industrial Logic website </a>about programming together vs programming under surveillance. It’s a relatively simple piece, and it identifies a problem we have in the world when it comes to just about any technique or discipline.
+</p>
 <blockquote class="blockquote">
-What if someone told you that you were going to have to serve chicken less well-done in order to make it through the lunch rush?
+<p>
+<span data-face="Poppins, sans-serif" style="background-color: white; color: #333333; font-size: 18px;">When I suggested that people mistake group programming for working under surveillance, an incredulous reader exclaimed&nbsp;</span><em style="background-color: white; box-sizing: border-box; color: #333333; font-family: Poppins, sans-serif; font-size: 18px;">“How could it possibly be anything else!?”</em>
+</p>
 </blockquote>
-<p><br><br>Let’s say you are working in a fast-food restaurant that is attempting to keep up with Chick-Fil-A and KFC and Brown’s Fried Chicken. Speed and quality are important, but you are a fast food drive-up, so the audience is a little forgiving.<br><br>Now you find out that the other local drive-up chicken joints are selling more chicken than you are on Sundays. The management suspect the product is not being prepared fast enough. They remind you that quality is important, but sometimes you just have to ship the product if you want to compete, no? <br><br>You are only the fry cook. Your manager makes three times as much as you do, drives a much nicer class of car, dresses better, probably has more years of management experience than you have fry cook experience. He probably knows what he’s talking about, and he can certainly fire you even if he doesn’t.<br><br>You know what it means to under-cook chicken. Your steady customers will never forget one bout with food poisoning, and will quit showing up if they feel your food isn’t safe. Food safety has legal ramifications. Yet, you have got to keep up in the fried chicken wars if you want to survive in this industry.<br><br>Will you cook product ahead of time, and let it sit under the lights? Will you operate a larger number of fryers? Experiment with some new techniques (pressure-cook, then fry)? Would you use smaller portions of chicken? Would you skip the breading stage of the cooking? Increase or decrease the batch size and chicken piece mix? Mess with the heat? Trim a few minutes off the cooking timer and hope for the best?<br><br>Knowing that there is a real business problem and that you are only a fry cook, what will you do? <br><br>Finally, consider that you’re talking about software, not chicken.</p>
+<p>
+So here’s the thing: a person had a bad experience where instead of actually researching what pair programming is and how it works, they just sat down at a keyboard with another person and tried “doing pair programming” without any pre-study or preparation. They ended with one person bored, watching the other program.&nbsp;&nbsp;
+</p>
+<p>
+This is a widely-known dysfunction or “failure pattern” known as “Worker/Watcher.” It’s not how pair programming is done.&nbsp;
+</p>
+<p>
+The two people who had this one unpleasant, uninformed, wasteful experience came into it with little more than a sound bite (“two people coding together”), guessed at how it was done (“one person types”), and had a poor experience.&nbsp;
+</p>
+<p>
+Since they didn’t start with a good definition of pair programming, that experience became the <i>definition </i>of pair programming.&nbsp;
+</p>
+<p>
+They had a <i>defining dysfunction.</i>&nbsp;
+</p>
+<p>
+Unless something new happens, they will forever see pair programming as wasteful and pointless practice.<br><br>Is that the real definition of pair programming?&nbsp;
+</p>
+<p>
+Is that what it’s about and how it’s done?&nbsp;
+</p>
+<p>
+Not remotely. but it is the one touch-point they have – the one experience that they have had of it, and “pair programming” is the name of that experience now.
+</p>
+<p>
+Do they want to try it again? Clearly not. They <i>know</i> what it is, and it’s nonsense.&nbsp;
+</p>
+<p>
+They will likely take to social media to decry the BS that is pair programming and save everyone else from this wasteful and unprofitable behavior.
+</p>
+<p>
+You and I have likely done the same.&nbsp;
+</p>
+<p>
+Give those complainers some credit, because at least they tried it (or something that they imagined was it) first.
+</p>
+<h2 style="text-align: left;" class="anchored">
+Some Examples Might Be Useful Here
+</h2>
+<p>
+I ranted against scrum™for years, because I let the dysfunctions I routinely see become the definition of the process for me. If anyone were to actually try doing scrum™it would be a pretty good way of working, but nobody does.
+</p>
+<p>
+Sadly, a lot of people in that space have adopted the defining dysfunctions. As far as they are concerned the “right way” to do scrum™ is to have a titled person assign individual work tickets to developers, who strive to serve the maximum number of tickets per fortnight to raise the velocity of the team – striving to do “twice the work in half the time” (a soundbite). This isn’t remotely what the defining document of the scrum™ method describes but it is what is often taught as “doing scrum.”
+</p>
+<p>
+Are you an agile hater because it’s all Jira tickets, meetings, estimation, and work crammed in to meet artificial deadlines? I’d hate that too. I do hate that. It’s just not agile. it’s not even scrum™.
+</p>
+<p>
+Do you hate agile because agile is “no documentation,” “no design,” and “no estimates”?&nbsp; Well, that’s a worthy distaste. It’s also a mischaracterization.
+</p>
+<p>
+Do you hate TDD because you have to write all the tests first, and you don’t even know what shape the answer is going to take, so it’s impossible? Well, that’s a bad process, and it’s not TDD. It’s not the definition of TDD, it’s just a failure mode.
+</p>
+<h2 style="text-align: left;" class="anchored">
+Why Bother Trying?
+</h2>
+<p>
+Sometimes people don’t even have to have a bad experience to adopt a defining dysfunction. They hear a sound bite or title and <i>imagine</i> dysfunctions. They (efficiently) go straight to disdaining the practice based on their <i>imagined</i> defining dysfunctions.<br><br>Do you think that Psychological Safety means you can’t ever say anything that might possibly upset someone? Does Radical Candor mean that you can say whatever you want without consequence? Wrong, and wrong. Those are defining <i>guesses</i> at <i>dysfunction</i>.&nbsp;
+</p>
+<p>
+If we only guess at a discipline or a philosophy or a behavior and don’t actually bother to investigate what it’s intended to be, what it really means, and how people actually perform it then we don’t have the basis for an honest opinion. If we have only experienced it as a bad attempt at a good idea we haven’t formed a valid opinion.&nbsp;
+</p>
+<h2 style="text-align: left;" class="anchored">
+We’re Too Smart For That!
+</h2>
+<p>
+Have you jumped to conclusions based on naive attempts or imagination alone?
+</p>
+<p>
+I’m betting we both have.&nbsp; It’s a human thing, and we’re all human. It doesn’t much matter how smart or experienced you are – you’ve done this. I might just be projecting, but I’ve seen too many examples to believe it to be less than universal. Please prove me wrong!
+</p>
+<p>
+I’m willing to bet that you’ve done so this week. Let’s both look out for these mistakes, because I’m betting that we could be more successful at many things if we took the time to understand them.
+</p>
+<p>
+<br><br>
+</p>
 
 
 
  ]]></description>
-  <guid>https://tottinge.github.io/agile-otter-blog/posts/2009-10-06-fast-food-chicken-dilemma.html</guid>
-  <pubDate>Mon, 05 Oct 2009 23:00:00 GMT</pubDate>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2024-02-27-definition-by-dysfunction.html</guid>
+  <pubDate>Tue, 27 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Listicle on Flow and Teamwork</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2024-02-27-listicle-on-flow-and-teamwork.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>
+Some article links related to solo vs group, flow, productivity, and predictability.
+</p>
+<p>
+</p>
+<ul style="text-align: left;">
+<li>
+<a href="https://www.industriallogic.com/blog/stop-per-person-swimlanes">Stop using Per-Person Swimlanes</a>
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/swarm-programming-with-the-swarm-board">Swarming</a>
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/pitfalls-of-solo-work">Pitfalls of solo work</a>
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/programming-under-surveillance">Programming Under Surveillance</a>, or in groups?
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/faster-and-more-predictable">Faster and More Predictable</a>
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/managing-interruptions">Managing Interruption</a>s
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/work-to-be-interruptible">Work To Be Interruptible</a>
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/scatter-gather">Scatter-Gather</a> software development
+</li>
+<li>
+What is your <a href="https://www.industriallogic.com/blog/first-time-through">First Time Through</a> ratio?
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/squeezing-or-slicing">Squeezing Vs Slicing</a>
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/managing-programmers">Managing Programmer Productivity</a>
+</li>
+<li>
+<a href="https://www.industriallogic.com/blog/over-starting-and-under-finishing">Over-Starting and Under-finishing</a>
+</li>
+</ul>
+<p>
+</p>
+
+
+
+ ]]></description>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2024-02-27-listicle-on-flow-and-teamwork.html</guid>
+  <pubDate>Tue, 27 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Fundamentally Wrong</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2024-01-15-fundamentally-wrong.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>
+The Problem
+</p>
+<p>
+An <a href="https://hackernoon.com/test-driven-development-is-fundamentally-wrong-hor3z4d">article</a>&nbsp;has been shared with me by several friends and also by some critics, and some people who are both, describing how TDD is fundamentally wrong, and doing test-after-development is better.
+</p>
+<p>
+To be fair, the process described here is fundamentally wrong:
+</p>
+<p>
+</p>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/a/AVvXsEgLKxdyfKJv3deqCM8-LTXeznNrsp2HfEnKNPag4c7-9_CZd3PywIXZhvp3scdEtnFRKqeeJC7VcBQ38mJBdxPaGlHTDlabXk21ss-vbbLP1WyfBoodM_I7Q2-6M4nuHNqk7GzLX22gdRQ55E7V1iGKKq81UULSHnfcfXlyecJN81a1fvGu8Cvexovkez4" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="936" data-original-width="1744" height="172" src="https://blogger.googleusercontent.com/img/a/AVvXsEgLKxdyfKJv3deqCM8-LTXeznNrsp2HfEnKNPag4c7-9_CZd3PywIXZhvp3scdEtnFRKqeeJC7VcBQ38mJBdxPaGlHTDlabXk21ss-vbbLP1WyfBoodM_I7Q2-6M4nuHNqk7GzLX22gdRQ55E7V1iGKKq81UULSHnfcfXlyecJN81a1fvGu8Cvexovkez4" width="320"></a>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<br>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<br>
+</div>
+The problems with step #1 would indeed lead to the wasteful problems described below it. The recommendation here would certainly be better than the process described above:<br><br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/a/AVvXsEhOHbII-oSbSMC4jBIBoLL4n-oGT_Cx28RLNVaWIWhBmchFbUuN25JgmOpMgxuaJYRqKKNtLPP6yrabjNAcVUJDE5AOQJ03_xX8BT0BySvgZIMPVAPQ7fQ1ulAdPjiLwGjDcaYhHmPOthT4brW4scTDXtSpw7o5XsglJptwNTQqxKr_I94jPVoq_7i5xVY" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="688" data-original-width="1894" height="116" src="https://blogger.googleusercontent.com/img/a/AVvXsEhOHbII-oSbSMC4jBIBoLL4n-oGT_Cx28RLNVaWIWhBmchFbUuN25JgmOpMgxuaJYRqKKNtLPP6yrabjNAcVUJDE5AOQJ03_xX8BT0BySvgZIMPVAPQ7fQ1ulAdPjiLwGjDcaYhHmPOthT4brW4scTDXtSpw7o5XsglJptwNTQqxKr_I94jPVoq_7i5xVY" width="320"></a>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<br>
+</div>
+<div>
+<br>
+</div>
+<h3 style="text-align: left;" class="anchored">
+TDD Is Fundamentally Wrong is Fundamentally Wrong
+</h3>
+<br>Now, the problem with this article is more fundamental than the problem being described.
+<p>
+</p>
+<div style="text-align: center;">
+<b><span style="font-size: large;">TDD does not mean “<i>Write all the tests then all the code</i>”</span></b>
+</div>
+<div style="text-align: center;">
+<b><span style="font-size: x-large;"><br></span></b>
+</div>
+<div style="text-align: center;">
+<b>It has never meant that.</b>
+</div>
+<div style="text-align: center;">
+<b><br></b>
+</div>
+<div style="text-align: center;">
+<b><span style="font-size: x-large;"><i>That is not TDD.</i></span></b>
+</div>
+<div style="text-align: center;">
+<b><span style="font-size: x-large;"><br></span></b>
+</div>
+<div style="text-align: center;">
+<b>That is some other misbegotten travesty that has no name.</b>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+This is the fifth or sixth time I’ve heard anyone describe TDD as writing <i>all</i> the tests first. In all cases except one, it has been described by people who self-describe as being anti-TDD, and who write articles decrying the foolishness that they identify as TDD (which is not TDD).
+</div>
+<div>
+<br>
+</div>
+<div>
+I have never seen anyone do TDD that way – even unsuccessfully.&nbsp; I have never seen anyone even try to do TDD that way. I would never sit by while someone tried to do that and called it TDD. That’s simply not the process.
+</div>
+<div>
+<br>
+</div>
+<div>
+The one time that I read an article that actually recommended doing that, it was from a Microsoft publication early in the XP/Agile days. The public outcry was great and sudden, and the article was retracted. I don’t think I’ve ever seen anyone else recommend that approach,&nbsp;&nbsp;<i>because that approach is so obviously flawed and was never the process used by original XP teams.</i>
+</div>
+<h3 style="text-align: left;" class="anchored">
+So What Is TDD?
+</h3>
+<div>
+<br class="Apple-interchange-newline">TDD was originally described as a three-step dance that repeats over and over as one develops code.
+</div>
+<div>
+<br>
+</div>
+<div>
+You can take that <a href="https://tidyfirst.substack.com/p/canon-tdd">straight from the horse’s mouth </a>(so to speak):<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/a/AVvXsEhsMnhgobsOo2-OMOba0xZP7XPzd2lfdCrHG1JAuJecO7Ze4qlbBTZrZLgbTWpSxhjxURQEbIi9GSsUrTofuqV9Bk-knL8Wye2MCIzCJvYi-oYXr7XEy9-ev40GT58Ks4Nxc2UZhvLt2tq2MK7juRoYC-qg_65cTVIZ78pkEttdLuaJh_kk-pne8o8369U" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="480" data-original-width="857" height="204" src="https://blogger.googleusercontent.com/img/a/AVvXsEhsMnhgobsOo2-OMOba0xZP7XPzd2lfdCrHG1JAuJecO7Ze4qlbBTZrZLgbTWpSxhjxURQEbIi9GSsUrTofuqV9Bk-knL8Wye2MCIzCJvYi-oYXr7XEy9-ev40GT58Ks4Nxc2UZhvLt2tq2MK7juRoYC-qg_65cTVIZ78pkEttdLuaJh_kk-pne8o8369U=w365-h204" width="365"></a>
+</div>
+<br><br>
+</div>
+<div>
+<br>
+</div>
+<div>
+To these three steps, we (at Industrial Logic) added a fourth and final step.&nbsp; Others may also have independently added this 4th step, I don’t know.
+</div>
+<div>
+<br>
+<ol style="text-align: left;">
+<li>
+<b>Write a test that does not pass,</b> and in fact cannot pass, because the functionality it describes does not exist.&nbsp; This failing test is the <span style="color: #990000;">RED</span> step, so-called because test-running programs generally produce the results of a failed test run colored red.
+</li>
+<li>
+<b>Write the code that passes the test.</b>&nbsp; When the test passes, it is typical that the test-running program will present the results colored green, so this is often called the <span style="color: #38761d;">GREEN</span> step. The code may not be optimal or beautiful, but it does (only) the thing the test(s) require it to do.
+</li>
+<li>
+<b>Refactor the code and test </b>so that both are readable, well-structured, clean, simple, and basically full of <a href="https://www.industriallogic.com/blog/code-virtues-explained/">virtue</a> (so far).&nbsp; Refactoring requires the presence of tests, so this way we can refactor as soon as the code passes the tests, rather than waiting until after all the code for our feature/story/task is finished. We refactor very frequently.
+</li>
+<li>
+<b>Integrate</b>&nbsp;with the code base. This will include <i>at least</i>&nbsp;making a local commit. Most likely it will be a local comment and also a pull from the main branch (preferably <span style="font-family: courier;">git pull -r</span>). More than half the time, it also includes a push to the shared branch so everyone else can benefit from our changes and detect any integration issues early.
+</li>
+</ol>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+&nbsp;We repeat this cycle for the next test. The whole cycle may repeat 4-10 times an hour.
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+We do 1-2-3-4-1-2-3-1-2-3-4, we do not do 111111111-222222222-44444-(maybe someday)333.&nbsp; These are not batched.
+</div>
+<div>
+<br>
+</div>
+<h3 style="text-align: left;" class="anchored">
+Was It A Misunderstanding of the List Method?
+</h3>
+<div>
+Some people misunderstood Kent Beck’s <i>List Method</i>, in which you begin with a step 0 of writing down a list of the tests you think you will need to pass for your change to be successful (see the screen shot and link to Kent Beck’s article).&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Note that you only make a list of tests. You do not write them all in code.
+</div>
+<div>
+<br>
+</div>
+<div>
+As you enter the TDD cycle, you take a test from the list. That may be the first test, the easiest test, the most essential test, or the most architecturally significant test. You follow the 4-step (or 3-step) dance as above.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+If you realize a test is unnecessary, you scratch it off the list. Don’t write tests if the functionality they describe is already covered by an existing test.
+</div>
+<div>
+<br>
+</div>
+<div>
+As you make discoveries, you add new tests to the list. That discovery may lead you to scratch some unwritten tests off the list. That’s normal.
+</div>
+<div>
+<br>
+</div>
+<div>
+Eventually, you will note that all the tests on your list have been scratched out. Either you implemented them, or you realized they’re unnecessary. This applies to the tests you discovered as well as the original list.
+</div>
+<div>
+<br>
+</div>
+<div>
+You’ve done everything you can think of doing that is relevant to this task, so you must be done. This is doubly true if you have a partner also thinking with you, or even more certain if you have a whole ensemble cast working with you.
+</div>
+<div>
+<br>
+</div>
+<div>
+You never had to predict the full implementation of the features and write tests against that speculative future state.
+</div>
+<div>
+<br>
+</div>
+<div>
+It’s a tight inner cycle, not a series of batches.
+</div>
+<div>
+<br>
+</div>
+<h3 style="text-align: left;" class="anchored">
+Do I disagree with the article, then?
+</h3>
+<div>
+<br>
+</div>
+<div>
+Indeed, the “write all tests first” would only work for the most trivial and contrived practice example. It would never suffice in real work where <a href="https://agileotter.blogspot.com/2014/09/programming-is-mostly-thinking.html">11/12ths of what we do is learning</a>, reading, and thinking.
+</div>
+<div>
+<br>
+</div>
+<div>
+As far as the process being unworkable, I totally agree.
+</div>
+<div>
+<br>
+</div>
+<div>
+As far as that process being TDD, I totally disagree.&nbsp;<br><br>That characterization of TDD is fundamentally wrong.
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+
+
+
+ ]]></description>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2024-01-15-fundamentally-wrong.html</guid>
+  <pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Python Listicle!</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2024-01-05-python-listicle.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div>
+People often ask me (directly, or just generally posting to some social site) how they can learn Python quickly.&nbsp;&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Learning Python is one of those things where one can begin quite easily and quickly, but there is some depth to the language that one will want to understand and use once one gets past the most elementary early uses.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+<div>
+If you are learning from tutorials, you might want to follow along in a REPL. You can try running Python locally (see <a href="https://en.wikipedia.org/wiki/IPython">ipython</a> and/or&nbsp;<a href="https://bpython-interpreter.org/">bpython</a>), as a <a href="https://jupyter.org/">Jupyter</a> notebook, or in&nbsp;<a href="https://replit.com/">Repl.it</a>&nbsp;if you want to keep your local machine Python-free for the time being).
+</div>
+<div>
+<br>
+</div>
+</div>
+<div style="text-align: left;">
+You will probably want to install an IDE, though. There are many<a href="https://www.simplilearn.com/tutorials/python-tutorial/python-ide">&nbsp;<span>Python IDEs and Editors</span></a>&nbsp;in the world, but&nbsp;<a href="https://www.jetbrains.com/pycharm/">PyCharm</a> is the king of them all. Nothing else even comes close.
+</div>
+<div>
+<br>
+</div>
+<div>
+So, here are some great places to start:
+</div>
+<div>
+<ul style="text-align: left;">
+<li>
+<a href="https://learnxinyminutes.com/docs/python/">Learn X In Y Minutes</a>&nbsp;is great for <b>experienced</b> developers who are unfamiliar with the syntax and idioms of Python. It’s all learn-by-example and is highly recommended for programmers who are exploring Python for the first time.
+</li>
+<li>
+For <b>less experienced</b> developers, consider the official&nbsp;<a href="https://wiki.python.org/moin/BeginnersGuide">Beginner’s Guide</a>&nbsp;or the&nbsp;<a href="https://www.w3schools.com/python/default.asp">W3 Schools</a>&nbsp;tutorial first.
+</li>
+<li>
+Regardless of your level, you will want to bookmark the&nbsp;<a href="https://docs.python.org/3/index.html">Official Docs</a>&nbsp;which include r<b>eference material and tutorial material.</b>
+</li>
+<li>
+You will get a lot of <b>good tips and deeper lessons</b> from&nbsp;<a href="https://www.youtube.com/@ArjanCodes">Arjan Codes</a>&nbsp;on YouTube, or the many excellent lessons at&nbsp;<a href="https://realpython.com/">Real Python</a>. This is true whether you are an expert, intermediate, or beginner. There is a lot of content to explore, so don’t try to take it all in over the course of a weekday.
+</li>
+<li>
+A language without a great <b>standard library</b> is just a syntax. The Python&nbsp;<a href="https://pymotw.com/3/">Module of the Week</a>&nbsp;gives some of the best in-depth exposition you can find. Definitely spend time there!
+</li>
+<li>
+The Python community has created so many<b> additional libraries </b>at <a href="https://pypi.org/">The Python Package Index</a>. Here you can search, research, and learn about the many frameworks and libraries that make Python the best choice for so many jobs in real-world applications.
+</li>
+<li>
+Every feature you’ll use started as one of the&nbsp;<a href="https://peps.python.org/">Python Enhancement Proposals (PEPs)</a>. Python PEPs are to Python what the RFPs are for the internet and the worldwide web.&nbsp; If you need to deeply understand a feature’s purpose and intention, this is the place to go.
+</li>
+<li>
+<a href="https://docs.python.org/3/whatsnew/index.html">What’s New In Python</a>&nbsp;is a crucial resource for experienced developers to <b>keep up with change</b>s in the language. Besides being a bullet list of new features, there’s some very good expository writing there and links to the relevant PEPs.
+</li>
+</ul>
+</div>
+<div>
+<br>
+</div>
+<div>
+That is a lot, I know, but if you choose one of these resources according to your needs at the moment, I think you will be well satisfied.&nbsp;
+</div>
+
+
+
+ ]]></description>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2024-01-05-python-listicle.html</guid>
+  <pubDate>Fri, 05 Jan 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Leadership.</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2023-12-20-leadership.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>
+&nbsp;<span style="background-color: white; color: #050505; font-family: inherit; font-size: 15px; white-space-collapse: preserve;">I have this very simple/simplistic view on leadership.</span>
+</p>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a" style="background-color: white; color: #050505; font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;.SFNSText-Regular&quot;, sans-serif; font-size: 15px; margin: 0.5em 0px 0px; overflow-wrap: break-word; white-space-collapse: preserve;">
+<div dir="auto" style="font-family: inherit;">
+People will become a follower if:
+</div>
+<div dir="auto" style="font-family: inherit;">
+<ol type="a">
+<li>They believe the person is competent
+</li></ol></div>
+<div dir="auto" style="font-family: inherit;">
+<ol start="2" type="a">
+<li>They will personally benefit from that person’s competence
+</li></ol></div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a" style="background-color: white; color: #050505; font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;.SFNSText-Regular&quot;, sans-serif; font-size: 15px; margin: 0.5em 0px 0px; overflow-wrap: break-word; white-space-collapse: preserve;">
+<div dir="auto" style="font-family: inherit;">
+<span style="font-family: inherit;"><a style="color: #385898; cursor: pointer; font-family: inherit;" tabindex="-1"></a></span>Whether it’s a minister, a businessperson, a writer, a local organizer, or a criminal doesn’t matter all that much.
+</div>
+<div dir="auto" style="font-family: inherit;">
+<br>
+</div>
+<div dir="auto" style="font-family: inherit;">
+We like to impart character and integrity to our leaders, and we like to pretend that we chose them because of their superior traits, but it<span style="font-family: inherit;"> doesn’t matter as much as we would like to pretend. If those were really the criteria, we would never fall for con men and tricksters. </span>
+</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a" style="background-color: white; color: #050505; font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;.SFNSText-Regular&quot;, sans-serif; font-size: 15px; margin: 0.5em 0px 0px; overflow-wrap: break-word; white-space-collapse: preserve;">
+<div dir="auto" style="font-family: inherit;">
+Remember. that people followed some pretty unsavory characters in the past and many do now.
+</div>
+<div dir="auto" style="font-family: inherit;">
+<br>
+</div>
+<div dir="auto" style="font-family: inherit;">
+I had to chew on this for years, because people can be radical followers of some pretty awful characters. Why would they be so blind to the character of their heroes?
+</div>
+<div dir="auto" style="font-family: inherit;">
+<br>
+</div>
+<div dir="auto" style="font-family: inherit;">
+It seems consistent now if one focuses on two factors.
+</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a" style="background-color: white; color: #050505; font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;.SFNSText-Regular&quot;, sans-serif; font-size: 15px; margin: 0.5em 0px 0px; overflow-wrap: break-word; white-space-collapse: preserve;">
+<div dir="auto" style="font-family: inherit;">
+The perceptions don’t even have to be correct. Sometimes confidence masquerades as competence. In politics, business, religion, or social life the bombastic and dynamic personality is often chosen over the quietly competent because <i>confidence looks like competence</i> to the outsider.
+</div>
+<div dir="auto" style="font-family: inherit;">
+<br>
+</div>
+<div dir="auto" style="font-family: inherit;">
+Some people speak with such conviction that others are tricked into believing they know what they’re talking about.
+</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a" style="background-color: white; color: #050505; font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;.SFNSText-Regular&quot;, sans-serif; font-size: 15px; margin: 0.5em 0px 0px; overflow-wrap: break-word; white-space-collapse: preserve;">
+<div dir="auto" style="font-family: inherit;">
+It always comes down to people “backing the winner” - the good/bad guy who is “on our side” and who is aligned with our interests. They’re “going to win” so we want to be on their side, and benefit from that support.
+</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a" style="background-color: white; color: #050505; font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;.SFNSText-Regular&quot;, sans-serif; font-size: 15px; margin: 0.5em 0px 0px; overflow-wrap: break-word; white-space-collapse: preserve;">
+<div dir="auto" style="font-family: inherit;">
+Their competence will benefit us, so they’re the “good guy.”
+</div>
+</div>
+<div class="x11i5rnm xat24cr x1mh8g0r x1vvkbs xtlvy1s x126k92a" style="background-color: white; color: #050505; font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;.SFNSText-Regular&quot;, sans-serif; font-size: 15px; margin: 0.5em 0px 0px; overflow-wrap: break-word; white-space-collapse: preserve;">
+<div dir="auto" style="font-family: inherit;">
+That draws followers.
+</div>
+<div dir="auto" style="font-family: inherit;">
+
+</div>
+<div dir="auto" style="font-family: inherit;">
+It defines leaders.
+</div>
+</div>
+
+ ]]></description>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2023-12-20-leadership.html</guid>
+  <pubDate>Wed, 20 Dec 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Choose your Expression: Structural Matching, IF-ELSE, and Dictionaries</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2023-11-22-choose-your-expression-structural.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>
+&nbsp;So, I have a command line utility that collects and presents some time-series data.<br><br>What it is isn’t important, but dates are involved.
+</p>
+<p>
+You can specify start dates and/or end dates with options <span style="font-family: courier;">–after</span> and <span style="font-family: courier;">–until</span>.&nbsp; If you specify neither, you get everything.
+</p>
+<p>
+This programming idea is not so interesting on its own, and I have multiple expressions that all work just fine. It’s not a programming puzzle I am here to present.
+</p>
+<p>
+Instead, I’m curious about which version speaks to you, which teaches you, which repulses you.&nbsp;<br>
+</p>
+<p>
+More than that, I’m interested in WHY.&nbsp;
+</p>
+<p>
+Here is an if-the-else version:<br><br>
+</p>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/a/AVvXsEiBbDAYRaE5v7AAjvyle1-35i6UQbYPOqprLqFdj41jBkPCEZVuhJ1d3pSXAgZJhlZqLJ9zDuaGNYv2nDwLDyz0BBawsIca_k_lt2YBA72Ht_wGKVyiCkwdC0gNDXglmldkKBxX_gPwVc3xXf5RS0mQU0OpmuFqTOi2TyITWH80QawduyV_1YNpc-vX0NY" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="378" data-original-width="1592" height="169" src="https://blogger.googleusercontent.com/img/a/AVvXsEiBbDAYRaE5v7AAjvyle1-35i6UQbYPOqprLqFdj41jBkPCEZVuhJ1d3pSXAgZJhlZqLJ9zDuaGNYv2nDwLDyz0BBawsIca_k_lt2YBA72Ht_wGKVyiCkwdC0gNDXglmldkKBxX_gPwVc3xXf5RS0mQU0OpmuFqTOi2TyITWH80QawduyV_1YNpc-vX0NY=w623-h169" width="623"></a>
+</div>
+<p>
+</p>
+<p>
+<br>
+</p>
+<p>
+Here is a similar version using a dictionary:
+</p>
+<p>
+</p>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/a/AVvXsEgFjp_0m4eH-GlbHD4dBtmUCOqoLd8D8RlhGORPqvVwRNCwPqXb8SIzr7bcR7oQC2WV-s6FxkTgF9UzyTp-6LFL1pqYUwyc3Su4hVe2BW7MMP8TZtH9HiTPHUYYmvB2qQCtqA7Azo9ARyk8Tzzx5RetJuOuSwil77hZHAiblJDuw8XJpAj-K3Bpg3bBldQ" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="436" data-original-width="1502" height="213" src="https://blogger.googleusercontent.com/img/a/AVvXsEgFjp_0m4eH-GlbHD4dBtmUCOqoLd8D8RlhGORPqvVwRNCwPqXb8SIzr7bcR7oQC2WV-s6FxkTgF9UzyTp-6LFL1pqYUwyc3Su4hVe2BW7MMP8TZtH9HiTPHUYYmvB2qQCtqA7Azo9ARyk8Tzzx5RetJuOuSwil77hZHAiblJDuw8XJpAj-K3Bpg3bBldQ=w734-h213" width="734"></a>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<br>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<br>
+</div>
+And one that uses structural matching:
+<p>
+</p>
+<p>
+</p>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/a/AVvXsEiOonfDqA0vmxNpJbKW1VYeIB26ZFfqM9rzGciMkAL04k7zU1nS9480WLzD77X593uUruEix_TFCh0Oc0ys9e67rUUeWVuGfL3duU7An3qtyuam7thqo4aMwNZJlZ2_h6N-XIDnhK7FY1SPfM_qhClX4Hf_xi4eXn1zVcN2gl-laK21mC5nH4db4_ykUCY" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="492" data-original-width="1428" height="232" src="https://blogger.googleusercontent.com/img/a/AVvXsEiOonfDqA0vmxNpJbKW1VYeIB26ZFfqM9rzGciMkAL04k7zU1nS9480WLzD77X593uUruEix_TFCh0Oc0ys9e67rUUeWVuGfL3duU7An3qtyuam7thqo4aMwNZJlZ2_h6N-XIDnhK7FY1SPfM_qhClX4Hf_xi4eXn1zVcN2gl-laK21mC5nH4db4_ykUCY=w674-h232" width="674"></a>
+</div>
+<br><br>
+<p>
+</p>
+<p>
+Some people will naturally prefer if/else for the simple reason of familiarity. They see a lot of if/then/else logic, and so there isn’t much to learn or think about. They may call it “simpler’ but it is not.&nbsp;
+</p>
+<p>
+The dictionary version has more parts, but they’re very simple parts, and all the actual work is done in the first and last sentence.&nbsp;
+</p>
+<p>
+The structural matching is using newer syntax, and is both less verbose than the if/else and more verbose than the dictionary version.
+</p>
+<p>
+Which strikes you as the most valuable expression of the idea?&nbsp;
+</p>
+<p>
+Which would you rather write?
+</p>
+<p>
+Which would you rather edit?
+</p>
+<p>
+Which would you rather test?&nbsp;
+</p>
+<p>
+What is your reasoning behind the appeal of your chosen method (pun intended).
+</p>
+<p>
+<br>
+</p>
+<p>
+<br><br>
+</p>
+
+
+
+ ]]></description>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2023-11-22-choose-your-expression-structural.html</guid>
+  <pubDate>Wed, 22 Nov 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>CSS Specificity Rundown</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2023-08-30-css-specificity-rundown.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>
+&nbsp;CSS really is fun.&nbsp;<br><br>No, seriously. I’m not being sarcastic here.&nbsp;
+</p>
+<p>
+Even though I’ve been in software a long, long, long time, I hadn’t really studied CSS before last year (shocking, I know) and so I’ve been behind in my training.&nbsp;
+</p>
+<p>
+I had an opportunity to dive in more, and all was going well until I started playing with media queries and ran into a specificity problem that wasn’t so obvious (to me, though it may have been to you).
+</p>
+<p>
+So, to help people who are treading the same path, here are some aids on specificity:
+</p>
+<p>
+<br>
+</p>
+<p>
+</p><ul>
+<li><a href="https://www.w3schools.com/css/css_specificity.asp">W3 Schools</a> has a fun “try it and learn” approach to general CSS Specificity
+<p></p>
+<p>
+</p><ul>
+<li>Saucelabs specifically breaks down <a href="https://saucelabs.com/resources/blog/css-breakpoints-media-query-breakpoints-responsive-design">specificity and media queries</a>
+<p></p>
+<p>
+</p><ul>
+<li>Halodoc provides some <a href="https://blogs.halodoc.io/best-practices-that-we-follow-to-avoid-specificity-issues/">best practices</a>&nbsp;to avoid troubles.
+<p></p>
+<p>
+</p><ul>
+<li>Specificity with Darth Vader and Stormtroopers and stuff at <a href="https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/">smashing magazine.</a>
+<p></p>
+<p>
+<br>
+</p>
+<p>
+These should get you past the worst of your troubles nicely. If you do get stuck, then it’s always nice to experiment with a local HTML/CSS document or maybe fire up a <a href="http://REPL.IT">REPL.IT</a> instance for HTML, CSS, and JS. It’s all fun.
+</p>
+<p>
+PS: Because we need it so often, here is a <a href="https://www.456bereastreet.com/archive/200509/css_21_selectors_part_1/">CSS Selector Cheat Sheet.</a>
+</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+
+ ]]></description>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2023-08-30-css-specificity-rundown.html</guid>
+  <pubDate>Tue, 29 Aug 2023 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Code Smells Listicle</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2022-04-06-code-smells-listicle.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>
+&nbsp;After many times looking up various resources on code smells and code smell taxonomies, I finally decided to make a listicle (list article) of these.&nbsp;
+</p>
+<p>
+Enjoy:<br><br>
+</p>
+<ul style="text-align: left;">
+<li>
+Industrial Logic’s <a href="https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&amp;album=recognizingSmells&amp;devLanguage=Java">Code Smells</a> album is carefully curated and deftly explained. A winner.
+</li>
+<li>
+Industrial Logic also has a <a href="https://www.industriallogic.com/blog/smells-to-refactorings-cheatsheet/">cheat sheet</a> for code smells (recommended)
+</li>
+<li>
+The <a href="https://wiki.c2.com/?CodeSmell">OG</a>
+</li>
+<li>
+Wikipedia’s <a href="https://en.wikipedia.org/wiki/Code_smell">extensive listing</a>
+</li>
+<li>
+A nice taxonomy at <a href="https://blog.codinghorror.com/code-smells/">Coding Horror</a>
+</li>
+<li>
+A nice writeup at <a href="https://refactoring.guru/refactoring/smells">Refactoring Guru</a>
+</li>
+<li>
+The <a href="https://sammancoaching.org/reference/code_smells/index.html">Samman Coaching List </a>has nice descriptions.
+</li>
+<li>
+There is a longish<a href="https://deviq.com/antipatterns/code-smells"> list without explanations</a> at DevIQ, as a jumping off point for many interesting web searches.
+</li>
+<li>
+<a href="https://www.youtube.com/@ArjanCodes">Arjan Codes</a> (a nice channel, recommended) has a video introduction to <a href="https://www.youtube.com/watch?v=LrtnLEkOwFE">Python Code Smells.</a>
+</li>
+</ul>
+<div>
+On the “positive” side of the ledger, we also have virtues:
+</div>
+<div>
+<ul style="text-align: left;">
+<li>
+The original<a href="https://medium.com/pragmatic-programmers/how-virtuous-is-your-code-c3d1a587babf"> Code Virtues</a> article from Pragmatic Programmers, republished at Medium.
+</li>
+<li>
+The <a href="https://www.industriallogic.com/blog/code-virtues-explained/">explainer article</a> (feel free to start here) at Industrial Logic.
+</li>
+</ul>
+</div>
+<p>
+</p>
+
+
+
+ ]]></description>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2022-04-06-code-smells-listicle.html</guid>
+  <pubDate>Tue, 05 Apr 2022 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>What does Tim have against “private” methods?</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2022-03-14-what-does-tim-have-against-private.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>
+&nbsp;A big thread erupted, all full of misunderstandings and miscommunications, about the idea of “private” methods.&nbsp;
+</p>
+<p>
+It all started quite innocently (I maintain) when someone asked how we felt about testing private methods. Some people jumped in with “Absolutely Not! Never! That’s wrong! Test via public interfaces.”<br><br>I thought a little longer, and said “I’m not sure” and then later “I’m not sure that ‘private’ is even needed.”
+</p>
+<p>
+This is where the problems started, and maybe here I can clarify what I meant by it all.&nbsp;
+</p>
+<p>
+People assume (and insist) that I could only possibly mean that they should substitute ‘public’ for all protected and private members, polluting the interface, and inviting the violation of a class’ internal state.&nbsp;
+</p>
+<p>
+That was never my intention and still isn’t. Still, this is what people insist that I must have meant from the start. I suppose this is because that’s what they imagined me to mean and it’s hard to admit that you’re wrong, or perhaps because this is social media so people never miss an opportunity to double-down and pile on if at all possible. It’s like a sport.&nbsp;<br><br>It’s also entirely possible that I didn’t communicate well at all in short tweets. Maybe that’s all on me. I can’t say.
+</p>
+<p>
+Well, you’ve come this far, so let’s see if I can’t communicate better in blog than in twitter, since I can write in peace without people accusing me of meaning the wrong thing while I try to explain what I actually mean.<br><br>If I’ve managed to make sense with this post, let me know.&nbsp;
+</p>
+<p>
+If I’ve not, the forum is open for clarifying questions below.
+</p>
+<h2 style="text-align: left;" class="anchored">
+Autocomplete is a big deal.
+</h2>
+<p>
+The good thing about ‘private’ and ‘protected’ – the thing that actually makes programming easier/better, is that the<b><i> methods aren’t offered by auto-complete</i></b>. The idea of locking people out of calling the method? Not even remotely a second-degree concern.
+</p>
+<p>
+People program by autocomplete. You type the name of a thing, press the dot, and you get a list of things you can do. You may never look at the documentation, or read the example code, but you will see the autocomplete hundreds of times a day.
+</p>
+<p>
+When you want to disable an account, there is likely to be a ‘disable’ method attached to an account. You choose that method, run the tests, ship it. That’s how you normally will navigate.<br>
+</p>
+<p>
+When you don’t see a method you want, you might pop up a level and use the module or some management API interface. Again, you type the name and a dot, and you look for ‘disable’ in the recommended names.&nbsp;
+</p>
+<p>
+Private and Protected are two of the ways to keep functions out of that list, and if they’re not in the list, you’re not likely to even consider calling them.
+</p>
+<h2 style="text-align: left;" class="anchored">
+Arbitrarily Located Functions
+</h2>
+<div>
+A developer is implementing a class and realizes that they need to compare date ranges. They write that up, drop it into a private method, and all is well.
+</div>
+<div>
+<br>
+</div>
+<div>
+Or is it?&nbsp;<br><br>
+</div>
+<div>
+Why is <i>that </i>method located in <i>this</i>&nbsp;class? Does it have high cohesion? No.&nbsp;Does it support the purpose of this class directly? No.&nbsp;<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+Why then? Because this class calls the function, and this is the file I was editing when I wrote the function.
+</div>
+<div>
+<br>
+</div>
+<div>
+In other words, the function doesn’t belong here according to any rule of design, but it wasn’t found anywhere else either. The developer drops it into the class with ‘private’ and moves on.
+</div>
+<div>
+<br>
+</div>
+<div>
+What I’ve found is that often the private methods in one class are repeatedly reinvented in private methods of other classes. Sometimes they’re even copied and pasted directly from one class to another.
+</div>
+<div>
+<br>
+</div>
+<div>
+Why? Because this is the class they had open in the editor when they realized they needed the function, and it’s not available for calling because it’s private in the other class.&nbsp; So they copied it.
+</div>
+<div>
+<br>
+</div>
+<div>
+Arbitrarily located functions, hidden from view, repeated by invention and copying, likely hiding the opportunity for Single Point Of Truth (SPOT) abstractions and libraries that would make everyone’s job a little easier.<br><br>This isn’t a rare occurrence.&nbsp;<br><br>By being hidden and arbitrarily located, they invite duplication and reinvention.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<h2 style="text-align: left;" class="anchored">
+Testability of Private Methods? None
+</h2>
+<p>
+When we talk about testing private methods, it’s a non-starter. If you put the word ‘private’ on the front of a method in most languages, you cannot call that method from a test. That means you can’t possibly test private methods.
+</p>
+<p>
+Okay, there is a way, but it involves reflection and that’s an obscenity. If you ever use reflection to crack into some legacy code and test hidden methods, make sure you remove that hack as soon as humanly possible (or sooner) because it’s a travesty. It’s awful. It will fail you if the method is renamed or moved. Reflection is generally a bad idea, and I wouldn’t do that (much, or for long).
+</p>
+<p>
+If you are doing TDD (and why wouldn’t you?) you test the public methods, and if they’re using private methods then the private methods are being exercised. If you have meaningful tests and assertions, then the private methods are being tested through the public interface and that’s probably okay.
+</p>
+<p>
+If you’re not doing TDD (and why not?) then you may not have code that tests all the private behaviors. You may have to read all the code in order to exercise it properly, which is a pain.
+</p>
+<p>
+If you’re doing test-after development (but why?) you’ve written the code and now you have to write tests around it. Every private method is a called from some public method and you’re going to have to figure out how to get down into that private method code and recognize if it’s working correctly or not.
+</p>
+<p>
+By being private, those methods have cut off the easiest route to testability – calling the method directly.
+</p>
+<p>
+<br>
+</p>
+<h2 style="text-align: left;" class="anchored">
+Should You Test Implementation?
+</h2>
+<p>
+You should: implementation is how code behaves and you have to test behavior.
+</p>
+<p>
+There are caveats here:
+</p>
+<p>
+</p>
+<ul style="text-align: left;">
+<li>
+If you’re structure-aware in your tests, they’ll resist structural refactoring
+</li>
+<li>
+If you’re time-sequence-aware in your tests, they’ll resist time-order refactoring
+</li>
+<li>
+If you’re using reflection, you’re poisoning our future and must be stopped (half-grin)
+</li>
+</ul>
+<p style="text-align: left;">
+There are rules, of course. You don’t lock down things that you want to change, and you don’t leave unspoken the things that must be true. Your tests specify how your world behaves at a certain level.
+</p>
+<p style="text-align: left;">
+Sometimes that’s too high a level and there are mini-behaviors you need to check too.
+</p>
+<p style="text-align: left;">
+I’ve seen cases where testing only at the interface required hundreds of tests, but testing at the internal level requires barely a dozen. This is because at the higher level, you need all the combinations of all the paths of all the subordinate functions. At lower levels, you need one for each path in a function.
+</p>
+<p style="text-align: left;">
+High-level end-to-end and integration tests take a long time to run, and microtests are cheap and fast.
+</p>
+<p style="text-align: left;">
+We tend to do microtesting (or unit testing) so that we can afford to run the tests in a tight TDD cycle.&nbsp;
+</p>
+<p style="text-align: left;">
+To argue against testing implementation functions is to argue against unit testing and microtesting on principle.
+</p>
+<p style="text-align: left;">
+If you should only use the most-public interface, then shouldn’t you only test at the UI level? Yeah, this is not a good idea.&nbsp;
+</p>
+<p style="text-align: left;">
+So how can we get at the lower-level functions? If they’re all private, we can’t but it is totally possible if they are public methods on lower-level classes that are composed (“encapsulated”) by the API classes.&nbsp;
+</p>
+<p style="text-align: left;">
+<br>
+</p>
+<h2 style="text-align: left;" class="anchored">
+Interfaces and Implementations
+</h2>
+<p style="text-align: left;">
+In many languages, you can declare a public interface, and that interface can be implemented by other classes.
+</p>
+<p style="text-align: left;">
+It’s accepted that one should always program to the interface in those languages. This way, one can only use the declared, public interface of the implementations. This keeps the implementations substitutable (via Liskov Substitution Principle).&nbsp;
+</p>
+<p style="text-align: left;">
+Non-interface methods of the implementers are <i>already hidden</i>: callers have no access to them via the interface.&nbsp;
+</p>
+<p style="text-align: left;">
+If you’re using the interface, and you press the dot, then only methods in the public interface are presented. The other methods of the implementer may as well not exist, because they are not available here.
+</p>
+<p style="text-align: left;">
+If you have segregated interfaces, this is even nicer. It may be that two or three public interfaces are the right way to think and design interactions, but combining a few of those interfaces together is the better way to implement the behaviors. No user of one interface has any awareness that the other interfaces exist on the object, nor of the public methods of the other interfaces, nor any of the public methods of the implementers.
+</p>
+<p style="text-align: left;">
+In order to reach the public methods of the implementer, a caller would have to <i><b>down-cast</b></i> from the interface to the implementation (a no-no that justifies a sharp crack across the knuckles with a yardstick) in order to even know that other methods exist.&nbsp;
+</p>
+<p style="text-align: left;">
+This is convenient. This means that all methods of the implementers can be public without exposing those methods to callers.&nbsp; Since they’re public, you can write tests directly against them. Because the implementation is being tested also through the interface, it’s easy to ensure that it behaves as a whole implementation.
+</p>
+<p style="text-align: left;">
+Why not make them private? Because it’s redundant and limits testing.&nbsp;
+</p>
+<p style="text-align: left;">
+Without polluting the public interface, one has a fully open and testable class.
+</p>
+<p style="text-align: left;">
+<br>
+</p>
+<h2 style="text-align: left;" class="anchored">
+Thinking a little more deeply
+</h2>
+<div>
+Private methods, when we choose to use them, may signal a need for us to think more deeply about our situation and strategies.
+</div>
+<p>
+</p>
+<ol style="text-align: left;">
+<li>
+<b>In a Rat’s Nest:</b><br>sometimes people are doing test-last (after coding) and they have a complex method. You shouldn’t have big, complex methods if you have any other choice. To try to manage the complexity, they may extract some private methods.<br>In order to test through the API, you have to navigate the rat’s nest. You will have to set up deep data structures and some combination of boolean conditions that will allow you to get to the private method’s function call, and then to exercise the code inside that method.<br>It’s easier to make the method’s access less restricted and test it directly than to have dozens of long and complicated tests. Perhaps package-public, perhaps protected so you can cheat with inherit-to-expose.&nbsp;<br>It’s better to test the code easily than to write awful, fragile, internals-aware tests.
+</li>
+<li>
+<b>Missed Abstractions</b><br>Where one class has a bunch of private methods, often there is some cohesion between those methods. If one were to set the private methods side-by-side, one might recognize that there have been missed abstractions.<br>Maybe some of the methods are generic string, date, or math functions. These could be public methods in a utility package or more-primitive type. If you move them to the “right” place, they can be fully testable and can be reused within the codebase. They would not be public methods of the class you’re working on.<br>Perhaps some of those represent a lower-level concept that is munged into the current class. If they were pulled out, they could become testable, public methods on the new class. They would still not appear in the public interface of the class you’re working on.<br>
+</li>
+<li>
+<b>In Languages without Private</b><br>In Python, smalltalk, and similar languages there’s no ‘private’ and we’ve been okay with that for a long time (since the 70s for Smalltalk).&nbsp;<br>While people say that encapsulation is a core feature of OOD (and it is) it isn’t the “private” keyword that causes encapsulation. It’s done via composition.<br>In a Python module, you can choose what classes you expose and which you don’t. You have a class with a public API, which is composed of classes/functions that aren’t part of the public API. They’re tested directly within the module and don’t have a “private” keyword associated with them. They might not have underscore-decorated names or any other semblance of access protections.&nbsp;<br>
+</li>
+<li>
+<b>Other APIs</b><br>In any language, the Model class or the API class may have a simple interface into the module (as described above) but the module may have a lot of complicated functions and logic divided into multiple classes and functions.&nbsp;<br>The model class doesn’t have any ‘private’ methods at all - it just calls the public methods of other classes in the module. Those classes have copious tests and may not have any methods declared Private or Protected, because only the API and tests call those methods - they’re not visible to the outside world (protection from <a href="https://www.hyrumslaw.com/">Hyrum’s Law</a>)<br>
+</li>
+</ol>
+<h2 style="text-align: left;" class="anchored">
+So What Do You Do Instead
+</h2>
+<div>
+<ul style="text-align: left;">
+<li>
+<b>Don’t pollute the public interface of a class with private methods.</b> If you simply flip the <b>private</b> methods to be <b>public</b>, you’ll lose understandability of the interface and create unwanted dependencies. This is what I recommend <b>not</b>&nbsp;doing. Keep interfaces clear and clean.
+</li>
+<li>
+<b>Move your methods </b>to the places where they belong (where they have cohesion) and can be easily found by others.
+</li>
+<li>
+<b>Try not to need private methods</b>. They should be rare. Remember, many OO languages don’t even have the concept of <i>private</i>&nbsp;and they’re just fine without them.
+</li>
+<li>
+in some legacy code test-after situations, <b>you might raise accessibility of a method to public</b>, protected, or module-private in order to support refactoring via better tests (in the short term)
+</li>
+<li>
+Consider<b> using encapsulation properly</b>: by composing behaviors under an API, rather than by housing all behaviors in the API’s class.
+</li>
+<li>
+In some languages, you have ‘interface’ or ‘protocol’ classes that <b>declare an interface to use</b>. Do that when there is a clear public interface.&nbsp;
+</li>
+</ul>
+<div>
+And, of course, I would be remiss if I didn’t admit that I do sometimes create private methods. I try not to, and when I find a better way than settling on private, I am usually happier.&nbsp; I sometimes leave a little cruft like private methods until I have more information and can see a better design form; it may take weeks or months.&nbsp;<br><br>So yeah, there are private methods in my code. I just don’t see that as “good coding” and a “solution.” It’s temporary.
+</div>
+</div>
+<p>
+</p>
+
+
+
+ ]]></description>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2022-03-14-what-does-tim-have-against-private.html</guid>
+  <pubDate>Mon, 14 Mar 2022 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
