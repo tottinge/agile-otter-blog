@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2014-01-23">
+
+<title>Bug Teams v. The Nature Of Defects – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo light-content">
+    <img src="../assets/agile-otter-logo.png" alt="Agile Otter" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Bug Teams v. The Nature Of Defects</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">pair programming</div>
+    <div class="quarto-category">teams</div>
+    <div class="quarto-category">management</div>
+    <div class="quarto-category">defects</div>
+    <div class="quarto-category">decisions</div>
+    <div class="quarto-category">learning</div>
+    <div class="quarto-category">thinking</div>
+    <div class="quarto-category">programming</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 23, 2014</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div dir="ltr" style="text-align: left;" data-trbidi="on">
+<h4 class="anchored">
+How it Happens
+</h4>
+You realize that you’re not getting as much done as you expected to get done. It’s troublesome because you have plans and promises and releases to deal with. You’re likely to end up the scapegoat when your behind-ness snowballs into a large organization-wide issue.<br>
+<div>
+<br>
+</div>
+<div>
+You also have quality problems. Your team leads estimate that the teams are spending 70% of their effort on defect-fixing activities.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+It dawns on you that you can get back 70% of the productivity of your team if you can spin up a separate team to handle bugs! Now one team can be 100% dedicated to adding new functionality without being encumbered by bug-fixing work.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+After months, you find that the defect density has not improved from your effort. You see a ramp-up in the number of defects fixed per month as the bug team’s diagnostic and corrective skills improve, but they are still lucky to hold even against the tide of defect injection.<br> <br> Why doesn’t this work?<br> <br> What has gone wrong?&nbsp;
+</div>
+<div>
+<br>
+</div>
+<h4 class="anchored">
+Some Basis For Reasoning
+</h4>
+<div>
+Good decision-making needs good information. I call it “grist for the mill.” <br> <br> Remember:
+</div>
+<div>
+<ul>
+<li>
+Programming is not typing; it is a purely intellectual labor
+</li>
+<li>
+Code is a collection of decisions, not a collection of keystrokes.
+</li>
+<li>
+Good code is a set of decisions made <i>well</i>.
+</li>
+<li>
+A defect is a result of one or more decisions made <i>poorly</i>.
+</li>
+<li>
+Maintainability is the ability to arrive at good decisions quickly
+</li>
+<li>
+Poor code invites or limits decision-makers to compromised decision-making
+</li>
+</ul>
+<div>
+Everyone makes mistakes. There are many reasons for this, including a lack of knowledge, stress, overwork, and daily decision fatigue.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Lack of knowledge always figures into defect creation, because our domains and our systems and our features and tools are always partly new to us. After more than 30 years in the field, I’m still learning stuff all the time. Having an advanced degree even a few years ago doesn’t mean you don’t need to learn all kinds of stuff now. &nbsp;Software is perpetually new – it is the nature of the beast.<br> <br>
+</div>
+<h4 class="anchored">
+Catching Errors
+</h4>
+<div>
+Teams build an immune system into their delivery systems.<br> <br> The immune system includes alpha and beta testers, human testers, automated tests, continuous build systems, peer reviews, etc.<br> <br> Agile teams tend to have more advanced immune systems which operate continuously (which may be one reason that they work so well). They typically have automated unit tests, automated integration tests, automated acceptance tests, automated pen tests, automated performance tests, human testers integrated into every team, pair programming, frequent integration and delivery, etc. Some software immune systems are very effective at rejecting bugs.<br> <br> Manually-managed immune systems can be quite powerful and relatively effective as well.<br> <br> The Linux kernel, as I understand it (correct me if wrong) is a hybrid system involving both automated and human components. &nbsp;You see a tremendous amount of improvement and change each year, and the quality is consistently high compared to other operating system products.<br> <br> You will find quite sophisticated automated systems in companies practicing continual deployment since any change we make might make it to the live system in mere minutes or hours.
+</div>
+<div>
+<br>
+</div>
+<div>
+The automated immune system is absolutely crucial, but it only detects defects and reports them. It can’t fix them.<br> <br> The Linux kernel team, as I understand it, does a better job of reporting <i>why</i>&nbsp;a particular change is being rejected than most systems. It is also a hybrid between human and automated systems.<br> <br> Most immune systems work great, providing us meaningful data which we tally and (in most corporate environments) discard and ignore.<br> <br>
+</div>
+<h4 class="anchored">
+Random Bugs?
+</h4>
+<div>
+Defects are not random happenings, but holes in our decision-making process. If we had a perfect understanding of our technology and codebase, and the attention required to stay mindful of all aspects of our work at all times, we would make no errors.<br>
+<div>
+
+</div>
+<br> Defects come in categories. Most software defects arise because there is something that the programmer(s) or architects or product managers simply didn’t know or were not mindful of at the time.<br> <br>
+<div>
+Imagine you have trouble with C pointers. You don’t really have a good policy about who owns what block of memory, when it can be deleted, and when pointers should not be stashed. &nbsp;You will create a whole host of intermittent or puzzling errors. Your code works in limited test runs, or possibly even in demos, but the system keeps crashing!
+</div>
+<div>
+<br>
+</div>
+<div>
+Your next-door neighbor Jack doesn’t really get concurrency and deadlocking. He just copies from existing code and edits it to do new stuff. He produces a lot of code.
+</div>
+<div>
+<br>
+</div>
+<div>
+Sue has all that concurrency and pointer work down pat. She has spent years doing server-side programming, but she’s never really done web programming before. She has real issues in Javascript and HTML.
+</div>
+<div>
+<br>
+</div>
+<div>
+Your team has fifty people on it. If you look at the defects produced in a month, it seems pretty random. Sh** happens, you deal with it – you spin up a bug team to deal with “random bugs” that “just happen.”<br> <br> Our problem is that too few companies have put any serious thought into preventing defects scientifically.<br>
+<div>
+<br> One might think that defects occur at a steady pace, but they don’t. One might think that they are evenly distributed over a code base, but they’re not. One might think that they’re all different and unique like snowflakes, but they’re not.<br> <br> A little looking takes us in a different direction.
+</div>
+<br>
+<h4 class="anchored">
+Bugs Clump by Type
+</h4>
+But it is likely that a system has only a few classes of errors that repeat over and over again. You can get better at fixing them, but then your system runs in a very efficient inject-&gt;detect-&gt;correct cycle that is eating your budget and schedule.<br> <br> Fixing <i>the tendency to introduce defects</i> can’t be done by a bug team.<br> <br> Even if the feature team has your best, most productive “new code” experts, architects, and geniuses, they are the system generating the defects. &nbsp;Telling them to “be better” isn’t actionable, so demanding zero defects isn’t very effective.<br> <br> Reducing defect injection will require some design change to the system and some education for the feature team. They need to know <i>what to change</i> about how they write their code, not merely that it’s “not good enough.”<br> <br>
+<h4 class="anchored">
+Bugs Clump by File
+</h4>
+Defects are much more common in certain files. We’ve seen situations where one source file out of thousands held nearly a third of all errors reported in a two-month period. The file wasn’t newly-written, either. It was just heck to deal with.<br> <br> Version control history can tell you where your bugs are being corrected (sadly, it can’t find the ones you haven’t fixed), so if you report bug fixes as part of your commit comment you can do some data mining and find the code that most needs redesigned. This can significantly reduce the appearance of defects.<br> <br>
+<h4 class="anchored">
+Bugs Clump By Time
+</h4>
+<br> I don’t have numbers to support my theory (yet) that more defects happen at certain points in a project’s lifetime.<br> <br> I have experienced code written during the “2:30 slump” in the afternoon. I’ve seen code that was puzzling to me as I left work at 5 or 6 in the evening, only to seem obvious and easily corrected the next morning. <br> <br> I’ve seen “quick hack fixes” during hardening sprints, usually made with good intentions to “clean up later” (grep for “to do” or “clean up” in your codebase). Deferred corrections are a kind of promise debt.<br> <br> I’ve seen periods of panic drive developers into “least-thought” programming, where they produce a huge quantity of code (and defects) in a short period, only to spend the next six months/years discovering and correcting them.<br> <br> I’ve seen teams have to slip releases by months because of defects inserted while they were pushing hard to make their release.<br> <br> We like to believe that working faster and harder will give us higher productivity, but that really is an unproven belief. Nobody has done the research. We don’t know the “sweet spot,” so we don’t know whether working longer or shorter hours produces more value over time, or when the long or short hours are most beneficial.<br> <br> The timing of defects, if we would track it, would tell us a lot about how we should manage our time.<br> <br> JB Rainsberger said that if he works overtime today, he will be impaired tomorrow by being tired and frustrated. The question that remains is whether tomorrow is the right day to be impaired. It’s a fairly enlightened view of the situation.<br> <br>
+<h4 class="anchored">
+Is there a system that works?
+</h4>
+</div>
+</div>
+<div>
+<br>
+</div>
+<div>
+Feedback works.<br> <br> In our first five years of programming, we gain competence quickly <i>because</i> of our mistakes. Some errors are shallow (mistyping, syntax, etc) and others are deeper (floating point math with rounding problems) and others are deeper yet (concurrency, performance).<br> <br> In the process of fixing our mistakes, we discover we have categories of weakness. We study up on these categories or topics, and we add competence to competence.<br> <br> I have memories of getting “stuck” on a bug and digging into the man pages or books, writing experimental code, and/or pulling in a more experienced programmer to help me understand what is going on.<br> <br>
+</div>
+</div>
+<div>
+Being responsible for our code and being able to explore our mistakes helped us learn not to create defects. That system worked.<br> <br class="Apple-interchange-newline"> Later, when we become code-emitting cogs, we are often discouraged from learning activities including measuring and studying our own defect rates or code quality. I once was told, “you’re not getting paid to learn.”<br> <br>
+<h4 class="anchored">
+What I would like to try
+</h4>
+<div>
+<ul>
+<li>
+Disband the bug team right now.
+</li>
+<li>
+Give up the “random theory of bugs.” Assume all defects are meaningful.
+</li>
+<li>
+Do not punish developers for having defects, lest you squash responsibility and learning.
+</li>
+<li>
+Track bugs down to the code change where they were introduced.
+</li>
+<li>
+Involve the team that injected the defect in corrective actions.
+</li>
+<li>
+Measure the defect trends over the medium-to-long term, indefinitely.
+</li>
+<li>
+Perform experiments on closing bugs by file, by time, and by class.
+</li>
+</ul>
+<div>
+<br>
+</div>
+</div>
+</div>
+<div>
+<b>Footnote</b><br> <br> Over 25 years ago, Gerry Weinberg wrote about introspection and defects in <i>The Psychology of Computer Programming</i>. I’d like to let his words (all emphasis mine) close this blog post:<br> <br>
+<blockquote class="tr_bq blockquote">
+Now, a single case such as this contains insights into many problems in computing: <i>the proper size of statements</i>, the <i>choice of data structures</i>, the a<i>rrangement of different parts </i>of a program, the use of parentheses rather than other techniques for decomposition, the design of compiler and execution-time diagnostics, and <i>techniques for learning and teaching programming</i>. None of these insights could be obtained without introspection of this sort, yet thousands of programmers each day have these same problems and simply grumble that they are having “bugs.” <b>Without the introspection, they will simply continue to have “bugs” until, in the end, the bugs will have them</b>.
+</blockquote>
+<br>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
