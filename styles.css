@@ -1,0 +1,59 @@
+#quarto-document-content :is(h1, h2, h3, h4, h5, h6) {
+  color: #16212b;
+  font-weight: 700;
+}
+
+#quarto-document-content h1.title {
+  margin-bottom: 0.75rem;
+}
+
+#quarto-document-content h2:not(.listing-title) {
+  margin-top: 2.4rem;
+  margin-bottom: 1.2rem;
+}
+
+#quarto-document-content h3:not(.listing-title) {
+  margin-top: 1.9rem;
+  margin-bottom: 1rem;
+}
+
+#quarto-document-content :is(h4, h5, h6):not(.listing-title) {
+  margin-top: 1.6rem;
+  margin-bottom: 0.85rem;
+}
+
+#quarto-document-content blockquote {
+  background-color: #f6f8f9;
+  padding: 0.85rem 1rem;
+}
+
+#quarto-document-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+#quarto-document-content table.table {
+  margin-block: 2rem;
+}
+
+#quarto-content {
+  position: relative;
+  isolation: isolate;
+}
+
+#quarto-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("assets/agile-otter-watermark.jpg");
+  background-size: 25vw auto;
+  background-repeat: repeat;
+  opacity: 0.035;
+}
+
+@media (max-width: 700px) {
+  #quarto-content::before {
+    background-size: 50vw auto;
+  }
+}
