@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-10-18-speculative-challenges-of-spec-driven.html</loc>
+    <lastmod>2026-10-26T17:38:57.967Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-09-26-the-ticket-is-not-work.html</loc>
+    <lastmod>2026-10-26T17:38:57.967Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-08-19-eight-code-virtues-draft.html</loc>
+    <lastmod>2026-10-26T17:38:57.967Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-07-15-2006-sooner-not-faster-article.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-06-06-sooner-and-sooner-still.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-06-03-time-for-8th-virtue-coherence.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-05-27-agile-yagni-smaller-steps-bikes-and.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-02-13-believing-in-people.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-02-03-working-in-groups-compromises-or.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-01-20-considering-spec-driven-development.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-01-16-does-ai-help-us-care-less.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2025-10-16-what-shape-should-my-code-take-using.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
     <loc>https://tottinge.github.io/agile-otter-blog/posts/2025-09-30-convenience-scripts-for-projectsw.html</loc>
     <lastmod>2026-10-20T21:49:52.368Z</lastmod>
   </url>
@@ -1855,5 +1903,53 @@
   <url>
     <loc>https://tottinge.github.io/agile-otter-blog/posts/2025-09-12-why-is-working-faster-not-working.html</loc>
     <lastmod>2026-10-26T09:24:24.659Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2025-10-16-a-vimrc-starter.html</loc>
+    <lastmod>2026-10-26T17:38:57.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2025-11-14-i-cant-test-that-it-uses-stdout-python.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-01-17-bash-variable-expansion.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-02-03-the-big-release-downward-spiral.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-02-06-do-you-even-plan-bro.html</loc>
+    <lastmod>2026-10-26T17:38:57.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-03-28-pipeline-gates-populator.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-06-03-draft-faros-whiplash-and-systems-view.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-06-05-the-unifying-theory-in-short.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-06-15-do-agents-think-youre-doing-agile-wrong.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-08-11-progressive-admission-pattern-for-data.html</loc>
+    <lastmod>2026-10-26T17:38:57.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-08-26-spreadsheets.html</loc>
+    <lastmod>2026-10-26T17:38:57.967Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tottinge.github.io/agile-otter-blog/posts/2026-09-29-why-redesign-doesnt-happen-enough.html</loc>
+    <lastmod>2026-10-26T17:38:57.967Z</lastmod>
   </url>
 </urlset>

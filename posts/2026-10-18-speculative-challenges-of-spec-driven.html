@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-10-18">
+<meta name="description" content="A forward-looking list of challenges for spec-driven development, including aging documents and the need to keep specifications aligned with change.">
+
+<title>Speculating on Challenges of Spec-Driven Development – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Speculating on Challenges of Spec-Driven Development</h1>
+</div>
+
+<div>
+  <div class="description">
+    A forward-looking list of challenges for spec-driven development, including aging documents and the need to keep specifications aligned with change.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 18, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>
+I’m not fully vested in and convinced by Spec Driven Development. I’ve gotten over 70% of my initial “BDUF” concern and am thinking more clearly.&nbsp;
+</p>
+<p>
+I thought that it would be a good time for me to list the concerns I have for ongoing SDD. In a few years, we can look back and see if we were able to overcome these challenges:<br><br><br>
+</p>
+<h2 style="text-align: left;" class="anchored">
+Documents Age
+</h2>
+<div>
+A document can be correct on the day it is written, and without constantly being updated can stop being true in the future. Policies change, legislation changes, architecture trends change, implementation technologies change, and businesses morph and are disrupted.
+</div>
+<div>
+<br>
+</div>
+<div>
+Consider how well understood the cellular phone market was in the days with complicated billing systems and physical buttons, before flat monthly payment plans, easy and broad availability of phone models, phone numbers owned by users instead of cellular providers, and the dominance of glass screens.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+What is the shelf life of a typical development document? That depends. In the broad and abstract sense, documents my last for a decade or longer. The more detailed a document is, the faster it goes out of date. To generate (or regenerate) code, the document must be very detailed.
+</div>
+<div>
+<br>
+</div>
+<div>
+This is a concern when our systems are based on code generated from documentation, as we may end up building partially obsolete systems without realizing it.&nbsp;
+</div>
+<h2 style="text-align: left;" class="anchored">
+Documents Accumulate
+</h2>
+<div>
+We need to consider the a typical system these days may be originally built from some design and architecture concepts, written in markdown, Word, or some other format.
+</div>
+<div>
+<br>
+</div>
+<div>
+Over time, there are separate documents describing desired features or stories, changes in the architecture, changes in the implementation technologies, etc.
+</div>
+<div>
+<br>
+</div>
+<div>
+How many tickets (representing code changes or stories) does a typical system accumulate over the course of a year? How many documents might we have describing the initial system and all of its changes made by all of its developers over a 5 year period? What about 10 years?
+</div>
+<div>
+<br>
+</div>
+<div>
+To understand the current state of the system, will an agent have to read a few thousand documents?&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+When there are many documents, the token cost for reading them becomes prohibitive. More importantly, however, is that the context for tens of thousands of documents is simply not available in agents (so far). The documents will have to be summarised and simplified to fit in memory.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+If the agent can hold all the documents, it’s too expensive to use.
+</div>
+<div>
+<br>
+</div>
+<div>
+If it cannot, then it is working from a partial and overly-abstracted model of the system’s behaviors.
+</div>
+<div>
+<br>
+</div>
+<div>
+Does the collection become unmanageable?
+</div>
+<h2 style="text-align: left;" class="anchored">
+Documents Disagree with each other
+</h2>
+<div>
+If we collect documents over time, then each document will have the point of view prominent in its time. If you were to write a new task ticket for a 15-year old system, how do you guarantee that the document is 100% aligned and coherent with the original document?&nbsp;<br><br>For that matter, consider a company where there are many teams, and the documents (likely tickets or stories) are written by people with different agendas. These may be written at the same time for different developers.
+</div>
+<div>
+<br>
+</div>
+<div>
+So not only may some of the documents be older and facing obsolescence, they may be written in ways that are accidentally contradictory.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+If a person were to read them, perhaps they would recognize some inconsistencies, and maybe they wouldn’t. Would an agent with summaries in limited context recognize the differences?<br><br>What if the work is being done in different branches? A lot of people work in separate branches, and some of the work agents do is in git worktrees.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+How are the agents supposed to recognize and rationalize the documents? How do you ensure there isn’t drift across codebases, teams, documents, and time?&nbsp;<br>
+</div>
+<h2 style="text-align: left;" class="anchored">
+Documents Disagree with Code
+</h2>
+<div>
+It’s not unusual for the code, to operate correctly and pass tests, to not exactly follow the documentation.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+People will say, “Well, that’s because the coders aren’t disciplined”, which is also true of coding agents.
+</div>
+<div>
+<br>
+</div>
+<div>
+People will say, “Well, then the documentation is wrong”, which is likely also true. It may have the intent, but the mechanism has to vary to meet that intent.
+</div>
+<div>
+<br>
+</div>
+<div>
+Usually, the documentation is essentially right in some ways, but it’s written before the discovery that happens during coding.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Will an agent always correct all the documentation when it corrects the code? Likely it won’t be allowed. If the code is a temporary incarnation of the documents and the documents are the truth, then why would we let the development agent “corrupt” the documentation with implementation details?
+</div>
+<div>
+<br>But aren’t implementation details necessary in the document to ensure code generation and regeneration are accurate, complete, and repeatable?
+</div>
+<div>
+<br>Also, it may be well into implementation that the agent (and human, because we’re both still in the loop) may recognise the codebase has missed crucial domain classes or design opportunities, and refactor the code. While it meets the requirements well, and maybe better than originally planned, it is not what the document says.&nbsp; The document missed the design opportunity, or maybe left it unsaid.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Anything not in the document is not guaranteed to be in a regenerated codebase, nor will it be understood by the specification-writing agents that doesn’t write the code, or the coding agent that doesn’t read all the specs.
+</div>
+<div>
+<br>
+</div>
+<div>
+Does that mean that the code is not allowed to be better than the document, since it’s not allowed to be different? Or do we let the documents and code diverge – in hopes we might spot it the next time we generate code also?&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+If the agent can change the design document, then how do we guarantee that it has not drifted from our original intent (especially when documents age and accumulate)?
+</div>
+<div>
+<br>
+</div>
+<h2 style="text-align: left;" class="anchored">
+Design must be easily Recoverable
+</h2>
+<div>
+I’ve gone on record a few times saying that 99% of the time, people are not doing “green field” application development. Almost everyone, almost always, will be working on an existing system. Any system that doesn’t work in “brown field” is niche.&nbsp;&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+That niche is fun, and interesting, but 99% of the time it’s irrelevant.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Most systems will be between 5 and 20 years old, since it takes a while for a product to find a market and especial to come to dominance in it. If you have a team of paid programmers working in the product, it’s probably not been written by specification-first methods. It probably doesn’t have any of the original design specifications.
+</div>
+<div>
+<br>In this situation, and all other situations, the source code is the only source of truth that tells you what is happening at runtime. Every other document and every domain expert can tell you what was intended, or wanted. The human developer knows what they had in mind for the code to do.&nbsp;<br><br>Only the code actually runs in production.&nbsp;<br><br>The domain expert isn’t there. The documents no longer matter. The intention is not what the CPU sees.<br><br>It runs the code (the compiled, linked, optimized, code that transited the virtual machine down to machine code – a version of code that may not look all that much like the source code, and certainly not much like the specifications.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+All the truth is in the source code, but it may be poorly organized for human understanding.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+Agents tend to “shoe horn” functionality into existing code with if statements and flags and primitive variables.&nbsp; The more primitive the code is, the worse they will be about this.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+The design degradation we see from agentic development is well documented, so I won’t try to reproduce it here.
+</div>
+<div>
+<br>
+</div>
+<div>
+But it degrades less if there are good abstractions, good names, good use of the programming language, and good locality of references.
+</div>
+<div>
+<br>
+</div>
+<div>
+In other word, if the design is good, it is more likely to not muck it up.
+</div>
+<div>
+<br>
+</div>
+<div>
+Rather than “freeing us” from worrying about good design and code craft, agentic development makes us MORE dependent on well-written code.&nbsp; It needs to have good abstractions, data types, and algorithms. It needs all items to be well named.
+</div>
+<div>
+<br>
+</div>
+<div>
+If we can’t derive the design from the code, we have a ball of mud that neither humans, LLM agents, nor the combination of the two will be able to safely handle.&nbsp;
+</div>
+<div>
+<br>
+</div>
+<div>
+If we can derive the design from the code, then why are we keeping all these documents around? Shouldn’t this be code-supportive design rather spec-driven coding?
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
