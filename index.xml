@@ -196,7 +196,6 @@
   <category>AI</category>
   <category>XP</category>
   <category>continuousDelivery</category>
-  <category>learning</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-09-26-the-ticket-is-not-work.html</guid>
   <pubDate>Fri, 25 Sep 2026 23:00:00 GMT</pubDate>
 </item>
@@ -1187,8 +1186,6 @@ find ${directory} -name ${pattern}</code></pre>
 
 
  ]]></description>
-  <category>bash</category>
-  <category>expansion</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-01-17-bash-variable-expansion.html</guid>
   <pubDate>Sat, 17 Jan 2026 00:00:00 GMT</pubDate>
 </item>
