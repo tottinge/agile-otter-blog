@@ -1160,9 +1160,7 @@ find ${directory} -name ${pattern}</code></pre>
 
  ]]></description>
   <category>bash</category>
-  <category>default</category>
   <category>expansion</category>
-  <category>variable</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-01-17-bash-variable-expansion.html</guid>
   <pubDate>Sat, 17 Jan 2026 00:00:00 GMT</pubDate>
 </item>
