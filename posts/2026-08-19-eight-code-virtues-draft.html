@@ -158,671 +158,262 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<h1 id="toc_0" style="-webkit-font-smoothing: antialiased; background-color: white; cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 28px; margin: 0px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<span style="font-weight: normal;"><span style="caret-color: rgb(0, 0, 0); font-size: 14px;">Some time ago, Jeff Langr and I came up with seven virtues for code in</span><span class="Apple-converted-space" style="caret-color: rgb(0, 0, 0); font-size: 14px;"> </span><em style="caret-color: rgb(0, 0, 0); font-size: 14px; print-color-adjust: exact;">Agile in a Flash</em><span style="caret-color: rgb(0, 0, 0); font-size: 14px;">, and we wrote more about them over the years.&nbsp;</span></span>
-</h1>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The original set is:&nbsp;<span style="print-color-adjust: exact;">Working, Unique, Simple, Clear, Easy, Developed, and Brief.</span>
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The virtues give us some words for what we like about good code, and they’ve been remarkably stable, with two exceptions:
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-</p><ol type="1">
-<li>I’ve added the 8th Virtue (“Coherent”)<br><br>2. I’ve dropped the ordering. Working is non-negotiable; the rest work in balance.
-<p></p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Since I’ve added an 8th and people have expressed interest, it seems prudent to produce a new, fully unified version of the list with more examples and suggestions to help people translate the rules into skills.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-This write-up is for human consumption, of course, but there are notes and recommended readings that may help in other purposes.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Let’s begin:
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-—
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<br>
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<span style="font-size: 24px;">Evidence, Subjectivity, and Judgment</span>
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The virtues are not all subjective qualities.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<strong style="print-color-adjust: exact;">Clear</strong><span class="Apple-converted-space"> </span>is subjective because clarity exists in the relationship between code and its intended readers. Code may be clear to one audience and obscure to another.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<strong style="print-color-adjust: exact;">Easy</strong><span class="Apple-converted-space"> </span>is subjective because ease depends on the change being made and the people, tools, and system involved. The same design may make one change easy and another difficult.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The other virtues are observable and can be objectively evidenced.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-</p>
-<ul style="text-align: left;">
-<li>
-We can observe whether the software works.
-</li>
-<li>
-We can determine whether a single piece of knowledge has multiple representations.
-</li>
-<li>
-We can count operands, operations, and paths.
-</li>
-<li>
-We can see whether a concept is represented in the program or is repeatedly reconstructed from primitives.
-</li>
-<li>
-We can identify expressions that add no information or behaviour.
-</li>
-<li>
-We can compare the vocabulary, concepts, patterns, and representations used across a system and see whether they reinforce or contradict one another.
-</li>
+<section id="some-time-ago-jeff-langr-and-i-came-up-with-seven-virtues-for-code-in-agile-in-a-flash-and-we-wrote-more-about-them-over-the-years." class="level2">
+<h2 class="anchored" data-anchor-id="some-time-ago-jeff-langr-and-i-came-up-with-seven-virtues-for-code-in-agile-in-a-flash-and-we-wrote-more-about-them-over-the-years.">Some time ago, Jeff Langr and I came up with seven virtues for code in <em>Agile in a Flash</em>, and we wrote more about them over the years.</h2>
+<p>The original set is: Working, Unique, Simple, Clear, Easy, Developed, and Brief.</p>
+<p>The virtues give us some words for what we like about good code, and they’ve been remarkably stable, with two exceptions:</p>
+<p>1. I’ve added the 8th Virtue (“Coherent”)</p>
+<p>2. I’ve dropped the ordering. Working is non-negotiable; the rest work in balance.</p>
+<p>Since I’ve added an 8th and people have expressed interest, it seems prudent to produce a new, fully unified version of the list with more examples and suggestions to help people translate the rules into skills.</p>
+<p>This write-up is for human consumption, of course, but there are notes and recommended readings that may help in other purposes.</p>
+<p>Let’s begin:</p>
+<hr>
+<p>Evidence, Subjectivity, and Judgment</p>
+<p>The virtues are not all subjective qualities.</p>
+<p><strong>Clear</strong> is subjective because clarity exists in the relationship between code and its intended readers. Code may be clear to one audience and obscure to another.</p>
+<p><strong>Easy</strong> is subjective because ease depends on the change being made and the people, tools, and system involved. The same design may make one change easy and another difficult.</p>
+<p>The other virtues are observable and can be objectively evidenced.</p>
+<ul>
+<li>We can observe whether the software works.</li>
+<li>We can determine whether a single piece of knowledge has multiple representations.</li>
+<li>We can count operands, operations, and paths.</li>
+<li>We can see whether a concept is represented in the program or is repeatedly reconstructed from primitives.</li>
+<li>We can identify expressions that add no information or behaviour.</li>
+<li>We can compare the vocabulary, concepts, patterns, and representations used across a system and see whether they reinforce or contradict one another.</li>
 </ul>
-<p>
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Objective does not mean obvious, trivial to measure, or reducible to a single score. After all, determining whether two different passages represent the same knowledge may require investigation. Recognising the underlying concept within a group of variables may require domain knowledge. Evidence can be incomplete, and our initial interpretation can be wrong.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-An observation tells us that a virtue is under pressure. It does not tell us which refactoring to perform. Several changes may address the same problem, and each may affect the other virtues differently. Choosing among them requires taste, judgment, and knowledge of the system.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Of course, not every possible change is a wanted change. Some remedies are worse than the diseases! Any proposed change has to pass “the improvement test.”
-</p>
-<blockquote style="border-color: currentcolor; border-image: none; border-style: none; border-width: medium; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;" class="blockquote">
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Does it preserve Working?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Given that it works, is the resulting code really better when we consider Unique, Simple, Clear, Easy, Developed, Brief, and Coherent together?
-</p>
+<p>Objective does not mean obvious, trivial to measure, or reducible to a single score. After all, determining whether two different passages represent the same knowledge may require investigation. Recognising the underlying concept within a group of variables may require domain knowledge. Evidence can be incomplete, and our initial interpretation can be wrong.</p>
+<p>An observation tells us that a virtue is under pressure. It does not tell us which refactoring to perform. Several changes may address the same problem, and each may affect the other virtues differently. Choosing among them requires taste, judgment, and knowledge of the system.</p>
+<p>Of course, not every possible change is a wanted change. Some remedies are worse than the diseases! Any proposed change has to pass “the improvement test.”</p>
+<blockquote class="blockquote">
+<p>Does it preserve Working?</p>
+<p>Given that it works, is the resulting code really better when we consider Unique, Simple, Clear, Easy, Developed, Brief, and Coherent together?</p>
 </blockquote>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The virtues help us observe and describe the code. They give us criteria for comparing the result. They do not remove judgment from the work between those two points, nor do they tell us precisely what to do.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Programming, after all, is still a truly human practice even when AI-aided.
-</p>
-<h2 id="toc_2" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Working
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The code has to work.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Working is different from all the other virtues because it isn’t a matter of design taste. We may accept a little duplication to keep something clear, write a few extra lines to make a change easier, or decide that a useful abstraction is worth some additional machinery.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-We don’t make that kind of trade when it comes to Working.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Of course, “working” has to mean more than looking plausible. Code that compiled yesterday, passed a test once, or seems obvious to the person who wrote it doesn’t give us much assurance.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Tests provide repeatable, automated evidence. This is especially valuable when we are changing the design to accommodate new capabilities or to refactor it into better shapes. We also learn from demonstrations, experiments, monitoring, and actually using the software.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-If the code has fast and useful tests, we run them before and after changes.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-If there are no useful tests, we have a different problem. We may need to characterise the existing behaviour, find a seam, or make some careful preliminary change so that the important behaviour can be observed.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Refactoring means changing the structure without changing the behaviour. Without evidence about the behaviour, “refactoring” can become wishful and dangerous rewriting.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-We rely on automated tests as evidence that the code works. When the tests are not sufficient to give us confidence, we add more or better tests. It’s often the only feasible option, especially in the agentic age.
-</p>
-<h2 id="toc_3" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Unique
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Unique is the Single Point of Truth virtue: each piece of knowledge should have one authoritative representation in the system.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-This is easily mistaken for a prohibition against repeated text. Two identical values may represent different facts that happen to be equal-valued today. If they can change independently, combining them would couple things that have no business being coupled.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Duplication also isn’t always textual. The same rule might be expressed as a calculation in one place, a conditional in another, and a comment somewhere else. The code looks different, but the knowledge is repeated.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Suppose valid payment methods appear as an enum in the domain, a list in the user interface, strings in configuration, branches in validation, mappings in serialisation, and fixtures in tests. No two of those passages look alike, but they represent the same knowledge.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-When we find simple repetition, we ask what it represents. Would these things have to change together because they express the same fact or rule? If so, the system probably wants one authoritative representation with the others derived from it.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Version history can help. Things that repeatedly change together may be telling us that some knowledge has been scattered. It isn’t proof, but it is a useful heuristic.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Text searches and duplication detectors are useful too, as long as we remember their limitations.&nbsp;
-</p>
-<h2 id="toc_4" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Simple
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Simple is a structural property of code.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-It is the number of operands, operations, and possible execution paths.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Operands are the values and entities the code has to coordinate. Operations are the things it does with them. Paths are the different routes execution can take through the code.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Given two implementations of the same behaviour at the same scope, the one with fewer operands, operations, and paths is simpler by this definition.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-This isn’t a matter of familiarity, elegance, fashion, or preferred patterns. A solution does not become simple because it uses only elementary language features, nor because it follows a familiar design pattern. Those choices may make it Clear or Coherent to a particular audience, but Simple has a more literal meaning.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A long procedural solution built from assignments, loops, and conditionals may be familiar and still contain many operands, operations, and paths.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A table can replace a long conditional chain. The table may contain the same cases, but the program no longer has a separately constructed decision path for each case. It performs one lookup using data.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A collection can replace<span class="Apple-converted-space"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">item1</code>,<span class="Apple-converted-space"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">item2</code>,<span class="Apple-converted-space"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">item3</code>, and the operations required to coordinate them separately.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A state can replace several booleans and all the logic required to prevent or interpret invalid combinations.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A named type can replace a group of primitive operands repeatedly passed and manipulated together.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Removing a dead branch literally removes a path. Removing a repeated calculation literally removes operations. Replacing several coordinated values with a single representation literally reduces the number of operands.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Extracting a function does not necessarily make the program simpler overall. If it merely moves the same operations and paths elsewhere, the overall structure remains unchanged, but the local structure becomes simpler. The extracted function may well be simpler and more focused.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Patterns and abstractions do not automatically simplify code either. They introduce their own types, calls, relationships, and paths. They are worthwhile when the structure they remove exceeds the structure they add.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Simple code contains less machinery for producing the same behaviour.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Count the operands.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Count the operations.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Count the paths.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Reduce them.
-</p>
-<h2 id="toc_5" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Clear
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Clear code communicates well with its intended readers. For any codebase, the maintainers are the true, non-hypothetical readers. The author is one of the readers, but all code is clear to the author when it’s written. The importance of this virtue is that the code is also clear to non-authors in the code’s audience.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Those readers are not imaginary beginners who know nothing about programming, the language, the domain, or the system.&nbsp;
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-That makes clarity contextual. It is subjective to the group, not merely to any one individual in it.&nbsp;
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Language idioms can improve clarity for people who know the language. Domain terms can say a great deal to people who understand the domain. Local conventions reduce the number of surprises in a codebase.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Code tends to be clear to an audience when it follows their local conventions and patterns. Thankfully, agents are pretty good at following patterns.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Clarity is also more than explaining mechanics. A comment can tell us what five lines of code do, but a better name or representation might tell us why that operation exists and how it belongs in the system.
-</p>
-<h2 id="toc_6" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Easy
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Easy code is easy <i>to change.</i>
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Clear code and easy code often occur together, but they aren’t the same thing. Some code is perfectly understandable and still makes an ordinary change unnecessarily difficult.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-One of the best times to tend to Easy is just before adding a feature to existing code.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-When we know what change we are about to make, we don’t have to speculate about what the system might someday need. We can see where the new behaviour would have to be threaded through awkward conditionals, duplicated policies, primitive data, or responsibilities with no obvious home.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Before adding the feature, we can refactor the existing code so the change fits naturally. Then we make the now-easy change. This was observed some time ago by Kent Beck (you likely recognize the origin).
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Speculative preparation is different.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-If we change the design to accommodate a possible future feature and that feature never arrives, we have added structure without any benefit.&nbsp;
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Worse, we may have prepared the code for the wrong future. The real changes that arrive later may cut across the extension points, abstractions, and divisions we introduced. Instead of making those changes easier, our speculation has put additional structure in their way.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Consider a long<span class="Apple-converted-space"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">if</code>/<code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">then</code>/<code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">else</code><span class="Apple-converted-space"> </span>chain. Adding one more case means finding the right place in the chain, preserving its order, threading another block through the indentation, and checking its interactions with the surrounding conditions.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Perhaps those decisions would be better represented as a table.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The table may be considerably smaller, but brevity isn’t the only improvement. Adding another case is a straightforward addition of one row rather than careful surgery on the existing control flow. The representation has made the likely change easier.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A complicated condition that appears in several places creates a similar problem. If the policy changes, every copy must be found and changed correctly. Giving the condition a name and encapsulating it in a single function provides a single place for the policy to live and a single place to change it.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Repeated constants are another version of the same problem.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<span data-face="Helvetica, arial, sans-serif">Suppose a feature allows “up to 3” of something, and the number</span><span class="Apple-converted-space" data-face="Helvetica, arial, sans-serif"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); font-family: Helvetica, arial, sans-serif; margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">3 </code><span data-face="Helvetica, arial, sans-serif">&nbsp;is embedded throughout the code. When the policy changes from “up to 3” to “up to 10,” we must find every</span><span class="Apple-converted-space"><span data-face="Helvetica, arial, sans-serif">&nbsp;</span><span style="font-family: monospace;"><span style="background-color: #f8f8f8; text-wrap-mode: nowrap;">instance of “3”&nbsp;</span></span></span><span data-face="Helvetica, arial, sans-serif">in the codebase and determine whether it refers to the same underlying fact. If we leave the new value inline as several</span><span class="Apple-converted-space" data-face="Helvetica, arial, sans-serif"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); font-family: Helvetica, arial, sans-serif; margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">10</code><span data-face="Helvetica, arial, sans-serif">s, we will repeat the exercise when the limit becomes 12.</span>
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A named constant or policy object gives the value a meaning and a home. We change the policy rather than search for numbers.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Code can also be difficult to change because it makes us reason through decisions that no longer exist.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A defunct conditional still asks the reader to understand both branches, determine which one can execute, and preserve the surrounding structure. A feature flag left behind after a feature has been permanently enabled is a classic example, leaving one live branch and one dead branch. The maintainer has to thread through the flag and its conditionals to discover that only one path is live.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Version control history can reveal other obstacles. Files that repeatedly change together, recurring repair commits, bugs in the same area, and changes that scatter across the system are evidence worth examining. They may reveal knowledge with no clear home or responsibilities divided along the wrong boundaries.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-These improvements rarely affect Easy alone. The table may make the code Simple and Brief. Extracting the repeated condition or policy may make it Unique and Clear. Removing dead choices reduces the number of paths and makes the remaining design more Coherent.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The code becomes easier because it represents today’s decisions directly and gives the real change an obvious place to go.
-</p>
-<h2 id="toc_7" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Developed
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Programs begin with what the language provides: strings, numbers, booleans, lists, maps, functions, classes, records, and so on.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-As we learn about the problem, the program should develop concepts of its own.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Say we notice that several variables tend to travel together. They appear together in argument lists, and are manipulated inside loops and conditional branches. Several functions accept only those variables, or repeatedly pass the whole group onward.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-That suggests that the code may be overly primitive. There is likely an undeclared data type hidden in that group of variables—something that should have a name, a meaning, and a home in the code.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Once we identify the missing type, the surrounding operations become interesting as well. Functions that work only with that group are likely operations of that type. A function that accepts the group twice may be an operation involving two instances of the type.&nbsp;
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The point isn’t to move functions into classes for the sake of having classes, but to recognise that the program repeatedly assembles and operates on a concept without having represented it.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Adding a new type may improve several virtues together. Argument lists become shorter. Repeated manipulation disappears. Operations have an obvious home. The code speaks more directly to the problem domain and offers fewer opportunities for callers to mishandle values.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The result may be more Unique, Simple, Clear, Easy, Brief, and Coherent because it has become more Developed.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-When a concept keeps reassembling itself throughout the code, the program is asking us to give it a name.
-</p>
-<h2 id="toc_8" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Brief
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Brief code has a high signal-to-noise ratio.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-This isn’t about having the fewest characters or lines. Cryptic code may be brief, but reads like some kind of puzzle. We don’t need changes that make the code shorter at the expense of clarity, easy change, simplicity, uniqueness, etc.&nbsp;
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Given the same behaviour and information, the implementation containing less expression is briefer.<br><br>On the other hand, a filter or list comprehension can do the same job that loops, conditional statements, and collector arrays do in a fraction of the space. In fact, this denser representation can often be comprehended at a glance, whereas longer expressions require more work to read and understand.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A shorter expression of the same idea may be quicker and easier to read, and may actually improve many other virtues in the codebase.&nbsp;
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A small function can replace a repeated explanation. A better representation can make whole categories of plumbing disappear.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Brevity deserves its place in the virtues. Don’t discount it or confuse it with “code golf.”&nbsp;
-</p>
-<h2 id="toc_8" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Coherent
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Coherence is the degree to which the concepts, vocabulary, abstractions, architecture, patterns, and representations of a system reinforce one another.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-In a coherent system, learning compounds. Once we understand how one part of the system represents an idea, that knowledge helps us elsewhere. Names are used consistently. Similar relationships are expressed in similar ways. New work tends to strengthen the system’s existing language rather than invent another local dialect.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-This goes closely with Developed.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Suppose one module represents a customer category with an enum, another with strings, another with subclasses, and another with several booleans. Those modules may genuinely need different models. They may also be four dialects for the same concept.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-We can compare their meanings and boundaries. If they represent the same knowledge, one representation may deserve to become part of the system’s language. If they represent different views in different contexts, forcing them together would reduce coherence rather than improve it.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A collection of flags may be an unnamed state. Several primitive values passed together may be an unnamed concept. A long series of conditional decisions may be knowledge that would be better represented as a table, rule set, map, graph, or state machine.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A better representation often improves several virtues at once. It may eliminate duplicated knowledge, remove branches, give an idea a useful name, make a likely change local, and reduce the amount of code we need.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-That is more interesting than improving one virtue in isolation.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Coherence doesn’t require everything to look the same. Different problems deserve different representations. A system in which everything is forced through a single approved pattern may be consistent yet make very little sense.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Before adding a new abstraction, it is worth looking around. How does the rest of this system express similar ideas? Is there already a useful name, type, convention, or structure? Would the new design extend the system’s language or introduce another way to say the same thing?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The parts should fit because they belong together.
-</p>
-<h2 id="toc_10" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Comments and the Virtues
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Comments are interesting because they are not code. They aren’t executable, and adding one doesn’t change the program’s structure or behaviour.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A comment can prime a reader. This may be useful when the code contains a difficult algorithm, a surprising constraint, an unavoidable workaround, or a choice whose rationale cannot be expressed in the programming language. A link to the source of an algorithm may tell us something the implementation cannot. It can warn us against obvious-but-wrong implementation choices.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Comments can also hide design problems.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-I use three rules:
-</p>
-<ol style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; padding-left: 30px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<li style="margin: 0px; print-color-adjust: exact;">
-<strong style="margin-top: 0px; print-color-adjust: exact;">Comments are for things that cannot be expressed in code.</strong>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<strong style="margin-top: 0px; print-color-adjust: exact;">Comments that restate the code must be deleted.</strong>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<strong style="margin-top: 0px; print-color-adjust: exact;">If a comment says what the code could say, change the code to make the comment redundant, then delete the comment.</strong>
-</li>
+<p>The virtues help us observe and describe the code. They give us criteria for comparing the result. They do not remove judgment from the work between those two points, nor do they tell us precisely what to do.</p>
+<p>Programming, after all, is still a truly human practice even when AI-aided.</p>
+<section id="working" class="level3">
+<h3 class="anchored" data-anchor-id="working">Working</h3>
+<p>The code has to work.</p>
+<p>Working is different from all the other virtues because it isn’t a matter of design taste. We may accept a little duplication to keep something clear, write a few extra lines to make a change easier, or decide that a useful abstraction is worth some additional machinery.</p>
+<p>We don’t make that kind of trade when it comes to Working.</p>
+<p>Of course, “working” has to mean more than looking plausible. Code that compiled yesterday, passed a test once, or seems obvious to the person who wrote it doesn’t give us much assurance.</p>
+<p>Tests provide repeatable, automated evidence. This is especially valuable when we are changing the design to accommodate new capabilities or to refactor it into better shapes. We also learn from demonstrations, experiments, monitoring, and actually using the software.</p>
+<p>If the code has fast and useful tests, we run them before and after changes.</p>
+<p>If there are no useful tests, we have a different problem. We may need to characterise the existing behaviour, find a seam, or make some careful preliminary change so that the important behaviour can be observed.</p>
+<p>Refactoring means changing the structure without changing the behaviour. Without evidence about the behaviour, “refactoring” can become wishful and dangerous rewriting.</p>
+<p>We rely on automated tests as evidence that the code works. When the tests are not sufficient to give us confidence, we add more or better tests. It’s often the only feasible option, especially in the agentic age.</p>
+</section>
+<section id="unique" class="level3">
+<h3 class="anchored" data-anchor-id="unique">Unique</h3>
+<p>Unique is the Single Point of Truth virtue: each piece of knowledge should have one authoritative representation in the system.</p>
+<p>This is easily mistaken for a prohibition against repeated text. Two identical values may represent different facts that happen to be equal-valued today. If they can change independently, combining them would couple things that have no business being coupled.</p>
+<p>Duplication also isn’t always textual. The same rule might be expressed as a calculation in one place, a conditional in another, and a comment somewhere else. The code looks different, but the knowledge is repeated.</p>
+<p>Suppose valid payment methods appear as an enum in the domain, a list in the user interface, strings in configuration, branches in validation, mappings in serialisation, and fixtures in tests. No two of those passages look alike, but they represent the same knowledge.</p>
+<p>When we find simple repetition, we ask what it represents. Would these things have to change together because they express the same fact or rule? If so, the system probably wants one authoritative representation with the others derived from it.</p>
+<p>Version history can help. Things that repeatedly change together may be telling us that some knowledge has been scattered. It isn’t proof, but it is a useful heuristic.</p>
+<p>Text searches and duplication detectors are useful too, as long as we remember their limitations.</p>
+</section>
+<section id="simple" class="level3">
+<h3 class="anchored" data-anchor-id="simple">Simple</h3>
+<p>Simple is a structural property of code.</p>
+<p>It is the number of operands, operations, and possible execution paths.</p>
+<p>Operands are the values and entities the code has to coordinate. Operations are the things it does with them. Paths are the different routes execution can take through the code.</p>
+<p>Given two implementations of the same behaviour at the same scope, the one with fewer operands, operations, and paths is simpler by this definition.</p>
+<p>This isn’t a matter of familiarity, elegance, fashion, or preferred patterns. A solution does not become simple because it uses only elementary language features, nor because it follows a familiar design pattern. Those choices may make it Clear or Coherent to a particular audience, but Simple has a more literal meaning.</p>
+<p>A long procedural solution built from assignments, loops, and conditionals may be familiar and still contain many operands, operations, and paths.</p>
+<p>A table can replace a long conditional chain. The table may contain the same cases, but the program no longer has a separately constructed decision path for each case. It performs one lookup using data.</p>
+<p>A collection can replace <code>item1</code>, <code>item2</code>, <code>item3</code>, and the operations required to coordinate them separately.</p>
+<p>A state can replace several booleans and all the logic required to prevent or interpret invalid combinations.</p>
+<p>A named type can replace a group of primitive operands repeatedly passed and manipulated together.</p>
+<p>Removing a dead branch literally removes a path. Removing a repeated calculation literally removes operations. Replacing several coordinated values with a single representation literally reduces the number of operands.</p>
+<p>Extracting a function does not necessarily make the program simpler overall. If it merely moves the same operations and paths elsewhere, the overall structure remains unchanged, but the local structure becomes simpler. The extracted function may well be simpler and more focused.</p>
+<p>Patterns and abstractions do not automatically simplify code either. They introduce their own types, calls, relationships, and paths. They are worthwhile when the structure they remove exceeds the structure they add.</p>
+<p>Simple code contains less machinery for producing the same behaviour.</p>
+<p>Count the operands.</p>
+<p>Count the operations.</p>
+<p>Count the paths.</p>
+<p>Reduce them.</p>
+</section>
+<section id="clear" class="level3">
+<h3 class="anchored" data-anchor-id="clear">Clear</h3>
+<p>Clear code communicates well with its intended readers. For any codebase, the maintainers are the true, non-hypothetical readers. The author is one of the readers, but all code is clear to the author when it’s written. The importance of this virtue is that the code is also clear to non-authors in the code’s audience.</p>
+<p>Those readers are not imaginary beginners who know nothing about programming, the language, the domain, or the system.</p>
+<p>That makes clarity contextual. It is subjective to the group, not merely to any one individual in it.</p>
+<p>Language idioms can improve clarity for people who know the language. Domain terms can say a great deal to people who understand the domain. Local conventions reduce the number of surprises in a codebase.</p>
+<p>Code tends to be clear to an audience when it follows their local conventions and patterns. Thankfully, agents are pretty good at following patterns.</p>
+<p>Clarity is also more than explaining mechanics. A comment can tell us what five lines of code do, but a better name or representation might tell us why that operation exists and how it belongs in the system.</p>
+</section>
+<section id="easy" class="level3">
+<h3 class="anchored" data-anchor-id="easy">Easy</h3>
+<p>Easy code is easy <em>to change.</em></p>
+<p>Clear code and easy code often occur together, but they aren’t the same thing. Some code is perfectly understandable and still makes an ordinary change unnecessarily difficult.</p>
+<p>One of the best times to tend to Easy is just before adding a feature to existing code.</p>
+<p>When we know what change we are about to make, we don’t have to speculate about what the system might someday need. We can see where the new behaviour would have to be threaded through awkward conditionals, duplicated policies, primitive data, or responsibilities with no obvious home.</p>
+<p>Before adding the feature, we can refactor the existing code so the change fits naturally. Then we make the now-easy change. This was observed some time ago by Kent Beck (you likely recognize the origin).</p>
+<p>Speculative preparation is different.</p>
+<p>If we change the design to accommodate a possible future feature and that feature never arrives, we have added structure without any benefit.</p>
+<p>Worse, we may have prepared the code for the wrong future. The real changes that arrive later may cut across the extension points, abstractions, and divisions we introduced. Instead of making those changes easier, our speculation has put additional structure in their way.</p>
+<p>Consider a long <code>if</code>/<code>then</code>/<code>else</code> chain. Adding one more case means finding the right place in the chain, preserving its order, threading another block through the indentation, and checking its interactions with the surrounding conditions.</p>
+<p>Perhaps those decisions would be better represented as a table.</p>
+<p>The table may be considerably smaller, but brevity isn’t the only improvement. Adding another case is a straightforward addition of one row rather than careful surgery on the existing control flow. The representation has made the likely change easier.</p>
+<p>A complicated condition that appears in several places creates a similar problem. If the policy changes, every copy must be found and changed correctly. Giving the condition a name and encapsulating it in a single function provides a single place for the policy to live and a single place to change it.</p>
+<p>Repeated constants are another version of the same problem.</p>
+<p>Suppose a feature allows “up to 3” of something, and the number <code>3</code> is embedded throughout the code. When the policy changes from “up to 3” to “up to 10,” we must find every <code>instance of "3”</code>in the codebase and determine whether it refers to the same underlying fact. If we leave the new value inline as several <code>10</code>s, we will repeat the exercise when the limit becomes 12.</p>
+<p>A named constant or policy object gives the value a meaning and a home. We change the policy rather than search for numbers.</p>
+<p>Code can also be difficult to change because it makes us reason through decisions that no longer exist.</p>
+<p>A defunct conditional still asks the reader to understand both branches, determine which one can execute, and preserve the surrounding structure. A feature flag left behind after a feature has been permanently enabled is a classic example, leaving one live branch and one dead branch. The maintainer has to thread through the flag and its conditionals to discover that only one path is live.</p>
+<p>Version control history can reveal other obstacles. Files that repeatedly change together, recurring repair commits, bugs in the same area, and changes that scatter across the system are evidence worth examining. They may reveal knowledge with no clear home or responsibilities divided along the wrong boundaries.</p>
+<p>These improvements rarely affect Easy alone. The table may make the code Simple and Brief. Extracting the repeated condition or policy may make it Unique and Clear. Removing dead choices reduces the number of paths and makes the remaining design more Coherent.</p>
+<p>The code becomes easier because it represents today’s decisions directly and gives the real change an obvious place to go.</p>
+</section>
+<section id="developed" class="level3">
+<h3 class="anchored" data-anchor-id="developed">Developed</h3>
+<p>Programs begin with what the language provides: strings, numbers, booleans, lists, maps, functions, classes, records, and so on.</p>
+<p>As we learn about the problem, the program should develop concepts of its own.</p>
+<p>Say we notice that several variables tend to travel together. They appear together in argument lists, and are manipulated inside loops and conditional branches. Several functions accept only those variables, or repeatedly pass the whole group onward.</p>
+<p>That suggests that the code may be overly primitive. There is likely an undeclared data type hidden in that group of variables—something that should have a name, a meaning, and a home in the code.</p>
+<p>Once we identify the missing type, the surrounding operations become interesting as well. Functions that work only with that group are likely operations of that type. A function that accepts the group twice may be an operation involving two instances of the type.</p>
+<p>The point isn’t to move functions into classes for the sake of having classes, but to recognise that the program repeatedly assembles and operates on a concept without having represented it.</p>
+<p>Adding a new type may improve several virtues together. Argument lists become shorter. Repeated manipulation disappears. Operations have an obvious home. The code speaks more directly to the problem domain and offers fewer opportunities for callers to mishandle values.</p>
+<p>The result may be more Unique, Simple, Clear, Easy, Brief, and Coherent because it has become more Developed.</p>
+<p>When a concept keeps reassembling itself throughout the code, the program is asking us to give it a name.</p>
+</section>
+<section id="brief" class="level3">
+<h3 class="anchored" data-anchor-id="brief">Brief</h3>
+<p>Brief code has a high signal-to-noise ratio.</p>
+<p>This isn’t about having the fewest characters or lines. Cryptic code may be brief, but reads like some kind of puzzle. We don’t need changes that make the code shorter at the expense of clarity, easy change, simplicity, uniqueness, etc.</p>
+<p>Given the same behaviour and information, the implementation containing less expression is briefer.</p>
+<p>On the other hand, a filter or list comprehension can do the same job that loops, conditional statements, and collector arrays do in a fraction of the space. In fact, this denser representation can often be comprehended at a glance, whereas longer expressions require more work to read and understand.</p>
+<p>A shorter expression of the same idea may be quicker and easier to read, and may actually improve many other virtues in the codebase.</p>
+<p>A small function can replace a repeated explanation. A better representation can make whole categories of plumbing disappear.</p>
+<p>Brevity deserves its place in the virtues. Don’t discount it or confuse it with “code golf.”</p>
+</section>
+<section id="coherent" class="level3">
+<h3 class="anchored" data-anchor-id="coherent">Coherent</h3>
+<p>Coherence is the degree to which the concepts, vocabulary, abstractions, architecture, patterns, and representations of a system reinforce one another.</p>
+<p>In a coherent system, learning compounds. Once we understand how one part of the system represents an idea, that knowledge helps us elsewhere. Names are used consistently. Similar relationships are expressed in similar ways. New work tends to strengthen the system’s existing language rather than invent another local dialect.</p>
+<p>This goes closely with Developed.</p>
+<p>Suppose one module represents a customer category with an enum, another with strings, another with subclasses, and another with several booleans. Those modules may genuinely need different models. They may also be four dialects for the same concept.</p>
+<p>We can compare their meanings and boundaries. If they represent the same knowledge, one representation may deserve to become part of the system’s language. If they represent different views in different contexts, forcing them together would reduce coherence rather than improve it.</p>
+<p>A collection of flags may be an unnamed state. Several primitive values passed together may be an unnamed concept. A long series of conditional decisions may be knowledge that would be better represented as a table, rule set, map, graph, or state machine.</p>
+<p>A better representation often improves several virtues at once. It may eliminate duplicated knowledge, remove branches, give an idea a useful name, make a likely change local, and reduce the amount of code we need.</p>
+<p>That is more interesting than improving one virtue in isolation.</p>
+<p>Coherence doesn’t require everything to look the same. Different problems deserve different representations. A system in which everything is forced through a single approved pattern may be consistent yet make very little sense.</p>
+<p>Before adding a new abstraction, it is worth looking around. How does the rest of this system express similar ideas? Is there already a useful name, type, convention, or structure? Would the new design extend the system’s language or introduce another way to say the same thing?</p>
+<p>The parts should fit because they belong together.</p>
+</section>
+<section id="comments-and-the-virtues" class="level3">
+<h3 class="anchored" data-anchor-id="comments-and-the-virtues">Comments and the Virtues</h3>
+<p>Comments are interesting because they are not code. They aren’t executable, and adding one doesn’t change the program’s structure or behaviour.</p>
+<p>A comment can prime a reader. This may be useful when the code contains a difficult algorithm, a surprising constraint, an unavoidable workaround, or a choice whose rationale cannot be expressed in the programming language. A link to the source of an algorithm may tell us something the implementation cannot. It can warn us against obvious-but-wrong implementation choices.</p>
+<p>Comments can also hide design problems.</p>
+<p>I use three rules:</p>
+<ol type="1">
+<li><strong>Comments are for things that cannot be expressed in code.</strong></li>
+<li><strong>Comments that restate the code must be deleted.</strong></li>
+<li><strong>If a comment says what the code could say, change the code to make the comment redundant, then delete the comment.</strong></li>
 </ol>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Suppose a comment tells us that the next ten lines obtain the active accounts. Perhaps those lines should become a function named<span class="Apple-converted-space"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">active_accounts</code>. If a comment tells us that<span class="Apple-converted-space"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">x</code><span class="Apple-converted-space"> </span>is the loan principal, perhaps<span class="Apple-converted-space"> </span><code style="background-color: #f8f8f8; border-radius: 3px; border: 1px solid rgb(234, 234, 234); margin: 0px 2px; padding: 0px 5px; print-color-adjust: exact; white-space: nowrap;">x</code><span class="Apple-converted-space"> </span>should be renamed. If it explains the positions in a tuple, perhaps the program needs a structure with named elements.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The comment has <i>shown us something the program knows but does not yet represent</i> very well.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-This interacts with several virtues. Moving information from a comment into the code gives it a single executable representation, improving Unique. A good name or structure may make the code Clear, Simple, Developed, and Brief. Using the vocabulary already present in the system can make it more Coherent. If the new representation gives a concept an obvious home, the code may become Easy to change as well.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-That doesn’t mean we should strip the comments from difficult code and declare victory. Comments are sometimes an indispensable coping mechanism. Removing them before improving the code leaves us with the same difficult program and less help understanding it.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-When learning unfamiliar code, I may add comments as I work out what it does. Those comments externalize my developing understanding. Then I try to make them unnecessary through naming, extraction, and better representation.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Some comments survive because they contain information the code cannot carry. The rest act like “refactor here” signs.
-</p>
-<h2 id="toc_11" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-From Virtues to Refactoring
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A smell, a metric, an awkward change, or a surprising search result gives us a reason to investigate. It does not give us an order.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Suppose we notice that a change touches several conditionals, constants, and tests. That is an observation. It may suggest duplicated knowledge, a missing concept, or an awkward representation. Those are interpretations, and we should check them.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Start with the code involved in the real change. Search for its names and related terms. Find the constants, enums, branches, data structures, and tests that use them. Look for values that travel together and functions that work on the same groups of values. Examine nearby code to learn the vocabulary and representations the system already uses. When it is helpful, inspect the version history to see what has actually changed together.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Comments deserve inspection too:
-</p>
-<ul style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; padding-left: 30px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<li style="margin: 0px; print-color-adjust: exact;">
-Does the comment merely restate nearby code?
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-Is it inaccurate or obsolete?
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-Could its information become a name, function, type, structure, or test?
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-Does it record a source, constraint, rationale, or rejected alternative that the code cannot express?
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-Is it temporary scaffolding that should guide a refactoring before being removed?
-</li>
+<p>Suppose a comment tells us that the next ten lines obtain the active accounts. Perhaps those lines should become a function named <code>active_accounts</code>. If a comment tells us that <code>x</code> is the loan principal, perhaps <code>x</code> should be renamed. If it explains the positions in a tuple, perhaps the program needs a structure with named elements.</p>
+<p>The comment has <em>shown us something the program knows but does not yet represent</em> very well.</p>
+<p>This interacts with several virtues. Moving information from a comment into the code gives it a single executable representation, improving Unique. A good name or structure may make the code Clear, Simple, Developed, and Brief. Using the vocabulary already present in the system can make it more Coherent. If the new representation gives a concept an obvious home, the code may become Easy to change as well.</p>
+<p>That doesn’t mean we should strip the comments from difficult code and declare victory. Comments are sometimes an indispensable coping mechanism. Removing them before improving the code leaves us with the same difficult program and less help understanding it.</p>
+<p>When learning unfamiliar code, I may add comments as I work out what it does. Those comments externalize my developing understanding. Then I try to make them unnecessary through naming, extraction, and better representation.</p>
+<p>Some comments survive because they contain information the code cannot carry. The rest act like “refactor here” signs.</p>
+</section>
+<section id="from-virtues-to-refactoring" class="level3">
+<h3 class="anchored" data-anchor-id="from-virtues-to-refactoring">From Virtues to Refactoring</h3>
+<p>A smell, a metric, an awkward change, or a surprising search result gives us a reason to investigate. It does not give us an order.</p>
+<p>Suppose we notice that a change touches several conditionals, constants, and tests. That is an observation. It may suggest duplicated knowledge, a missing concept, or an awkward representation. Those are interpretations, and we should check them.</p>
+<p>Start with the code involved in the real change. Search for its names and related terms. Find the constants, enums, branches, data structures, and tests that use them. Look for values that travel together and functions that work on the same groups of values. Examine nearby code to learn the vocabulary and representations the system already uses. When it is helpful, inspect the version history to see what has actually changed together.</p>
+<p>Comments deserve inspection too:</p>
+<ul>
+<li>Does the comment merely restate nearby code?</li>
+<li>Is it inaccurate or obsolete?</li>
+<li>Could its information become a name, function, type, structure, or test?</li>
+<li>Does it record a source, constraint, rationale, or rejected alternative that the code cannot express?</li>
+<li>Is it temporary scaffolding that should guide a refactoring before being removed?</li>
 </ul>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Then ask whether the concept has one owner.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-If it doesn’t, consider the smallest representation that would give it one. This might be an extracted function, a collection, a table, a type, or a move to an existing module. We don’t have to leap directly from scattered primitives to an architecture.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Before making the change, separate what has been observed from what has been inferred. Explain which virtues are under pressure, what the proposed change improves, and what it might make worse.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Then work in small, behaviour-preserving steps. Keep the tests passing. Make one structural change at a time and commit it separately from unrelated behaviour changes. If the safety evidence is weak, improve it before attempting a broad refactoring.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Afterwards, look at the result rather than merely confirming that the intended refactoring was performed.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Does the software still work?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Is the knowledge represented in fewer places?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Are there fewer operands, operations, or paths?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Will the actual change be easier to make?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Has a previously primitive concept gained a name and a home?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Has noise been removed without hiding useful information?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Does the solution reinforce the language and representations of the system?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Will its intended readers understand it?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Most importantly: is the code better overall?
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-If not, revert it or try something else.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-There is no virtue in completing a refactoring that leaves the software worse.
-</p>
-<h2 id="toc_12" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-The Improvement Test
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The virtues aren’t independent quantities, but virtues constrain one another.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Code always has to work. That’s the given. Without that, nothing else is interesting.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Given working code, we consider Unique, Simple, Clear, Easy, Developed, Brief, and Coherent together. The better changes are those that improve several aspects at once, often by finding a representation that better expresses either the solution domain or the problem domain.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Sometimes there is a tradeoff. We may accept a little more structure because it makes an important concept clearer and gives a real change an obvious home.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-Sometimes the code is better left alone.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-The virtues give us language to investigate and discuss those choices. They don’t make the choices for us.
-</p>
-<h2 id="toc_13" style="-webkit-font-smoothing: antialiased; background-color: white; border-bottom: 1px solid rgb(204, 204, 204); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 24px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Resources
-</h2>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-These are useful starting points for anyone who wants to take the virtues further or turn them into a practical refactoring skill.
-</p>
-<h3 id="toc_14" style="-webkit-font-smoothing: antialiased; background-color: white; caret-color: rgb(0, 0, 0); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 18px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-The Virtues
-</h3>
-<ul style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; padding-left: 30px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger and Jeff Langr’s<span class="Apple-converted-space"> </span><a href="https://medium.com/pragmatic-programmers/how-virtuous-is-your-code-c3d1a587babf" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">How Virtuous Is Your Code?</a><span class="Apple-converted-space"> </span>is the original article introducing the seven virtues.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://www.industriallogic.com/blog/code-virtues-explained/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">7 Code Virtues Explained</a><span class="Apple-converted-space"> </span>gives the fuller explanation of the original seven virtues and their history in<span class="Apple-converted-space"> </span><em style="print-color-adjust: exact;">Agile in a Flash</em>.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://agileotter.blogspot.com/2026/06/time-for-8th-virtue-coherence.html" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Time for an 8th Virtue: Coherence</a><span class="Apple-converted-space"> </span>introduces Coherent and the revised relationship: Working is prime; the remaining virtues are peers.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Anthony Sciamanna and Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://www.industriallogic.com/blog/spot-and-coincidental-duplication/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">SPOT and Coincidental Duplication</a><span class="Apple-converted-space"> </span>explores Unique in more depth, especially the distinction between repeated text, duplicated knowledge, and accidental similarity.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://agileotter.blogspot.com/2012/09/simple-v-complicated.html" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Simple v. Complicated</a><span class="Apple-converted-space"> </span>develops the objective meaning of Simple in terms of operations, operands, and paths.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://www.industriallogic.com/blog/rethinking-readability/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Rethinking Readability</a><span class="Apple-converted-space"> </span>treats readability as a relationship between code and its actual audience, rather than as an intrinsic property that can be measured without context.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://www.industriallogic.com/blog/meaningful-names-revisited/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Meaningful Names Revisited</a><span class="Apple-converted-space"> </span>connects naming with context, extraction, design, and representation.
-</p>
-</li>
+<p>Then ask whether the concept has one owner.</p>
+<p>If it doesn’t, consider the smallest representation that would give it one. This might be an extracted function, a collection, a table, a type, or a move to an existing module. We don’t have to leap directly from scattered primitives to an architecture.</p>
+<p>Before making the change, separate what has been observed from what has been inferred. Explain which virtues are under pressure, what the proposed change improves, and what it might make worse.</p>
+<p>Then work in small, behaviour-preserving steps. Keep the tests passing. Make one structural change at a time and commit it separately from unrelated behaviour changes. If the safety evidence is weak, improve it before attempting a broad refactoring.</p>
+<p>Afterwards, look at the result rather than merely confirming that the intended refactoring was performed.</p>
+<p>Does the software still work?</p>
+<p>Is the knowledge represented in fewer places?</p>
+<p>Are there fewer operands, operations, or paths?</p>
+<p>Will the actual change be easier to make?</p>
+<p>Has a previously primitive concept gained a name and a home?</p>
+<p>Has noise been removed without hiding useful information?</p>
+<p>Does the solution reinforce the language and representations of the system?</p>
+<p>Will its intended readers understand it?</p>
+<p>Most importantly: is the code better overall?</p>
+<p>If not, revert it or try something else.</p>
+<p>There is no virtue in completing a refactoring that leaves the software worse.</p>
+</section>
+<section id="the-improvement-test" class="level3">
+<h3 class="anchored" data-anchor-id="the-improvement-test">The Improvement Test</h3>
+<p>The virtues aren’t independent quantities, but virtues constrain one another.</p>
+<p>Code always has to work. That’s the given. Without that, nothing else is interesting.</p>
+<p>Given working code, we consider Unique, Simple, Clear, Easy, Developed, Brief, and Coherent together. The better changes are those that improve several aspects at once, often by finding a representation that better expresses either the solution domain or the problem domain.</p>
+<p>Sometimes there is a tradeoff. We may accept a little more structure because it makes an important concept clearer and gives a real change an obvious home.</p>
+<p>Sometimes the code is better left alone.</p>
+<p>The virtues give us language to investigate and discuss those choices. They don’t make the choices for us.</p>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<p>These are useful starting points for anyone who wants to take the virtues further or turn them into a practical refactoring skill.</p>
+<section id="the-virtues" class="level4">
+<h4 class="anchored" data-anchor-id="the-virtues">The Virtues</h4>
+<ul>
+<li>Tim Ottinger and Jeff Langr’s <a href="https://medium.com/pragmatic-programmers/how-virtuous-is-your-code-c3d1a587babf">How Virtuous Is Your Code?</a> is the original article introducing the seven virtues.</li>
+<li>Tim Ottinger’s <a href="https://www.industriallogic.com/blog/code-virtues-explained/">7 Code Virtues Explained</a> gives the fuller explanation of the original seven virtues and their history in <em>Agile in a Flash</em>.</li>
+<li>Tim Ottinger’s <a href="../posts/2026-06-03-time-for-8th-virtue-coherence.html">Time for an 8th Virtue: Coherence</a> introduces Coherent and the revised relationship: Working is prime; the remaining virtues are peers.</li>
+<li>Anthony Sciamanna and Tim Ottinger’s <a href="https://www.industriallogic.com/blog/spot-and-coincidental-duplication/">SPOT and Coincidental Duplication</a> explores Unique in more depth, especially the distinction between repeated text, duplicated knowledge, and accidental similarity.</li>
+<li>Tim Ottinger’s <a href="../posts/2012-09-13-simple-v-complicated.html">Simple v. Complicated</a> develops the objective meaning of Simple in terms of operations, operands, and paths.</li>
+<li>Tim Ottinger’s <a href="https://www.industriallogic.com/blog/rethinking-readability/">Rethinking Readability</a> treats readability as a relationship between code and its actual audience, rather than as an intrinsic property that can be measured without context.</li>
+<li>Tim Ottinger’s <a href="https://www.industriallogic.com/blog/meaningful-names-revisited/">Meaningful Names Revisited</a> connects naming with context, extraction, design, and representation.</li>
 </ul>
-<h3 id="toc_15" style="-webkit-font-smoothing: antialiased; background-color: white; caret-color: rgb(0, 0, 0); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 18px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Comments
-</h3>
-<ul style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; padding-left: 30px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger and Jeff Langr’s<span class="Apple-converted-space"> </span><a href="https://agileinaflash.blogspot.com/2009/04/rules-for-commenting.html" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Rules for Commenting</a><span class="Apple-converted-space"> </span>is the original<span class="Apple-converted-space"> </span><em style="print-color-adjust: exact;">Agile in a Flash</em><span class="Apple-converted-space"> </span>card on comments, additional information, and removing comments by improving the code.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://agileotter.blogspot.com/2009/03/displaced-comments.html" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Three Rules for Code Comments</a><span class="Apple-converted-space"> </span>adds an important qualification: comments can be a necessary survival mechanism in complicated code, so deleting them before improving the code makes matters worse.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Stephen D. Ritchie’s<span class="Apple-converted-space"> </span><a href="https://ruthlesslyhelpful.net/2012/02/25/rules-for-commenting-code/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Rules for Commenting Code</a><span class="Apple-converted-space"> </span>at Ruthlessly Helpful explains the three rules with examples.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://www.linkedin.com/posts/agileotter_code-comments-are-not-code-theyre-not-executable-activity-7307460783875997697-MwQL" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Code comments are not code; they’re not executable</a><span class="Apple-converted-space"> </span>distinguishes making code readable from priming someone to read difficult code.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Apologize in Code</a><span class="Apple-converted-space"> </span>is an earlier statement of the relationship among comments, naming, parameters, and design.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Jaime Buelta’s<span class="Apple-converted-space"> </span><a href="https://wrongsideofmemphis.com/2010/09/15/commenting-the-code/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Commenting the Code</a><span class="Apple-converted-space"> </span>discusses the rules and preserves Tim Ottinger’s responses to them.
-</p>
-</li>
+</section>
+<section id="comments" class="level4">
+<h4 class="anchored" data-anchor-id="comments">Comments</h4>
+<ul>
+<li>Tim Ottinger and Jeff Langr’s <a href="https://agileinaflash.blogspot.com/2009/04/rules-for-commenting.html">Rules for Commenting</a> is the original <em>Agile in a Flash</em> card on comments, additional information, and removing comments by improving the code.</li>
+<li>Tim Ottinger’s <a href="../posts/2009-03-11-displaced-comments.html">Three Rules for Code Comments</a> adds an important qualification: comments can be a necessary survival mechanism in complicated code, so deleting them before improving the code makes matters worse.</li>
+<li>Stephen D. Ritchie’s <a href="https://ruthlesslyhelpful.net/2012/02/25/rules-for-commenting-code/">Rules for Commenting Code</a> at Ruthlessly Helpful explains the three rules with examples.</li>
+<li>Tim Ottinger’s <a href="https://www.linkedin.com/posts/agileotter_code-comments-are-not-code-theyre-not-executable-activity-7307460783875997697-MwQL">Code comments are not code; they’re not executable</a> distinguishes making code readable from priming someone to read difficult code.</li>
+<li>Tim Ottinger’s <a href="https://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode">Apologize in Code</a> is an earlier statement of the relationship among comments, naming, parameters, and design.</li>
+<li>Jaime Buelta’s <a href="https://wrongsideofmemphis.com/2010/09/15/commenting-the-code/">Commenting the Code</a> discusses the rules and preserves Tim Ottinger’s responses to them.</li>
 </ul>
-<h3 id="toc_16" style="-webkit-font-smoothing: antialiased; background-color: white; caret-color: rgb(0, 0, 0); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 18px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Refactoring Safely
-</h3>
-<ul style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; padding-left: 30px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Martin Fowler’s<span class="Apple-converted-space"> </span><a href="https://martinfowler.com/books/refactoring.html" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Refactoring</a><span class="Apple-converted-space"> </span>and the online<span class="Apple-converted-space"> </span><a href="https://refactoring.com/catalog/" style="color: #4183c4; print-color-adjust: exact;">Catalog of Refactorings</a><span class="Apple-converted-space"> </span>provide a vocabulary and mechanics for small, behavior-preserving structural changes.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Michael Feathers’<span class="Apple-converted-space"> </span><a href="https://www.oreilly.com/library/view/working-effectively-with/0131177052/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Working Effectively with Legacy Code</a><span class="Apple-converted-space"> </span>is especially useful when Working cannot yet be demonstrated. It covers characterization tests, seams, dependency breaking, and getting difficult code under test.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://www.industriallogic.com/blog/tdd-purposes-and-practices/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">TDD: Purposes and Practices</a><span class="Apple-converted-space"> </span>connects working evidence, incremental development, iterative design, refactoring, and continuous integration.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://www.industriallogic.com/blog/whats-this-about-micro-commits/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">What’s This About Micro-commits?</a><span class="Apple-converted-space"> </span>describes a useful execution discipline: one intention at a time, tests passing, and structural changes kept separate from behavioral changes.
-</p>
-</li>
+</section>
+<section id="refactoring-safely" class="level4">
+<h4 class="anchored" data-anchor-id="refactoring-safely">Refactoring Safely</h4>
+<ul>
+<li>Martin Fowler’s <a href="https://martinfowler.com/books/refactoring.html">Refactoring</a> and the online <a href="https://refactoring.com/catalog/">Catalog of Refactorings</a> provide a vocabulary and mechanics for small, behavior-preserving structural changes.</li>
+<li>Michael Feathers’ <a href="https://www.oreilly.com/library/view/working-effectively-with/0131177052/">Working Effectively with Legacy Code</a> is especially useful when Working cannot yet be demonstrated. It covers characterization tests, seams, dependency breaking, and getting difficult code under test.</li>
+<li>Tim Ottinger’s <a href="https://www.industriallogic.com/blog/tdd-purposes-and-practices/">TDD: Purposes and Practices</a> connects working evidence, incremental development, iterative design, refactoring, and continuous integration.</li>
+<li>Tim Ottinger’s <a href="https://www.industriallogic.com/blog/whats-this-about-micro-commits/">What’s This About Micro-commits?</a> describes a useful execution discipline: one intention at a time, tests passing, and structural changes kept separate from behavioral changes.</li>
 </ul>
-<h3 id="toc_17" style="-webkit-font-smoothing: antialiased; background-color: white; caret-color: rgb(0, 0, 0); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 18px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Developing Representations
-</h3>
-<ul style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; padding-left: 30px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Joshua Kerievsky’s<span class="Apple-converted-space"> </span><a href="https://www.industriallogic.com/refactoring-to-patterns/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Refactoring to Patterns</a><span class="Apple-converted-space"> </span>presents patterns as possible destinations reached through evolutionary refactoring, rather than structures to install before the need for them appears.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Eric Evans’<span class="Apple-converted-space"> </span><a href="https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Domain-Driven Design Reference</a><span class="Apple-converted-space"> </span>provides useful language for concepts, models, bounded contexts, and the relationship between the problem domain and its representation in software.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Martin Fowler’s<span class="Apple-converted-space"> </span><a href="https://martinfowler.com/bliki/UbiquitousLanguage.html" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Ubiquitous Language</a><span class="Apple-converted-space"> </span>is a compact introduction to building a shared, rigorous language around a domain model.
-</p>
-</li>
-<li style="margin: 0px; print-color-adjust: exact;">
-<p style="margin: 0px 0px 15px; print-color-adjust: exact;">
-Ward Cunningham’s<span class="Apple-converted-space"> </span><a href="https://www.youtube.com/watch?v=pqeJFYwnkjE" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Debt Metaphor</a><span class="Apple-converted-space"> </span>explains why we revise software as our understanding improves, bringing what we have learned back into the code.
-</p>
-</li>
+</section>
+<section id="developing-representations" class="level4">
+<h4 class="anchored" data-anchor-id="developing-representations">Developing Representations</h4>
+<ul>
+<li>Joshua Kerievsky’s <a href="https://www.industriallogic.com/refactoring-to-patterns/">Refactoring to Patterns</a> presents patterns as possible destinations reached through evolutionary refactoring, rather than structures to install before the need for them appears.</li>
+<li>Eric Evans’ <a href="https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf">Domain-Driven Design Reference</a> provides useful language for concepts, models, bounded contexts, and the relationship between the problem domain and its representation in software.</li>
+<li>Martin Fowler’s <a href="https://martinfowler.com/bliki/UbiquitousLanguage.html">Ubiquitous Language</a> is a compact introduction to building a shared, rigorous language around a domain model.</li>
+<li>Ward Cunningham’s <a href="https://www.youtube.com/watch?v=pqeJFYwnkjE">Debt Metaphor</a> explains why we revise software as our understanding improves, bringing what we have learned back into the code.</li>
 </ul>
-<h3 id="toc_18" style="-webkit-font-smoothing: antialiased; background-color: white; caret-color: rgb(0, 0, 0); cursor: text; font-family: Helvetica, arial, sans-serif; font-size: 18px; margin: 20px 0px 10px; padding: 0px; position: relative; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;" class="anchored">
-Agentic Application
-</h3>
-<ul style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; padding-left: 30px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-<li style="margin: 0px; print-color-adjust: exact;">
-Tim Ottinger’s<span class="Apple-converted-space"> </span><a href="https://www.industriallogic.com/blog/gilded-rose-with-ai-and-pycharm/" style="color: #4183c4; margin-top: 0px; print-color-adjust: exact;">Gilded Rose with AI and PyCharm</a><span class="Apple-converted-space"> </span>is one account of using an agent for testing and refactoring while constraining the work with existing code, tests, human judgment, and microcommits.
-</li>
+</section>
+<section id="agentic-application" class="level4">
+<h4 class="anchored" data-anchor-id="agentic-application">Agentic Application</h4>
+<ul>
+<li>Tim Ottinger’s <a href="https://www.industriallogic.com/blog/gilded-rose-with-ai-and-pycharm/">Gilded Rose with AI and PyCharm</a> is one account of using an agent for testing and refactoring while constraining the work with existing code, tests, human judgment, and microcommits.</li>
 </ul>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-A refactoring skill derived from these materials should help an agent gather evidence, recognise pressures, propose small changes, preserve behaviour, and explain tradeoffs.
-</p>
-<p style="background-color: white; caret-color: rgb(0, 0, 0); font-family: Helvetica, arial, sans-serif; font-size: 14px; margin: 15px 0px; print-color-adjust: exact; text-decoration-style: solid; text-decoration-thickness: auto;">
-It should not merely teach the agent to chase smells.
-</p></li>
-</ol>
+<p>A refactoring skill derived from these materials should help an agent gather evidence, recognise pressures, propose small changes, preserve behaviour, and explain tradeoffs.</p>
+<p>It should not merely teach the agent to chase smells.</p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -152,240 +152,77 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<h2 style="text-align: left;" class="anchored">
-How much failure demand and rework do you feel is appropriate in your system?
-</h2>
-<div>
-Rework in software is the correction of unacceptable code. That doesn’t include refactoring, which corrects only the design and expression of ideas without changing what the code does. This is limited to “something does not work correctly and we can’t let it be released.”&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-So, we don’t want any of that, right? It delays releases and costs money. It distracts developers from doing new feature work. It raises the costs of release. Clearly, this is a bad thing, right?
-</div>
-<div>
-<br>
-</div>
-<div>
-No.&nbsp; This is a less-obvious question than it first seems.&nbsp;
-</div>
-<p>
-Obviously, nobody wants to have errors and failures in their system. We would like to see 100% success rates, right?&nbsp;
-</p>
-<p>
-Well, hold on…
-</p>
-<h2 style="text-align: left;" class="anchored">
-Pass Rates
-</h2>
-<div>
-How would you feel if your QA/QC department did not report a single defect in the past 3 quarters? Not one!
-</div>
-<div>
-<br>
-</div>
-<div>
-What if all the code reviews passed with “Looks good. Nice work!” and nothing was ever returned for repair?
-</div>
-<div>
-<br>
-</div>
-<div>
-What if none of the security scans or linters ever reported a problem?
-</div>
-<div>
-<br>
-</div>
-<div>
-What if every one of your releases went out flawlessly and nobody ever reverted anything?
-</div>
-<div>
-<br>
-</div>
-<div>
-Would you actually be happy?
-</div>
-<div>
-<br>
-</div>
-<div>
-Would you be angry with code reviewers, testers, and your investment in scanners?
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-No Rejections? That’s incredible!
-</h2>
-<div>
-The word incredible means that it has no credibility – it’s not trustworthy and likely untrue.
-</div>
-<div>
-<br>
-</div>
-<div>
-The problem with my phrasing above is that I expressed it as people not reporting problems, rather than expressing it as people doing diligent and competent work and still not finding any problems because the code is so perfect.
-</div>
-<div>
-<br>
-</div>
-<div>
-It’s hard for people in most programming groups to even imagine that code could not be full of easily-catchable issues (and probably some subtle ones that aren’t easy to spot).
-</div>
-<div>
-<br>
-</div>
-<div>
-But this leaves us in a funny picture: we need the code to have problems in order to prove the value of the gauntlet of post-code checkers we have put in place. How else can we prove the efficacy of the system that keeps bugs from escaping into the wild?
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-Competition
-</h2>
-<div>
-The usual system pits developers against testers (human and otherwise) and requires there to be a certain level of rework. For every bit of code that passes 100% on the first try, we give a demerit to our testing gauntlet. For every time code is rejected by the system, we give a demerit to the programming staff.
-</div>
-<div>
-<br>
-</div>
-<div>
-Somebody has to lose for the system to remain stable.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-When the code improves, the test gauntlet has to raise the bar until they can report more issues (however trivial) in order to prove the value of their system and the need for the salaries and subscriptions paid periodically.
-</div>
-<div>
-<br>
-</div>
-<div>
-That creates a reputation that programmers are ineffective and flawed. If they again improve, then it casts shade on the gauntlet operators again.
-</div>
-<div>
-<br>
-</div>
-<div>
-Isn’t this “using blame and shame to create an upward spiral”?&nbsp;<br><br>
-<h2 style="text-align: left;" class="anchored">
-Does it make a difference?
-</h2>
-<br class="Apple-interchange-newline">Here is a pipeline based on some factual post-code pipelines:<br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="https://blogger.googleusercontent.com/img/a/AVvXsEjn_JjXAnr3TIWJc6SdS1CXrURq3qQayCpRR4zudV8P0u-QUK-Gt67MzlBw-NLcleADHp3kXND754s85LYmrSalhP0g-zyqvHq_fFDAgfZQErKjoKn6h_ydyz04MesHA0lDlV-OwMEFfnybz-93mHWYcxNnpm4z2RNevhJlLc6ktdDCwhm2Tc2ROJDqpio" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="663" data-original-width="697" height="240" src="https://blogger.googleusercontent.com/img/a/AVvXsEjn_JjXAnr3TIWJc6SdS1CXrURq3qQayCpRR4zudV8P0u-QUK-Gt67MzlBw-NLcleADHp3kXND754s85LYmrSalhP0g-zyqvHq_fFDAgfZQErKjoKn6h_ydyz04MesHA0lDlV-OwMEFfnybz-93mHWYcxNnpm4z2RNevhJlLc6ktdDCwhm2Tc2ROJDqpio" width="252"></a>
-</div>
-<br>Looks pretty good, right? Pretty high pass rates?<br><br>The overall pass rate is only 58%.&nbsp;<br><br>Let’s run some 100-task simulations. Ideally, each step would run once per task. When a code submission is rejected, it starts back over at the beginning.<br><br>The simulation is unfairly simple.&nbsp;
-</div>
-<div>
-<ul style="text-align: left;">
-<li>
-It doesn’t include time to remediate the problems.&nbsp;
-</li>
-<li>
-It doesn’t consider queuing waits, such as when the QA is busy, and work piles up.&nbsp;
-</li>
+<section id="how-much-failure-demand-and-rework-do-you-feel-is-appropriate-in-your-system" class="level2">
+<h2 class="anchored" data-anchor-id="how-much-failure-demand-and-rework-do-you-feel-is-appropriate-in-your-system">How much failure demand and rework do you feel is appropriate in your system?</h2>
+<p>Rework in software is the correction of unacceptable code. That doesn’t include refactoring, which corrects only the design and expression of ideas without changing what the code does. This is limited to “something does not work correctly and we can’t let it be released.”</p>
+<p>So, we don’t want any of that, right? It delays releases and costs money. It distracts developers from doing new feature work. It raises the costs of release. Clearly, this is a bad thing, right?</p>
+<p>No.&nbsp;This is a less-obvious question than it first seems.</p>
+<p>Obviously, nobody wants to have errors and failures in their system. We would like to see 100% success rates, right?</p>
+<p>Well, hold on…</p>
+</section>
+<section id="pass-rates" class="level2">
+<h2 class="anchored" data-anchor-id="pass-rates">Pass Rates</h2>
+<p>How would you feel if your QA/QC department did not report a single defect in the past 3 quarters? Not one!</p>
+<p>What if all the code reviews passed with “Looks good. Nice work!” and nothing was ever returned for repair?</p>
+<p>What if none of the security scans or linters ever reported a problem?</p>
+<p>What if every one of your releases went out flawlessly and nobody ever reverted anything?</p>
+<p>Would you actually be happy?</p>
+<p>Would you be angry with code reviewers, testers, and your investment in scanners?</p>
+</section>
+<section id="no-rejections-thats-incredible" class="level2">
+<h2 class="anchored" data-anchor-id="no-rejections-thats-incredible">No Rejections? That’s incredible!</h2>
+<p>The word incredible means that it has no credibility – it’s not trustworthy and likely untrue.</p>
+<p>The problem with my phrasing above is that I expressed it as people not reporting problems, rather than expressing it as people doing diligent and competent work and still not finding any problems because the code is so perfect.</p>
+<p>It’s hard for people in most programming groups to even imagine that code could not be full of easily-catchable issues (and probably some subtle ones that aren’t easy to spot).</p>
+<p>But this leaves us in a funny picture: we need the code to have problems in order to prove the value of the gauntlet of post-code checkers we have put in place. How else can we prove the efficacy of the system that keeps bugs from escaping into the wild?</p>
+</section>
+<section id="competition" class="level2">
+<h2 class="anchored" data-anchor-id="competition">Competition</h2>
+<p>The usual system pits developers against testers (human and otherwise) and requires there to be a certain level of rework. For every bit of code that passes 100% on the first try, we give a demerit to our testing gauntlet. For every time code is rejected by the system, we give a demerit to the programming staff.</p>
+<p>Somebody has to lose for the system to remain stable.</p>
+<p>When the code improves, the test gauntlet has to raise the bar until they can report more issues (however trivial) in order to prove the value of their system and the need for the salaries and subscriptions paid periodically.</p>
+<p>That creates a reputation that programmers are ineffective and flawed. If they again improve, then it casts shade on the gauntlet operators again.</p>
+<p>Isn’t this “using blame and shame to create an upward spiral”?</p>
+</section>
+<section id="does-it-make-a-difference" class="level2">
+<h2 class="anchored" data-anchor-id="does-it-make-a-difference">Does it make a difference?</h2>
+<p>Here is a pipeline based on some factual post-code pipelines:</p>
+<p><a href="../assets/how-much-rework-do-you-want-1.png"><img src="../assets/how-much-rework-do-you-want-1.png" alt="" width="252" height="240"></a></p>
+<p>Looks pretty good, right? Pretty high pass rates?</p>
+<p>The overall pass rate is only 58%.</p>
+<p>Let’s run some 100-task simulations. Ideally, each step would run once per task. When a code submission is rejected, it starts back over at the beginning.</p>
+<p>The simulation is unfairly simple.</p>
+<ul>
+<li>It doesn’t include time to remediate the problems.</li>
+<li>It doesn’t consider queuing waits, such as when the QA is busy, and work piles up.</li>
 </ul>
-</div>
-<div>
-<br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="https://blogger.googleusercontent.com/img/a/AVvXsEjWpclHjLoVlGjG9IghjdtrEDjoHvOAUnX_4ouNRPb0BWoRttYYpm96iysX6o40c3-M_EJi6UP_8xDCoBcWbCzZYLTxtvfbqkXQaB2mIrgTz8AAA3oi-d8QAKQsie2wrN1TrIHeAHCBS4XS4_C4WPhwPdB70-iRZjBpZytQdfsDEfeHvAS67Y7AnEICq7s" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="421" data-original-width="1034" height="261" src="https://blogger.googleusercontent.com/img/a/AVvXsEjWpclHjLoVlGjG9IghjdtrEDjoHvOAUnX_4ouNRPb0BWoRttYYpm96iysX6o40c3-M_EJi6UP_8xDCoBcWbCzZYLTxtvfbqkXQaB2mIrgTz8AAA3oi-d8QAKQsie2wrN1TrIHeAHCBS4XS4_C4WPhwPdB70-iRZjBpZytQdfsDEfeHvAS67Y7AnEICq7s=w640-h261" width="640"></a>
-</div>
-<br>With this pipeline, 180 extra hours (rework) are needed just to operate the quality gates. That doesn’t include programming or queuing time.&nbsp;<br>
-<h2 style="text-align: left;" class="anchored">
-Costs
-</h2>
-</div>
-<div>
-<br>
-</div>
-<div>
-Intentionally driving down the pass rates (making the gates “extra tough”) creates an appetite for rework and failure, and a kind of informal currency around it. One earns points for slowing the system, increasing the costs of work, delaying releases, and destroying the predictability of any work in progress.
-</div>
-<div>
-<br>
-</div>
-<div>
-What if we kept a high standard, and even raised the standard, but rather than using this to return work and raise costs, we focused on the developer experience and made it possible (possibly inevitable) that the developers would produce code that works and satisfies users?<br><br>Deming described the “quality control” function as “you burn the toast, and I’ll scrape it” – rework that costs money and time and cannot possibly be the path to total quality.
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-Shifting
-</h2>
-<div>
-<br>
-</div>
-<div>
-The focus on “shift left” for QA is to move more of the evaluative function to moment of code creation.
-</div>
-<div>
-<br>
-</div>
-<div>
-This is wisdom.
-</div>
-<div>
-<br>
-</div>
-<div>
-There are many ways to approach development without rework.
-</div>
-<div>
-<br>
-</div>
-<div>
-With techniques like (proper use of) static typing and design-by-contract, we move more of the quality responsibility to compile time. Even dynamically-typed language often have a type-checking extension and these can make it hard to write ill-formed code witout knowing.
-</div>
-<div>
-<br>
-</div>
-<div>
-Most IDEs have some level of code-checking built into them. While some programmers are highly cognizant of warnings, errors, and suggestions there are many others who ignore these helpful quality reminders. Admittedly, not all warnings in all IDEs are useful, but that doesn’t mean that they are all to be ignored.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-There are a number of “lint” utilities that can be installed in the IDEs and editors we use.&nbsp; These can spot poor usage patterns, clumsy expressions, possible security flaws, anti-patterns and code smells, and unconventional formatting issues. Again, some developers refuse to install these and others ignore them.
-</div>
-<div>
-<br>
-</div>
-<div>
-Practices like TDD exist to provide a behavioral level of testing that goes beyond what a linter or IDE can check. With the microtests TDD relies upon, you don’t just know that the function takes two integers and returns a floating point number; you can know that given a certain set of numbers, it will return the expected result. This is an extension of quality checking that has a lot of power: you can change how the code works provided it still does the right thing. This allows one to evolve the design and improve the expression of code ideas safely. It’s one of the few ways of working that does (since DesignByContract is rarely implemented).<br><br>Automated testing helps here also. Using tools like Playwright and Storybook can take a UI development to a new level of reliability.
-</div>
-<div>
-<br>
-</div>
-<div>
-But the biggest left-shift seems to be one that people are in a huge hurry to discount - working together.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-I’m not sure why a proven method of enabling CI/CD and high quality, lauded in many studies and publications (including the DORA report) seems to have such a curb appeal problem, but people don’t want to think about this one.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-It matters, though. Nobody knows all the grammar of all the programming languages they use every day. Nobody knows the entire standard library of any one of those languages, nor all the relevant standards. Nobody knows all of the application code. No one person can be expected to know and keep up with an application system and its ecosystem.&nbsp; A few people working together can get close enough, though. You might be amazed at the Venn diagram of who knows what and how little common space there is in solo programmers all “doing their own work.”&nbsp; You would be amazed how much ground is covered by a diverse group of skilled workers.
-</div>
-<div>
-<br>
-</div>
-<div>
-But of course, if you don’t have errors and rework so that all of your code goes out the door well and quickly and your customers aren’t waiting and yelling at you then how can you tell which of your people are doing their best work?&nbsp;<br><br>And does that matter when your company is succeeding?
-</div>
+<p><a href="../assets/how-much-rework-do-you-want-2.png"><img src="../assets/how-much-rework-do-you-want-2.png" alt="" width="640" height="261"></a></p>
+<p>With this pipeline, 180 extra hours (rework) are needed just to operate the quality gates. That doesn’t include programming or queuing time.</p>
+</section>
+<section id="costs" class="level2">
+<h2 class="anchored" data-anchor-id="costs">Costs</h2>
+<p>Intentionally driving down the pass rates (making the gates “extra tough”) creates an appetite for rework and failure, and a kind of informal currency around it. One earns points for slowing the system, increasing the costs of work, delaying releases, and destroying the predictability of any work in progress.</p>
+<p>What if we kept a high standard, and even raised the standard, but rather than using this to return work and raise costs, we focused on the developer experience and made it possible (possibly inevitable) that the developers would produce code that works and satisfies users?</p>
+<p>Deming described the “quality control” function as “you burn the toast, and I’ll scrape it” – rework that costs money and time and cannot possibly be the path to total quality.</p>
+</section>
+<section id="shifting" class="level2">
+<h2 class="anchored" data-anchor-id="shifting">Shifting</h2>
+<p>The focus on “shift left” for QA is to move more of the evaluative function to moment of code creation.</p>
+<p>This is wisdom.</p>
+<p>There are many ways to approach development without rework.</p>
+<p>With techniques like (proper use of) static typing and design-by-contract, we move more of the quality responsibility to compile time. Even dynamically-typed language often have a type-checking extension and these can make it hard to write ill-formed code witout knowing.</p>
+<p>Most IDEs have some level of code-checking built into them. While some programmers are highly cognizant of warnings, errors, and suggestions there are many others who ignore these helpful quality reminders. Admittedly, not all warnings in all IDEs are useful, but that doesn’t mean that they are all to be ignored.</p>
+<p>There are a number of “lint” utilities that can be installed in the IDEs and editors we use. These can spot poor usage patterns, clumsy expressions, possible security flaws, anti-patterns and code smells, and unconventional formatting issues. Again, some developers refuse to install these and others ignore them.</p>
+<p>Practices like TDD exist to provide a behavioral level of testing that goes beyond what a linter or IDE can check. With the microtests TDD relies upon, you don’t just know that the function takes two integers and returns a floating point number; you can know that given a certain set of numbers, it will return the expected result. This is an extension of quality checking that has a lot of power: you can change how the code works provided it still does the right thing. This allows one to evolve the design and improve the expression of code ideas safely. It’s one of the few ways of working that does (since DesignByContract is rarely implemented).</p>
+<p>Automated testing helps here also. Using tools like Playwright and Storybook can take a UI development to a new level of reliability.</p>
+<p>But the biggest left-shift seems to be one that people are in a huge hurry to discount - working together.</p>
+<p>I’m not sure why a proven method of enabling CI/CD and high quality, lauded in many studies and publications (including the DORA report) seems to have such a curb appeal problem, but people don’t want to think about this one.</p>
+<p>It matters, though. Nobody knows all the grammar of all the programming languages they use every day. Nobody knows the entire standard library of any one of those languages, nor all the relevant standards. Nobody knows all of the application code. No one person can be expected to know and keep up with an application system and its ecosystem. A few people working together can get close enough, though. You might be amazed at the Venn diagram of who knows what and how little common space there is in solo programmers all “doing their own work.” You would be amazed how much ground is covered by a diverse group of skilled workers.</p>
+<p>But of course, if you don’t have errors and rework so that all of your code goes out the door well and quickly and your customers aren’t waiting and yelling at you then how can you tell which of your people are doing their best work?</p>
+<p>And does that matter when your company is succeeding?</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -77,35 +77,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -196,11 +167,28 @@ window.Quarto = {
 </header>
 
 
-There is a clever feature in bash, in that you can do a lot of manipulations while accessing a variable. Note that I always use “clever” in a pejorative sense, but while this is clever (argh) it is also helpful to me. I find that I, like all users, will tolerate a little cleverness if it gets my work done.<br><br>In this case, it’s the substitution features that get my attention.<br>For variables:<br>
+<p>There is a clever feature in bash, in that you can do a lot of manipulations while accessing a variable. Note that I always use “clever” in a pejorative sense, but while this is clever (argh) it is also helpful to me. I find that I, like all users, will tolerate a little cleverness if it gets my work done.</p>
+<p>In this case, it’s the substitution features that get my attention.<br>
+For variables:</p>
 <blockquote class="blockquote">
-<br>${VAR:-zzz} returns $VAR, or “zzz” if <span class="math inline">\(VAR is empty&lt;br /&gt;\)</span>{VAR//x/y} returns <span class="math inline">\(VAR after replacing all "x" with "y"&lt;br /&gt;\)</span>{VAR:=zzz} returns $VAR or “zzz” if VAR is unset, and assigns VAR (ick)<br>
+<p>${VAR:-zzz} returns $VAR, or “zzz” if $VAR is empty<br>
+${VAR//x/y} returns $VAR after replacing all “x” with “y”<br>
+${VAR:=zzz} returns $VAR or “zzz” if VAR is unset, and assigns VAR (ick)</p>
 </blockquote>
-<p><br><br>And of course the coolest version is the <span class="math inline">\(() operator (AKA: command substitution), which used to be done with ugly backticks. This runs a command and returns the output of the command into a variable:&lt;br /&gt;&lt;blockquote&gt;&lt;br /&gt;\)</span>(echo <span class="math inline">\(fname| cut -d. -f1)&lt;br /&gt;\)</span>(echo $(basename <span class="math inline">\(fname) | cut -d -f1)&lt;br /&gt;&lt;/blockquote&gt;&lt;br /&gt;&lt;br /&gt;Which leads to this kind of "clever" coding:&lt;br /&gt;&lt;blockquote&gt;&lt;br /&gt;dest=\)</span>{DESTDIR:-/tmp}/$(echo $(basename <span class="math inline">\({source// /_})| cut -d. -f1|cut -d= -f1).avi&lt;br /&gt;&lt;/blockquote&gt;&lt;br /&gt;Which is a pure evil incantation that takes a filename (\)</span>source), prefixes it with the destination directory (which defaults to /tmp), strips the path off of it with basename, passes that to a cut filter to remove all dotted suffixes (leaving a raw filename) and then cuts off any suffix that has a “=” preceding it.<br><br>The result of passing a source like <span style="font-style:italic;">/aaa/bbb/ccc/ddd=12312.mov.tmp</span> would be a string like <span style="font-style:italic;">/tmp/ddd.avi</span>. <br><br>That’s evil. It happens to be handy for a transcoding script of mine, but it’s pure evil nonetheless. If I come across code like this in the future, I’ll want to claw my eyes out. <br><br>But the substitution thing is handy.<br><br>It doesn’t have to be in a single line. I think “one effect per line” and “one trick per line” are pretty good bash programmer rules. One shouldn’t try to reach a maximum clever trick density. Really.</p>
+<p>And of course the coolest version is the $() operator (AKA: command substitution), which used to be done with ugly backticks. This runs a command and returns the output of the command into a variable:</p>
+<blockquote class="blockquote">
+<p>$(echo $fname| cut -d.&nbsp;-f1)<br>
+$(echo $(basename $fname) | cut -d -f1)</p>
+</blockquote>
+<p>Which leads to this kind of “clever” coding:</p>
+<blockquote class="blockquote">
+<p>dest=${DESTDIR:-/tmp}/$(echo $(basename ${source// /_})| cut -d.&nbsp;-f1|cut -d= -f1).avi</p>
+</blockquote>
+<p>Which is a pure evil incantation that takes a filename ($source), prefixes it with the destination directory (which defaults to /tmp), strips the path off of it with basename, passes that to a cut filter to remove all dotted suffixes (leaving a raw filename) and then cuts off any suffix that has a “=” preceding it.</p>
+<p>The result of passing a source like <em>/aaa/bbb/ccc/ddd=12312.mov.tmp</em> would be a string like <em>/tmp/ddd.avi</em>.</p>
+<p>That’s evil. It happens to be handy for a transcoding script of mine, but it’s pure evil nonetheless. If I come across code like this in the future, I’ll want to claw my eyes out.</p>
+<p>But the substitution thing is handy.</p>
+<p>It doesn’t have to be in a single line. I think “one effect per line” and “one trick per line” are pretty good bash programmer rules. One shouldn’t try to reach a maximum clever trick density. Really.</p>
 
 
 

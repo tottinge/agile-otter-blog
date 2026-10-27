@@ -158,65 +158,37 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Many programmers see their jobs as a process of gluing together code fragments to make things work. Many of them produce results very quickly and are lauded for productivity. TDD, mocking libraries, dependency injection, and refactoring tools seem to them a silly waste of time; they can hack working examples together faster than most “craftsman” programmers.
-<div>
-<br>
-</div>
-<div>
-There is some validity to the approach. Quite often programmers find code samples on the web or in a very fine “python cookbook” or the like, and they copy them into their code base. Likewise, an API comes with example code for a reason. There is nothing wrong with starting from a good external example, as this will often jump-start your application’s use of an api or technique. If plagiarism is avoided (ie samples are public domain or appropriately licensed) then this kind of copy-and-paste may be valid and useful.
-</div>
-<div>
-<br>
-</div>
-<div>
-The problem comes when copying and pasting withing an application. In this context, it is a quick-and-dirty approach to programming. A search of the web or twitter for the phrase “quick and dirty” will show primarily examples of the term being used as a virtue or feature. It suggests that the information it references is wholesome, folksy, and free from self-indulgent over-revision. In such cases, I fear that the word ‘Quick’ has distracted the reader and that the word ‘Dirty’ has been swept under the rug.<br><br>Dirty is not a virtue. While code-copying code is a known development <span style="font-style: italic;">dis</span>abler, it is hard to tell copy-and-paste programmers that <a href="http://www.solidsourceit.com/blog/?p=4">the way they work is wrong</a> (let alone telling their managers!). Quick is clearly a virtue in the marketplace, so how can it be wrong to be done sooner?<br>
+<p>Many programmers see their jobs as a process of gluing together code fragments to make things work. Many of them produce results very quickly and are lauded for productivity. TDD, mocking libraries, dependency injection, and refactoring tools seem to them a silly waste of time; they can hack working examples together faster than most “craftsman” programmers.</p>
+<p>There is some validity to the approach. Quite often programmers find code samples on the web or in a very fine “python cookbook” or the like, and they copy them into their code base. Likewise, an API comes with example code for a reason. There is nothing wrong with starting from a good external example, as this will often jump-start your application’s use of an api or technique. If plagiarism is avoided (ie samples are public domain or appropriately licensed) then this kind of copy-and-paste may be valid and useful.</p>
+<p>The problem comes when copying and pasting withing an application. In this context, it is a quick-and-dirty approach to programming. A search of the web or twitter for the phrase “quick and dirty” will show primarily examples of the term being used as a virtue or feature. It suggests that the information it references is wholesome, folksy, and free from self-indulgent over-revision. In such cases, I fear that the word ‘Quick’ has distracted the reader and that the word ‘Dirty’ has been swept under the rug.</p>
+<p>Dirty is not a virtue. While code-copying code is a known development <em>dis</em>abler, it is hard to tell copy-and-paste programmers that <a href="http://www.solidsourceit.com/blog/?p=4">the way they work is wrong</a> (let alone telling their managers!). Quick is clearly a virtue in the marketplace, so how can it be wrong to be done sooner?</p>
 <blockquote class="blockquote">
-“The trouble with quick and dirty is that dirty remains long after quick has been forgotten.” ~Steve McConnell
+<p>“The trouble with quick and dirty is that dirty remains long after quick has been forgotten.” ~Steve McConnell</p>
 </blockquote>
-The problem is that they’re not <span style="font-style: italic;">done </span>sooner. Copy-n-pasters just <span style="font-style: italic;">stop </span>sooner, and the code goes out in poor condition. Lacking unit tests, we can’t know if it is really done, and code pasted together in long stringy functions is notably hard to test. To make it testable, it usually has to be refactored into methods, which then are refactored to remove duplication. If we aren’t refactoring, it’s rather unlikely that we’re testing. If we haven’t tested the code then who is to say it’s done? If there are not tests around the methods up and down the call stack from our paste-receiving function, who is to say that we’ve not broken some other code? And what of code not directly in our call stack, but which touches upon the data or structures we’ve modified?<br><br>In what kind of bizarro world is “broken” compatible with “done”?<br><br>Would anyone sign up for a program where we would intentionally degrade system development speed by even 5% per quarter for the life of our product? Would we approve a continual increase in both fresh bugs and error regression? It is unlikely, all else being equal.<br><br>Would businesses sign up if they could have the next five features implemented before the mud hits the fan? Most of them would, and gladly. The problem is that “quick and dirty” sounds very quick and not so dirty. There is a lot of pressure to quiet the angry customer, fulfill a contract, or close a sale. It is foolish to deny that “sooner” matters. Any programmer worth his pay would love to be able to go home with even 10% more accomplishment. “Faster”, sings the siren, “faster still!”.<br><br>The allure of copying is that it causes problems that accumulate “later” while seeming to give benefits that are paid “now.” The ability to <a href="http://en.wikipedia.org/wiki/Deferred_gratification">defer gratification</a> is a famous indicator of a student’s likelihood of success, but businesses exist to gratify customers as quickly as possible.<br><br>The promise is false. Code copying does not position us to work faster next week, but slower. Say you have five lines of code in an if/else statement inside a loop in one of your functions: code which converts a Lead to a Customer. I need to do the same, so I cut those lines from your function and paste it into mine. As a result:<br>
-<ol>
-<li>
-The compiler has to compile that code twice.<br>
-</li>
-<li>
-If there is a defect, it needs to be corrected<span style="font-style: italic;"> twice </span>or it will be reported as a regression.
-</li>
-<li>
-If I realize an improvement in my code, I have to back-feed it into yours or callously leave yours unimproved. Is it likely I will spend my feature development time fixing your code?<br>
-</li>
-<li>
-There is now even more untested code in the system.<br>
-</li>
-<li>
-If Lead-to-Customer conversion gathers new requirements, we have to find both examples and enhance them. Heaven help us if we miss the one the customers actually use most!
-</li>
-<li>
-We are working against our IDE, which would happily have located the conversion method for us, had it not been scribbled into the middle of our individual functions.<br>
-</li>
-<li>
-If I write unit tests for my copy, yours is still untested.<br>
-</li>
-<li>
-When QC tests your functionality, they will need to cover the edge cases of customer conversion. They they will need to cover those cases again in my code.<br>
-</li>
-<li>
-When our two versions diverge, programmers may use either my improved or your unimproved version. They may reinvent my improvement, wasting time for little gain.<br>
-</li>
-<li>
-Our business people request that our coworkers build a batch customer conversion feature, but there is no function to convert leads to customers. The coworkers must reinvent the process or find and evaluate our copies. Either way, they have wasted development time.<br>
-</li>
-<li>
-The code we pasted into now is doing multiple things, making it harder to read and comprehend.<br>
-</li>
-<li>
-The code we pasted into is likely leaking variables that would have been encapsulated in a single function call.
-</li>
-<li>
-It is very likely that our merged functions are harder to optimize than they would have been with a shared function call in place.<br>
-</li>
+<p>The problem is that they’re not <em>done</em> sooner. Copy-n-pasters just <em>stop</em> sooner, and the code goes out in poor condition. Lacking unit tests, we can’t know if it is really done, and code pasted together in long stringy functions is notably hard to test. To make it testable, it usually has to be refactored into methods, which then are refactored to remove duplication. If we aren’t refactoring, it’s rather unlikely that we’re testing. If we haven’t tested the code then who is to say it’s done? If there are not tests around the methods up and down the call stack from our paste-receiving function, who is to say that we’ve not broken some other code? And what of code not directly in our call stack, but which touches upon the data or structures we’ve modified?</p>
+<p>In what kind of bizarro world is “broken” compatible with “done”?</p>
+<p>Would anyone sign up for a program where we would intentionally degrade system development speed by even 5% per quarter for the life of our product? Would we approve a continual increase in both fresh bugs and error regression? It is unlikely, all else being equal.</p>
+<p>Would businesses sign up if they could have the next five features implemented before the mud hits the fan? Most of them would, and gladly. The problem is that “quick and dirty” sounds very quick and not so dirty. There is a lot of pressure to quiet the angry customer, fulfill a contract, or close a sale. It is foolish to deny that “sooner” matters. Any programmer worth his pay would love to be able to go home with even 10% more accomplishment. “Faster”, sings the siren, “faster still!”.</p>
+<p>The allure of copying is that it causes problems that accumulate “later” while seeming to give benefits that are paid “now.” The ability to <a href="http://en.wikipedia.org/wiki/Deferred_gratification">defer gratification</a> is a famous indicator of a student’s likelihood of success, but businesses exist to gratify customers as quickly as possible.</p>
+<p>The promise is false. Code copying does not position us to work faster next week, but slower. Say you have five lines of code in an if/else statement inside a loop in one of your functions: code which converts a Lead to a Customer. I need to do the same, so I cut those lines from your function and paste it into mine. As a result:</p>
+<ol type="1">
+<li>The compiler has to compile that code twice.</li>
+<li>If there is a defect, it needs to be corrected <em>twice</em> or it will be reported as a regression.</li>
+<li>If I realize an improvement in my code, I have to back-feed it into yours or callously leave yours unimproved. Is it likely I will spend my feature development time fixing your code?</li>
+<li>There is now even more untested code in the system.</li>
+<li>If Lead-to-Customer conversion gathers new requirements, we have to find both examples and enhance them. Heaven help us if we miss the one the customers actually use most!</li>
+<li>We are working against our IDE, which would happily have located the conversion method for us, had it not been scribbled into the middle of our individual functions.</li>
+<li>If I write unit tests for my copy, yours is still untested.</li>
+<li>When QC tests your functionality, they will need to cover the edge cases of customer conversion. They they will need to cover those cases again in my code.</li>
+<li>When our two versions diverge, programmers may use either my improved or your unimproved version. They may reinvent my improvement, wasting time for little gain.</li>
+<li>Our business people request that our coworkers build a batch customer conversion feature, but there is no function to convert leads to customers. The coworkers must reinvent the process or find and evaluate our copies. Either way, they have wasted development time.</li>
+<li>The code we pasted into now is doing multiple things, making it harder to read and comprehend.</li>
+<li>The code we pasted into is likely leaking variables that would have been encapsulated in a single function call.</li>
+<li>It is very likely that our merged functions are harder to optimize than they would have been with a shared function call in place.</li>
 </ol>
-If the code is written perfectly, never needed anywhere else, and subject to no requirement changes, then copying would be harmless, but in such cases copying is not necessary. To copy code, then, is to ignore the consequences to the team in order to seem to be done sooner. This is an act of selfishness.<br><br>The bias against code duplication goes well beyond being a pet peeve of the Agile Otter. It has been well-explained by many programming texts. For a few online references, see what people say about duplicate code <a href="http://en.wikipedia.org/wiki/Duplicate_code">at Wikipedia</a>, <a href="http://c2.com/cgi/wiki?DuplicatedCode">C2</a>, <a href="http://www.cincomsmalltalk.com/userblogs/ralph/blogView?showComments=true&amp;entry=3271050352">Ralph Johnson’s blog</a>, <a href="http://www.artima.com/intv/dry.html">the “prag progs”</a>, or <a href="http://en.wikipedia.org/wiki/Abstraction_principle_%28programming%29">the abstraction principle</a>. <a href="http://www.laputan.org/mud/">Big balls of mud</a> grow from accumulated dirt, and much of that dirt is the residue from “quick and dirty” programming. After all, what is mud but dirt that is not <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>?<br><br>Habitually copying and pasting code among function bodies is not an act of heroism, but rather an act of corporate sabotage. It is sad that we do not treat it as such.
-</div>
+<p>If the code is written perfectly, never needed anywhere else, and subject to no requirement changes, then copying would be harmless, but in such cases copying is not necessary. To copy code, then, is to ignore the consequences to the team in order to seem to be done sooner. This is an act of selfishness.</p>
+<p>The bias against code duplication goes well beyond being a pet peeve of the Agile Otter. It has been well-explained by many programming texts. For a few online references, see what people say about duplicate code <a href="http://en.wikipedia.org/wiki/Duplicate_code">at Wikipedia</a>, <a href="http://c2.com/cgi/wiki?DuplicatedCode">C2</a>, <a href="http://www.cincomsmalltalk.com/userblogs/ralph/blogView?showComments=true&amp;entry=3271050352">Ralph Johnson’s blog</a>, <a href="http://www.artima.com/intv/dry.html">the “prag progs”</a>, or <a href="http://en.wikipedia.org/wiki/Abstraction_principle_%28programming%29">the abstraction principle</a>. <a href="http://www.laputan.org/mud/">Big balls of mud</a> grow from accumulated dirt, and much of that dirt is the residue from “quick and dirty” programming. After all, what is mud but dirt that is not <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>?</p>
+<p>Habitually copying and pasting code among function bodies is not an act of heroism, but rather an act of corporate sabotage. It is sad that we do not treat it as such.</p>
 
 
 

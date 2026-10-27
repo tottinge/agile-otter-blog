@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2018-12-20">
 <meta name="description" content="In our previous post, we discussed doing smaller units of work, and doing no more of them than we need to fulfill an end-user’s needs. This way, we get many things done, we…">
 
-<title>Q and A on velocity, Part VIII – Agile Otter Blog</title>
+<title>Q&amp;A on Velocity, Part VIII – Agile Otter Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Q and A on velocity, Part VIII</h1>
+<h1 class="title">Q&amp;A on Velocity, Part VIII</h1>
 </div>
 
 <div>
@@ -158,34 +158,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div dir="ltr" style="text-align: left;" data-trbidi="on">
-In our <a href="http://agileotter.blogspot.com/2018/11/q-and-on-velocity-part-vii.html">previous post</a>, we discussed doing smaller units of work, and doing no more of them than we need to fulfill an end-user’s&nbsp;needs. This way, we get many things done, we deliver more quickly, and we develop less unneeded code (provided we get frequent feedback from users).<br> <br> Fans of agile software development will recognize this as one of the axiomatic concepts behind agile, derivative of much earlier work on <a href="https://en.wikipedia.org/wiki/Iterative_and_incremental_development">incremental and iterative development</a>.&nbsp; Without incremental, iterative development and feedback, a process can hardly be said to be agile in any way whatsoever.<br> <br> So we pick up the conversation today at that point:<br>
-<blockquote class="tr_bq blockquote">
-A: …But I we get 23 points now, and they’re as big as the 1/19th sized ones.<br> B: That has two possible explanations.<br> A: What is the first explanation<br> B: That they’re assigning more points to same-sized work:&nbsp;<i>inflation</i>.<br> A: Why would they do that?
+<p>In our <a href="../posts/2018-11-05-q-and-on-velocity-part-vii.html">previous post</a>, we discussed doing smaller units of work, and doing no more of them than we need to fulfill an end-user’s needs. This way, we get many things done, we deliver more quickly, and we develop less unneeded code (provided we get frequent feedback from users).</p>
+<p>Fans of agile software development will recognize this as one of the axiomatic concepts behind agile, derivative of much earlier work on <a href="https://en.wikipedia.org/wiki/Iterative_and_incremental_development">incremental and iterative development</a>. Without incremental, iterative development and feedback, a process can hardly be said to be agile in any way whatsoever.</p>
+<p>So we pick up the conversation today at that point:</p>
+<blockquote class="blockquote">
+<p><strong>A:</strong> …But I we get 23 points now, and they’re as big as the 1/19th sized ones.<br>
+<strong>B:</strong> That has two possible explanations.<br>
+<strong>A:</strong> What is the first explanation<br>
+<strong>B:</strong> That they’re assigning more points to same-sized work: <em>inflation</em>.<br>
+<strong>A:</strong> Why would they do that?</p>
 </blockquote>
-People in an organization are constantly trying to satisfy their bosses. When organizations put pressure on developers to produce more points, developers start to find ways to score more points. There are some hilarious examples in <a href="https://www.industriallogic.com/blog/stop-using-story-points/">Joshua Kerievsky’s article</a> on story points at the Industrial Logic <a href="http://blog.industriallogic.com/">blog</a>. Sometimes it is intentional but not always.<br> <br> When a team turns in an 8-point sprint/iteration/whatever, and are disappointed, they often look back over the week and realize that they <i>under-estimated </i>some of the stories which were harder than they looked, and that is the reason it was only 8 points. It should have been 15. In reaction, they give higher point-count estimates the next time.&nbsp; This kind of inflation isn’t to&nbsp;deceive, but to better reflect reality and truth. But now the team turns in a more satisfying 15 point sprint, and exactly the same amount of work is being done.<br> <br> That people misinterpret this as acceleration is not the team’s intention. They merely are taking credit for the amount of work they actually did.<br> <br> “Scoring points” and “having higher scores” classicly illustrates&nbsp;<a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Goodhart’s law</a>. A measure (of completion rate) which is a reasonable measure, once chosen as a goal, ceases to be a valid measure.<br> <br> You will hear development teams in scrum-like processes talking about work “blowing up.”&nbsp; That means “like a balloon” not “like dynamite.”&nbsp; There was some story that seemed like a 2-pointer, but turned out to take most of the sprint because there was more risk and uncertainty that anyone realized. <br> <br> A story may have seemed simple: “add a discount code field.” The product owner/manager/boss may have said: “that should only be a two-point story.”<br> <br> It seems easy. It should be easy to operate. What could be simpler? It’s one field on a form, and you subtract some value from the total.<br> <br> But these things are seldom simple. Marketing and accounting want tracking, and expiry for discounts, and demographic limits on the usage. Discounts need to appear on the customer’s receipt as an indicator that they got a good deal from the company (marketing!). Discounts need to be represented in billing reports.<br> <br> There may be special discounting reports used to measure the success of promotions. There may be anti-fraud ramifications.<br> <br> Then someone decides that there should be many discount codes, and they should combine in some ways but not others. Now UX has to redesign the data entry screen, and there are complicated rules. Maybe those need a new microservice?<br> <br> But it was a three-point story, right? This raises questions:<br>
-<ul style="text-align: left;">
-<li>
-Why did the team only turn in 5 points this sprint?&nbsp;
-</li>
-<li>
-What’s WRONG with them?&nbsp;
-</li>
-<li>
-Why are they slowing down?&nbsp;
-</li>
-<li>
-What can we do to motivate them to go faster?
-</li>
-<li>
-Team X turned in 50 points compared to this team’s 5, why are they 10x better?&nbsp;
-</li>
-<li>
-Does this team need a PIP?
-</li>
+<p>People in an organization are constantly trying to satisfy their bosses. When organizations put pressure on developers to produce more points, developers start to find ways to score more points. There are some hilarious examples in <a href="https://www.industriallogic.com/blog/stop-using-story-points/">Joshua Kerievsky’s article</a> on story points at the Industrial Logic <a href="http://blog.industriallogic.com/">blog</a>. Sometimes it is intentional but not always.</p>
+<p>When a team turns in an 8-point sprint/iteration/whatever, and are disappointed, they often look back over the week and realize that they <em>under-estimated</em> some of the stories which were harder than they looked, and that is the reason it was only 8 points. It should have been 15. In reaction, they give higher point-count estimates the next time. This kind of inflation isn’t to deceive, but to better reflect reality and truth. But now the team turns in a more satisfying 15 point sprint, and exactly the same amount of work is being done.</p>
+<p>That people misinterpret this as acceleration is not the team’s intention. They merely are taking credit for the amount of work they actually did.</p>
+<p>“Scoring points” and “having higher scores” classicly illustrates <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Goodhart’s law</a>. A measure (of completion rate) which is a reasonable measure, once chosen as a goal, ceases to be a valid measure.</p>
+<p>You will hear development teams in scrum-like processes talking about work “blowing up.” That means “like a balloon” not “like dynamite.” There was some story that seemed like a 2-pointer, but turned out to take most of the sprint because there was more risk and uncertainty that anyone realized.</p>
+<p>A story may have seemed simple: “add a discount code field.” The product owner/manager/boss may have said: “that should only be a two-point story.”</p>
+<p>It seems easy. It should be easy to operate. What could be simpler? It’s one field on a form, and you subtract some value from the total.</p>
+<p>But these things are seldom simple. Marketing and accounting want tracking, and expiry for discounts, and demographic limits on the usage. Discounts need to appear on the customer’s receipt as an indicator that they got a good deal from the company (marketing!). Discounts need to be represented in billing reports.</p>
+<p>There may be special discounting reports used to measure the success of promotions. There may be anti-fraud ramifications.</p>
+<p>Then someone decides that there should be many discount codes, and they should combine in some ways but not others. Now UX has to redesign the data entry screen, and there are complicated rules. Maybe those need a new microservice?</p>
+<p>But it was a three-point story, right? This raises questions:</p>
+<ul>
+<li>Why did the team only turn in 5 points this sprint?</li>
+<li>What’s WRONG with them?</li>
+<li>Why are they slowing down?</li>
+<li>What can we do to motivate them to go faster?</li>
+<li>Team X turned in 50 points compared to this team’s 5, why are they 10x better?</li>
+<li>Does this team need a PIP?</li>
 </ul>
-<br> These are <b>the wrong questions.</b>&nbsp; They are based on a faulty assumption, and acting on them will only make things worse. We discussed <a href="https://agileotter.blogspot.com/2016/08/the-curiosity-space.html">curiosity spaces</a>&nbsp;related to velocity in <a href="https://www.industriallogic.com/blog/stop-using-story-points/">Part VI,</a> which you may want to revisit at this time.<br> <br> Ultimately, the thing to understand about teams using time boxes is that about the same amount of work is being done every week (barring absences and meetings and events on company time). <a href="https://agileotter.blogspot.com/2012/09/14-weird-observations-about-agile-team.html">Velocity is mostly illusion</a>.<br> <br> Consider Goodhart’s law, curiosity, exploding stories, and inflation.<br> <br> Then come back to join us for <a href="http://agileotter.blogspot.com/2019/08/q-and-on-velocity-part-ix.html">part IX</a>.<br> <br>
-</div>
+<p>These are <strong>the wrong questions.</strong> They are based on a faulty assumption, and acting on them will only make things worse. We discussed <a href="../posts/2016-08-23-the-curiosity-space.html">curiosity spaces</a> related to velocity in <a href="https://www.industriallogic.com/blog/stop-using-story-points/">Part VI,</a> which you may want to revisit at this time.</p>
+<p>Ultimately, the thing to understand about teams using time boxes is that about the same amount of work is being done every week (barring absences and meetings and events on company time). <a href="../posts/2012-09-07-14-weird-observations-about-agile-team.html">Velocity is mostly illusion</a>.</p>
+<p>Consider Goodhart’s law, curiosity, exploding stories, and inflation.</p>
+<p>Then come back to join us for <a href="../posts/2019-08-23-q-and-on-velocity-part-ix.html">part IX</a>.</p>
 
 
 

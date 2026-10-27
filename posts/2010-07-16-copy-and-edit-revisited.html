@@ -152,46 +152,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Vadim reminds me that I need to address root causes of Copy-Paste-Edit programming, rather than merely <a href="http://agileotter.blogspot.com/2010/02/problem-of-copying.html">ranting about how bad a practice it is and how it ruins good code</a>. Of course, he is right. That is part of being Vadim.<br> <br> I’ve previously ranted about the ill-effects of copy-paste-edit programming, but it would be unfair to say that there is never a need for it, or that people who did it were simply stupid and lazy.&nbsp; The problem would not be so prevalent if it did not have some reasonable basis for practice. However well-intentioned and useful it is, its net effect on a code base is overwhelming negative.<br> <br> Here are a few root causes I recognize, and I’m open to hear more.<br>
+<p>Vadim reminds me that I need to address root causes of Copy-Paste-Edit programming, rather than merely <a href="../posts/2010-02-09-problem-of-copying.html">ranting about how bad a practice it is and how it ruins good code</a>. Of course, he is right. That is part of being Vadim.</p>
+<p>I’ve previously ranted about the ill-effects of copy-paste-edit programming, but it would be unfair to say that there is never a need for it, or that people who did it were simply stupid and lazy. The problem would not be so prevalent if it did not have some reasonable basis for practice. However well-intentioned and useful it is, its net effect on a code base is overwhelming negative.</p>
+<p>Here are a few root causes I recognize, and I’m open to hear more.</p>
 <ul>
-<li>
-<b>Tedious construction semantics</b> encourage copying. Many APIs are very thin access to bean-like objects, and yet using them correctly can be a trick. You have to know what to set, and in what order, and what to call next.&nbsp; It is far easier to copy a correctly-set-up object use than to make one from scratch.
-</li>
-<li>
-Copied code is a<b> working initial state</b> from which to make progress. This is useful not only when dealing with complicated code in the current system, but is especially true and especially beneficial when copying code examples from docs, books, or online code repositories.
-</li>
-<li>
-<b>Complex multi-line operations</b> have many ways to break. If the system shows poor cohesion or has multiple ways of doing the same job (and some ways work better than others) then copying a usage that works seems pretty safe.&nbsp; It is worse when the API has a “seed and harvest” interface, where one must set certain variables (seeding), then call a function, then collect the results from various variables (sometimes the same ones, sometimes not).
-</li>
-<li>
-Copying <b>minimizes the chance of breaking existing code</b>, which is the primary fear in legacy systems. If some (or most) code is ill-tested, then any editing of existing code can fail in unexpected ways. Copying an algorithm and changing the variable names to match the local context preserves the original code.&nbsp;
-</li>
-<li>
-<b>It is easier to copy than to study</b>.&nbsp; Copying code that pretty much works now, you can make minimal changes and hopefully it will work without you having to understand the underlying concerns. It allows you to get in and out quickly without doing research. Copy/paste creates a point in time at which it is basically sound, and can be refactored to purpose.&nbsp;
-</li>
-<li>
-<b>Moving code into functions requires thinking about design</b>.&nbsp; Is it one method or several? To which class does it belong? The original owner of the code? The new code? A class currently used by both? A new class? An existing library?&nbsp;
-</li>
+<li><strong>Tedious construction semantics</strong> encourage copying. Many APIs are very thin access to bean-like objects, and yet using them correctly can be a trick. You have to know what to set, and in what order, and what to call next. It is far easier to copy a correctly-set-up object use than to make one from scratch.</li>
+<li>Copied code is a <strong>working initial state</strong> from which to make progress. This is useful not only when dealing with complicated code in the current system, but is especially true and especially beneficial when copying code examples from docs, books, or online code repositories.</li>
+<li><strong>Complex multi-line operations</strong> have many ways to break. If the system shows poor cohesion or has multiple ways of doing the same job (and some ways work better than others) then copying a usage that works seems pretty safe. It is worse when the API has a “seed and harvest” interface, where one must set certain variables (seeding), then call a function, then collect the results from various variables (sometimes the same ones, sometimes not).</li>
+<li>Copying <strong>minimizes the chance of breaking existing code</strong>, which is the primary fear in legacy systems. If some (or most) code is ill-tested, then any editing of existing code can fail in unexpected ways. Copying an algorithm and changing the variable names to match the local context preserves the original code.</li>
+<li><strong>It is easier to copy than to study</strong>. Copying code that pretty much works now, you can make minimal changes and hopefully it will work without you having to understand the underlying concerns. It allows you to get in and out quickly without doing research. Copy/paste creates a point in time at which it is basically sound, and can be refactored to purpose.</li>
+<li><strong>Moving code into functions requires thinking about design</strong>. Is it one method or several? To which class does it belong? The original owner of the code? The new code? A class currently used by both? A new class? An existing library?</li>
 </ul>
-Is copying always wrong? I think it is not.&nbsp; The act of copying itself should kick in your “spider sense,” but it is not necessarily harmful.&nbsp; Copying examples from outside the system might be useful as a starting point.&nbsp; Copying code from inside the system (including copying an existing test to help create a new test) can be helpful to the programmer.&nbsp; However, having duplicated code in the system is always wrong, and having code that is placed badly is wrong as well.<br> <br> It could be useful to put some rules around your use of copying.<br>
+<p>Is copying always wrong? I think it is not. The act of copying itself should kick in your “spider sense,” but it is not necessarily harmful. Copying examples from outside the system might be useful as a starting point. Copying code from inside the system (including copying an existing test to help create a new test) can be helpful to the programmer. However, having duplicated code in the system is always wrong, and having code that is placed badly is wrong as well.</p>
+<p>It could be useful to put some rules around your use of copying.</p>
 <ul>
-<li>
-Don’t leave duplicated code in the system. If you copy, consider your copy to be merely a starting point, and also point of technical debt. Pay it off quickly by refactoring the duplication out of existance as soon as possible.
-</li>
-<li>
-Even when you write unique code, extract methods and move them to their most appropriate class, so methods can be called instead of copied next time. If you leave manipulations in the user of a class, you are encouraging the next user of that functionality to copy it as well.&nbsp;
-</li>
-<li>
-If the code is ugly enough (complex intialization, multi-step operations), extract the non-unique parts as new methods called from both copies. Interfaces do not have to be ugly and complex.
-</li>
-<li>
-When you find duplication, or create duplication, finish your refactoring step by sweeping the code base for other copies, and correct them likewise.&nbsp; It doesn’t help if two versions out of a dozen are refactored. You want the whole system to improve as you work.
-</li>
-<li>
-Copying might not be so bad if you refactor the area you’re copying from and move the extracted methods to appropriate new homes.&nbsp; Copying one or two function calls might not hurt you like copying blocks of code.
-</li>
+<li>Don’t leave duplicated code in the system. If you copy, consider your copy to be merely a starting point, and also point of technical debt. Pay it off quickly by refactoring the duplication out of existance as soon as possible.</li>
+<li>Even when you write unique code, extract methods and move them to their most appropriate class, so methods can be called instead of copied next time. If you leave manipulations in the user of a class, you are encouraging the next user of that functionality to copy it as well.</li>
+<li>If the code is ugly enough (complex intialization, multi-step operations), extract the non-unique parts as new methods called from both copies. Interfaces do not have to be ugly and complex.</li>
+<li>When you find duplication, or create duplication, finish your refactoring step by sweeping the code base for other copies, and correct them likewise. It doesn’t help if two versions out of a dozen are refactored. You want the whole system to improve as you work.</li>
+<li>Copying might not be so bad if you refactor the area you’re copying from and move the extracted methods to appropriate new homes. Copying one or two function calls might not hurt you like copying blocks of code.</li>
 </ul>
-<p>Everything I said about the evils of copying code still stand.&nbsp; If you copy a block of code, you are probably going to screw over your whole development organization a little (especially when the system changes and your original is no longer correct).&nbsp; Copy-Edit is still the way to make a bloated mess of your system.</p>
+<p>Everything I said about the evils of copying code still stand. If you copy a block of code, you are probably going to screw over your whole development organization a little (especially when the system changes and your original is no longer correct). Copy-Edit is still the way to make a bloated mess of your system.</p>
 
 
 

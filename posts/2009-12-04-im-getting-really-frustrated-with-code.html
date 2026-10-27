@@ -158,11 +158,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-I’m getting really frustrated with code that pointlessly burns vertical space when I’m reading in a window in an IDE (in this case a C# type of IDE). I need to take in ideas at a glance as I survey this code, but people seem to not appreciate the “at a glance” qualities I treasure.<br><br>To wit: Do we really need 18 lines for each of the delegate’s exposed properties?<br>
-<pre><br><br>       /// &lt;summary&gt;<br>       ///<br>       /// &lt;/summary&gt;<br>       /// &lt;returns&gt;&lt;/returns&gt;<br>     <br>       public string GetSomeValue() {<br>           return delegate.GetSomeValue();<br>       }<br><br>       /// &lt;summary&gt;<br>       ///<br>       /// &lt;/summary&gt;<br>       /// &lt;param name="value"&gt;&lt;/param&gt;<br>     <br>       public void SetSomeValue(string value) {<br>           delegate.SetSomeValue(value);<br>       }<br><br></pre>
-<br><br>Each three-line statement has 8 lines of worthless comment and unnecessary vertical white space around it.<br><br>I won’t argue one way or the other about the need for parallel hierarchies of exposed classes delegating to hidden classes here. I’ve even left off the fact that there is gratuitous context being used in the real code (I’ve cleaned this up for your convenience). Ignoring all the other bits of silliness or grand architectural idealism, let’s just talk about this very small bit of code.<br><br>Why not use this:<br>
-<pre><br>     public string SomeValue {<br>             get { return delegate.GetSomeValue(); }<br>             set { delegate.SetSomeValue(value); }<br>     }<br></pre>
-<p><br><br>I think we gain readability by deleting 15 lines of fluff and reducing the namespace pollution by half. The operations group more naturally, so I don’t have to remember to mentally group getters and setters. I know that they’re going to (and coming from) the same place. And best yet, that little snippet fits in my paltry IDE window.<br><br>Spreading a small bit of code out over a large area seems like rude behavior to me.<br><br>Okay, I’ve ranted. Thanks for the time. I’m back to the code.</p>
+<p>I’m getting really frustrated with code that pointlessly burns vertical space when I’m reading in a window in an IDE (in this case a C# type of IDE). I need to take in ideas at a glance as I survey this code, but people seem to not appreciate the “at a glance” qualities I treasure.</p>
+<p>To wit: Do we really need 18 lines for each of the delegate’s exposed properties?</p>
+<pre class="text"><code>
+
+       /// &lt;summary&gt;
+       ///
+       /// &lt;/summary&gt;
+       /// &lt;returns&gt;&lt;/returns&gt;
+
+       public string GetSomeValue() {
+           return delegate.GetSomeValue();
+       }
+
+       /// &lt;summary&gt;
+       ///
+       /// &lt;/summary&gt;
+       /// &lt;param name="value"&gt;&lt;/param&gt;
+
+       public void SetSomeValue(string value) {
+           delegate.SetSomeValue(value);
+       }</code></pre>
+<p>Each three-line statement has 8 lines of worthless comment and unnecessary vertical white space around it.</p>
+<p>I won’t argue one way or the other about the need for parallel hierarchies of exposed classes delegating to hidden classes here. I’ve even left off the fact that there is gratuitous context being used in the real code (I’ve cleaned this up for your convenience). Ignoring all the other bits of silliness or grand architectural idealism, let’s just talk about this very small bit of code.</p>
+<p>Why not use this:</p>
+<pre class="text"><code>
+     public string SomeValue {
+             get { return delegate.GetSomeValue(); }
+             set { delegate.SetSomeValue(value); }
+     }</code></pre>
+<p>I think we gain readability by deleting 15 lines of fluff and reducing the namespace pollution by half. The operations group more naturally, so I don’t have to remember to mentally group getters and setters. I know that they’re going to (and coming from) the same place. And best yet, that little snippet fits in my paltry IDE window.</p>
+<p>Spreading a small bit of code out over a large area seems like rude behavior to me.</p>
+<p>Okay, I’ve ranted. Thanks for the time. I’m back to the code.</p>
 
 
 

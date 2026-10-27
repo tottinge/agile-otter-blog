@@ -158,248 +158,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-I’m not fully vested in and convinced by Spec Driven Development. I’ve gotten over 70% of my initial “BDUF” concern and am thinking more clearly.&nbsp;
-</p>
-<p>
-I thought that it would be a good time for me to list the concerns I have for ongoing SDD. In a few years, we can look back and see if we were able to overcome these challenges:<br><br><br>
-</p>
-<h2 style="text-align: left;" class="anchored">
-Documents Age
-</h2>
-<div>
-A document can be correct on the day it is written, and without constantly being updated can stop being true in the future. Policies change, legislation changes, architecture trends change, implementation technologies change, and businesses morph and are disrupted.
-</div>
-<div>
-<br>
-</div>
-<div>
-Consider how well understood the cellular phone market was in the days with complicated billing systems and physical buttons, before flat monthly payment plans, easy and broad availability of phone models, phone numbers owned by users instead of cellular providers, and the dominance of glass screens.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-What is the shelf life of a typical development document? That depends. In the broad and abstract sense, documents my last for a decade or longer. The more detailed a document is, the faster it goes out of date. To generate (or regenerate) code, the document must be very detailed.
-</div>
-<div>
-<br>
-</div>
-<div>
-This is a concern when our systems are based on code generated from documentation, as we may end up building partially obsolete systems without realizing it.&nbsp;
-</div>
-<h2 style="text-align: left;" class="anchored">
-Documents Accumulate
-</h2>
-<div>
-We need to consider the a typical system these days may be originally built from some design and architecture concepts, written in markdown, Word, or some other format.
-</div>
-<div>
-<br>
-</div>
-<div>
-Over time, there are separate documents describing desired features or stories, changes in the architecture, changes in the implementation technologies, etc.
-</div>
-<div>
-<br>
-</div>
-<div>
-How many tickets (representing code changes or stories) does a typical system accumulate over the course of a year? How many documents might we have describing the initial system and all of its changes made by all of its developers over a 5 year period? What about 10 years?
-</div>
-<div>
-<br>
-</div>
-<div>
-To understand the current state of the system, will an agent have to read a few thousand documents?&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-When there are many documents, the token cost for reading them becomes prohibitive. More importantly, however, is that the context for tens of thousands of documents is simply not available in agents (so far). The documents will have to be summarised and simplified to fit in memory.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-If the agent can hold all the documents, it’s too expensive to use.
-</div>
-<div>
-<br>
-</div>
-<div>
-If it cannot, then it is working from a partial and overly-abstracted model of the system’s behaviors.
-</div>
-<div>
-<br>
-</div>
-<div>
-Does the collection become unmanageable?
-</div>
-<h2 style="text-align: left;" class="anchored">
-Documents Disagree with each other
-</h2>
-<div>
-If we collect documents over time, then each document will have the point of view prominent in its time. If you were to write a new task ticket for a 15-year old system, how do you guarantee that the document is 100% aligned and coherent with the original document?&nbsp;<br><br>For that matter, consider a company where there are many teams, and the documents (likely tickets or stories) are written by people with different agendas. These may be written at the same time for different developers.
-</div>
-<div>
-<br>
-</div>
-<div>
-So not only may some of the documents be older and facing obsolescence, they may be written in ways that are accidentally contradictory.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-If a person were to read them, perhaps they would recognize some inconsistencies, and maybe they wouldn’t. Would an agent with summaries in limited context recognize the differences?<br><br>What if the work is being done in different branches? A lot of people work in separate branches, and some of the work agents do is in git worktrees.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-How are the agents supposed to recognize and rationalize the documents? How do you ensure there isn’t drift across codebases, teams, documents, and time?&nbsp;<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-Documents Disagree with Code
-</h2>
-<div>
-It’s not unusual for the code, to operate correctly and pass tests, to not exactly follow the documentation.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-People will say, “Well, that’s because the coders aren’t disciplined”, which is also true of coding agents.
-</div>
-<div>
-<br>
-</div>
-<div>
-People will say, “Well, then the documentation is wrong”, which is likely also true. It may have the intent, but the mechanism has to vary to meet that intent.
-</div>
-<div>
-<br>
-</div>
-<div>
-Usually, the documentation is essentially right in some ways, but it’s written before the discovery that happens during coding.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Will an agent always correct all the documentation when it corrects the code? Likely it won’t be allowed. If the code is a temporary incarnation of the documents and the documents are the truth, then why would we let the development agent “corrupt” the documentation with implementation details?
-</div>
-<div>
-<br>But aren’t implementation details necessary in the document to ensure code generation and regeneration are accurate, complete, and repeatable?
-</div>
-<div>
-<br>Also, it may be well into implementation that the agent (and human, because we’re both still in the loop) may recognise the codebase has missed crucial domain classes or design opportunities, and refactor the code. While it meets the requirements well, and maybe better than originally planned, it is not what the document says.&nbsp; The document missed the design opportunity, or maybe left it unsaid.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Anything not in the document is not guaranteed to be in a regenerated codebase, nor will it be understood by the specification-writing agents that doesn’t write the code, or the coding agent that doesn’t read all the specs.
-</div>
-<div>
-<br>
-</div>
-<div>
-Does that mean that the code is not allowed to be better than the document, since it’s not allowed to be different? Or do we let the documents and code diverge – in hopes we might spot it the next time we generate code also?&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-If the agent can change the design document, then how do we guarantee that it has not drifted from our original intent (especially when documents age and accumulate)?
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-Design must be easily Recoverable
-</h2>
-<div>
-I’ve gone on record a few times saying that 99% of the time, people are not doing “green field” application development. Almost everyone, almost always, will be working on an existing system. Any system that doesn’t work in “brown field” is niche.&nbsp;&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-That niche is fun, and interesting, but 99% of the time it’s irrelevant.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Most systems will be between 5 and 20 years old, since it takes a while for a product to find a market and especial to come to dominance in it. If you have a team of paid programmers working in the product, it’s probably not been written by specification-first methods. It probably doesn’t have any of the original design specifications.
-</div>
-<div>
-<br>In this situation, and all other situations, the source code is the only source of truth that tells you what is happening at runtime. Every other document and every domain expert can tell you what was intended, or wanted. The human developer knows what they had in mind for the code to do.&nbsp;<br><br>Only the code actually runs in production.&nbsp;<br><br>The domain expert isn’t there. The documents no longer matter. The intention is not what the CPU sees.<br><br>It runs the code (the compiled, linked, optimized, code that transited the virtual machine down to machine code – a version of code that may not look all that much like the source code, and certainly not much like the specifications.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-All the truth is in the source code, but it may be poorly organized for human understanding.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Agents tend to “shoe horn” functionality into existing code with if statements and flags and primitive variables.&nbsp; The more primitive the code is, the worse they will be about this.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-The design degradation we see from agentic development is well documented, so I won’t try to reproduce it here.
-</div>
-<div>
-<br>
-</div>
-<div>
-But it degrades less if there are good abstractions, good names, good use of the programming language, and good locality of references.
-</div>
-<div>
-<br>
-</div>
-<div>
-In other word, if the design is good, it is more likely to not muck it up.
-</div>
-<div>
-<br>
-</div>
-<div>
-Rather than “freeing us” from worrying about good design and code craft, agentic development makes us MORE dependent on well-written code.&nbsp; It needs to have good abstractions, data types, and algorithms. It needs all items to be well named.
-</div>
-<div>
-<br>
-</div>
-<div>
-If we can’t derive the design from the code, we have a ball of mud that neither humans, LLM agents, nor the combination of the two will be able to safely handle.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-If we can derive the design from the code, then why are we keeping all these documents around? Shouldn’t this be code-supportive design rather spec-driven coding?
-</div>
-<div>
-<br>
-</div>
-<div>
-<br>
-</div>
-<div>
-<br>
-</div>
-<div>
-<br>
-</div>
+<p>I’m not fully vested in and convinced by Spec Driven Development. I’ve gotten over 70% of my initial “BDUF” concern and am thinking more clearly.</p>
+<p>I thought that it would be a good time for me to list the concerns I have for ongoing SDD. In a few years, we can look back and see if we were able to overcome these challenges:</p>
+<section id="documents-age" class="level2">
+<h2 class="anchored" data-anchor-id="documents-age">Documents Age</h2>
+<p>A document can be correct on the day it is written, and without constantly being updated can stop being true in the future. Policies change, legislation changes, architecture trends change, implementation technologies change, and businesses morph and are disrupted.</p>
+<p>Consider how well understood the cellular phone market was in the days with complicated billing systems and physical buttons, before flat monthly payment plans, easy and broad availability of phone models, phone numbers owned by users instead of cellular providers, and the dominance of glass screens.</p>
+<p>What is the shelf life of a typical development document? That depends. In the broad and abstract sense, documents my last for a decade or longer. The more detailed a document is, the faster it goes out of date. To generate (or regenerate) code, the document must be very detailed.</p>
+<p>This is a concern when our systems are based on code generated from documentation, as we may end up building partially obsolete systems without realizing it.</p>
+</section>
+<section id="documents-accumulate" class="level2">
+<h2 class="anchored" data-anchor-id="documents-accumulate">Documents Accumulate</h2>
+<p>We need to consider the a typical system these days may be originally built from some design and architecture concepts, written in markdown, Word, or some other format.</p>
+<p>Over time, there are separate documents describing desired features or stories, changes in the architecture, changes in the implementation technologies, etc.</p>
+<p>How many tickets (representing code changes or stories) does a typical system accumulate over the course of a year? How many documents might we have describing the initial system and all of its changes made by all of its developers over a 5 year period? What about 10 years?</p>
+<p>To understand the current state of the system, will an agent have to read a few thousand documents?</p>
+<p>When there are many documents, the token cost for reading them becomes prohibitive. More importantly, however, is that the context for tens of thousands of documents is simply not available in agents (so far). The documents will have to be summarised and simplified to fit in memory.</p>
+<p>If the agent can hold all the documents, it’s too expensive to use.</p>
+<p>If it cannot, then it is working from a partial and overly-abstracted model of the system’s behaviors.</p>
+<p>Does the collection become unmanageable?</p>
+</section>
+<section id="documents-disagree-with-each-other" class="level2">
+<h2 class="anchored" data-anchor-id="documents-disagree-with-each-other">Documents Disagree with each other</h2>
+<p>If we collect documents over time, then each document will have the point of view prominent in its time. If you were to write a new task ticket for a 15-year old system, how do you guarantee that the document is 100% aligned and coherent with the original document?</p>
+<p>For that matter, consider a company where there are many teams, and the documents (likely tickets or stories) are written by people with different agendas. These may be written at the same time for different developers.</p>
+<p>So not only may some of the documents be older and facing obsolescence, they may be written in ways that are accidentally contradictory.</p>
+<p>If a person were to read them, perhaps they would recognize some inconsistencies, and maybe they wouldn’t. Would an agent with summaries in limited context recognize the differences?</p>
+<p>What if the work is being done in different branches? A lot of people work in separate branches, and some of the work agents do is in git worktrees.</p>
+<p>How are the agents supposed to recognize and rationalize the documents? How do you ensure there isn’t drift across codebases, teams, documents, and time?</p>
+</section>
+<section id="documents-disagree-with-code" class="level2">
+<h2 class="anchored" data-anchor-id="documents-disagree-with-code">Documents Disagree with Code</h2>
+<p>It’s not unusual for the code, to operate correctly and pass tests, to not exactly follow the documentation.</p>
+<p>People will say, “Well, that’s because the coders aren’t disciplined”, which is also true of coding agents.</p>
+<p>People will say, “Well, then the documentation is wrong”, which is likely also true. It may have the intent, but the mechanism has to vary to meet that intent.</p>
+<p>Usually, the documentation is essentially right in some ways, but it’s written before the discovery that happens during coding.</p>
+<p>Will an agent always correct all the documentation when it corrects the code? Likely it won’t be allowed. If the code is a temporary incarnation of the documents and the documents are the truth, then why would we let the development agent “corrupt” the documentation with implementation details?</p>
+<p>But aren’t implementation details necessary in the document to ensure code generation and regeneration are accurate, complete, and repeatable?</p>
+<p>Also, it may be well into implementation that the agent (and human, because we’re both still in the loop) may recognise the codebase has missed crucial domain classes or design opportunities, and refactor the code. While it meets the requirements well, and maybe better than originally planned, it is not what the document says. The document missed the design opportunity, or maybe left it unsaid.</p>
+<p>Anything not in the document is not guaranteed to be in a regenerated codebase, nor will it be understood by the specification-writing agents that doesn’t write the code, or the coding agent that doesn’t read all the specs.</p>
+<p>Does that mean that the code is not allowed to be better than the document, since it’s not allowed to be different? Or do we let the documents and code diverge – in hopes we might spot it the next time we generate code also?</p>
+<p>If the agent can change the design document, then how do we guarantee that it has not drifted from our original intent (especially when documents age and accumulate)?</p>
+</section>
+<section id="design-must-be-easily-recoverable" class="level2">
+<h2 class="anchored" data-anchor-id="design-must-be-easily-recoverable">Design must be easily Recoverable</h2>
+<p>I’ve gone on record a few times saying that 99% of the time, people are not doing “green field” application development. Almost everyone, almost always, will be working on an existing system. Any system that doesn’t work in “brown field” is niche.</p>
+<p>That niche is fun, and interesting, but 99% of the time it’s irrelevant.</p>
+<p>Most systems will be between 5 and 20 years old, since it takes a while for a product to find a market and especial to come to dominance in it. If you have a team of paid programmers working in the product, it’s probably not been written by specification-first methods. It probably doesn’t have any of the original design specifications.</p>
+<p>In this situation, and all other situations, the source code is the only source of truth that tells you what is happening at runtime. Every other document and every domain expert can tell you what was intended, or wanted. The human developer knows what they had in mind for the code to do.</p>
+<p>Only the code actually runs in production.</p>
+<p>The domain expert isn’t there. The documents no longer matter. The intention is not what the CPU sees.</p>
+<p>It runs the code (the compiled, linked, optimized, code that transited the virtual machine down to machine code – a version of code that may not look all that much like the source code, and certainly not much like the specifications.</p>
+<p>All the truth is in the source code, but it may be poorly organized for human understanding.</p>
+<p>Agents tend to “shoe horn” functionality into existing code with if statements and flags and primitive variables. The more primitive the code is, the worse they will be about this.</p>
+<p>The design degradation we see from agentic development is well documented, so I won’t try to reproduce it here.</p>
+<p>But it degrades less if there are good abstractions, good names, good use of the programming language, and good locality of references.</p>
+<p>In other word, if the design is good, it is more likely to not muck it up.</p>
+<p>Rather than “freeing us” from worrying about good design and code craft, agentic development makes us MORE dependent on well-written code. It needs to have good abstractions, data types, and algorithms. It needs all items to be well named.</p>
+<p>If we can’t derive the design from the code, we have a ball of mud that neither humans, LLM agents, nor the combination of the two will be able to safely handle.</p>
+<p>If we can derive the design from the code, then why are we keeping all these documents around? Shouldn’t this be code-supportive design rather spec-driven coding?</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -158,113 +158,103 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-This is from 2005, when I was at an all-linux, all-python shop called Progeny Linux Systems. A lovely time, really. Great people, interesting technology, challenges and opportunities every day. Not everything we did was stellar, but we were moving together in a good direction.<br>
-<div class="p2">
-<span class="s1"></span><br>
-</div>
-<div class="p1">
-<span class="s1">We started using git when it really was a “git” (a stupid person or thing) and the tools were very confusing because they mixed noun names and verbs, and people were just kind of used to it being confusing.</span>
-</div>
-<div class="p2">
-<span class="s1"></span><br>
-</div>
-<div class="p1">
-<span class="s1">You used to have to go by hand into the innards of the .git directory structor to create tags and branches.&nbsp;</span>
-</div>
-<div class="p2">
-<span class="s1"></span><br>
-</div>
-<div class="p1">
-<span class="s1">A “porcelain” was a wrapper around git to make it more useful and tolerable, and ours was specific to building custom Linux distributions. It was a cool project.&nbsp;</span>
-</div>
-<div class="p2">
-<span class="s1"></span><br>
-</div>
-<div class="p2">
-My contribution was very meager: I complained about the inconsistent naming of git tools at the time.&nbsp;
-</div>
-<div class="p2">
-<span class="s1"></span><br>
-</div>
-<div class="p1">
-<span class="s1">I started with a question&nbsp;<a href="http://marc.info/?l=git&amp;m=112489585612903&amp;w=2" target="_blank">here</a>:</span>
-</div>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">So when this gets all settled, will we see a lot of tool renaming?&nbsp;</span>
-</blockquote>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">While it would cause me and my team some personal effort (we have a special-purpose porcelain), it would be welcome to have a lexicon that is sane and consistent, and in tune with all the documentation.&nbsp;</span>
-</blockquote>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace;"><span style="font-size: x-small;">Others may feel differently, I understand.</span>&nbsp;</span>
-</blockquote>
-<div class="p1">
-<span class="s1">Started getting serious <a href="http://marc.info/?l=git&amp;m=112566690830727&amp;w=2" target="_blank">here</a>:</span>
-</div>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">Junio C Hamano &lt;junkio cox.net=““&gt; wrote:<br>&gt; Tim Ottinger &lt;tottinge progeny.com=”“&gt; writes:<br>&gt; &gt; git-update-cache for instance?<br>&gt; &gt; I am not sure which ‘cache’ commands need to be ‘index’ now.<br><br>&gt; Logically you are right, but I suspect that may not fly well in<br>&gt; practice. Too many of us have already got our fingers wired to<br>&gt; type cache, and the glossary is there to describe both cache and<br>&gt; index.<br><br>I’d vote for cleaning it up /now/. Sure, it will hurt, but if you let time<br>go by and do it later, it will hurt much more.<br><br>Pre-1.0 is the last chance, AFAICS.</span><br>
-</blockquote>
-<div class="p2">
-<span class="s1"></span>
-</div>
-<div class="p1">
-<span class="s1">Daniel turns it into a <a href="http://marc.info/?l=git&amp;m=112568610525609&amp;w=2" target="_blank">plan</a>:</span>
-</div>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">OK. As Horst also says, we should do this before 1.0.<br><br>0.99.6::<br> This hopefully will be done on Sep 7th. Tool renames<br> will not happen in this release, but the set of cleaned<br> up names will be discussed on the list during this<br> timeperiod. I’ll draw up a strawman tonight unless<br> somebody else does it first.<br><br>0.99.7::<br> We install symbolic links for the old names. For the<br> documentation, we do not bother — just install under<br> new names. Also remove support for ancient environment<br> variable names from gitenv(). Aim for Sep 17th.<br><br>0.99.8::<br> Aim for Oct 1st; we do not install symbolic links<br> anymore and supply “clean-old-install” target in the<br> Makefile that removes symlinks installed by 0.99.7 from<br> DESTDIR. This target is not run automatically from other<br> usual make targets; it is just there for your&nbsp;convenience.</span>
-</blockquote>
-<div class="p2">
-<span class="s1"></span><br>
-</div>
-<div class="p1">
-<span class="s1">Junio <a href="http://marc.info/?l=git&amp;m=112572754330173&amp;w=2" target="_blank">gets down to cases</a>:</span>
-</div>
-<blockquote class="tr_bq blockquote">
-<br><span style="font-size: x-small;"><span style="font-family: Courier New, Courier, monospace;">I said:<br>&gt; I’ll draw up a strawman tonight unless somebody else<br>&gt; does it first.<br><br>1. Say ‘index’ when you are tempted to say ‘cache’.<br><br> git-checkout-cache git-checkout-index<br> git-convert-cache git-convert-index<br> git-diff-cache git-diff-index<br> git-fsck-cache git-fsck-index<br> git-merge-cache git-merge-index<br> git-update-cache git-update-index<br><br><br>2. The act of combining two or more heads is called ‘merging’;<br> fetching immediately followed by merging is called ‘pulling’.<br><br> git-resolve-script git-merge-script<br><br> The commit walkers are called <em>-pull, but this is probably<br> confusing. They are not pulling.<br><br> git-http-pull git-http-walk<br> git-local-pull git-local-walk<br> git-ssh-pull git-ssh-walk<br><br>3. Non-binaries are called ’</em>-scripts’.<br><br> In earlier discussions some people seem to like the<br> distinction between *-script and others; I did not<br> particularly like it, but I am throwing this in for<br> discussion.<br><br> git-applymbox git-applymbox-script<br> git-applypatch git-applypatch-script<br> git-cherry git-cherry-script<br> git-shortlog git-shortlog-script<br> git-whatchanged git-whatchanged-script<br><br><br>4. To be removed shortly.<br><br> git-clone-dumb-http should be folded into git-clone-script</span></span>
-</blockquote>
-<div class="p2">
-<span class="s1"></span><br>
-</div>
-<br>
-<div class="p1">
-<span class="s1">… the rest, as they say, is version control history.</span>
-</div>
-<div class="p1">
-<span class="s1"><br></span>
-</div>
-<div class="p1">
-<span class="s1"><br></span>
-</div>
-<div class="p1">
-<span class="s1">To this day the git toolset is consistent.&nbsp;</span>
-</div>
-<div class="p1">
-<span class="s1"><br></span>
-</div>
-<div class="p1">
-<span class="s1">I think it’s remarkable now, because the dev team listened to me and answered even though I was not really a part of the group. I didn’t have to earn voice, it was okay.&nbsp;</span>
-</div>
-<div class="p1">
-<span class="s1"><br></span>
-</div>
-<div class="p1">
-<span class="s1">Even though I did nothing more than ask a question, it has always made git feel like “my” version control system.&nbsp;</span>
-</div>
-<div class="p1">
-<span class="s1"><br></span>
-</div>
-<div class="p1">
-<span class="s1">I guess any little interaction that leads to action will create a sense of engagement and participation.<br><br>Thanks Git team from 2005. You were great.</span>
-</div>
-<div class="p1">
-<span class="s1"><br></span>
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-<br>
-</div>
+<p>This is from 2005, when I was at an all-linux, all-python shop called Progeny Linux Systems. A lovely time, really. Great people, interesting technology, challenges and opportunities every day. Not everything we did was stellar, but we were moving together in a good direction.</p>
+<p>We started using git when it really was a “git” (a stupid person or thing) and the tools were very confusing because they mixed noun names and verbs, and people were just kind of used to it being confusing.</p>
+<p>You used to have to go by hand into the innards of the .git directory structor to create tags and branches.</p>
+<p>A “porcelain” was a wrapper around git to make it more useful and tolerable, and ours was specific to building custom Linux distributions. It was a cool project.</p>
+<p>My contribution was very meager: I complained about the inconsistent naming of git tools at the time.</p>
+<p>I started with a question <a href="http://marc.info/?l=git&amp;m=112489585612903&amp;w=2">here</a>:</p>
+<pre class="text"><code>So when this gets all settled, will we see a lot of tool renaming?
+While it would cause me and my team some personal effort (we have a special-purpose porcelain), it would be welcome to have a lexicon that is sane and consistent, and in tune with all the documentation.
+Others may feel differently, I understand.</code></pre>
+<p>Started getting serious <a href="http://marc.info/?l=git&amp;m=112566690830727&amp;w=2">here</a>:</p>
+<pre class="text"><code>Junio C Hamano &lt;junkio@cox.net&gt; wrote:
+&gt; Tim Ottinger &lt;tottinge@progeny.com&gt; writes:
+&gt; &gt; git-update-cache for instance?
+&gt; &gt; I am not sure which 'cache' commands need to be 'index' now.
+
+&gt; Logically you are right, but I suspect that may not fly well in
+&gt; practice.  Too many of us have already got our fingers wired to
+&gt; type cache, and the glossary is there to describe both cache and
+&gt; index.
+
+I'd vote for cleaning it up /now/. Sure, it will hurt, but if you let time
+go by and do it later, it will hurt much more.
+
+Pre-1.0 is the last chance, AFAICS.</code></pre>
+<p>Daniel turns it into a <a href="http://marc.info/?l=git&amp;m=112568610525609&amp;w=2">plan</a>:</p>
+<pre class="text"><code>OK.  As Horst also says, we should do this before 1.0.
+
+0.99.6::
+ This hopefully will be done on Sep 7th.  Tool renames
+ will not happen in this release, but the set of cleaned
+ up names will be discussed on the list during this
+ timeperiod.  I'll draw up a strawman tonight unless
+ somebody else does it first.
+
+0.99.7::
+ We install symbolic links for the old names.  For the
+ documentation, we do not bother --- just install under
+ new names.  Also remove support for ancient environment
+ variable names from gitenv().  Aim for Sep 17th.
+
+0.99.8::
+ Aim for Oct 1st; we do not install symbolic links
+ anymore and supply "clean-old-install" target in the
+ Makefile that removes symlinks installed by 0.99.7 from
+ DESTDIR.  This target is not run automatically from other
+ usual make targets; it is just there for your convenience.</code></pre>
+<p>Junio <a href="http://marc.info/?l=git&amp;m=112572754330173&amp;w=2">gets down to cases</a>:</p>
+<pre class="text"><code>
+I said:
+&gt; I'll draw up a strawman tonight unless somebody else
+&gt; does it first.
+
+1. Say 'index' when you are tempted to say 'cache'.
+
+        git-checkout-cache      git-checkout-index
+        git-convert-cache       git-convert-index
+        git-diff-cache          git-diff-index
+        git-fsck-cache          git-fsck-index
+        git-merge-cache         git-merge-index
+        git-update-cache        git-update-index
+
+
+2. The act of combining two or more heads is called 'merging';
+   fetching immediately followed by merging is called 'pulling'.
+
+        git-resolve-script      git-merge-script
+
+   The commit walkers are called *-pull, but this is probably
+   confusing.  They are not pulling.
+
+        git-http-pull           git-http-walk
+        git-local-pull          git-local-walk
+        git-ssh-pull            git-ssh-walk
+
+3. Non-binaries are called '*-scripts'.
+
+   In earlier discussions some people seem to like the
+   distinction between *-script and others; I did not
+   particularly like it, but I am throwing this in for
+   discussion.
+
+        git-applymbox           git-applymbox-script
+        git-applypatch          git-applypatch-script
+        git-cherry              git-cherry-script
+        git-shortlog            git-shortlog-script
+        git-whatchanged         git-whatchanged-script
+
+
+4. To be removed shortly.
+
+        git-clone-dumb-http     should be folded into git-clone-script</code></pre>
+<p>… the rest, as they say, is version control history.</p>
+<p>To this day the git toolset is consistent.</p>
+<p>I think it’s remarkable now, because the dev team listened to me and answered even though I was not really a part of the group. I didn’t have to earn voice, it was okay.</p>
+<p>Even though I did nothing more than ask a question, it has always made git feel like “my” version control system.</p>
+<p>I guess any little interaction that leads to action will create a sense of engagement and participation.</p>
+<p>Thanks Git team from 2005. You were great.</p>
 
 
 

@@ -158,64 +158,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<blockquote class="blockquote">
-<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">using(Playback) {<br> &nbsp;&nbsp; sut.PerformAction(parameter);<br> }</span>
-</blockquote>
-This is the last part of a common style of mock test. We see the system-under-test (sut) being asked to perform some action, and some parameter is passed to it.&nbsp; We know it’s a mock test because of the Playback bit.&nbsp; <br> What is being tested here? Well something about PerformAction is being tested. Not much there. No clear assert written at the bottom of the test to capture our attention.<br> Let me narrate as I work through the actual code before me, and maybe the readers can respond to tell me whether this really is mocking done badly, or I’m “just not used to good mocking.”<br> <br> I struggle not to look at the test name, so the code can speak to me more directly.<br>
+<pre class="text"><code>using(Playback) {
+
+   sut.PerformAction(parameter);
+
+}</code></pre>
+<p>This is the last part of a common style of mock test. We see the system-under-test (sut) being asked to perform some action, and some parameter is passed to it. We know it’s a mock test because of the Playback bit.<br>
+What is being tested here? Well something about PerformAction is being tested. Not much there. No clear assert written at the bottom of the test to capture our attention.<br>
+Let me narrate as I work through the actual code before me, and maybe the readers can respond to tell me whether this really is mocking done badly, or I’m “just not used to good mocking.”</p>
+<p>I struggle not to look at the test name, so the code can speak to me more directly.</p>
 <ul>
-<li>
-The parameter is not interesting, it is just a string.&nbsp;
-</li>
-<li>
-There is another variable, which is a stub, but it’s not used inside playback.
-</li>
-<li>
-There is a ‘record’ section, set aside with ‘using’ and not (thankfully) a #region.
-</li>
-<li>
-In the record section, we call one function with the parameter string, returning the stub. So there is some kind of look-up method called exactly once. The string is the key, the stub is the result. Looks like database avoidance.
-</li>
-<li>
-Another function is called, taking the stub returned by the first. It is called exactly once, and returns the number ‘2’.
-</li>
+<li>The parameter is not interesting, it is just a string.</li>
+<li>There is another variable, which is a stub, but it’s not used inside playback.</li>
+<li>There is a ‘record’ section, set aside with ‘using’ and not (thankfully) a #region.</li>
+<li>In the record section, we call one function with the parameter string, returning the stub. So there is some kind of look-up method called exactly once. The string is the key, the stub is the result. Looks like database avoidance.</li>
+<li>Another function is called, taking the stub returned by the first. It is called exactly once, and returns the number ‘2’.</li>
 </ul>
-At this point I’ve read the whole test. Hmmm… what are we doing here again?<br>
+<p>At this point I’ve read the whole test. Hmmm… what are we doing here again?</p>
 <ul>
-<li>
-Check the test name: ProcessExactlyOneFooWhenGivenParameterBar.&nbsp; Oh. So maybe the “Repeat.Once()” part of the mock is meaningful. But what’s really going on?&nbsp;
-</li>
-<li>
-I read the neighboring test (there is only one). It calls the same method with the parameter “all”, and expects to see a call to a different method underneath, one that collects a list of things to process.&nbsp; Okay, “all” is a magic name that means ‘do them all’ and it collects the list. That helps a tiny bit. The name of that test reflects that my understanding is right, but I can’t really follow the original test much better with that knowledge in hand.
-</li>
-<li>
-The second-to-last desperate measure is called upon*: I read the code.&nbsp; This is backward. I should never read the <i>production code </i>to explain the <i>test</i>. I should read the <i>tests </i>to explain the <i>production code</i>. My assumptions hold so far.
-</li>
-<li>
-The method for actually doing the processing is the one that is expected to be called once, and is to use the stub returned by a look-up method. The return code seems arbitrary. I extract it and call it “arbitraryRecordCount”
-</li>
-<li>
-Some method renaming is done to make tests more meaningful. I double-check the production code to make sure it reads better too. As is usually the case, the code reads better.
-</li>
-<li>
-Realize that the logging was redundant and ill-placed, and moved it to a unique and more appropriate spot. This simplifies production code even more, and all tests still pass.
-</li>
-<li>
-I bring a bit more detail up into to the test in hopes that it will make it more clear. It does, but now I have more setup. There is an urge to break the mock setup into paragraphs, a sure sign I’m gathering cruft.
-</li>
-<li>
-I realize there is a test missing, one that would have made more sense of some of one existing test. I add it. It duplicates the first test a bit. I extract a little, but worry about making it abstract enough that you can’t really follow it.
-</li>
-<li>
-I set up the original test to be a bit more explanatory.
-</li>
-<li>
-It is at this point that I realize that the setup for this test fully simulates the sensing and acting of one pass through the SUT’s method, if all IF statements are ignored/assumed. It is right, and having read the code I understand why it is right. I see the values threaded from one return to the next call, etc. I fear I’ve just proven that “IF” works in this language.
-</li>
-<li>
-Now I see that processing involves doing one look-up, calling a method that does a&nbsp; more detailed look-up, and then using the latter look-up result to perform an update.&nbsp; I can see that this is what the code does by looking at the tests. It’s rather non-abstract, and not remotely in business language.
-</li>
+<li>Check the test name: ProcessExactlyOneFooWhenGivenParameterBar. Oh. So maybe the “Repeat.Once()” part of the mock is meaningful. But what’s really going on?</li>
+<li>I read the neighboring test (there is only one). It calls the same method with the parameter “all”, and expects to see a call to a different method underneath, one that collects a list of things to process. Okay, “all” is a magic name that means ‘do them all’ and it collects the list. That helps a tiny bit. The name of that test reflects that my understanding is right, but I can’t really follow the original test much better with that knowledge in hand.</li>
+<li>The second-to-last desperate measure is called upon*: I read the code. This is backward. I should never read the <em>production code</em> to explain the <em>test</em>. I should read the <em>tests</em> to explain the <em>production code</em>. My assumptions hold so far.</li>
+<li>The method for actually doing the processing is the one that is expected to be called once, and is to use the stub returned by a look-up method. The return code seems arbitrary. I extract it and call it “arbitraryRecordCount”</li>
+<li>Some method renaming is done to make tests more meaningful. I double-check the production code to make sure it reads better too. As is usually the case, the code reads better.</li>
+<li>Realize that the logging was redundant and ill-placed, and moved it to a unique and more appropriate spot. This simplifies production code even more, and all tests still pass.</li>
+<li>I bring a bit more detail up into to the test in hopes that it will make it more clear. It does, but now I have more setup. There is an urge to break the mock setup into paragraphs, a sure sign I’m gathering cruft.</li>
+<li>I realize there is a test missing, one that would have made more sense of some of one existing test. I add it. It duplicates the first test a bit. I extract a little, but worry about making it abstract enough that you can’t really follow it.</li>
+<li>I set up the original test to be a bit more explanatory.</li>
+<li>It is at this point that I realize that the setup for this test fully simulates the sensing and acting of one pass through the SUT’s method, if all IF statements are ignored/assumed. It is right, and having read the code I understand why it is right. I see the values threaded from one return to the next call, etc. I fear I’ve just proven that “IF” works in this language.</li>
+<li>Now I see that processing involves doing one look-up, calling a method that does a more detailed look-up, and then using the latter look-up result to perform an update. I can see that this is what the code does by looking at the tests. It’s rather non-abstract, and not remotely in business language.</li>
 </ul>
-<p>I do have to wonder if they have any real value other than cementing the code’s current implementation into the test suite.&nbsp; If we extract a method or inline a method, I know that these tests will fail. The new method will not be “incorrect”, only “different.”&nbsp; It bothers me that the tests will fail if I <i>improve</i> the structure of the SUT.<br> This is doing test-last, which is a poor way to do testing.&nbsp; That means it’s most likely a poor way to do mocking. The tests are fast and decoupled from database, etc.&nbsp;&nbsp; <br> It takes much longer to write about this than to do it, yet I took the time so that there is some basis for discussion. Is my code conscience overly-sensitive, or does this have several kinds of wrong in it?<br> Is this mocking done well, or done poorly? You tell me.<br> <br> <span style="font-size: x-small;">* the last desperate measure is to trace execution with the debugger.</span></p>
+<p>I do have to wonder if they have any real value other than cementing the code’s current implementation into the test suite. If we extract a method or inline a method, I know that these tests will fail. The new method will not be “incorrect”, only “different.” It bothers me that the tests will fail if I <em>improve</em> the structure of the SUT.<br>
+This is doing test-last, which is a poor way to do testing. That means it’s most likely a poor way to do mocking. The tests are fast and decoupled from database, etc.<br>
+It takes much longer to write about this than to do it, yet I took the time so that there is some basis for discussion. Is my code conscience overly-sensitive, or does this have several kinds of wrong in it?<br>
+Is this mocking done well, or done poorly? You tell me.</p>
+<p>* the last desperate measure is to trace execution with the debugger.</p>
 
 
 

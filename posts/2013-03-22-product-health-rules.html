@@ -168,109 +168,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Dealing with product health is simple in theory. <br> <br> You need to have a central build-and-test server and a repo that is treated as the central repo for the developers (in git, servers have no built-in roles). It has to be set up to run all the tests, whether they are unit tests, story tests (cucumber, etc), or what-have you.<br> <br> Now, the thing you have to know is the state of your local machine, and the state of the build server.<br> <br> When I say <span style="color: #38761d;"><i>GREEN</i></span>, I mean “builds and all tests pass.” &nbsp; When I say <span style="color: #990000;"><i>RED</i></span>&nbsp;I mean that something doesn’t build or did not pass all the tests.<br>
-<h2 class="anchored">
-The Rules
-</h2>
-<br> The rules in precedence order are:<br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace;"><b><i>GET TO<span style="color: #274e13;"> </span><span style="color: #38761d;">GREEN.</span></i><span style="color: #38761d;">&nbsp;</span></b></span>
-</blockquote>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace;"><b><i><span style="color: #38761d;">Green</span></i> to <span style="color: #38761d; font-style: italic;">green</span><span style="color: #274e13; font-style: italic;">; </span>anything else is obscene.</b></span>
-</blockquote>
-You need to know that your code is good, and the server’s code is good, and you can push your code to the server.<br> <br> “But wait”, you might say, “there are states unaccounted for here. What about pushing green to red?”<br> <br> “But Tim!” you may cry, “my code isn’t the code that broke the build/tests! Why should I slow down when my code is okay?”<br> <br> If you work all by yourself, you can probably afford a little slack here,. If you have a whole team in the same code base, or if you have many teams in the code base, then breakage affects everyone. The only sane way I know to manage product health is for everyone to follow the same simple rules in a disciplined way.<br> <br>
-<h2 class="anchored">
-Rules Illustrated
-</h2>
-<br> Let’s assume you have a largish team, or a few teams working together on the product, and these rules will be more obvious.<br> <br> <a href="../assets/Screen shot 2013-03-22 at 4.27.29 PM.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="Screen shot 2013-03-22 at 4.27.29 PM.png" border="0" height="65" src="../assets/Screen shot 2013-03-22 at 4.27.29 PM.png" width="200"></a><br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/PullGreenFromGreen.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="PullGreenFromGreen.png" border="0" src="../assets/PullGreenFromGreen.png"></a>
-</div>
-<br> <br> <br> <br> <br> Green to green is great. You can pull from green builds, you can push your green code to the green build. Nobody gets frustrated, nobody gets hurt.<br> <br> <br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/PullGreenToRed.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="PullGreenToRed.png" border="0" src="../assets/PullGreenToRed.png"></a>
-</div>
-<br> <br> <br> <br> <br> Can I pull from a green build when I’m in a “red” state? Well, it’s possible, but it’s likely to cause a lot of confusion as you try to find out what you’ve done to turn yours red. &nbsp;You may end up merging over broken code and accidentally turn your machine green, but you’ll never know what you did, quite.<br> <br> Better to revert the local code so you’re green, then pull the latest. Programming is complicated enough that we don’t really need to make it worse.<br> <br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/Screen shot 2013-03-22 at 4.27.40 PM.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="Screen shot 2013-03-22 at 4.27.40 PM.png" border="0" src="../assets/Screen shot 2013-03-22 at 4.27.40 PM.png"></a>
-</div>
-<br> <br> <br> <br> <br> Pushing to a perfectly good green build from a red local build? <i><b>Obscene</b></i>! It breaks the build and that’s not good for anyone. It does happen, but it’s bad. Usually, it happens when people don’t know if their own build is green or not. I’ve done it myself, when I didn’t run all the tests locally. I hate breaking the build, especially when I find it was preventable.<br> <br> <a href="../assets/Screen shot 2013-03-22 at 4.27.56 PM.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="Screen shot 2013-03-22 at 4.27.56 PM.png" border="0" src="../assets/Screen shot 2013-03-22 at 4.27.56 PM.png"></a><br>
-<div class="separator" style="clear: both; text-align: center;">
-
-</div>
-<div style="text-align: start;">
-What about pushing from a green build to a broken build? Won’t that just increase the balance of good code on the server side? It might even fix the build?&nbsp;
-</div>
-<div style="text-align: start;">
-<br>
-</div>
-<div style="text-align: start;">
-Well, if you are the person fixing a broken build, it’s fine. Otherwise you are getting in the way of the person who is trying to fix the build, and that’s just rude. Don’t make their job harder.
-</div>
-<div style="text-align: start;">
-<br>
-</div>
-<div style="text-align: start;">
-By pushing good code onto the broken build, you are slowing down the build’s transition to green. Our first-priority rule is to get to green. You’re in the way. Why not wait until it goes green, then merge, test, and push?&nbsp;
-</div>
-<a href="../assets/Screen shot 2013-03-22 at 4.27.56 PM.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;">&nbsp;&nbsp;</a><br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/Screen shot 2013-03-22 at 4.28.04 PM.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="Screen shot 2013-03-22 at 4.28.04 PM.png" border="0" src="../assets/Screen shot 2013-03-22 at 4.28.04 PM.png"></a>
-</div>
-<br> <br> <br> <br> <br> What about pulling from a red build? You want to have the most recent code to start your next change, right? &nbsp;Yes, but you will never be sure whether “red” on your box is referring to your error or the one you pulled from the main code line. &nbsp;Worse, you might get used to seeing red, and stop reacting to errors on your own computer! Better to leave a red build alone.<br> <br> Exception: if you are pulling from a red server to fix the build, you have the first-priority rule on your side.<br> <br> <br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/Screen shot 2013-03-22 at 4.27.49 PM.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="Screen shot 2013-03-22 at 4.27.49 PM.png" border="0" src="../assets/Screen shot 2013-03-22 at 4.27.49 PM.png"></a>
-</div>
-<br> <br> <br> <br> <br> Hey, if the build is already broken, what does it matter if I push more brokenness at it? &nbsp;Once again, pushing to a red server will complicate the process of getting it to green. Someone may figure out the original problem, and then be totally confused when they merge in your new problem on top of it.<br> <br> It won’t do to get used to the idea of brokenness and then compound it. This is the famous <a href="http://en.wikipedia.org/wiki/Broken_windows_theory" target="_blank">“broken window effect”</a> that psychologists talk about. It’s the last thing our code base needs.<br> <br>
-<h2 class="anchored">
-The Loophole!
-</h2>
-<div>
-Hey, we’ve found a loophole! If we never write tests, then our code is never technically <span style="color: #990000;">red</span>. All of the tests that exist continue to run <span style="color: #38761d;">green</span>&nbsp;and we can check in as long as nobody else breaks the build!
-</div>
-<div>
-<br>
-</div>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/CostOfError.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="CostOfError.png" border="0" height="277" src="../assets/CostOfError.png" width="400"></a>
-</div>
-<div>
-<br>
-</div>
-<div>
-Okay, mr smarty-pants, that gets you around the rules, but leaves you with unknown brokenness in the code. You don’t really know that your code works, or that it will still work after merging with other people’s code.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-By testing, you are reducing the period between the addition of a bug and the detection and removal of the same bug. You reduce the number of people who have to be involved. By not testing, you are saying that it’s okay that your bug might be caught by external QA or by a customer in the field. You are even leaving open the possibility that it might cause greater issues by generating bad data that is used to subtly steer a customer’s system into a more complicated and painful kind of failure.
-</div>
-<div>
-<br>
-</div>
-<div>
-If you’re lucky, your error will last long enough to cost the company millions in customer service time, debugging, customer downtime, loss of reputation, and even product failure.
-</div>
-<div>
-<br>
-</div>
-<div>
-Or maybe you’ll get away with it this time.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Is the question mark really better than writing a few tests? I’m thinking that faking product health is no better than ignoring it. Besides, TDD is fast and easy when you get used to it. It is one of the fast, safe practices that build teams reputations.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<p><br> <br></p>
+<p>Dealing with product health is simple in theory.</p>
+<p>You need to have a central build-and-test server and a repo that is treated as the central repo for the developers (in git, servers have no built-in roles). It has to be set up to run all the tests, whether they are unit tests, story tests (cucumber, etc), or what-have you.</p>
+<p>Now, the thing you have to know is the state of your local machine, and the state of the build server.</p>
+<p>When I say <em>GREEN</em>, I mean “builds and all tests pass.” When I say <em>RED</em> I mean that something doesn’t build or did not pass all the tests.</p>
+<section id="the-rules" class="level2">
+<h2 class="anchored" data-anchor-id="the-rules">The Rules</h2>
+<p>The rules in precedence order are:</p>
+<pre class="text"><code>GET TO GREEN.
+Green to green; anything else is obscene.</code></pre>
+<p>You need to know that your code is good, and the server’s code is good, and you can push your code to the server.</p>
+<p>“But wait”, you might say, “there are states unaccounted for here. What about pushing green to red?”</p>
+<p>“But Tim!” you may cry, “my code isn’t the code that broke the build/tests! Why should I slow down when my code is okay?”</p>
+<p>If you work all by yourself, you can probably afford a little slack here,. If you have a whole team in the same code base, or if you have many teams in the code base, then breakage affects everyone. The only sane way I know to manage product health is for everyone to follow the same simple rules in a disciplined way.</p>
+</section>
+<section id="rules-illustrated" class="level2">
+<h2 class="anchored" data-anchor-id="rules-illustrated">Rules Illustrated</h2>
+<p>Let’s assume you have a largish team, or a few teams working together on the product, and these rules will be more obvious.</p>
+<p><a href="../assets/Screen shot 2013-03-22 at 4.27.29 PM.png"><img src="../assets/Screen shot 2013-03-22 at 4.27.29 PM.png" alt="Screen shot 2013-03-22 at 4.27.29 PM.png" width="200" height="65"></a></p>
+<p><a href="../assets/PullGreenFromGreen.png"><img src="../assets/PullGreenFromGreen.png" class="img-fluid" alt="PullGreenFromGreen.png"></a></p>
+<p>Green to green is great. You can pull from green builds, you can push your green code to the green build. Nobody gets frustrated, nobody gets hurt.</p>
+<p><a href="../assets/PullGreenToRed.png"><img src="../assets/PullGreenToRed.png" class="img-fluid" alt="PullGreenToRed.png"></a></p>
+<p>Can I pull from a green build when I’m in a “red” state? Well, it’s possible, but it’s likely to cause a lot of confusion as you try to find out what you’ve done to turn yours red. You may end up merging over broken code and accidentally turn your machine green, but you’ll never know what you did, quite.</p>
+<p>Better to revert the local code so you’re green, then pull the latest. Programming is complicated enough that we don’t really need to make it worse.</p>
+<p><a href="../assets/Screen shot 2013-03-22 at 4.27.40 PM.png"><img src="../assets/Screen shot 2013-03-22 at 4.27.40 PM.png" class="img-fluid" alt="Screen shot 2013-03-22 at 4.27.40 PM.png"></a></p>
+<p>Pushing to a perfectly good green build from a red local build? <strong><em>Obscene</em></strong>! It breaks the build and that’s not good for anyone. It does happen, but it’s bad. Usually, it happens when people don’t know if their own build is green or not. I’ve done it myself, when I didn’t run all the tests locally. I hate breaking the build, especially when I find it was preventable.</p>
+<p><a href="../assets/Screen shot 2013-03-22 at 4.27.56 PM.png"><img src="../assets/Screen shot 2013-03-22 at 4.27.56 PM.png" class="img-fluid" alt="Screen shot 2013-03-22 at 4.27.56 PM.png"></a></p>
+<p>What about pushing from a green build to a broken build? Won’t that just increase the balance of good code on the server side? It might even fix the build?</p>
+<p>Well, if you are the person fixing a broken build, it’s fine. Otherwise you are getting in the way of the person who is trying to fix the build, and that’s just rude. Don’t make their job harder.</p>
+<p>By pushing good code onto the broken build, you are slowing down the build’s transition to green. Our first-priority rule is to get to green. You’re in the way. Why not wait until it goes green, then merge, test, and push?</p>
+<p><a href="../assets/Screen shot 2013-03-22 at 4.28.04 PM.png"><img src="../assets/Screen shot 2013-03-22 at 4.28.04 PM.png" class="img-fluid" alt="Screen shot 2013-03-22 at 4.28.04 PM.png"></a></p>
+<p>What about pulling from a red build? You want to have the most recent code to start your next change, right? Yes, but you will never be sure whether “red” on your box is referring to your error or the one you pulled from the main code line. Worse, you might get used to seeing red, and stop reacting to errors on your own computer! Better to leave a red build alone.</p>
+<p>Exception: if you are pulling from a red server to fix the build, you have the first-priority rule on your side.</p>
+<p><a href="../assets/Screen shot 2013-03-22 at 4.27.49 PM.png"><img src="../assets/Screen shot 2013-03-22 at 4.27.49 PM.png" class="img-fluid" alt="Screen shot 2013-03-22 at 4.27.49 PM.png"></a></p>
+<p>Hey, if the build is already broken, what does it matter if I push more brokenness at it? Once again, pushing to a red server will complicate the process of getting it to green. Someone may figure out the original problem, and then be totally confused when they merge in your new problem on top of it.</p>
+<p>It won’t do to get used to the idea of brokenness and then compound it. This is the famous <a href="http://en.wikipedia.org/wiki/Broken_windows_theory">“broken window effect”</a> that psychologists talk about. It’s the last thing our code base needs.</p>
+</section>
+<section id="the-loophole" class="level2">
+<h2 class="anchored" data-anchor-id="the-loophole">The Loophole!</h2>
+<p>Hey, we’ve found a loophole! If we never write tests, then our code is never technically red. All of the tests that exist continue to run green and we can check in as long as nobody else breaks the build!</p>
+<p><a href="../assets/CostOfError.png"><img src="../assets/CostOfError.png" alt="CostOfError.png" width="400" height="277"></a></p>
+<p>Okay, mr smarty-pants, that gets you around the rules, but leaves you with unknown brokenness in the code. You don’t really know that your code works, or that it will still work after merging with other people’s code.</p>
+<p>By testing, you are reducing the period between the addition of a bug and the detection and removal of the same bug. You reduce the number of people who have to be involved. By not testing, you are saying that it’s okay that your bug might be caught by external QA or by a customer in the field. You are even leaving open the possibility that it might cause greater issues by generating bad data that is used to subtly steer a customer’s system into a more complicated and painful kind of failure.</p>
+<p>If you’re lucky, your error will last long enough to cost the company millions in customer service time, debugging, customer downtime, loss of reputation, and even product failure.</p>
+<p>Or maybe you’ll get away with it this time.</p>
+<p>Is the question mark really better than writing a few tests? I’m thinking that faking product health is no better than ignoring it. Besides, TDD is fast and easy when you get used to it. It is one of the fast, safe practices that build teams reputations.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

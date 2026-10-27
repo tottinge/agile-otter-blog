@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2018-07-28">
 <meta name="description" content="In Part II, we talked about velocity and the (glossed-over) line about making it easier to get work done instead of pushing harder. A was asking if changing the units used…">
 
-<title>Q and A on Velocity, part III – Agile Otter Blog</title>
+<title>Q&amp;A on Velocity, Part III – Agile Otter Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Q and A on Velocity, part III</h1>
+<h1 class="title">Q&amp;A on Velocity, Part III</h1>
 </div>
 
 <div>
@@ -158,145 +158,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div dir="ltr" style="text-align: left;" data-trbidi="on">
-<br class="Apple-interchange-newline"> In <a href="https://agileotter.blogspot.com/2018/07/q-on-velocity-part-ii.html">Part II</a>, we talked about velocity and the (glossed-over) line about making it easier to get work done instead of pushing harder.&nbsp; A was asking if changing the <i>units</i> used in estimating would help and, of course, it doesn’t.<br> <br> We pick up from there this week with a tiny snippet of conversation that touches on some big ideas:<br> <br>
-<blockquote class="tr_bq blockquote">
-A: Then how can I get my 30-point velocity?<br> B: What if there isn’t a way? Maybe you need to&nbsp;need less?<br> A: But the schedule….!<br> B: The schedule is made up. How long it takes is real.
+<p>In <a href="../posts/2018-07-25-q-on-velocity-part-ii.html">Part II</a>, we talked about velocity and the (glossed-over) line about making it easier to get work done instead of pushing harder. A was asking if changing the <em>units</em> used in estimating would help and, of course, it doesn’t.</p>
+<p>We pick up from there this week with a tiny snippet of conversation that touches on some big ideas:</p>
+<blockquote class="blockquote">
+<p><strong>A:</strong> Then how can I get my 30-point velocity?<br>
+<strong>B:</strong> What if there isn’t a way? Maybe you need to need less?<br>
+<strong>A:</strong> But the schedule….!<br>
+<strong>B:</strong> The schedule is made up. How long it takes is real.</p>
 </blockquote>
-<br> Software estimates are often wrong.<br> <br> Quite often they’re off by over 200% on specific items. There is a very good reason for that, and that is that we aren’t given uniform standardized work items and a standardized process. Nor can we be. If the feature the client wants has been written already, we don’t write it again.<br> <br> Software developers don’t repeat themselves. Each problem and each solution is (a little bit) unique.<br> <br> As such, each estimate includes not only effort but also a risk (of breaking something) and uncertainty (need to learn something).<br> <br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/Screenshot 2018-07-27 10.26.16.png" style="margin-left: 1em; margin-right: 1em;"><img alt="Screenshot 2018-07-27 10.26.16.png" border="0" data-original-height="352" data-original-width="366" height="191" src="../assets/Screenshot 2018-07-27 10.26.16.png" width="200"></a>
-</div>
+<p>Software estimates are often wrong.</p>
+<p>Quite often they’re off by over 200% on specific items. There is a very good reason for that, and that is that we aren’t given uniform standardized work items and a standardized process. Nor can we be. If the feature the client wants has been written already, we don’t write it again.</p>
+<p>Software developers don’t repeat themselves. Each problem and each solution is (a little bit) unique.</p>
+<p>As such, each estimate includes not only effort but also a risk (of breaking something) and uncertainty (need to learn something).</p>
+<p><a href="../assets/Screenshot 2018-07-27 10.26.16.png"><img src="../assets/Screenshot 2018-07-27 10.26.16.png" alt="Screenshot 2018-07-27 10.26.16.png" width="200" height="191"></a></p>
 <ul>
-<li>
-How long will it take you to learn how to do something you’ve not done before?&nbsp;
-</li>
-<li>
-What are the chances that adding this new feature will damage performance, suck memory, or complicate deployment?&nbsp;
-</li>
-<li>
-Have we discovered every “touch point” or is there some screen or report or calculation that needs to be modified because of the new data or procedure introduced by this change?
-</li>
-<li>
-What is the likelihood of some other unintentional or unforeseen consequences, perhaps due to different configuration options?&nbsp;
-</li>
-<li>
-Can we easily understand the code that we will have to be changing, or will it take considerable effort to unravel the original intent and comprehend all the side effects?&nbsp;
-</li>
+<li>How long will it take you to learn how to do something you’ve not done before?</li>
+<li>What are the chances that adding this new feature will damage performance, suck memory, or complicate deployment?</li>
+<li>Have we discovered every “touch point” or is there some screen or report or calculation that needs to be modified because of the new data or procedure introduced by this change?</li>
+<li>What is the likelihood of some other unintentional or unforeseen consequences, perhaps due to different configuration options?</li>
+<li>Can we easily understand the code that we will have to be changing, or will it take considerable effort to unravel the original intent and comprehend all the side effects?</li>
 </ul>
-<div>
-The <b>risk</b>&nbsp;element piles up greater and greater as a system grows. All new functionality, and especially functionality ‘shoehorned’ into place (quick and dirty hacks “to get it done fast”) will increase the chance that something bad may happen in some dark corner of the code. Projects slow down over time due to this.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-When systems grow, and there is insufficient automated testing, then the ability of a developer to recognize that a new change has caused breakage is limited.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Many software shops do a poor job of mitigating technical risks, and often blame them on “not having good enough programmers” when breakages inevitably occur.
-</div>
-<br> Sometimes <i>more </i>stories are done than expected because the risks didn’t materialize and the learning was easier than anticipated.<br>
-<div>
-<br>
-</div>
-<div>
-Other times, unexpected risks materialize and stories <i>blow up</i> to several times their original estimate. But the same amount of work is being done every week.<br>
-<div>
-<br>
-</div>
-<div>
-Estimates are made up. They were to someone’s best guess about the amount of learning, the amount of typing, and the amount of risk that a story entails. Still, they can be off by 250% or more.
-</div>
-<div>
-<br>
-</div>
-<div>
-<i><b>Schedules</b></i> tend to be based on <i style="font-weight: bold;">estimates, </i>although quite often this is done backward so that the estimates are based on the schedule.&nbsp;&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-The problem statement “we need 30 points per sprint” suggests that the original schedule and estimate were made based on a desire to have a particular thing finished by a particular time, believing that a high rate of accomplishment would be possible.
-</div>
-<div>
-<br>
-</div>
-<div>
-Here, where the rubber meets the road, the actual work is not happening as fast as the original scheduler hoped that it would. This leaves the manager in a tough spot since the actual rate of completion is about 2/3rds the anticipated/hoped rate of completion.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-There is a very real risk that a full 1/3 of the project cannot be completed on time.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-A smart software manager understands this, and so prioritizes so that the most important features are built early on and delivered soon. That way, when work has to be descoped, it is the least important work being dropped.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-This means not only sacrificing some stories but possibly the less-interesting parts of every story (cf Story Mapping and Example Mapping, Walking Skeletons, Evolutionary Design, etc).&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-A smart team will find – through feedback – which parts of the project should not be built at all. Often people over-specify and over-design. Sometimes the presence of a simple solution reduces the need for a comprehensive one.&nbsp; This is built into the agile manifesto (called “simplicity”, defined as “maximizing the amount of work not done”) and is crucial to all agile methods.
-</div>
-<div>
-<br>
-</div>
-<div>
-If we can <i>need less</i>, we can deliver sooner.
-</div>
-<div>
-If we can <i>prioritize well, </i>we can sacrifice lower-value work.
-</div>
-<div>
-<br>
-</div>
-<div>
-<i>Feedback from customers</i> improves our prioritization and our ability to descope intelligently but requires us to release code to them early and often.
-</div>
-<div>
-<br> If developers are pushed to provide brute-force, quick-n-dirty solutions then it increases the cost of change due to more difficulty researching changes and more difficulty spotting breakages.<br> <br> With enough risk pushed into the code, it may become intractable.&nbsp;The team may have to stop producing new features to clean it up. Nobody wants that. It is faster to write clean code with good automated tests to being with than to end up spending 80% of developers’ time cleaning up messes and defects.<br> <br> Which again brings us to the hard truth in this installment:
-</div>
-<div>
-<br>
-<div style="text-align: center;">
-<span style="font-size: large;">How long it actually takes is real. Estimates are made up.&nbsp;</span><br> <span style="font-size: large;"><br></span>
-</div>
-</div>
-<div>
-Blaming reality for not matching fantasy isn’t useful, and blaming people for making up unrealistic schedules is not helpful. We are where we are. We have to move forward.
-</div>
-<div>
-<br>
-</div>
-<div>
-It leaves us with a bit of optimistic pessimism: if this work cannot be fully completed, what is the best possible release we can make given the resources, time, and scope at hand?&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-See you back here for <a href="https://agileotter.blogspot.com/2018/10/q-and-on-velocity-part-iv.html">Part IV.</a>
-</div>
-<div>
-<br>
-</div>
-</div>
-</div>
+<p>The <strong>risk</strong> element piles up greater and greater as a system grows. All new functionality, and especially functionality ‘shoehorned’ into place (quick and dirty hacks “to get it done fast”) will increase the chance that something bad may happen in some dark corner of the code. Projects slow down over time due to this.</p>
+<p>When systems grow, and there is insufficient automated testing, then the ability of a developer to recognize that a new change has caused breakage is limited.</p>
+<p>Many software shops do a poor job of mitigating technical risks, and often blame them on “not having good enough programmers” when breakages inevitably occur.</p>
+<p>Sometimes <em>more</em> stories are done than expected because the risks didn’t materialize and the learning was easier than anticipated.</p>
+<p>Other times, unexpected risks materialize and stories <em>blow up</em> to several times their original estimate. But the same amount of work is being done every week.</p>
+<p>Estimates are made up. They were to someone’s best guess about the amount of learning, the amount of typing, and the amount of risk that a story entails. Still, they can be off by 250% or more.</p>
+<p><strong><em>Schedules</em></strong> tend to be based on <em>estimates,</em> although quite often this is done backward so that the estimates are based on the schedule.</p>
+<p>The problem statement “we need 30 points per sprint” suggests that the original schedule and estimate were made based on a desire to have a particular thing finished by a particular time, believing that a high rate of accomplishment would be possible.</p>
+<p>Here, where the rubber meets the road, the actual work is not happening as fast as the original scheduler hoped that it would. This leaves the manager in a tough spot since the actual rate of completion is about 2/3rds the anticipated/hoped rate of completion.</p>
+<p>There is a very real risk that a full 1/3 of the project cannot be completed on time.</p>
+<p>A smart software manager understands this, and so prioritizes so that the most important features are built early on and delivered soon. That way, when work has to be descoped, it is the least important work being dropped.</p>
+<p>This means not only sacrificing some stories but possibly the less-interesting parts of every story (cf Story Mapping and Example Mapping, Walking Skeletons, Evolutionary Design, etc).</p>
+<p>A smart team will find – through feedback – which parts of the project should not be built at all. Often people over-specify and over-design. Sometimes the presence of a simple solution reduces the need for a comprehensive one. This is built into the agile manifesto (called “simplicity”, defined as “maximizing the amount of work not done”) and is crucial to all agile methods.</p>
+<p>If we can <em>need less</em>, we can deliver sooner.</p>
+<p>If we can <em>prioritize well,</em> we can sacrifice lower-value work.</p>
+<p><em>Feedback from customers</em> improves our prioritization and our ability to descope intelligently but requires us to release code to them early and often.</p>
+<p>If developers are pushed to provide brute-force, quick-n-dirty solutions then it increases the cost of change due to more difficulty researching changes and more difficulty spotting breakages.</p>
+<p>With enough risk pushed into the code, it may become intractable. The team may have to stop producing new features to clean it up. Nobody wants that. It is faster to write clean code with good automated tests to being with than to end up spending 80% of developers’ time cleaning up messes and defects.</p>
+<p>Which again brings us to the hard truth in this installment:</p>
+<p>How long it actually takes is real. Estimates are made up.</p>
+<p>Blaming reality for not matching fantasy isn’t useful, and blaming people for making up unrealistic schedules is not helpful. We are where we are. We have to move forward.</p>
+<p>It leaves us with a bit of optimistic pessimism: if this work cannot be fully completed, what is the best possible release we can make given the resources, time, and scope at hand?</p>
+<p>See you back here for <a href="../posts/2018-10-15-q-and-on-velocity-part-iv.html">Part IV.</a></p>
 
 
 

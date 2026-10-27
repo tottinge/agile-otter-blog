@@ -158,87 +158,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<br> I was looking at the excellent work by appium, and saw this little snippet in an example:<br><br><span style="font-family: Courier New, Courier, monospace;"><br></span>
-<table cellpadding="0" cellspacing="0" class="t1">
-<tbody>
-<tr>
-<td class="td1" colspan="2" valign="top">
-<div class="p1">
-<span style="font-family: Courier New, Courier, monospace;"><span class="s1"><b>var</b></span><span class="s2"> el = driver.FindElementById (</span><span class="s3">“name_input”</span><span class="s2">);</span></span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="td2" valign="top">
-<div class="p2">
-<span style="font-family: Courier New, Courier, monospace;"><span class="s2"></span><br></span>
-</div>
-</td>
-<td class="td1" valign="top">
-<div class="p1">
-<span class="s2"><span style="font-family: Courier New, Courier, monospace;"><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span>el.Clear ();</span></span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="td2" valign="top">
-<div class="p2">
-<span style="font-family: Courier New, Courier, monospace;"><span class="s2"></span><br></span>
-</div>
-</td>
-<td class="td1" valign="top">
-<div class="p1">
-<span style="font-family: Courier New, Courier, monospace;"><span class="s2"><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span>el.SendKeys (</span><span class="s3">“Appium User”</span><span class="s2">);</span></span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="td2" valign="top">
-<div class="p2">
-<span style="font-family: Courier New, Courier, monospace;"><span class="s2"></span><br></span>
-</div>
-</td>
-<td class="td1" valign="top">
-<div class="p1">
-<span class="s2"><span style="font-family: Courier New, Courier, monospace;"><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span><span class="Apple-tab-span"> </span>el.SendKeys (Keys.Return);</span></span>
-</div>
-<div class="p1">
-<span class="s2"><span style="font-family: Courier New, Courier, monospace;"><br></span></span>
-</div>
-<div class="p1">
-<span style="font-family: inherit;">There’s nothing <i>horribly wrong</i>&nbsp;with the name el, except that it’s exactly what we ask people not to do with names.&nbsp;</span>
-</div>
-<div class="p1">
-<span style="font-family: inherit;"><br></span>
-</div>
-<div class="p1">
-<span style="font-family: inherit;">El is short for element (a bit of mental mapping, but the length of the name reflects the shortness of scope). But it is not informative.</span>
-</div>
-<div class="p1">
-<span style="font-family: inherit;"><br></span>
-</div>
-<div class="p1">
-<span style="font-family: inherit;">The variable “el” (EE-EL) looks like “e1” (EE-ONE) to the casual reader. The name doesn’t look right.&nbsp;</span>
-</div>
-<div class="p1">
-<span style="font-family: inherit;"><br></span>
-</div>
-<div class="p1">
-<span style="font-family: inherit;">Also, “element” is what it’s made of, not what it’s for. &nbsp;Yes it’s an element. But it means “the name input field” so “nameField” or”name_field” or “name” might be better. Or even “input” if it’s the only input field in the block.</span>
-</div>
-<div class="p1">
-<span style="font-family: inherit;"><br></span>
-</div>
-<div class="p1">
-Appium is pretty cool. You should check it out. But remember that writing examples is both something rather important (people copy or imitate examples) and something hard to do. We write them thinking “the api is the important thing” or “the idea is what matters” but we forget how seriously people will take examples.
-</div>
-<div class="p1">
-<br>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
+<p>I was looking at the excellent work by appium, and saw this little snippet in an example:</p>
+<pre class="text"><code>var el = driver.FindElementById ("name_input");
+    el.Clear ();
+    el.SendKeys ("Appium User");
+    el.SendKeys (Keys.Return);</code></pre>
+<p>There’s nothing <em>horribly wrong</em> with the name el, except that it’s exactly what we ask people not to do with names.</p>
+<p>El is short for element (a bit of mental mapping, but the length of the name reflects the shortness of scope). But it is not informative.</p>
+<p>The variable “el” (EE-EL) looks like “e1” (EE-ONE) to the casual reader. The name doesn’t look right.</p>
+<p>Also, “element” is what it’s made of, not what it’s for. Yes it’s an element. But it means “the name input field” so “nameField” or”name_field” or “name” might be better. Or even “input” if it’s the only input field in the block.</p>
+<p>Appium is pretty cool. You should check it out. But remember that writing examples is both something rather important (people copy or imitate examples) and something hard to do. We write them thinking “the api is the important thing” or “the idea is what matters” but we forget how seriously people will take examples.</p>
 
 
 

@@ -166,82 +166,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-When you are writing tests you end up using literals or hand-constructed data objects.<br>
-<div>
-<br>
-</div>
-<div>
-However, using literals can obscure the meaning a little. Not horribly; most people can puzzle them out quickly enough, but you can make it easier on the reader.
-</div>
-<div>
-<br>
-</div>
-<div>
-In most of these tests, the values are pretty much arbitrary, but the relationship between the values is essential. For instance, when checking that no bonus is given when sales is less than quota, I could state that sales is 10,000.00 and that the quota is 9,900.00. &nbsp;Pretty much anyone could tell that the quota is less than sales here, right?<br> <br> But what if we made it really explicit?<br> <br>
-<div class="p2">
-<span class="s3" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp;double</span><span style="font-family: 'Courier New', Courier, monospace;"> </span><span class="s4" style="font-family: 'Courier New', Courier, monospace;">quota</span><span style="font-family: 'Courier New', Courier, monospace;"> = 10000;</span>
-</div>
-<div class="p3">
-<span style="font-family: Courier New, Courier, monospace;"><span class="Apple-tab-span"></span><span class="Apple-tab-span"></span><span class="s3">&nbsp; &nbsp; &nbsp;double</span> <span class="s4">sales</span> = <span class="s4">quota</span> - 100;</span>
-</div>
-<div class="p3">
-<br>
-</div>
-<div class="p3">
-This is how I like to roll. For instance, in python:
-</div>
-<div class="p3">
-<br>
-</div>
-<div class="p3">
-<span style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp;event_date = datetime(2015,9,10)</span>
-</div>
-<div class="p3">
-<span style="font-family: Courier New, Courier, monospace;">&nbsp; &nbsp; &nbsp;later = event_date + timedelta(days=10)</span>
-</div>
-<div class="p3">
-<span style="font-family: Courier New, Courier, monospace;">&nbsp; &nbsp; &nbsp;earlier = event_date - timedelta(days=2)</span>
-</div>
-<div class="p3">
-<span style="font-family: Courier New, Courier, monospace;"><br></span>
-</div>
-<div class="p3">
-And how about this alternative when you want to construct an object as a slight variation as another of the same type?
-</div>
-<div class="p3">
-<br>
-</div>
-<div class="p3">
-<span style="font-family: Courier New, Courier, monospace;">&nbsp; &nbsp; &nbsp;origin = datetime(2015,9,10)</span>
-</div>
-<div class="p3">
-<span style="font-family: Courier New, Courier, monospace;">&nbsp; &nbsp; &nbsp;later = datetime(origin.year, origin.month, origin.day+2)</span>
-</div>
-<div class="p3">
-<br>
-</div>
-<div class="p3">
-I think that building one object as a modification of another (by add/subtract/etc, or by unpacking one into the constructor of the other) makes the intention of the author clear.
-</div>
-<div class="p3">
-<br>
-</div>
-<div class="p3">
-Of course, if you modify the original object, the object constructed through relationship instead of literal will change with it.&nbsp;
-</div>
-<div class="p3">
-<br>
-</div>
-<div class="p3">
-The easier maintenance is just a bonus you get for being an expressive programmer.&nbsp;
-</div>
-<div class="p3">
-<br>
-</div>
-<div class="p3">
-<br>
-</div>
-</div>
+<p>When you are writing tests you end up using literals or hand-constructed data objects.</p>
+<p>However, using literals can obscure the meaning a little. Not horribly; most people can puzzle them out quickly enough, but you can make it easier on the reader.</p>
+<p>In most of these tests, the values are pretty much arbitrary, but the relationship between the values is essential. For instance, when checking that no bonus is given when sales is less than quota, I could state that sales is 10,000.00 and that the quota is 9,900.00. Pretty much anyone could tell that the quota is less than sales here, right?</p>
+<p>But what if we made it really explicit?</p>
+<pre class="text"><code>     double quota = 10000;
+     double sales = quota - 100;</code></pre>
+<p>This is how I like to roll. For instance, in python:</p>
+<pre class="text"><code>     event_date = datetime(2015,9,10)
+     later = event_date + timedelta(days=10)
+     earlier = event_date - timedelta(days=2)</code></pre>
+<p>And how about this alternative when you want to construct an object as a slight variation as another of the same type?</p>
+<pre class="text"><code>     origin = datetime(2015,9,10)
+     later = datetime(origin.year, origin.month, origin.day+2)</code></pre>
+<p>I think that building one object as a modification of another (by add/subtract/etc, or by unpacking one into the constructor of the other) makes the intention of the author clear.</p>
+<p>Of course, if you modify the original object, the object constructed through relationship instead of literal will change with it.</p>
+<p>The easier maintenance is just a bonus you get for being an expressive programmer.</p>
 
 
 

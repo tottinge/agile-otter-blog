@@ -159,60 +159,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div>
-Balance these facts:
-</div>
-<div>
-<ol>
-<li>
-Refactoring is a good thing, but is also perturbation.
-</li>
-<li>
-Gratuitous perturbation is a bad thing.
-</li>
+<p>Balance these facts:</p>
+<ol type="1">
+<li>Refactoring is a good thing, but is also perturbation.</li>
+<li>Gratuitous perturbation is a bad thing.</li>
 </ol>
-<div>
-Refactoring is good because confusing, stupid, repetitive, complicated code is the devil. We can’t even pretend it is not the devil, because we catch bad code sneaking away with a slice of our souls from time to time. Bad code is bad. Refactoring makes bad code better. Some perturbation is a very good thing.
-</div>
-<div>
-<br>
-</div>
-<div>
-Gratuitous perturbation of the code base is a bad thing. If I make a million changes to a million places, then diffing (and therefore merging) are going to be a slice of hell. This is a different devil, but still a devil.
-</div>
-<div>
-<br>
-</div>
-<div>
-The problem with perturbation is that it makes it hard to maintain branches. Branched development is a good thing sometimes, providing some isolation for a very short period of time, and some ability to compose and recompose a release. Branching becomes odious, however, when the code in a branch differs greatly from the code in a shared codeline (often trunk). Merging becomes difficult, manual, and fraught with error.
-</div>
-<div>
-<br>
-</div>
-<div>
-In a branch, you want to perturb less, and refactor new areas of code. Your merges will work. Alternatively, you want to refactor the trunk first and then merge it to your branch, so at least they’re both similar code bases.
-</div>
-<div>
-<br>
-</div>
-<div>
-Gratuitous perterbation would be reformatting the source base, renaming globals, and the like. In the branch, you don’t really want to do that. In the shared trunk, you might want to do that. It depends on how the people in branches will handle it. By the way, you probably DO want to do big things like reformatting all the code and eliminating all globals. You just have to do it when not much else is going on, or else you want to coordinate with people working in branches.
-</div>
-<div>
-<br>
-</div>
-<div>
-Given some routine:
-</div>
-<div>
-<pre></pre>
-</div>
-<div>
-<pre><code>      pubic int doSomething() {&lt;/div&gt;&lt;div&gt;                   // 15 lines of old code&lt;/div&gt;&lt;div&gt;                   // 12 lines of new code goes here&lt;/div&gt;&lt;div&gt;                   // 30 lines of old code&lt;/div&gt;&lt;div&gt;                   // 2 lines of new code goes here&lt;/div&gt;&lt;div&gt;          }&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;61 is a horribly unhealthy line count.  Clean functions are under a dozen lines, and closer to 6.  I'll bet you those 14 lines of new code don't line up perfectly under the name and intent of the function, nor do they have the same level of abstraction (except in this made-up case, where they "do something").&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;You can put those new lines inline, as shown, but that is a mess. You might not be able to sleep at night or ingest foods afterward, but you are physically capable. If you can add code inline without becoming ill, then you probably should retune your sense of smell.&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;You can refactor.  I'm betting doSomething will break down into a hierarchy of smaller functions that have meaningful names.  But if you refactor this in a branch, then the shared codeline merges will be a big pain.  If you want your merges to be reasonably easy, you'll have to either do the refactoring to both code lines or do them in the shared line and merge them down to the trunk.  It's double-work now, but it avoids harder work later and who is to say it will happen only twice?  It's an insurance premium.  It could be wasted, but it could pay off bigtime.&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;The other option is to add only two lines of code to the existing, ugly function. Those two lines would be to functions, which contain all the rest of the new stuff.   This causes minimal perturbation.  The diff shows two lines inserted in the function, and two new functions being added beneath.  Further merges will be pretty easy to deal with.  Once the branch moves to trunk, then refactoring in trunk might be more reasonable.&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;Here then is the moral of our tale, and the motto to live by:&lt;/div&gt;&lt;div&gt;&lt;blockquote&gt;Don't be caught with extensive changes in a branch.  &lt;/blockquote&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
+<p>Refactoring is good because confusing, stupid, repetitive, complicated code is the devil. We can’t even pretend it is not the devil, because we catch bad code sneaking away with a slice of our souls from time to time. Bad code is bad. Refactoring makes bad code better. Some perturbation is a very good thing.</p>
+<p>Gratuitous perturbation of the code base is a bad thing. If I make a million changes to a million places, then diffing (and therefore merging) are going to be a slice of hell. This is a different devil, but still a devil.</p>
+<p>The problem with perturbation is that it makes it hard to maintain branches. Branched development is a good thing sometimes, providing some isolation for a very short period of time, and some ability to compose and recompose a release. Branching becomes odious, however, when the code in a branch differs greatly from the code in a shared codeline (often trunk). Merging becomes difficult, manual, and fraught with error.</p>
+<p>In a branch, you want to perturb less, and refactor new areas of code. Your merges will work. Alternatively, you want to refactor the trunk first and then merge it to your branch, so at least they’re both similar code bases.</p>
+<p>Gratuitous perterbation would be reformatting the source base, renaming globals, and the like. In the branch, you don’t really want to do that. In the shared trunk, you might want to do that. It depends on how the people in branches will handle it. By the way, you probably DO want to do big things like reformatting all the code and eliminating all globals. You just have to do it when not much else is going on, or else you want to coordinate with people working in branches.</p>
+<p>Given some routine:</p>
+<pre class="text"><code></code></pre>
+<p>pubic int doSomething() {</p>
+<p>// 15 lines of old code</p>
+<p>// 12 lines of new code goes here</p>
+<p>// 30 lines of old code</p>
+<p>// 2 lines of new code goes here</p>
+<p>}</p>
+<p>61 is a horribly unhealthy line count. Clean functions are under a dozen lines, and closer to 6. I’ll bet you those 14 lines of new code don’t line up perfectly under the name and intent of the function, nor do they have the same level of abstraction (except in this made-up case, where they “do something”).</p>
+<p>You can put those new lines inline, as shown, but that is a mess. You might not be able to sleep at night or ingest foods afterward, but you are physically capable. If you can add code inline without becoming ill, then you probably should retune your sense of smell.</p>
+<p>You can refactor. I’m betting doSomething will break down into a hierarchy of smaller functions that have meaningful names. But if you refactor this in a branch, then the shared codeline merges will be a big pain. If you want your merges to be reasonably easy, you’ll have to either do the refactoring to both code lines or do them in the shared line and merge them down to the trunk. It’s double-work now, but it avoids harder work later and who is to say it will happen only twice? It’s an insurance premium. It could be wasted, but it could pay off bigtime.</p>
+<p>The other option is to add only two lines of code to the existing, ugly function. Those two lines would be to functions, which contain all the rest of the new stuff. This causes minimal perturbation. The diff shows two lines inserted in the function, and two new functions being added beneath. Further merges will be pretty easy to deal with. Once the branch moves to trunk, then refactoring in trunk might be more reasonable.</p>
+<p>Here then is the moral of our tale, and the motto to live by:</p>
+<blockquote class="blockquote">
+<p>Don’t be caught with extensive changes in a branch.</p>
+</blockquote>
 
 
-</div>
-</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

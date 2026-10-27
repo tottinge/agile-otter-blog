@@ -158,7 +158,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I write an automated acceptance test (AT) and I find that I would like to perform certain actions against the business objects.&nbsp; I create a method on the business objects and my test stays slim while my model builds up more functions.<br> <br> So, there is potentially code in the production system that is only used in the tests. The debate today is whether that is “unnecessary bulk that solves no business need” or is instead “first-class code.”<br> <br> I am betting that the code you need in the AT is code you probably also needed in the UI and/or APIs to external clients. I am supposing that it is needed in the test because it is likely written into the UIs instead of the model and so the tests’ logic is duplication. I also think that even a reasonably poorly-written test is written to support business rules.&nbsp; Therefore, the tests express business logic so methods required by the tests are methods required by business.&nbsp; While some worry that a method on a business object might be picked up and used by a programmer in the production code, I hope that this is true.<br> <br> Your opinion matters, so feel free to leave a comment.</p>
+<p>I write an automated acceptance test (AT) and I find that I would like to perform certain actions against the business objects. I create a method on the business objects and my test stays slim while my model builds up more functions.</p>
+<p>So, there is potentially code in the production system that is only used in the tests. The debate today is whether that is “unnecessary bulk that solves no business need” or is instead “first-class code.”</p>
+<p>I am betting that the code you need in the AT is code you probably also needed in the UI and/or APIs to external clients. I am supposing that it is needed in the test because it is likely written into the UIs instead of the model and so the tests’ logic is duplication. I also think that even a reasonably poorly-written test is written to support business rules. Therefore, the tests express business logic so methods required by the tests are methods required by business. While some worry that a method on a business object might be picked up and used by a programmer in the production code, I hope that this is true.</p>
+<p>Your opinion matters, so feel free to leave a comment.</p>
 
 
 

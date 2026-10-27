@@ -158,8 +158,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-We tackled some code for refactoring, and I found an unusual construct. To wit:<br> <br>
-<pre>public class Base: Many, Varied, Bases {
+<p>We tackled some code for refactoring, and I found an unusual construct. To wit:</p>
+<pre class="text"><code>public class Base: Many, Varied, Bases {
     private int x;
 
     // ...
@@ -171,9 +171,13 @@ We tackled some code for refactoring, and I found an unusual construct. To wit:<
     }
 
     // ...
-}
-</pre>
-<p><br> So here we have the derived class nested in its base class. I am quite comfortable with nested anythings in python or a few other languages, so that’s not a problem. I nest ‘testable’ classes in tests all the time so I can override or stub a few methods. In python it’s a normal way of life to nest functions and classes. <br> <br> This one is odd because it is a production class, nested inside a production class, and deriving from its outer class. It makes me think of a pregnant female, having a child inside it whose dna derives from the mother. <br> <br> So what powers does this odd nesting convey? My first thought is that it is some kind of closure, but this turns out to be false. There is no real closure involved. The whole closure that derives from the parent made my head swim just a bit, but it is a wild goose chase. Nothing to it.<br> <br> What does happen is that the nesting bestows readability on the private variables inherited from the enclosing parent. The x in the setX is the Derived.x inherited from Base. It is referencing its own variable, even though that variable is private instead of protected in the parent. Indeed, resharper refused to move the class to an outer scope because its own variables would become unreachable to its own methods. To do that extraction, we made the variables protected in the parent.<br> <br> The other thing that it did was hide the class from an automated test program. These classes are both code-behind for web pages. We have an automated tool that searches the namespace for all classes derived from our base web component class and ensures that they all have page generation tests. This one did not. <br> <br> I am wondering if there is some interesting way to use this like a private interface class in C++ or Java. It was curious, but I’m wondering if it can’t also be useful.</p>
+}</code></pre>
+<p>So here we have the derived class nested in its base class. I am quite comfortable with nested anythings in python or a few other languages, so that’s not a problem. I nest ‘testable’ classes in tests all the time so I can override or stub a few methods. In python it’s a normal way of life to nest functions and classes.</p>
+<p>This one is odd because it is a production class, nested inside a production class, and deriving from its outer class. It makes me think of a pregnant female, having a child inside it whose dna derives from the mother.</p>
+<p>So what powers does this odd nesting convey? My first thought is that it is some kind of closure, but this turns out to be false. There is no real closure involved. The whole closure that derives from the parent made my head swim just a bit, but it is a wild goose chase. Nothing to it.</p>
+<p>What does happen is that the nesting bestows readability on the private variables inherited from the enclosing parent. The x in the setX is the Derived.x inherited from Base. It is referencing its own variable, even though that variable is private instead of protected in the parent. Indeed, resharper refused to move the class to an outer scope because its own variables would become unreachable to its own methods. To do that extraction, we made the variables protected in the parent.</p>
+<p>The other thing that it did was hide the class from an automated test program. These classes are both code-behind for web pages. We have an automated tool that searches the namespace for all classes derived from our base web component class and ensures that they all have page generation tests. This one did not.</p>
+<p>I am wondering if there is some interesting way to use this like a private interface class in C++ or Java. It was curious, but I’m wondering if it can’t also be useful.</p>
 
 
 

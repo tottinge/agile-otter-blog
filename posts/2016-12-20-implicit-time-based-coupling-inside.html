@@ -158,206 +158,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Imagine if you would a class in an object-oriented language.<br> <br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/TroubledClass.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="TroubledClass.png" border="0" height="191" src="../assets/TroubledClass.png" width="320"></a>
-</div>
-<br> Notice that <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x()</span>and <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y()</span>are not constructors.<br> <br> Now, a “good” user of an instance of Trouble will do something like this:<br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">t.x(); // always call x() before y()&nbsp;</span>&nbsp;
-</blockquote>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">t.y();&nbsp;</span>
-</blockquote>
-<span style="font-family: inherit;">Whereas a naive user of the class might do something more like this:</span><br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"></span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">t.y();</span>
-</blockquote>
-<br> <span style="font-family: inherit;">In this case the value of </span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">i1</span><span style="font-family: inherit;"> (used by function </span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span><span style="font-family: inherit;">)</span>&nbsp;is either undefined or possibly some leftover value from earlier uses of instance t.<br> <br>
-<h4 class="anchored">
-How Do You Know?
-</h4>
-<br> The functions <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x</span> and <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span> have an implicit temporal binding. &nbsp;When you look at the object diagram, or if you use code completion, nothing you see will tell you that you must call <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x</span> before <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span>.<br> <br> Either:<br> <br>
-<ol>
-<li>
-You don’t know about it, and have been “just lucky” so far
-</li>
-<li>
-You don’t know, and are currently making bugs you don’t know about
-</li>
-<li>
-You know because you’ve read the code from top to bottom and understand the implicit temporal coupling.&nbsp;
-</li>
-<li>
-You copied someone else’s example after yours didn’t work, and you don’t know why it calls <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x()</span> before <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y()</span>, but dammit it works.
-</li>
-<li>
-You’ve spent considerable time in trial-and-error and treat x() as a magic incantation.
-</li>
-<li>
-Someone told you.
-</li>
+<p>Imagine if you would a class in an object-oriented language.</p>
+<p><a href="../assets/TroubledClass.png"><img src="../assets/TroubledClass.png" alt="TroubledClass.png" width="320" height="191"></a></p>
+<p>Notice that <code>x()</code>and <code>y()</code>are not constructors.</p>
+<p>Now, a “good” user of an instance of Trouble will do something like this:</p>
+<pre class="text"><code>t.x(); // always call x() before y()
+t.y();</code></pre>
+<p>Whereas a naive user of the class might do something more like this:</p>
+<pre class="text"><code>t.y();</code></pre>
+<p>In this case the value of <code>i1</code> (used by function <code>y</code>) is either undefined or possibly some leftover value from earlier uses of instance t.</p>
+<section id="how-do-you-know" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-you-know">How Do You Know?</h2>
+<p>The functions <code>x</code> and <code>y</code> have an implicit temporal binding. When you look at the object diagram, or if you use code completion, nothing you see will tell you that you must call <code>x</code> before <code>y</code>.</p>
+<p>Either:</p>
+<ol type="1">
+<li>You don’t know about it, and have been “just lucky” so far</li>
+<li>You don’t know, and are currently making bugs you don’t know about</li>
+<li>You know because you’ve read the code from top to bottom and understand the implicit temporal coupling.</li>
+<li>You copied someone else’s example after yours didn’t work, and you don’t know why it calls <code>x()</code> before <code>y()</code>, but dammit it works.</li>
+<li>You’ve spent considerable time in trial-and-error and treat x() as a magic incantation.</li>
+<li>Someone told you.</li>
 </ol>
-<div>
-Of these, I’m most afraid of 1 and 2. These are hidden dangers, and eventually there is going to be a nasty surprise for someone – possibly the customers.
-</div>
-<div>
-<br>
-</div>
-<div>
-If one is working at a large scale (dozens or hundreds of people using Trouble) then 3 is asking far too much. Who can afford to carefully read the implementations of all the classes they use, and keep track of when variables are set and used? You can’t afford to have 20 people wasting time on this, in hopes that they might spot the one or two special classes who rely on temporal coupling.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-While it’s easy to blame all “bad code” on a lack of discipline, we find that it is more productive to fix the tricky coding practices that require a high level of discipline.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-You will always find it more scalable and productive to <i>make the work easier </i>than to <i>work harder</i>.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div style="text-align: center;">
-<span style="color: #0b5394; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-large;">Don’t work people harder.&nbsp;</span>
-</div>
-<div style="text-align: center;">
-<span style="color: #0b5394; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-large;">Make people’s work easier!</span>
-</div>
-<div>
-<br>
-</div>
-<div>
-Number 4 is also a nightmare at scale. Code duplication is the king of code smells, but here people are copying code because they feel like they can’t afford the time to understand the code they’re producing. That’s awful. I don’t blame the copiers, they’re in a situation where they’re asked to put out effort they can’t afford. But I would rather they investigated instead of copying blindly.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Number 5 is too much to ask.
-</div>
-<div>
-<br>
-</div>
-<div>
-Number 6 (someone told you) is not bad in and of itself. Communication is good. But here the communication is how to work around a problem in the code so that you don’t have to fix it. Perfectly reasonable-sounding if you can’t change the code itself, but questionable in general. How safe are you if the only thing protecting you from disaster (in the hazards of 1 &amp; 2, or the time sinks of 4 &amp; 5) is oral tradition.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<h4 class="anchored">
-At Scale?
-</h4>
-<div>
-While solutions often scale poorly, we find that problems always scale very well, indeed.
-</div>
-<div>
-<br>
-</div>
-<div>
-The ideal when programming in groups and at scale is that you demand the least from each other, so that you can all accomplish the most.
-</div>
-<br> <br>
-<div>
-<br>
-</div>
-<div>
-At scale, you want to build code so it is easy for other people to do what works well, and avoid hazards and risks along the way.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-All implicit couplings are risky, including (but not limited to) duplication of algorithms. Every fact, every algorithm, every bit of knowledge should have a Single Point of Truth in the application.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Here the design of the code is such that the “point of truth” (knowledge that <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x</span>() must be called before <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span>()) is <i>distributed to every bit of code which needs to call function <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span></i>. &nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-It demands duplication of code in the callers, and demands a higher level of “due diligence” from the programmers.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-At scale, this small feature becomes a big problem.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<h4 class="anchored">
-So now what?
-</h4>
-<div>
-There usually ways to fix this problem. &nbsp;There are also ways to cope with not solving it.&nbsp;
-</div>
-<div>
+<p>Of these, I’m most afraid of 1 and 2. These are hidden dangers, and eventually there is going to be a nasty surprise for someone – possibly the customers.</p>
+<p>If one is working at a large scale (dozens or hundreds of people using Trouble) then 3 is asking far too much. Who can afford to carefully read the implementations of all the classes they use, and keep track of when variables are set and used? You can’t afford to have 20 people wasting time on this, in hopes that they might spot the one or two special classes who rely on temporal coupling.</p>
+<p>While it’s easy to blame all “bad code” on a lack of discipline, we find that it is more productive to fix the tricky coding practices that require a high level of discipline.</p>
+<p>You will always find it more scalable and productive to <em>make the work easier</em> than to <em>work harder</em>.</p>
+<p>Don’t work people harder.</p>
+<p>Make people’s work easier!</p>
+<p>Number 4 is also a nightmare at scale. Code duplication is the king of code smells, but here people are copying code because they feel like they can’t afford the time to understand the code they’re producing. That’s awful. I don’t blame the copiers, they’re in a situation where they’re asked to put out effort they can’t afford. But I would rather they investigated instead of copying blindly.</p>
+<p>Number 5 is too much to ask.</p>
+<p>Number 6 (someone told you) is not bad in and of itself. Communication is good. But here the communication is how to work around a problem in the code so that you don’t have to fix it. Perfectly reasonable-sounding if you can’t change the code itself, but questionable in general. How safe are you if the only thing protecting you from disaster (in the hazards of 1 &amp; 2, or the time sinks of 4 &amp; 5) is oral tradition.</p>
+</section>
+<section id="at-scale" class="level2">
+<h2 class="anchored" data-anchor-id="at-scale">At Scale?</h2>
+<p>While solutions often scale poorly, we find that problems always scale very well, indeed.</p>
+<p>The ideal when programming in groups and at scale is that you demand the least from each other, so that you can all accomplish the most.</p>
+<p>At scale, you want to build code so it is easy for other people to do what works well, and avoid hazards and risks along the way.</p>
+<p>All implicit couplings are risky, including (but not limited to) duplication of algorithms. Every fact, every algorithm, every bit of knowledge should have a Single Point of Truth in the application.</p>
+<p>Here the design of the code is such that the “point of truth” (knowledge that <code>x</code>() must be called before <code>y</code>()) is <em>distributed to every bit of code which needs to call function <code>y</code></em>.</p>
+<p>It demands duplication of code in the callers, and demands a higher level of “due diligence” from the programmers.</p>
+<p>At scale, this small feature becomes a big problem.</p>
+</section>
+<section id="so-now-what" class="level2">
+<h2 class="anchored" data-anchor-id="so-now-what">So now what?</h2>
+<p>There usually ways to fix this problem. There are also ways to cope with not solving it.</p>
 <ul>
-<li>
-Make <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span> call <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x.</span>
-</li>
-<li>
-Make incorporate <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span> into <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x</span>, if <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span>&nbsp;really only means “complete work started in&nbsp;<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x.</span>”
-</li>
-<li>
-Have <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span> set <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">i1</span> directly.
-</li>
-<li>
-Initialize <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">i1</span> to a null or indicator value in the constructor, and add a guard clause in y which will throw an exception if <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">i1</span> has not been given a meaningful value.
-</li>
-<li>
-Create a new function that calls <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x</span>() and then <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span>() – and rename function y to something that sounds dangerous to use, like <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">unsafeY</span> or &nbsp;<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">innerYtoBeUsedOnlyIfI1HasBeenSet</span>.
-</li>
-<li>
-Rename <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x</span> to <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">prepareForY.</span>
-</li>
-<li>
-<span style="font-family: inherit;">If only </span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">x</span><span style="font-family: inherit;"> and </span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span><span style="font-family: inherit;"> use </span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">i1</span><span style="font-family: inherit;">, then it is a temporary field (code smell) and you should refactor it away normally.</span>
-</li>
-<li>
-<span style="font-family: inherit;">Add an optional parameter to </span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span><span style="font-family: inherit;">, which is the value you want </span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">i1</span><span style="font-family: inherit;"> to have. Combine this strategy with the guard clause idea, above.</span>
-</li>
-<li>
-<span style="font-family: inherit;">Build a wrapper class around the Trouble class, so that the wrapper is the Single Point Of Truth about how the Trouble class should be handled. Make the Trouble class private, internal, or otherwise hidden.&nbsp;</span>
-</li>
-<li>
-<span style="font-family: inherit;">Go find or make a replacement class for Trouble. &nbsp;Who needs it?&nbsp;</span>
-</li>
-<li>
-<span style="font-family: inherit;">Tolerate Trouble by setting a cron job to search for invocations of </span><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">y</span><span style="font-family: inherit;">. Review any <i>new</i>&nbsp;uses of the function immediately.</span>
-</li>
+<li>Make <code>y</code> call <code>x.</code></li>
+<li>Make incorporate <code>y</code> into <code>x</code>, if <code>y</code> really only means “complete work started in <code>x.</code>”</li>
+<li>Have <code>y</code> set <code>i1</code> directly.</li>
+<li>Initialize <code>i1</code> to a null or indicator value in the constructor, and add a guard clause in y which will throw an exception if <code>i1</code> has not been given a meaningful value.</li>
+<li>Create a new function that calls <code>x</code>() and then <code>y</code>() – and rename function y to something that sounds dangerous to use, like <code>unsafeY</code> or <code>innerYtoBeUsedOnlyIfI1HasBeenSet</code>.</li>
+<li>Rename <code>x</code> to <code>prepareForY.</code></li>
+<li>If only <code>x</code> and <code>y</code> use <code>i1</code>, then it is a temporary field (code smell) and you should refactor it away normally.</li>
+<li>Add an optional parameter to <code>y</code>, which is the value you want <code>i1</code> to have. Combine this strategy with the guard clause idea, above.</li>
+<li>Build a wrapper class around the Trouble class, so that the wrapper is the Single Point Of Truth about how the Trouble class should be handled. Make the Trouble class private, internal, or otherwise hidden.</li>
+<li>Go find or make a replacement class for Trouble. Who needs it?</li>
+<li>Tolerate Trouble by setting a cron job to search for invocations of <code>y</code>. Review any <em>new</em> uses of the function immediately.</li>
 </ul>
-<div>
-<br>
-</div>
-</div>
-<div>
-You can probably come up with a dozen more ways to improve the situation.
-</div>
-<div>
-<br>
-</div>
-<div>
-But the important thing is that we can recognize implicit temporal cohesion and its role in making code expensive to write, and that we take steps to make the work easier if we want to accomplish more work sooner.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-And who doesn’t?
-</div>
+<p>You can probably come up with a dozen more ways to improve the situation.</p>
+<p>But the important thing is that we can recognize implicit temporal cohesion and its role in making code expensive to write, and that we take steps to make the work easier if we want to accomplish more work sooner.</p>
+<p>And who doesn’t?</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

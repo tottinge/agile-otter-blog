@@ -158,28 +158,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-You can avoid many problems with process elements that are conceptually simple.<br>
+<p>You can avoid many problems with process elements that are conceptually simple.</p>
 <ul>
-<li>
-You have to set a coding standard and stick with it (one that your tools support).
-</li>
-<li>
-You have to have a reliance on automated tests.<br>
-</li>
-<li>
-You need QA to vet that automated testing, rather than substituting for it.
-</li>
-<li>
-You need constant refactoring to keep the code in its simplest state.
-</li>
-<li>
-You need pair programming so simplicity and readability will trump individual taste.
-</li>
-<li>
-You probably need some pre-commit triggers in your version control.
-</li>
+<li>You have to set a coding standard and stick with it (one that your tools support).</li>
+<li>You have to have a reliance on automated tests.</li>
+<li>You need QA to vet that automated testing, rather than substituting for it.</li>
+<li>You need constant refactoring to keep the code in its simplest state.</li>
+<li>You need pair programming so simplicity and readability will trump individual taste.</li>
+<li>You probably need some pre-commit triggers in your version control.</li>
 </ul>
-<p>That’s nice for green-field development, but what about the rest of us?<br><br>If you are already in trouble, you have a long road ahead of you. You should get a copy of Michael Feathers’ excellent <a href="http://www.amazon.com/Working-Effectively-Legacy-Robert-Martin/dp/0131177052"> legacy code</a> book. You should also get a copy of the <a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">clean code</a> book. Having copies of <a href="http://www.amazon.com/exec/obidos/ASIN/0201485672">Refactoring</a> is a good idea. Education is a start. Have them read. Have them presented. Organize brown-bag lunches or catered pizza buffets.<br><br>You will need to start a program of improvement concurrent with education. You’ll need a small cleanup crew, but the responsibility for clean code has to extend to the whole development group. All new code has to be written according to the green field rules above.<br><br>The cleanup crew should take on the worst elements in your code base. They are easy to identify. They are the largest files with the richest change history in your SCM tool. If the file is in the top 10 by size and the top 10 by number of commits, then it’s a very good target. If you want to get a weighted score, consider changes as double the weight of lines.<br><br>Pick a target and use the legacy code techniques to get the code under control, which is to say “under test”.. Surround it with an unreasonable number of tests, and feel free to extract class and extract method until the code seems absurdly simple. Break it into multiple files by class even if you’re not in Java. Be particularly ruthless where wizard programmers have added “magic” into the code. You can’t afford clever code if you are trying to increase productivity/velocity.<br><br>This work can be grueling, so rotate developers between the cleanup crew and the normal feature team. Nobody who isn’t disposed to this kind of work should have to do it very long, but everyone will benefit from learning to clean code.<br><br>You should disband the cleaning crew and return everyone to feature development when none of the remaining code is significantly larger, more volatile, or more fear-inducing that the rest. That might take a few months. It might take a few weeks. The team will be able to decide.<br><br>The work is made easier by a mentor who has been through the process once or twice, and has read all of the books, or at least quite a bit of each. But it will be hard. At the end of the process you will have code that is well-tested and which requires less fearful change management.<br><br>This sounds like a work-stop, and plenty of people will disrecommend it. Having managed in a code base full of magic, I have a different understanding of the issues. Perhaps the thing to do is to give the team the choice of working this way for a fixed period, and then see if you want to continue.<br><br>The more canonical way of managing a mess is to follow the same path, but don’t pick targets. Instead, work on features and clean all the code you have to touch to implement the feature. This way, the code with the largest number of ongoing modifications is cleaned first. It’s not at all an unwise decision, but it is difficult to justify why a nearly-cosmetic change suddenly takes two weeks. If you’re dealing with “change avoidance management” then you’ll have to fight more. Perhaps that is why Agile values courage. But if you can’t afford it, then a cleanup crew is an alternative.</p>
+<p>That’s nice for green-field development, but what about the rest of us?</p>
+<p>If you are already in trouble, you have a long road ahead of you. You should get a copy of Michael Feathers’ excellent <a href="http://www.amazon.com/Working-Effectively-Legacy-Robert-Martin/dp/0131177052">legacy code</a> book. You should also get a copy of the <a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">clean code</a> book. Having copies of <a href="http://www.amazon.com/exec/obidos/ASIN/0201485672">Refactoring</a> is a good idea. Education is a start. Have them read. Have them presented. Organize brown-bag lunches or catered pizza buffets.</p>
+<p>You will need to start a program of improvement concurrent with education. You’ll need a small cleanup crew, but the responsibility for clean code has to extend to the whole development group. All new code has to be written according to the green field rules above.</p>
+<p>The cleanup crew should take on the worst elements in your code base. They are easy to identify. They are the largest files with the richest change history in your SCM tool. If the file is in the top 10 by size and the top 10 by number of commits, then it’s a very good target. If you want to get a weighted score, consider changes as double the weight of lines.</p>
+<p>Pick a target and use the legacy code techniques to get the code under control, which is to say “under test”.. Surround it with an unreasonable number of tests, and feel free to extract class and extract method until the code seems absurdly simple. Break it into multiple files by class even if you’re not in Java. Be particularly ruthless where wizard programmers have added “magic” into the code. You can’t afford clever code if you are trying to increase productivity/velocity.</p>
+<p>This work can be grueling, so rotate developers between the cleanup crew and the normal feature team. Nobody who isn’t disposed to this kind of work should have to do it very long, but everyone will benefit from learning to clean code.</p>
+<p>You should disband the cleaning crew and return everyone to feature development when none of the remaining code is significantly larger, more volatile, or more fear-inducing that the rest. That might take a few months. It might take a few weeks. The team will be able to decide.</p>
+<p>The work is made easier by a mentor who has been through the process once or twice, and has read all of the books, or at least quite a bit of each. But it will be hard. At the end of the process you will have code that is well-tested and which requires less fearful change management.</p>
+<p>This sounds like a work-stop, and plenty of people will disrecommend it. Having managed in a code base full of magic, I have a different understanding of the issues. Perhaps the thing to do is to give the team the choice of working this way for a fixed period, and then see if you want to continue.</p>
+<p>The more canonical way of managing a mess is to follow the same path, but don’t pick targets. Instead, work on features and clean all the code you have to touch to implement the feature. This way, the code with the largest number of ongoing modifications is cleaned first. It’s not at all an unwise decision, but it is difficult to justify why a nearly-cosmetic change suddenly takes two weeks. If you’re dealing with “change avoidance management” then you’ll have to fight more. Perhaps that is why Agile values courage. But if you can’t afford it, then a cleanup crew is an alternative.</p>
 
 
 

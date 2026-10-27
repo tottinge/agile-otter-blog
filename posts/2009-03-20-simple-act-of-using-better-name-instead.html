@@ -158,63 +158,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div dir="ltr" style="text-align: left;" data-trbidi="on">
-<span style="font-style: italic;">This is from a moderately recent copy of my Meaningful Names paper, and was translated into Java in the book Clean Code. Here it is in original context with python code examples.</span><br> <br> The simple act of using a better name (instead of applying a&nbsp;better comment) can reduce the difficulty of working with the code&nbsp;we write.<br> What is the purpose of this python code?<br>
-<pre class="code">             list1 = []
+<p><em>This is from a moderately recent copy of my Meaningful Names paper, and was translated into Java in the book Clean Code. Here it is in original context with python code examples.</em></p>
+<p>The simple act of using a better name (instead of applying a better comment) can reduce the difficulty of working with the code we write.<br>
+What is the purpose of this python code?</p>
+<pre class="text"><code>
+             list1 = []
              for x in theList:
                      if x[0] == 4:
                              list1 += [x];
-             return list1</pre>
-Why is it hard to tell what this code is doing? Clearly there&nbsp;are no complex expressions. Spacing and indentation are reasonable.&nbsp;There are only three variables and two constants mentioned at all.&nbsp;There aren’t even any fancy classes or overloaded operators, just a&nbsp;list of lists (or so it seems).<br> The problem isn’t the simplicity of the code but the&nbsp;<em>implicity</em> of the code (to coin a phrase): the degree to&nbsp;which the context is not explicit in the code itself. The code&nbsp;requires me to answer questions such as:<br>
-<ol>
-<br>
-<li>
-What kinds of things are in <code>theList</code>?
-</li>
-<br>
-<li>
-What is the significance of the zeroeth subscript of an<br> item in <code>theList</code>?
-</li>
-<br>
-<li>
-What is the significance of the value <code>4</code>?
-</li>
-<br>
-<li>
-How would I use the list being returned?
-</li>
+             return list1</code></pre>
+<p>Why is it hard to tell what this code is doing? Clearly there are no complex expressions. Spacing and indentation are reasonable. There are only three variables and two constants mentioned at all. There aren’t even any fancy classes or overloaded operators, just a list of lists (or so it seems).<br>
+The problem isn’t the simplicity of the code but the <em>implicity</em> of the code (to coin a phrase): the degree to which the context is not explicit in the code itself. The code requires me to answer questions such as:</p>
+<ol type="1">
+<li><p>What kinds of things are in <code>theList</code>?</p></li>
+<li><p>What is the significance of the zeroeth subscript of an<br>
+item in <code>theList</code>?</p></li>
+<li><p>What is the significance of the value <code>4</code>?</p></li>
+<li><p>How would I use the list being returned?</p></li>
 </ol>
-This information is not present in the code sample, but it&nbsp;could have been. Say that we’re working in a mine sweeper game.&nbsp;We find that the board is a list of cells called&nbsp;<code>theList</code>. Let’s rename that to <code>theBoard</code>.<br> Each cell on the board is represented by a simple array. We&nbsp;further find that the zeroeth subscript is the location of a&nbsp;status value, and that a status value of 4 means ‘flagged’. Just<br>by giving these concepts names we can improve the code&nbsp;considerably:<br>
-<pre class="code">             flaggedCells = []
+<p>This information is not present in the code sample, but it could have been. Say that we’re working in a mine sweeper game. We find that the board is a list of cells called <code>theList</code>. Let’s rename that to <code>theBoard</code>.<br>
+Each cell on the board is represented by a simple array. We further find that the zeroeth subscript is the location of a status value, and that a status value of 4 means ‘flagged’. Just<br>
+by giving these concepts names we can improve the code considerably:</p>
+<pre class="text"><code>
+             flaggedCells = []
              for cell in theBoard:
                      if cell[STATUS_VALUE] == FLAGGED:
                              flaggedCells += [cell]
-             return flaggedCells</pre>
-Notice that the simplicity of the code is not changed. It&nbsp;still has exactly the same number of operators and constants, with&nbsp;exactly the same number of nesting levels.<br> We can go further and write a simple class for cells instead&nbsp;of using an array of ints. It can include an intention-revealing&nbsp;function (call it <code>isFlagged</code>) to hide the magic&nbsp;numbers. It results in a new version of the function:<br> <br>
-<pre class="code">             flaggedCells = []
+             return flaggedCells</code></pre>
+<p>Notice that the simplicity of the code is not changed. It still has exactly the same number of operators and constants, with exactly the same number of nesting levels.<br>
+We can go further and write a simple class for cells instead of using an array of ints. It can include an intention-revealing function (call it <code>isFlagged</code>) to hide the magic numbers. It results in a new version of the function:</p>
+<pre class="text"><code>
+             flaggedCells = []
              for cell in theBoard:
                      if cell.isFlagged():
                              flaggedCells += [cell]
-             return flaggedCells</pre>
-<pre class="code"></pre>
-The flagged cells line is weird. It works, but what it does is create an immediate array containing just the one cell, and then add that array to the existing flaggedCells array. That’s funky. Why not use the append method instead?<br>
-<pre class="code">             flaggedCells = []
+             return flaggedCells</code></pre>
+<p>The flagged cells line is weird. It works, but what it does is create an immediate array containing just the one cell, and then add that array to the existing flaggedCells array. That’s funky. Why not use the append method instead?</p>
+<pre class="text"><code>
+             flaggedCells = []
              for cell in theBoard:
                      if cell.isFlagged():
                              flaggedCells.append(cell)
-             return flaggedCells</pre>
-<pre class="code"></pre>
-That is much more obvious, I think. It’s a tiny change, but when we named the operation isFlagged(), the only uncomfortable bit is the way that we’re appending to the array. This is more straightforward, without changing much. It removes one temporary array, which is technically simpler.<br> <br> But now it’s rather obvious that Python provides a much more terse way to write the code, and in this case it comes out rather clear and readable — and it eliminates the append() call entirely:<br>
-<pre class="code">             return [ cell for cell in theBoard if cell.isFlagged() ]</pre>
-<pre class="code"></pre>
-Even with the function collapsed to a list comprehension, it’s not at all difficult to understand.<br>
-<div>
-<br>
-</div>
-<div>
-This is the power of naming. &nbsp;If it is this simple, and changes our code so much, what is a reasonable excuse for choosing poor names?&nbsp;
-</div>
-</div>
+             return flaggedCells</code></pre>
+<p>That is much more obvious, I think. It’s a tiny change, but when we named the operation isFlagged(), the only uncomfortable bit is the way that we’re appending to the array. This is more straightforward, without changing much. It removes one temporary array, which is technically simpler.</p>
+<p>But now it’s rather obvious that Python provides a much more terse way to write the code, and in this case it comes out rather clear and readable — and it eliminates the append() call entirely:</p>
+<pre class="text"><code>
+             return [ cell for cell in theBoard if cell.isFlagged() ]</code></pre>
+<p>Even with the function collapsed to a list comprehension, it’s not at all difficult to understand.</p>
+<p>This is the power of naming. If it is this simple, and changes our code so much, what is a reasonable excuse for choosing poor names?</p>
 
 
 

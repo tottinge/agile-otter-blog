@@ -158,63 +158,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Ideally, we would have excellent and obvious names for all variables, classes, packages, methods, etc. But it’s hard to be excellent all the time. People building the java libraries struggled with names, I can tell, and though I don’t always appreciate their choices I recognize that this is a multifaceted problem.<br> <br> Maybe a moment of agonizing over a bad name might help share a mental model, and some patterns or smells for naming methods.<br> <br> Let’s give it a shot.<br> <br>
-<h4 class="anchored">
-A Tiny Example
-</h4>
-Here is a tiny, dull, dumb snippet:<br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span style="font-size: x-small;">&nbsp;Date now = new Date();<br>&nbsp;DateFormat df = DateFormat.getDateInstance(LONG, Locale.FRENCH);<br>&nbsp;System.out.println(df.format(now));</span></span>
-</blockquote>
-<div>
-<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span style="font-size: x-small;"><br></span></span>
-</div>
-Java has a method called <i>getDateInstance()</i>.<br> <br> Does it return an instance of a date? No, it does not.<br> <br> If it lived in a package called <i>Date</i> then it would be a terribly wrong name, but it doesn’t live there.<br> <br> It returns an instance of a date formatter, whose class is called DateFormat.<br> <br> DateFormat doesn’t seem like such a good name, because it is an object with methods&nbsp;<i>format. </i>A <i>DateFormat </i>with a <i>format </i>method&nbsp;seems odd and redundant. Is it one, or does it make one, or what?But let’s not worry about that for a minute.<br> <br> It lives in <i>DateFormat</i>, so technically its name is <i>DateFormat.getDateInstance</i>. &nbsp;That’s better, but it’s possibly both misleading (not a date instance) and also redundant (‘<i>Date</i>’ appearing both in package and method name). &nbsp;Would <i>DateFormat.getInstance()</i> be a better name?<br> <br> Well, that depends on how you import it. If you import <i>DateFormat</i>, then <i>DateFormat.getInstance()</i> seems harmless enough, but you might import <i>DateFormat.getInstance()</i> and then the use of the method appears without needed context:<br> <br> &nbsp; &nbsp; &nbsp;<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"> <span style="font-size: x-small;">Console.out.println(getInstance(LONG, Locale.US).format(now));</span>&nbsp;</span><br> <br> Instance of a <i>LONG</i>? Instance of an <i>US</i>? Should the name be <i>getInstanceOfClassDateFormat</i>? Ew. <i>GetInstanceOfFormatter</i>?<br> <br> Well, the call to <i>format</i> seems to help give context so we know more about it, and we can hover over the <i>getInstance()</i> call in an IDE to help us see where it comes from. It is harmless and survivable.<br> <br> But it doesn’t seem excellent.<br> <br>
-<h4 class="anchored">
-Identifying a Noise Word
-</h4>
-<br> Trying to finesse or expand the word <i>Instance</i> is not productive here.<br> <br> The problem with <i>Instance</i> is that it is a noise word. &nbsp;It is like Data, Manager, Information, and so many other space-consuming bits of non-meaning we often assign to variables and classes.<br> <br> So maybe the question that helps with naming is to ask again why this function exists.<br> <br> It seems to me that it exists to provide the date formatter that the user requested from among the many date formats that may exist in different locales. <br> <br> That suggests that the name should probably be something like getLocaleSpecificDateFormatter, but that’s a real handful to type and most of the interesting words are near the end. Eww.<br> <br> Perhaps<i> getLocaleFormatter()</i> is sufficient, since it’s in the DateFormat package to begin with.<br> <br> I prefer that, but I’m not crazy about it. I don’t even like starting with ‘get’, which leads me to …<br> <br>
-<h4 class="anchored">
-Working with the Audience
-</h4>
-<br> I don’t care for the getter/setter standard in Java. I would prefer to see something like&nbsp;<i>DateFormat.<b>for</b>(LONG, Locale.FRENCH)</i>. &nbsp;However, I have to balance that preference with the idioms and habits of the Java community.<br> <br> A programmer working in an IDE will type the word <i>get</i>, and then ask the IDE for completion. That’s a powerfully useful habit in Java IDEs, and it behooves us to comply. &nbsp;Therefore ‘get’ is mandatory.<br> <br> Now the next-most important thing is the word following get, because the programmer needs to quickly select the method they want from the completion list. <br> <br> The next important word seems to be Locale. Let’s make that word #2.<br> <br> Now we see<i> DateFormat.getLocale </i>– and that’s still misleading. We don’t really want a locale object/package/class here, but rather an object that will format a date for us. Drats.<br> <br> Do we drop “Locale” from the name elaborate further?<br> <br> It seems that Locale is important, so we don’t want to move it later in the name or drop it entirely, so we’ll elaborate a little further to see where it takes us.<br> <br> So if we’re not getting a locale, but a formatter, let’s append the word <i>formatter</i>.<br> <br> We suck up the redundancy issue. <i>DateFormat.getLocaleFormatter() </i>seems like the best we can do without agonizing over this for weeks.<br> <br> Looking at the example of usage (in a test, of course) I see something like this:<br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace; font-size: x-small;">DateFormatter df = getLocaleFormatter(LONG, Locale.FRENCH);<br>String formattedDate = df.format(now);</span>
-</blockquote>
-This seems to reveal intent so much better than <i>getInstance()</i>.<br> <br> Of course, the java libraries are in wide use and people have already formed habits and programs that would break if we renamed the library method now. So, we don’t do anything about it, and go back to calling getInstance() while gritting our teeth.<br> <br> Oh, look. The variable df has a horribly bad name. I bet I could fix that…<br> <br> <br>
-<h4 class="anchored">
-What do we learn from this exercise?
-</h4>
-<br> In this (perhaps silly) example, we examined a name that we cannot change, but along the way &nbsp;you and I have examined:<br> <br>
+<p>Ideally, we would have excellent and obvious names for all variables, classes, packages, methods, etc. But it’s hard to be excellent all the time. People building the java libraries struggled with names, I can tell, and though I don’t always appreciate their choices I recognize that this is a multifaceted problem.</p>
+<p>Maybe a moment of agonizing over a bad name might help share a mental model, and some patterns or smells for naming methods.</p>
+<p>Let’s give it a shot.</p>
+<section id="a-tiny-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-tiny-example">A Tiny Example</h2>
+<p>Here is a tiny, dull, dumb snippet:</p>
+<pre class="text"><code> Date now = new Date();
+ DateFormat df = DateFormat.getDateInstance(LONG, Locale.FRENCH);
+ System.out.println(df.format(now));</code></pre>
+<p>Java has a method called <em>getDateInstance()</em>.</p>
+<p>Does it return an instance of a date? No, it does not.</p>
+<p>If it lived in a package called <em>Date</em> then it would be a terribly wrong name, but it doesn’t live there.</p>
+<p>It returns an instance of a date formatter, whose class is called DateFormat.</p>
+<p>DateFormat doesn’t seem like such a good name, because it is an object with methods <em>format.</em> A <em>DateFormat</em> with a <em>format</em> method seems odd and redundant. Is it one, or does it make one, or what?But let’s not worry about that for a minute.</p>
+<p>It lives in <em>DateFormat</em>, so technically its name is <em>DateFormat.getDateInstance</em>. That’s better, but it’s possibly both misleading (not a date instance) and also redundant (‘<em>Date</em>’ appearing both in package and method name). Would <em>DateFormat.getInstance()</em> be a better name?</p>
+<p>Well, that depends on how you import it. If you import <em>DateFormat</em>, then <em>DateFormat.getInstance()</em> seems harmless enough, but you might import <em>DateFormat.getInstance()</em> and then the use of the method appears without needed context:</p>
+<p><code>Console.out.println(getInstance(LONG, Locale.US).format(now));</code></p>
+<p>Instance of a <em>LONG</em>? Instance of an <em>US</em>? Should the name be <em>getInstanceOfClassDateFormat</em>? Ew. <em>GetInstanceOfFormatter</em>?</p>
+<p>Well, the call to <em>format</em> seems to help give context so we know more about it, and we can hover over the <em>getInstance()</em> call in an IDE to help us see where it comes from. It is harmless and survivable.</p>
+<p>But it doesn’t seem excellent.</p>
+</section>
+<section id="identifying-a-noise-word" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-a-noise-word">Identifying a Noise Word</h2>
+<p>Trying to finesse or expand the word <em>Instance</em> is not productive here.</p>
+<p>The problem with <em>Instance</em> is that it is a noise word. It is like Data, Manager, Information, and so many other space-consuming bits of non-meaning we often assign to variables and classes.</p>
+<p>So maybe the question that helps with naming is to ask again why this function exists.</p>
+<p>It seems to me that it exists to provide the date formatter that the user requested from among the many date formats that may exist in different locales.</p>
+<p>That suggests that the name should probably be something like getLocaleSpecificDateFormatter, but that’s a real handful to type and most of the interesting words are near the end. Eww.</p>
+<p>Perhaps <em>getLocaleFormatter()</em> is sufficient, since it’s in the DateFormat package to begin with.</p>
+<p>I prefer that, but I’m not crazy about it. I don’t even like starting with ‘get’, which leads me to …</p>
+</section>
+<section id="working-with-the-audience" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-the-audience">Working with the Audience</h2>
+<p>I don’t care for the getter/setter standard in Java. I would prefer to see something like <em>DateFormat.<strong>for</strong>(LONG, Locale.FRENCH)</em>. However, I have to balance that preference with the idioms and habits of the Java community.</p>
+<p>A programmer working in an IDE will type the word <em>get</em>, and then ask the IDE for completion. That’s a powerfully useful habit in Java IDEs, and it behooves us to comply. Therefore ‘get’ is mandatory.</p>
+<p>Now the next-most important thing is the word following get, because the programmer needs to quickly select the method they want from the completion list.</p>
+<p>The next important word seems to be Locale. Let’s make that word #2.</p>
+<p>Now we see <em>DateFormat.getLocale</em> – and that’s still misleading. We don’t really want a locale object/package/class here, but rather an object that will format a date for us. Drats.</p>
+<p>Do we drop “Locale” from the name elaborate further?</p>
+<p>It seems that Locale is important, so we don’t want to move it later in the name or drop it entirely, so we’ll elaborate a little further to see where it takes us.</p>
+<p>So if we’re not getting a locale, but a formatter, let’s append the word <em>formatter</em>.</p>
+<p>We suck up the redundancy issue. <em>DateFormat.getLocaleFormatter()</em> seems like the best we can do without agonizing over this for weeks.</p>
+<p>Looking at the example of usage (in a test, of course) I see something like this:</p>
+<pre class="text"><code>DateFormatter df = getLocaleFormatter(LONG, Locale.FRENCH);
+String formattedDate = df.format(now);</code></pre>
+<p>This seems to reveal intent so much better than <em>getInstance()</em>.</p>
+<p>Of course, the java libraries are in wide use and people have already formed habits and programs that would break if we renamed the library method now. So, we don’t do anything about it, and go back to calling getInstance() while gritting our teeth.</p>
+<p>Oh, look. The variable df has a horribly bad name. I bet I could fix that…</p>
+</section>
+<section id="what-do-we-learn-from-this-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-we-learn-from-this-exercise">What do we learn from this exercise?</h2>
+<p>In this (perhaps silly) example, we examined a name that we cannot change, but along the way you and I have examined:</p>
 <ul>
-<li>
-the direct honesty of a name (and found it wanting)
-</li>
-<li>
-the context of the name (the package and usage)
-</li>
-<li>
-the existence of noise words in the name
-</li>
-<li>
-the way in which other programmers use names
-</li>
-<li>
-the idioms of the programming language
-</li>
-<li>
-using a compound name to progressively reveal the intent of the method
-</li>
-<li>
-the difficulty of changing APIs whose users are unknown to us
-</li>
-<li>
-the fact that naming is an ongoing battle (see remark about&nbsp;<i>df, </i>above)
-</li>
+<li>the direct honesty of a name (and found it wanting)</li>
+<li>the context of the name (the package and usage)</li>
+<li>the existence of noise words in the name</li>
+<li>the way in which other programmers use names</li>
+<li>the idioms of the programming language</li>
+<li>using a compound name to progressively reveal the intent of the method</li>
+<li>the difficulty of changing APIs whose users are unknown to us</li>
+<li>the fact that naming is an ongoing battle (see remark about <em>df,</em> above)</li>
 </ul>
-<p><br> I welcome your comments and criticisms.<br> <br></p>
+<p>I welcome your comments and criticisms.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

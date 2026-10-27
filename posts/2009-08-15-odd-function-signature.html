@@ -158,9 +158,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Today I found code that looked like this:<br><br>
-<pre><br>    public IList SetSomeAttribute();<br></pre>
-<p><br><br>Notice anything funny? A setter method that takes no parameters, so there’s nothing to set, and returns a list of some sort. Hmmm… Did the author mean “GetSomeAttribute” instead?<br><br>It turns out that the code cleared an instance array, then rebuilt it from data present in an indirectly-held instance of another class, and finally returned the newly reconstructed list.<br><br>So, it seems that the method was caching some other class’ data, and returning the local version. One could wonder whether that makes any sense or not, but first one has to grapple with the bizarre method interface.<br><br>We only had a little time. We fixed the query/command separation right away and renamed the method, but I think there’s likely something wasteful and wrong going on in there. Maybe Monday we can sort it out.</p>
+<p>Today I found code that looked like this:</p>
+<pre class="text"><code>
+    public IList SetSomeAttribute();</code></pre>
+<p>Notice anything funny? A setter method that takes no parameters, so there’s nothing to set, and returns a list of some sort. Hmmm… Did the author mean “GetSomeAttribute” instead?</p>
+<p>It turns out that the code cleared an instance array, then rebuilt it from data present in an indirectly-held instance of another class, and finally returned the newly reconstructed list.</p>
+<p>So, it seems that the method was caching some other class’ data, and returning the local version. One could wonder whether that makes any sense or not, but first one has to grapple with the bizarre method interface.</p>
+<p>We only had a little time. We fixed the query/command separation right away and renamed the method, but I think there’s likely something wasteful and wrong going on in there. Maybe Monday we can sort it out.</p>
 
 
 

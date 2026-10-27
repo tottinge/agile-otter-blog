@@ -158,228 +158,71 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-You’re working with some Python code, and would like to write a test, but…<br><br>“I can’t test that - it uses STDOUT!”<br><br>Okay, well, that’s really not such a big problem to handle. The solutions to this problem are actually simple enough that you can apply them to many other situations that might otherwise encourage you to skip tests <i>just this one time (again).</i>
-</p>
-<p>
-In our modern age, we have the advantage of ubiquitous LLMs in browsers, IDEs, and CLIs. We shouldn’t be stuck on common problems anymore, nor must we remain unaware of features in our test libraries.
-</p>
-<p>
-<br class="Apple-interchange-newline">Rather than look at print statements as a brick wall, you can get started writing useful tests right away.
-</p>
-<p>
-So, let’s talk about a few options:
-</p>
-<h3 style="text-align: left;" class="anchored">
-Pytest “capsys” fixture.
-</h3>
-<div>
-This is pretty trivial. You import and mention ‘capsys’ in your code, and you have access to the content printed to stdout and stderror.&nbsp; These are what we would call “listener fakes” - they listen to, and remember, what information was passed to them.
-</div>
-<div>
-<br>
-</div>
-<div>
-It’s just that easy.<br><br>
-<div>
-<span style="font-family: courier;">def test_print(capsys):</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; print(“hello”)</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; captured = capsys.readouterr()</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; assert captured.out == “hello”</span>
-</div>
-</div>
-<div>
-<br>
-</div>
-<div>
-This is very easy and is especially useful when you’re facing a tough function that already existed before you came along.<i>&nbsp;</i>
-</div>
-<h3 style="text-align: left;" class="anchored">
-UnitTest “patch”
-</h3>
-<div>
-If you like unittest (which i do), you can get the same kind of functionality&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-<div>
-<span style="font-family: courier;">from unittest.mock import patch</span>
-</div>
-<div>
-<span style="font-family: courier;">import unittest</span>
-</div>
-<div>
-<span style="font-family: courier;"><br></span>
-</div>
-<div>
-<span style="font-family: courier;">class TestPrintMock(unittest.TestCase):</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; <span class="citation" data-cites="patch">@patch</span>(“builtins.print”)</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; def test_print_called(self, mock_print):</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; &nbsp; &nbsp; print(“hello”)</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; &nbsp; &nbsp; mock_print.assert_called_with(“hello”)</span>
-</div>
-</div>
-<div>
-<br>
-</div>
-<div>
-This is yet another listening fake. Just like the pytest fixture, it temporarily patches the print statement, though you may have to be a bit more careful – you will need to patch the “builtins.print” in the system under test, not in the test file. Just the same, it works nicely enough.
-</div>
-<div>
-<br>
-</div>
-<h3 style="text-align: left;" class="anchored">
-Contextlib.redirect_stdout
-</h3>
-<div>
-Yet another listening fake is the redirect, though you have to pass it a StringIO object. That may actually be more convenient than the listening mock shown above. It resembles the capsys option more.
-</div>
-<div>
-<br>
-</div>
-<div>
-<div>
+<p>You’re working with some Python code, and would like to write a test, but…</p>
+<p>“I can’t test that - it uses STDOUT!”</p>
+<p>Okay, well, that’s really not such a big problem to handle. The solutions to this problem are actually simple enough that you can apply them to many other situations that might otherwise encourage you to skip tests <em>just this one time (again).</em></p>
+<p>In our modern age, we have the advantage of ubiquitous LLMs in browsers, IDEs, and CLIs. We shouldn’t be stuck on common problems anymore, nor must we remain unaware of features in our test libraries.</p>
+<p>Rather than look at print statements as a brick wall, you can get started writing useful tests right away.</p>
+<p>So, let’s talk about a few options:</p>
+<section id="pytest-capsys-fixture." class="level2">
+<h2 class="anchored" data-anchor-id="pytest-capsys-fixture.">Pytest “capsys” fixture.</h2>
+<p>This is pretty trivial. You import and mention ‘capsys’ in your code, and you have access to the content printed to stdout and stderror. These are what we would call “listener fakes” - they listen to, and remember, what information was passed to them.</p>
+<p>It’s just that easy.</p>
+<pre class="text"><code>def test_print(capsys):
+    print("hello")
+    captured = capsys.readouterr()
+    assert captured.out == "hello\n"</code></pre>
+<p>This is very easy and is especially useful when you’re facing a tough function that already existed before you came along.</p>
+</section>
+<section id="unittest-patch" class="level2">
+<h2 class="anchored" data-anchor-id="unittest-patch">UnitTest “patch”</h2>
+<p>If you like unittest (which i do), you can get the same kind of functionality</p>
+<pre class="text"><code>from unittest.mock import patch
 import unittest
-</div>
-<div>
-import io
-</div>
-<div>
-from contextlib import redirect_stdout, redirect_stderr
-</div>
-<div>
-<br>
-</div>
-<div>
-<span style="font-family: courier;">class TestOutput(unittest.TestCase):</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; def test_print_output(self):</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; &nbsp; &nbsp; f = io.StringIO()</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; &nbsp; &nbsp; with redirect_stdout(f):</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; print(“hello”)</span>
-</div>
-<div>
-<span style="font-family: courier;">&nbsp; &nbsp; &nbsp; &nbsp; self.assertEqual(f.getvalue(), “hello”)</span>
-</div>
-</div>
-<div>
-<br>
-</div>
-<h3 style="text-align: left;" class="anchored">
-Change the Function Signature
-</h3>
-<div>
-One may add a file stream to the signature of a method and have it print to the stream rather than directly to standard out.
-</div>
-<div>
-<br>
-</div>
-<div>
-The parameter can default to stdout.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-This is a preferred and more hexagonally correct approach.&nbsp;&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Then the tests can create a StringIO object and pass it as the stream to write. The method does its normal thing (unaware that the standard output has been replaced), and you have an easy way to check the output of the function.
-</div>
-<div>
-<br>
-</div>
-<div>
-I list this last because people faced with a function that doesn’t have tests are often squeamish about changing the function before it has tests. A bit of caution will not draw any chastisement from me.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<h3 style="text-align: left;" class="anchored">
-And more…
-</h3>
-<div>
-You can imagine that there are other ways, and you could build your own, but these are already built in to the wonderful world of Python, so they are low-hanging fruit.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-If you can provide me with a few more of your favourite tricks, I may include them here.
-</div>
-<div>
-<br>
-</div>
-<h3 style="text-align: left;" class="anchored">
-Beware Overspecification
-</h3>
-<div>
-When it comes to text capture and assertions, one can certainly get caught up in overspecification. You may initially want to write your assertions against the entire text printed by a function, but this is unwise.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-If your test will fail because of a difference in spacing, tabs, or capitalization, then you may have a fragile test on your hands. Likewise, if adding a date or or other informational prefix to the message will cause your test to fail.
-</div>
-<div>
-<br>
-</div>
-<div>
-The tricky bit is to write an assertion that is accurate to prove that the scenario provided by your test is properly evidenced, but without overspecifying the results.
-</div>
-<div>
-<br>
-</div>
-<div>
-Nobody loves a fragile test.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-I have written tests that trim, lowercase, and split the text output. I’ve used word ordering and regexes to match within strings. I’ve tried a lot of things that worked. I’ve not managed yet to come up with a good test assertion that reads “the message intends to inform us that ‘bluetick.md’ is unreadable” – which is okay. That is the kind of test that might better be written using exceptions rather than text.
-</div>
-<div>
-<br>
-</div>
-<div>
-<br>
-</div>
-<div>
-<br>
-</div>
-<div>
-<br>
-</div>
+
+class TestPrintMock(unittest.TestCase):
+    @patch("builtins.print")
+    def test_print_called(self, mock_print):
+        print("hello")
+        mock_print.assert_called_with("hello")</code></pre>
+<p>This is yet another listening fake. Just like the pytest fixture, it temporarily patches the print statement, though you may have to be a bit more careful – you will need to patch the “builtins.print” in the system under test, not in the test file. Just the same, it works nicely enough.</p>
+</section>
+<section id="contextlib.redirect_stdout" class="level2">
+<h2 class="anchored" data-anchor-id="contextlib.redirect_stdout">Contextlib.redirect_stdout</h2>
+<p>Yet another listening fake is the redirect, though you have to pass it a StringIO object. That may actually be more convenient than the listening mock shown above. It resembles the capsys option more.</p>
+<p>import unittest</p>
+<p>import io</p>
+<p>from contextlib import redirect_stdout, redirect_stderr</p>
+<pre class="text"><code>class TestOutput(unittest.TestCase):
+    def test_print_output(self):
+        f = io.StringIO()
+        with redirect_stdout(f):
+            print("hello")
+        self.assertEqual(f.getvalue(), "hello\n")</code></pre>
+</section>
+<section id="change-the-function-signature" class="level2">
+<h2 class="anchored" data-anchor-id="change-the-function-signature">Change the Function Signature</h2>
+<p>One may add a file stream to the signature of a method and have it print to the stream rather than directly to standard out.</p>
+<p>The parameter can default to stdout.</p>
+<p>This is a preferred and more hexagonally correct approach.</p>
+<p>Then the tests can create a StringIO object and pass it as the stream to write. The method does its normal thing (unaware that the standard output has been replaced), and you have an easy way to check the output of the function.</p>
+<p>I list this last because people faced with a function that doesn’t have tests are often squeamish about changing the function before it has tests. A bit of caution will not draw any chastisement from me.</p>
+</section>
+<section id="and-more" class="level2">
+<h2 class="anchored" data-anchor-id="and-more">And more…</h2>
+<p>You can imagine that there are other ways, and you could build your own, but these are already built in to the wonderful world of Python, so they are low-hanging fruit.</p>
+<p>If you can provide me with a few more of your favourite tricks, I may include them here.</p>
+</section>
+<section id="beware-overspecification" class="level2">
+<h2 class="anchored" data-anchor-id="beware-overspecification">Beware Overspecification</h2>
+<p>When it comes to text capture and assertions, one can certainly get caught up in overspecification. You may initially want to write your assertions against the entire text printed by a function, but this is unwise.</p>
+<p>If your test will fail because of a difference in spacing, tabs, or capitalization, then you may have a fragile test on your hands. Likewise, if adding a date or or other informational prefix to the message will cause your test to fail.</p>
+<p>The tricky bit is to write an assertion that is accurate to prove that the scenario provided by your test is properly evidenced, but without overspecifying the results.</p>
+<p>Nobody loves a fragile test.</p>
+<p>I have written tests that trim, lowercase, and split the text output. I’ve used word ordering and regexes to match within strings. I’ve tried a lot of things that worked. I’ve not managed yet to come up with a good test assertion that reads “the message intends to inform us that ‘bluetick.md’ is unreadable” – which is okay. That is the kind of test that might better be written using exceptions rather than text.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

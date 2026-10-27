@@ -158,144 +158,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Quite some years ago, Brett Schuchert and I invented the acronym FIRST for <a href="https://www.youtube.com/watch?v=H3LOyuqhaJA">micro-tests</a>, though we called them “unit tests” (as was common at the time). This was later included in <a href="https://www.pragprog.com/titles/olag/agile-in-a-flash/">Agile In A Flash</a> and was also published in a Pragmatic Programmers’ <a href="https://medium.com/pragmatic-programmers/unit-tests-are-first-fast-isolated-repeatable-self-verifying-and-timely-a83e8070698e">article.</a><br>
-<div>
-<br>
-</div>
-<div>
-It’s grown a following and has been widely repeated. At this point, the idea just exists in the aether, and authorship isn’t often considered or cited. I suppose it has become “common knowledge” at least in some circles. It’s usually not even given a citation, so I guess it’s become a thing in its own right.
-</div>
-<div>
-<br>I’m still proud of Brett’s work and my small contribution to it. I’m glad it has taken on a life of its own, but I’m aware of when it’s poorly described or when it’s corrupted and am offended when people present it as their own unique work (or take praise for it, knowing that it is not original). <br><br>I get it, though. I’m sure there are many people whose work I didn’t know how to credit, and whose work I may have likewise twisted to my own ends or interpreted in my own context whether I realized it or not.&nbsp;<br><br>
-</div>
-<div>
-The acronym is pretty simple
-</div>
-<div>
-<br>
-<ul style="text-align: left;">
-<li>
-FAST - you can run all your microtests so quickly that you never have to decide to run them later or now.
-</li>
-<li>
-Isolated - tests don’t rely upon either other in any way, including indirectly. Each test isolates one failure mode only.&nbsp;<br>
-</li>
-<li>
-Repeatable - The test always gets the same result. This is largely a matter of good test setup and cleanup, but also the consideration of things like time of day, network status, database, global space, configuration, etc never being changed.&nbsp;<br>
-</li>
-<li>
-Self-validating - a test is pass/fail. You never have to examine the input, output, or system state to determine if a test has passed. It is either green (passed), red (failed), or else the test did not run to completion (error), and it states the fact very clearly.
-</li>
-<li>
-Timely - microtests are not to be written in batches, either before or after coding. They are written with the code, preferably just before adding a line or just after finishing a tiny change to a function.
-</li>
+<p>Quite some years ago, Brett Schuchert and I invented the acronym FIRST for <a href="https://www.youtube.com/watch?v=H3LOyuqhaJA">micro-tests</a>, though we called them “unit tests” (as was common at the time). This was later included in <a href="https://www.pragprog.com/titles/olag/agile-in-a-flash/">Agile In A Flash</a> and was also published in a Pragmatic Programmers’ <a href="https://medium.com/pragmatic-programmers/unit-tests-are-first-fast-isolated-repeatable-self-verifying-and-timely-a83e8070698e">article.</a></p>
+<p>It’s grown a following and has been widely repeated. At this point, the idea just exists in the aether, and authorship isn’t often considered or cited. I suppose it has become “common knowledge” at least in some circles. It’s usually not even given a citation, so I guess it’s become a thing in its own right.</p>
+<p>I’m still proud of Brett’s work and my small contribution to it. I’m glad it has taken on a life of its own, but I’m aware of when it’s poorly described or when it’s corrupted and am offended when people present it as their own unique work (or take praise for it, knowing that it is not original).</p>
+<p>I get it, though. I’m sure there are many people whose work I didn’t know how to credit, and whose work I may have likewise twisted to my own ends or interpreted in my own context whether I realized it or not.</p>
+<p>The acronym is pretty simple</p>
+<ul>
+<li>FAST - you can run all your microtests so quickly that you never have to decide to run them later or now.</li>
+<li>Isolated - tests don’t rely upon either other in any way, including indirectly. Each test isolates one failure mode only.</li>
+<li>Repeatable - The test always gets the same result. This is largely a matter of good test setup and cleanup, but also the consideration of things like time of day, network status, database, global space, configuration, etc never being changed.</li>
+<li>Self-validating - a test is pass/fail. You never have to examine the input, output, or system state to determine if a test has passed. It is either green (passed), red (failed), or else the test did not run to completion (error), and it states the fact very clearly.</li>
+<li>Timely - microtests are not to be written in batches, either before or after coding. They are written with the code, preferably just before adding a line or just after finishing a tiny change to a function.</li>
 </ul>
-<div>
-Some people change the T to <i>Thorough</i> because they don’t want to encourage TDD.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-I think this is a mistake. It’s not “just as good” to have high coverage from a batch of tests written after the code is finished. It’s not even nearly as good.
-</div>
-<div>
-<br>
-</div>
-<div>
-Done correctly, the tests inform and guide the code.&nbsp;<br><br>
-</div>
-<div>
-<ul style="text-align: left;">
-<li>
-They help us to consider our code <i>first</i> from the point of view of a user of the code, which results in more sensible and cohesive APIs.&nbsp;
-</li>
-<li>
-The tests make acceptance criteria a primary concern. If we don’t know what result we are expecting, we can’t write the test for it.
-</li>
-<li>
-They make testability a primary concern: we can’t write a test if we can’t call the method or can’t observe the result of making the method call. There is no “untestable code” if the tests come first.<br>
-</li>
-<li>
-As we realize we have corner cases, we add more tests, so that it’s clear when we have covered the corner cases in the production code.
-</li>
-<li>
-Because tests are written first, they are a kind of standalone documentation - you read the tests to understand the code. When tests are written after the code, they tend to take the structure and algorithms of the written code for granted: you must read the code to understand the test.
-</li>
-<li>
-Whatever code passes the tests, that code is sufficient. The tests help us recognize a complete state.
-</li>
-<li>
-Since the invariants for the production code are tested automatically, we can refactor the code to a different shape and design with the confidence of knowing that all of the tests still pass so we haven’t violated any of our design invariants.
-</li>
-<li>
-Each time our tests pass (run <i>green</i>) we are invited to reexamine the production code and the tests for readability and maintainability. This allows us to practice code craft continuously.
-</li>
-<li>
-Because our intentions for the code are captured in the tests, we have externalized our intentions. We can be interrupted and quickly regain our context in the application - something that can’t happen if we’re in the middle of transcribing a large plan from our heads into the codebase.
-</li>
+<p>Some people change the T to <em>Thorough</em> because they don’t want to encourage TDD.</p>
+<p>I think this is a mistake. It’s not “just as good” to have high coverage from a batch of tests written after the code is finished. It’s not even nearly as good.</p>
+<p>Done correctly, the tests inform and guide the code.</p>
+<ul>
+<li>They help us to consider our code <em>first</em> from the point of view of a user of the code, which results in more sensible and cohesive APIs.</li>
+<li>The tests make acceptance criteria a primary concern. If we don’t know what result we are expecting, we can’t write the test for it.</li>
+<li>They make testability a primary concern: we can’t write a test if we can’t call the method or can’t observe the result of making the method call. There is no “untestable code” if the tests come first.</li>
+<li>As we realize we have corner cases, we add more tests, so that it’s clear when we have covered the corner cases in the production code.</li>
+<li>Because tests are written first, they are a kind of standalone documentation - you read the tests to understand the code. When tests are written after the code, they tend to take the structure and algorithms of the written code for granted: you must read the code to understand the test.</li>
+<li>Whatever code passes the tests, that code is sufficient. The tests help us recognize a complete state.</li>
+<li>Since the invariants for the production code are tested automatically, we can refactor the code to a different shape and design with the confidence of knowing that all of the tests still pass so we haven’t violated any of our design invariants.</li>
+<li>Each time our tests pass (run <em>green</em>) we are invited to reexamine the production code and the tests for readability and maintainability. This allows us to practice code craft continuously.</li>
+<li>Because our intentions for the code are captured in the tests, we have externalized our intentions. We can be interrupted and quickly regain our context in the application - something that can’t happen if we’re in the middle of transcribing a large plan from our heads into the codebase.</li>
 </ul>
-</div>
-<div>
-<br>
-</div>
-<div>
-Done post-facto, the tests have no way to influence the organization and expression of code in any meaningful way. Writing tests after the code in order to increase coverage becomes drudgery.
-</div>
-<div>
-<br>
-</div>
-Where to find it.
-</div>
-<div>
-<ul style="text-align: left;">
-<li>
-Our old&nbsp;<a href="http://agileinaflash.blogspot.com/2009/02/first.html">AgileInAFlash article</a>
-</li>
-<li>
-The expanded <a href="https://medium.com/pragmatic-programmers/unit-tests-are-first-fast-isolated-repeatable-self-verifying-and-timely-a83e8070698e">Pragmatic Programmers’ article</a>.
-</li>
-<li>
-<a href="https://howtodoinjava.com/best-practices/first-principles-for-good-tests">How To Do In Java</a> (no credit given)
-</li>
-<li>
-<a href="https://dzone.com/articles/writing-your-first-unit-tests">Java DZone</a>&nbsp;(Credits Clean Code)&nbsp;
-</li>
-<li>
-<a href="https://www.appsdeveloperblog.com/the-first-principle-in-unit-testing/">Apps Developer</a> (modified T, no credit)
-</li>
-<li>
-<a href="https://hackernoon.com/test-f-i-r-s-t-65e42f3adc17">HackerNoon</a> (at least linked to our article):&nbsp;&nbsp;
-</li>
-<li>
-<a href="https://stackoverflow.com/questions/18024785/tdd-first-principle">Stackoverflow</a> discussion&nbsp;
-</li>
-<li>
-<a href=" https://luminousmen.com/post/ode-to-unit-tests">ODE to testing</a>: Credit is given!&nbsp;
-</li>
-<li>
-<a href="https://openclassrooms.com/en/courses/5661466-use-testing-in-java-to-achieve-quality-applications/6290871-apply-principles-for-writing-good-tests">Open Classrooms</a>&nbsp;has a pretty good interpretation.
-</li>
-<li>
-<a href="https://medium.com/dev-genius/first-principles-of-unit-testing-5b6c452ccb7d">This one</a> references an article that we wrote that used to be on Pragmatic Programmers. https://thoughtbot.com/blog/back-to-basics-writing-unit-tests-first&nbsp;
-</li>
-<li>
-“<a href=" https://codebork.com/testing/2020/04/26/complete-guide-testing-your-software-part-1.html">Complete guide</a>”&nbsp; No mention of authorship. :disappointed:<br>
-</li>
-<li>
-<a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices#characteristics-of-a-good-unit-test" target="_blank">Microsoft quoting us</a> accurately but without attribution.
-</li>
+<p>Done post-facto, the tests have no way to influence the organization and expression of code in any meaningful way. Writing tests after the code in order to increase coverage becomes drudgery.</p>
+<p>Where to find it.</p>
+<ul>
+<li>Our old <a href="http://agileinaflash.blogspot.com/2009/02/first.html">AgileInAFlash article</a></li>
+<li>The expanded <a href="https://medium.com/pragmatic-programmers/unit-tests-are-first-fast-isolated-repeatable-self-verifying-and-timely-a83e8070698e">Pragmatic Programmers’ article</a>.</li>
+<li><a href="https://howtodoinjava.com/best-practices/first-principles-for-good-tests">How To Do In Java</a> (no credit given)</li>
+<li><a href="https://dzone.com/articles/writing-your-first-unit-tests">Java DZone</a> (Credits Clean Code)</li>
+<li><a href="https://www.appsdeveloperblog.com/the-first-principle-in-unit-testing/">Apps Developer</a> (modified T, no credit)</li>
+<li><a href="https://hackernoon.com/test-f-i-r-s-t-65e42f3adc17">HackerNoon</a> (at least linked to our article):</li>
+<li><a href="https://stackoverflow.com/questions/18024785/tdd-first-principle">Stackoverflow</a> discussion</li>
+<li><a href=" https://luminousmen.com/post/ode-to-unit-tests">ODE to testing</a>: Credit is given!</li>
+<li><a href="https://openclassrooms.com/en/courses/5661466-use-testing-in-java-to-achieve-quality-applications/6290871-apply-principles-for-writing-good-tests">Open Classrooms</a> has a pretty good interpretation.</li>
+<li><a href="https://medium.com/dev-genius/first-principles-of-unit-testing-5b6c452ccb7d">This one</a> references an article that we wrote that used to be on Pragmatic Programmers. <a href="https://thoughtbot.com/blog/back-to-basics-writing-unit-tests-first" class="uri">https://thoughtbot.com/blog/back-to-basics-writing-unit-tests-first</a></li>
+<li>“<a href=" https://codebork.com/testing/2020/04/26/complete-guide-testing-your-software-part-1.html">Complete guide</a>” No mention of authorship. :disappointed:</li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices#characteristics-of-a-good-unit-test">Microsoft quoting us</a> accurately but without attribution.</li>
 </ul>
-<div>
-Any quick google search will turn out dozens of articles.&nbsp;
-</div>
-</div>
-<div>
-<br>
-</div>
-<div>
-<br>
-</div>
+<p>Any quick google search will turn out dozens of articles.</p>
 
 
 

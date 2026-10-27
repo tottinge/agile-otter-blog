@@ -152,65 +152,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-Recommended bash scripts for every project
-</p>
-<p>
-</p>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="https://blogger.googleusercontent.com/img/a/AVvXsEgkvQKy9gb8_HccNU6CEVvl0huCl1XyTwd841u6V0SfUraI5SvsT4CPyRwHkMS6wWG6yYJDrsUPMb_our96DUUm4bhGvRfXCDAVGuipGCmSWkwvBdcdYyYT4lsknmuJsy2D_BHQ-dvFSLO2vx6DHPsdAf4oT62OvQ088piRxFbOEJ-pjK89Nh2t5gEiyLg" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="112" data-original-width="252" height="142" src="https://blogger.googleusercontent.com/img/a/AVvXsEgkvQKy9gb8_HccNU6CEVvl0huCl1XyTwd841u6V0SfUraI5SvsT4CPyRwHkMS6wWG6yYJDrsUPMb_our96DUUm4bhGvRfXCDAVGuipGCmSWkwvBdcdYyYT4lsknmuJsy2D_BHQ-dvFSLO2vx6DHPsdAf4oT62OvQ088piRxFbOEJ-pjK89Nh2t5gEiyLg" width="320"></a>
-</div>
-<br><br>
-<p>
-</p>
-<p style="text-align: left;">
-</p>
-<ol style="text-align: left;">
-<li>
-<b>clean_start</b>&nbsp;ensures you are ready to start new work. It does:
-</li>
-<ol>
-<li>
-‘pull -r’ (which fails if you have uncommitted work)
-</li>
-<li>
-a refresh of the local environment
-</li>
-<li>
-&nbsp;‘git clean -i’ in case you have untracked files you’ve forgotten about
-</li>
-<li>
-a full test run.<br>
-</li>
+<p>Recommended bash scripts for every project</p>
+<p><a href="../assets/convenience-scripts-for-projectsw-1.png"><img src="../assets/convenience-scripts-for-projectsw-1.png" alt="" width="320" height="142"></a></p>
+<ol type="1">
+<li><p><strong>clean_start</strong> ensures you are ready to start new work. It does:</p>
+<ol type="1">
+<li>‘pull -r’ (which fails if you have uncommitted work)</li>
+<li>a refresh of the local environment</li>
+<li>‘git clean -i’ in case you have untracked files you’ve forgotten about</li>
+<li>a full test run.</li>
+</ol></li>
+<li><p><strong>onboard</strong> is the script to run if you are a brand-new developer and you need to set up your development environment. It will deal with setting up the environment (installing dependencies and any virtual environment) and runs the tests.</p></li>
+<li><p><strong>run</strong> runs the application itself.<br>
+I started adding run scripts when I started changing between ruby, python, java and other projects and got tired of having to remember which incantation started the servers. This is a shortcut.</p></li>
+<li><p><strong>run_tests</strong> will run all of the tests – every kind.</p></li>
+<li><p><strong>run_integration_tests</strong> will run only the integration tests (I don’t always separate these).</p></li>
 </ol>
-<li>
-<b>onboard</b> is the script to run if you are a brand-new developer and you need to set up your development environment. It will deal with setting up the environment (installing dependencies and any virtual environment) and runs the tests.
-</li>
-<li>
-<b>run</b> runs the application itself. <br>I started adding run scripts when I started changing between ruby, python, java and other projects and got tired of having to remember which incantation started the servers.&nbsp; This is a shortcut.
-</li>
-<li>
-<b>run_tests</b> will run all of the tests – every kind.
-</li>
-<li>
-<b>run_integration_tests</b> will run only the integration tests (I don’t always separate these).
-</li>
-</ol>
-I don’t use a script to run only the unit tests, because I have IDE configured to run every time I make a compilable change. In some languages, I have to wait until I save the file (pycharm does it better). Some js/ts test libraries will also run automatically on save. If you need one, write a ‘./unit_test’ script and be happy. Use it often.<br>
-<p>
-</p>
-<p style="text-align: left;">
-Another useful trick is to add a precommit hook so that you cannot commit locally unless all the tests are running successfully.
-</p>
-<p style="text-align: left;">
-It can be helpful to have an LLM/agent/AI write these scripts initially and keep them up to date. You can do just as good a job as they can, but it is a fairly simple task that most of them can handle well enough.
-</p>
-<p>
-<br>
-</p>
-<div>
-<br>
-</div>
+<p>I don’t use a script to run only the unit tests, because I have IDE configured to run every time I make a compilable change. In some languages, I have to wait until I save the file (pycharm does it better). Some js/ts test libraries will also run automatically on save. If you need one, write a ‘./unit_test’ script and be happy. Use it often.</p>
+<p>Another useful trick is to add a precommit hook so that you cannot commit locally unless all the tests are running successfully.</p>
+<p>It can be helpful to have an LLM/agent/AI write these scripts initially and keep them up to date. You can do just as good a job as they can, but it is a fairly simple task that most of them can handle well enough.</p>
 
 
 

@@ -158,44 +158,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Basically, a bug is a combination of a design flaw and a testing gap. <br> <br> When I say <b>design</b>, I mean “design-as-written”, not some keen plan that some keen mind build in some expensive drawing too. I mean the logic of the system. Built code can be said to have a design, in that it is intended to work in a particular way and has been adjusted to work in real circumstances. A non-coding architect’s idea for a system is not a design. It is merely a guess, or perhaps a dream.<br> <br> If code has a <b>perfect design</b> for a given set of tradeoffs, then it will work perfectly for that given set of tradeoffs. If it must run on windows and use sql server, then it will work as well as possible under those conditions. It may fail because of supporting systems, or because IE/ISS ate all the cpu and ram, or because it is interrupted, or starved out by virus checkers, etc. For where it lives, and what it does, it will work great… provided the code is written to use the design.<br> <br> Side note: I’m not saying that a design can be devised up front that will be perfect, or even that a design can be evolved to perfection (necessarily). I do not think that a perfect design is possible when working in a waterfall manner, and am firmly convinced that “perfect” is a concept that wiggles – it changes meaning as a system and its environment evolve. If there are ever moments of perfection in design, they are brought about through incremental change, and are eventually spoiled by changing requirements and systems. But bear with me, and assume that there are possible moments of perfection. <br> <br> Perfect test coverage would be an automated suite of tests that exercise and evaluate every possible behavior of a software system. That would be every logic branch of every component of the system under every set of circumstances. It doesn’t happen in practice, but that’s not because it’s impossible but because it is costly. <br> <br> If perfect test coverage and perfect design are not possible, it is mainly because we don’t know how to do them in a cost-effective manner. As a result, users are comfortable with a certain amount of slop provided it does not prevent them from getting work done and living meaningful lives. Some users are used to more slop than others, since some will reboot their machines a few times a day and others scream if they have to reboot once a year. Some will retry a task in several different ways, others will throw up their hands. Bugs are tolerated if their frequency and consequence are slight.<br> <br> So lets draw this an an extreme set of opposites, in a quadrant. &nbsp;Realize that most code is either mostly tested or mostly untested, and either good or not-so-good, but a discussion of extremes helps to clarfiy our thinking about software defects.<br> <br>
-<table align="center" frame="box" rules="all">
+<p>Basically, a bug is a combination of a design flaw and a testing gap.</p>
+<p>When I say <strong>design</strong>, I mean “design-as-written”, not some keen plan that some keen mind build in some expensive drawing tool. I mean the logic of the system. Built code can be said to have a design, in that it is intended to work in a particular way and has been adjusted to work in real circumstances. A non-coding architect’s idea for a system is not a design. It is merely a guess, or perhaps a dream.</p>
+<p>If code has a <strong>perfect design</strong> for a given set of tradeoffs, then it will work perfectly for that given set of tradeoffs. If it must run on windows and use sql server, then it will work as well as possible under those conditions. It may fail because of supporting systems, or because IE/ISS ate all the cpu and ram, or because it is interrupted, or starved out by virus checkers, etc. For where it lives, and what it does, it will work great… provided the code is written to use the design.</p>
+<p>Side note: I’m not saying that a design can be devised up front that will be perfect, or even that a design can be evolved to perfection (necessarily). I do not think that a perfect design is possible when working in a waterfall manner, and am firmly convinced that “perfect” is a concept that wiggles – it changes meaning as a system and its environment evolve. If there are ever moments of perfection in design, they are brought about through incremental change, and are eventually spoiled by changing requirements and systems. But bear with me, and assume that there are possible moments of perfection.</p>
+<p>Perfect test coverage would be an automated suite of tests that exercise and evaluate every possible behavior of a software system. That would be every logic branch of every component of the system under every set of circumstances. It doesn’t happen in practice, but that’s not because it’s impossible but because it is costly.</p>
+<p>If perfect test coverage and perfect design are not possible, it is mainly because we don’t know how to do them in a cost-effective manner. As a result, users are comfortable with a certain amount of slop provided it does not prevent them from getting work done and living meaningful lives. Some users are used to more slop than others, since some will reboot their machines a few times a day and others scream if they have to reboot once a year. Some will retry a task in several different ways, others will throw up their hands. Bugs are tolerated if their frequency and consequence are slight.</p>
+<p>So lets draw this an an extreme set of opposites, in a quadrant. Realize that most code is either mostly tested or mostly untested, and either good or not-so-good, but a discussion of extremes helps to clarfiy our thinking about software defects.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Tested</th>
+<th style="text-align: center;">NotTested</th>
+</tr>
+</thead>
 <tbody>
-<tr>
-<td>
-</td>
-<td>
-Tested
-</td>
-<td>
-NotTested
-</td>
+<tr class="odd">
+<td style="text-align: left;">Perfect</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
 </tr>
-<tr>
-<td>
-Perfect
-</td>
-<td align="center">
-1
-</td>
-<td align="center">
-2
-</td>
-</tr>
-<tr>
-<td>
-Imperfect
-</td>
-<td align="center">
-3
-</td>
-<td align="center">
-4
-</td>
+<tr class="even">
+<td style="text-align: left;">Imperfect</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
 </tr>
 </tbody>
 </table>
-<p><br> <br> Quadrant 1 (tested, perfect) code is as good as it gets. Q1 code is blameless. Though the system around it may misbehave and cause ill effects, Q1 code does the best possible job in its environment. All code wants to be Q1 code, and all users want to think they’re purchasing an all-Q1 system. All programmers would prefer to work in a Q1 system, because it is easier and more rewarding to do so. This is the holy grail, but is rare due to perfectly legitimate organizational priorities that prevent the creation of such perfect systems. Sometimes customers and markets don’t <em>really</em> want perfect systems, if it means not having some other feature that is attractive. Tradeoffs are made.<br> <br> In Quadrant 2 (untested, perfect code) there are no currently-known defects and the system seems to operate perfectly. This is a mysterious place to be, because defects can arise at any time since the software system and its business and technical environments will change over time. When defects appear in quadrant 2 they will be discovered in the wild, not in the lab. Q2 is comprised of code that is at risk. The best we can say of supposed Q2 code is that it has not yet proven to be Q4 code. <br> <br> Quadrant 3 is comprised of discovered defects. Some of these will be fixed before release, and those whose effect and frequency are slight may be deferred to future releases. Tests on known bugs-of-little-effect will tend to be ignored or disabled (effectively moving the defect to Q4) until the flaw becomes interesting enough to resolve.<br> <br> Quadrant 4 primarily is the result of irresponsible development or intentionally ignored known defects (see Q3). The design flaws are not well-understood or demonstrated in automated tests. Running code that is imperfect and untested is rather a crapshoot. Users are essentially alpha testers, and should not expect consistently good experiences. Trying to fix defects in Q4 code is a nightmare and fraught with disappointment. The best way to fix Q4 code is to move it first to Q3, then try to move it to Q1. The worst way to fix it is to try to push it up into Q2.<br> <br> Almost all software systems in existence have some Quadrant 4 code and some Quadrant 3 code. TDD systems are mostly Q1 and Q3, but legacy systems all have some Q4 code and might have some Q2 code (not that we could tell).<br> <br> Software that doesn’t work is in Q4. &nbsp;If you have hundreds of bug reports, then you have hundreds of lines of code in Q4, where it’s not very good code and you don’t have good testing. Your bugs tell you that your code base needs some unit testing goodness applied. &nbsp;If you simply fix the bugs without putting testing around the site of the defect, you are playing catch-and-release in Q4 and nothing is really going to get better for your product or your organization.<br> <br> The goal for software developers should be to move code from Q2 and Q4 through Q3 to Q1. I can see hardly any reason why developers in 2010 would even consider working in Q2/Q4, and I particularly cannot see why organizations would believe that group of people with mixed experience and skill sets would consistently perform in Q2.<br> <br> Q2 is essentially a myth. Your Q2 software is probably Q4 in reality. Maybe you should start investing in the move to Q3. &nbsp;Stop playing catch-and-release</p>
+<p>Quadrant 1 (tested, perfect) code is as good as it gets. Q1 code is blameless. Though the system around it may misbehave and cause ill effects, Q1 code does the best possible job in its environment. All code wants to be Q1 code, and all users want to think they’re purchasing an all-Q1 system. All programmers would prefer to work in a Q1 system, because it is easier and more rewarding to do so. This is the holy grail, but is rare due to perfectly legitimate organizational priorities that prevent the creation of such perfect systems. Sometimes customers and markets don’t *really* want perfect systems, if it means not having some other feature that is attractive. Tradeoffs are made.</p>
+<p>In Quadrant 2 (untested, perfect code) there are no currently-known defects and the system seems to operate perfectly. This is a mysterious place to be, because defects can arise at any time since the software system and its business and technical environments will change over time. When defects appear in quadrant 2 they will be discovered in the wild, not in the lab. Q2 is comprised of code that is at risk. The best we can say of supposed Q2 code is that it has not yet proven to be Q4 code.</p>
+<p>Quadrant 3 is comprised of discovered defects. Some of these will be fixed before release, and those whose effect and frequency are slight may be deferred to future releases. Tests on known bugs-of-little-effect will tend to be ignored or disabled (effectively moving the defect to Q4) until the flaw becomes interesting enough to resolve.</p>
+<p>Quadrant 4 primarily is the result of irresponsible development or intentionally ignored known defects (see Q3). The design flaws are not well-understood or demonstrated in automated tests. Running code that is imperfect and untested is rather a crapshoot. Users are essentially alpha testers, and should not expect consistently good experiences. Trying to fix defects in Q4 code is a nightmare and fraught with disappointment. The best way to fix Q4 code is to move it first to Q3, then try to move it to Q1. The worst way to fix it is to try to push it up into Q2.</p>
+<p>Almost all software systems in existence have some Quadrant 4 code and some Quadrant 3 code. TDD systems are mostly Q1 and Q3, but legacy systems all have some Q4 code and might have some Q2 code (not that we could tell).</p>
+<p>Software that doesn’t work is in Q4. If you have hundreds of bug reports, then you have hundreds of lines of code in Q4, where it’s not very good code and you don’t have good testing. Your bugs tell you that your code base needs some unit testing goodness applied. If you simply fix the bugs without putting testing around the site of the defect, you are playing catch-and-release in Q4 and nothing is really going to get better for your product or your organization.</p>
+<p>The goal for software developers should be to move code from Q2 and Q4 through Q3 to Q1. I can see hardly any reason why developers in 2010 would even consider working in Q2/Q4, and I particularly cannot see why organizations would believe that group of people with mixed experience and skill sets would consistently perform in Q2.</p>
+<p>Q2 is essentially a myth. Your Q2 software is probably Q4 in reality. Maybe you should start investing in the move to Q3. Stop playing catch-and-release</p>
 
 
 

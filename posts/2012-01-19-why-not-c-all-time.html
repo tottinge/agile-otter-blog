@@ -158,35 +158,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="p1">
-In the why-we-don’t-prefer-programming-in-c++ exhibit of evidence:
-</div>
-<div class="p1">
-<p><br></p>
-</div>
-<div class="p1">
-python:&nbsp;
-</div>
-<pre>&nbsp;&nbsp;result = line.split(',')</pre>
-<div class="p2">
-<p><br></p>
-</div>
-<div class="p1">
-C#:
-</div>
-<pre>&nbsp; var result = line.Split(',');</pre>
-<br>
-<div class="p1">
-C++:
-</div>
-<pre><div class="p3"><span class="s1"><span class="Apple-tab-span"></span></span>&nbsp; vector<span class="s1">&lt;</span>string<span class="s1">&gt; result;</span></div><div class="p4"><span class="Apple-tab-span"></span><span class="s2">&nbsp; ostringstream</span> sourcestream(sourceString);</div><div class="p4"><span class="Apple-tab-span"></span>&nbsp; copy(</div><div class="p4"><span class="Apple-tab-span"></span><span class="Apple-tab-span"></span>&nbsp; &nbsp; &nbsp;istream_iterator&lt;<span class="s2">string</span>&gt;(sourcestream),&nbsp;</div><div class="p4"><span class="Apple-tab-span"></span><span class="Apple-tab-span"></span>&nbsp; &nbsp; &nbsp;istream_itearator&lt;<span class="s2">string</span>&gt;(),&nbsp;</div><div class="p4"><span class="Apple-tab-span"></span><span class="Apple-tab-span"></span>&nbsp; &nbsp; &nbsp;back_inserter&lt;<span class="s2">vector</span>&lt;<span class="s2">string</span>&gt; &gt;(result)&nbsp;</div><div class="p4"><span class="Apple-tab-span"></span>&nbsp; );</div><div class="p4"></div></pre>
-<br>
-<div class="p4">
-<p><br></p>
-</div>
-<div class="p4">
-Special thanks to StackOverflow <a href="http://stackoverflow.com/users/30767/zunino">&nbsp;Zunino</a> at <a href="http://stackoverflow.com/">Stack Overflow</a> for this <a href="http://stackoverflow.com/questions/236129/how-to-split-a-string-in-c">answer</a>, one of the most concise and standards-respecting.
-</div>
+<p>In the why-we-don’t-prefer-programming-in-c++ exhibit of evidence:</p>
+<p>python:</p>
+<pre class="text"><code>  result = line.split(',')</code></pre>
+<p>C#:</p>
+<pre class="text"><code>  var result = line.Split(',');</code></pre>
+<p>C++:</p>
+<pre class="text"><code>  vector&lt;string&gt; result;  ostringstream sourcestream(sourceString);  copy(     istream_iterator&lt;string&gt;(sourcestream),      istream_itearator&lt;string&gt;(),      back_inserter&lt;vector&lt;string&gt; &gt;(result)   );</code></pre>
+<p>Special thanks to StackOverflow <a href="http://stackoverflow.com/users/30767/zunino">Zunino</a> at <a href="http://stackoverflow.com/">Stack Overflow</a> for this <a href="http://stackoverflow.com/questions/236129/how-to-split-a-string-in-c">answer</a>, one of the most concise and standards-respecting.</p>
 
 
 

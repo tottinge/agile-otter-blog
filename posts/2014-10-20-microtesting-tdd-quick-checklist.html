@@ -158,76 +158,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<br> <br> Quick pointers:<br> <br>
-<ol>
-<li>
-See each test fail at least once (so you can trust it).
-</li>
-<li>
-Make test fail messages helpful because they fail when you are working on something else.
-</li>
-<li>
-Prioritize!
-</li>
-<li>
-Use a list for tests you want to write. “Ignored” tests will do nicely.
-</li>
-<li>
-Run all the tests so you know when your last change has broken something.
-</li>
-<li>
-Keep your feedback loop as tight as you possibly can.
-</li>
+<p>Quick pointers:</p>
+<ol type="1">
+<li>See each test fail at least once (so you can trust it).</li>
+<li>Make test fail messages helpful because they fail when you are working on something else.</li>
+<li>Prioritize!</li>
+<li>Use a list for tests you want to write. “Ignored” tests will do nicely.</li>
+<li>Run all the tests so you know when your last change has broken something.</li>
+<li>Keep your feedback loop as tight as you possibly can.</li>
 </ol>
-<div>
-<br>
-</div>
-<div>
-I get to see these all violated, so I thought I’d make a short list and save you some time.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-The first two go together. You want each test to fail so you can see the message. Some time in the future you’ll make a change, and an older test will fail and you’ll see the test class name, the test name, and the assert message. Those three should work together so that you know what kind of mistake you made.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-That goes with number 5, too. If you only run the one test you’re working on, you may have dozens of breakages by the time you get around to running all the tests. If you work on a component team (not my favorite organization, but sometimes necessary) then you should run all the component’s tests at least. &nbsp;The more “distance” between the injection of an error and its detection as an error, the harder it is to isolate and reproduce and fix. That’s why #6 is listed.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-That leaves 3 and 4, which are about planning your steps. You might find some power in the idea of a list. Start by thinking, and create a list of tests you want to write. Then pick which one you want to do next based on what is either simpler or most important. When you think of new tests, add them to the list. When you find some tests are no longer important or describe cases that are already covered, you drop them. I learned this by watching Kent Beck’s TDD videos.
-</div>
-<div>
-<br>
-</div>
-<div>
-If I was to shorten the list, I would say:&nbsp;
-</div>
-<div>
-<ol>
-<li>
-Write short tests with great messages
-</li>
-<li>
-Track and the next small steps you intend to take.
-</li>
-<li>
-Keep safe by running all tests frequently.&nbsp;
-</li>
+<p>I get to see these all violated, so I thought I’d make a short list and save you some time.</p>
+<p>The first two go together. You want each test to fail so you can see the message. Some time in the future you’ll make a change, and an older test will fail and you’ll see the test class name, the test name, and the assert message. Those three should work together so that you know what kind of mistake you made.</p>
+<p>That goes with number 5, too. If you only run the one test you’re working on, you may have dozens of breakages by the time you get around to running all the tests. If you work on a component team (not my favorite organization, but sometimes necessary) then you should run all the component’s tests at least. The more “distance” between the injection of an error and its detection as an error, the harder it is to isolate and reproduce and fix. That’s why #6 is listed.</p>
+<p>That leaves 3 and 4, which are about planning your steps. You might find some power in the idea of a list. Start by thinking, and create a list of tests you want to write. Then pick which one you want to do next based on what is either simpler or most important. When you think of new tests, add them to the list. When you find some tests are no longer important or describe cases that are already covered, you drop them. I learned this by watching Kent Beck’s TDD videos.</p>
+<p>If I was to shorten the list, I would say:</p>
+<ol type="1">
+<li>Write short tests with great messages</li>
+<li>Track and the next small steps you intend to take.</li>
+<li>Keep safe by running all tests frequently.</li>
 </ol>
-</div>
-<div>
-That’s short, but not as actionable. In the long 6-step form, it’s a little easier to take on.
-</div>
-<div>
-<br>
-</div>
+<p>That’s short, but not as actionable. In the long 6-step form, it’s a little easier to take on.</p>
 
 
 

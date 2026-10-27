@@ -158,13 +158,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-If your test has a trainwreck in it, <span style="font-weight:bold;">DO NOT</span> start building the object chain in your setup so that the trainwreck will execute in your test. That will take forever, and the payoff is next to zilch. Instead, extract the trainwreck expression to a private virtual method you can override:<br>
-<pre>    public void Blah() {<br>     doSomething(ClassName.GetInstanceName().GetInstanceVariable().GetAttribute());<br>  }<br></pre>
-becomes:<br>
-<pre>   public void Blah() {<br>     doSomething(GetAttribute());<br> }<br><br> protected virtual string GetAttribute() {<br>     return ClassName.GetInstanceName().GetInstanceVariable().GetAttribute();<br> }<br></pre>
-<br>It allows you to override “GetAttribute” in your tests, with something as simple as :<br>
-<pre>   protected override string GetAttribute{ return "okay"; }<br></pre>
-<p><br>Astute readers will realize that this is the <a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> at work. <br><br>Advanced students may note that the public method is in the wrong class now. It doesn’t use any local methods or variables, indicating very low cohesion. Time to push it one class deeper in the chain and then reevaluate it to see if parts of the expression need to be pushed further down. <br><br>This trick will take you from having to test “in context” with tons of object-chain construction to a new situation where testing is absurdly simple. Use trainwreck removal for all complex indirect accesses including singletons.</p>
+<p>If your test has a trainwreck in it, <strong>DO NOT</strong> start building the object chain in your setup so that the trainwreck will execute in your test. That will take forever, and the payoff is next to zilch. Instead, extract the trainwreck expression to a private virtual method you can override:</p>
+<pre class="text"><code>    public void Blah() {
+     doSomething(ClassName.GetInstanceName().GetInstanceVariable().GetAttribute());
+  }</code></pre>
+<p>becomes:</p>
+<pre class="text"><code>   public void Blah() {
+     doSomething(GetAttribute());
+ }
+
+ protected virtual string GetAttribute() {
+     return ClassName.GetInstanceName().GetInstanceVariable().GetAttribute();
+ }</code></pre>
+<p>It allows you to override “GetAttribute” in your tests, with something as simple as :</p>
+<pre class="text"><code>   protected override string GetAttribute{ return "okay"; }</code></pre>
+<p>Astute readers will realize that this is the <a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> at work.</p>
+<p>Advanced students may note that the public method is in the wrong class now. It doesn’t use any local methods or variables, indicating very low cohesion. Time to push it one class deeper in the chain and then reevaluate it to see if parts of the expression need to be pushed further down.</p>
+<p>This trick will take you from having to test “in context” with tons of object-chain construction to a new situation where testing is absurdly simple. Use trainwreck removal for all complex indirect accesses including singletons.</p>
 
 
 

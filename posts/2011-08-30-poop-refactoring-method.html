@@ -164,19 +164,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-I developed an quirky technique for dealing with the intermediate states of a refactoring. I call it the “poop” method (no biological metaphor implied). This method is far less controversial than one might suspect, but it is mildly unsettling.<br> <br> I find myself working in a legacy code base. Refactoring requires me to take several small steps, each of which leaves a sub-optimal intermediate state. I decide to mark the code with some kind of comment that will indicate that the work there is incomplete. <br> <br> It needs to be a word that doesn’t normally appear in code, and which is clearly and obviously undesirable. If I put TODO, it will either get lost in the other TODOs left by well-intentioned people, or else will be stopped by a lint tool that takes such things seriously. Most obscenities would also be a little too likely to be duplicated by someone having a bad day.<br> <br> My marker comment should not be something so obscene that it will offend or embarrass myself or my reviewers. Something common in baby-talk and yet biologically insensitive will work. I add a comment that says merely “poop.” The fact of the comment being in my code creates a mild sense of uneasiness. After all, I don’t want my colleagues finding it in production code.<br> <br> As I finish my refactoring, I do a global search. Sure enough, the word only appears where I’ve written it in as a marker. As long as I clean up the code and remove the markers, nobody will find a “poop” in my code. <br> <br> Actually, once my friend George and I left a “poop” in our code. Our coworkers found it. It was easy to tell we’d been caught because the pair looking at the code were laughing and asking why it would say that. It was a little reminder that all was not complete and tidy in our little world. We immediately fixed the code and removed the comment. <br> <br><br>I have also used this as an indicator that I need to rename a method.&nbsp;
-<div>
-<br>
-<div>
-<span style="color: #134f5c; font-size: large;"><i>If I don’t know what to call a method or test initially, the word ‘poop’ reminds me that I need to revisit that code and determine why it is hard to name.&nbsp;</i></span>
-</div>
-<div>
-<br>
-</div>
-<div>
-Usually poor naming is a sign of poor design; well-designed components seem to practically name themselves. <br><br>Maybe you object to the word, but that’s okay. The value of the poop method is ensuring you will be uneasy in the presence of unfinished work. Come up with your own variation (be nice) and see how it changes your work habits. <br> <br> Note: in 2015, Arlo Belshee covered some similar ideas <a href="http://nuzzel.com/sharedstory/08212015/arlobelshee/good_naming_is_a_process_not_a_single_step" target="_blank">in his article</a> about the process of naming, specifically in moving from <i>missing</i> to <i>nonsense</i>.&nbsp;
-</div>
-</div>
+<p>I developed an quirky technique for dealing with the intermediate states of a refactoring. I call it the “poop” method (no biological metaphor implied). This method is far less controversial than one might suspect, but it is mildly unsettling.</p>
+<p>I find myself working in a legacy code base. Refactoring requires me to take several small steps, each of which leaves a sub-optimal intermediate state. I decide to mark the code with some kind of comment that will indicate that the work there is incomplete.</p>
+<p>It needs to be a word that doesn’t normally appear in code, and which is clearly and obviously undesirable. If I put TODO, it will either get lost in the other TODOs left by well-intentioned people, or else will be stopped by a lint tool that takes such things seriously. Most obscenities would also be a little too likely to be duplicated by someone having a bad day.</p>
+<p>My marker comment should not be something so obscene that it will offend or embarrass myself or my reviewers. Something common in baby-talk and yet biologically insensitive will work. I add a comment that says merely “poop.” The fact of the comment being in my code creates a mild sense of uneasiness. After all, I don’t want my colleagues finding it in production code.</p>
+<p>As I finish my refactoring, I do a global search. Sure enough, the word only appears where I’ve written it in as a marker. As long as I clean up the code and remove the markers, nobody will find a “poop” in my code.</p>
+<p>Actually, once my friend George and I left a “poop” in our code. Our coworkers found it. It was easy to tell we’d been caught because the pair looking at the code were laughing and asking why it would say that. It was a little reminder that all was not complete and tidy in our little world. We immediately fixed the code and removed the comment.</p>
+<p>I have also used this as an indicator that I need to rename a method.</p>
+<p><em>If I don’t know what to call a method or test initially, the word ‘poop’ reminds me that I need to revisit that code and determine why it is hard to name.</em></p>
+<p>Usually poor naming is a sign of poor design; well-designed components seem to practically name themselves.</p>
+<p>Maybe you object to the word, but that’s okay. The value of the poop method is ensuring you will be uneasy in the presence of unfinished work. Come up with your own variation (be nice) and see how it changes your work habits.</p>
+<p>Note: in 2015, Arlo Belshee covered some similar ideas <a href="http://nuzzel.com/sharedstory/08212015/arlobelshee/good_naming_is_a_process_not_a_single_step">in his article</a> about the process of naming, specifically in moving from <em>missing</em> to <em>nonsense</em>.</p>
 
 
 

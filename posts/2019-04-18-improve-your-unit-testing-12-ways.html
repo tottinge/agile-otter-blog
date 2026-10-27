@@ -165,52 +165,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div dir="ltr" style="text-align: left;" data-trbidi="on">
-<div>
-Everyone these days seems to understand that having unit tests <a href="http://agileotter.blogspot.com/2015/08/the-bs-line.html">are an important part of the work</a> of developing software. Yet, people struggle with the practice. Here are 12 ways you can immediately improve your unit tests (and at the bottom, a few ways to go well beyond these 12 rules).&nbsp;
-</div>
-<ol>
-<li>
-<b>Select assertions to provide clear error messages.</b> <br><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Assert.That(x.Equals(y), Is.True)</span> is not it. <br>Try <span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Assert.That(x, Equals(y))</span>. <br>See the difference in how the test tool explains the failure.<br>If the failures aren’t clear, add a text message to the assertion.
-</li>
-<li>
-<b>Go for Maximum Clarity</b><br>The rule here is “you read the tests to understand the code, you should never have to read the code in order to understand the tests.”<br>The tests need to be better documentation than the code or its comments.<br>When this is not true, it’s generally because the code isn’t doing too many things in a given function. When code is clear and simple, the tests can be also.
-</li>
-<li>
-<b>Watch Out For Side Effects</b><br>There’s nothing more puzzling than finding a test that sets a flag to false, calls a function with no parameters and then checks the text of some string that was never mentioned in the fixture or test setup. <br>This indicates that your test is testing side-effects. <br>This, in turn, indicates that your functions are being used for their side effects rather than their direct effects – a sign your signal-to-noise ratio and your cohesion are low.<br>When these tests are hard to write, it’s because the code is hard to understand.&nbsp;
-</li>
-<li>
-<b>Let namespaces work for you</b>. <br><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">Module.namespace.class.function</span> is the full name of your test. If you can introduce a new namespace to group a bunch of related tests, and doing so will make the test method names stand out more clearly, then do so.
-</li>
-<li>
-<b>Disconnect your database.</b>If the logic you’re testing is not written in SQL then don’t test SQL. <br>Tests that run against shared databases are notorious for creating false positives when data changes in ways that tests didn’t take into consideration. <br>It is better to not use a database if possible or to ensure the test has its own unique and isolated instance if a database MUST be used,<br>Better yet, disconnect tests from databases altogether. Mocks are your friend. You can create interfaces or mock existing interface so that the tests run faster and intended results are obvious.
-</li>
-<li>
-<b>Avoid magic strings, magic numbers, other magic. </b>It is often in writing tests that I realize I need an enum, const, class, or what-have-you.
-</li>
-<li>
-<b>Single Responsibility Principle applies to tests.</b> <br>You want tests to <i>isolate</i> failures, not <i>conglomerate</i> them. A test should fail for one reason only, and that reason is the purpose of the test. <br>Sometimes you can’t avoid some collateral influence, but most of the time you can avoid most of it. The more single-focused the test is, the easier it is to understand and maintain.
-</li>
-<li>
-<b>Refactor your tests.</b> <br>&nbsp;Eliminating duplication and structuring the tests so you can find them is not a waste of time. Test utility packages are very helpful and can reduce the size and complexity of your tests.
-</li>
-<li>
-<b>Ease up on test-class-per-production-class.</b> <br>Try writing one test class per testing scenario, even if it means many test classes per production function.<br>A test class provides a shared setup. That suggests that a test class should correspond to some initial condition in which various activities are expected to have context-specific results.<br>Therefore a test class describes <i>some system state, from the point of view of the code </i>that is being tested.<br>Maybe many test classes per production class can be better understood this way, and trying to force that into test class per production class is a mistake.<br>Perhaps test classes should have <i>Friends’ Naming</i>, such as “TheOneWhereRossBuysADuck.”
-</li>
-<li>
-<b>Consider the system of names used in tests.</b><br>Compare test names to each other, to the class that contains them, to the context in which they operate. Try to make the names reflect the domain and the situation.<br>And, particularly, make the name of the test match well with the assertion, because when the test fails people will typically see the name of the test and the assertion message first; they probably shouldn’t have to read the file and the text of the test to know what mistake they just made!
-</li>
-<li>
-<b>Write the Test First</b><br>If you have written the code first, you will write the tests according to what the code does, from the point of view of the coder who just wrote the code.<br>If you write the tests first, then you are beginning as a user of the code, and the tests are helping you define a usable and reasonable API. This results in tests and code that are more readable and more usable.<br>This outside-in progression tends to produce better tests and better code, where “better” means that it is harder to misunderstand. Misunderstanding the purpose and effect of code in maintenance tends to introduce defects.
-</li>
-<li>
-<b>Remember the High-Fidelity Rule</b><br>A critical rule of testing is that the code being tested has no idea whatsoever that it is being tested. If the code checks to see if it is running in a test, whatsoever, even once, even in a deeply-buried conditional corner case, then the code is not reliable. You haven’t checked to see what it will do in production – you’ve written code to pass a test only, not to work <i>even though</i>&nbsp;it is in a test.
-</li>
+<p>Everyone these days seems to understand that having unit tests <a href="../posts/2015-08-12-the-bs-line.html">are an important part of the work</a> of developing software. Yet, people struggle with the practice. Here are 12 ways you can immediately improve your unit tests (and at the bottom, a few ways to go well beyond these 12 rules).</p>
+<ol type="1">
+<li><p><strong>Select assertions to provide clear error messages.</strong><br>
+<code>Assert.That(x.Equals(y), Is.True)</code> is not it.<br>
+Try <code>Assert.That(x, Equals(y))</code>.<br>
+See the difference in how the test tool explains the failure.<br>
+If the failures aren’t clear, add a text message to the assertion.</p></li>
+<li><p><strong>Go for Maximum Clarity</strong><br>
+The rule here is “you read the tests to understand the code, you should never have to read the code in order to understand the tests.”<br>
+The tests need to be better documentation than the code or its comments.<br>
+When this is not true, it’s generally because the code isn’t doing too many things in a given function. When code is clear and simple, the tests can be also.</p></li>
+<li><p><strong>Watch Out For Side Effects</strong><br>
+There’s nothing more puzzling than finding a test that sets a flag to false, calls a function with no parameters and then checks the text of some string that was never mentioned in the fixture or test setup.<br>
+This indicates that your test is testing side-effects.<br>
+This, in turn, indicates that your functions are being used for their side effects rather than their direct effects – a sign your signal-to-noise ratio and your cohesion are low.<br>
+When these tests are hard to write, it’s because the code is hard to understand.</p></li>
+<li><p><strong>Let namespaces work for you</strong>.<br>
+<code>Module.namespace.class.function</code> is the full name of your test. If you can introduce a new namespace to group a bunch of related tests, and doing so will make the test method names stand out more clearly, then do so.</p></li>
+<li><p><strong>Disconnect your database.</strong>If the logic you’re testing is not written in SQL then don’t test SQL.<br>
+Tests that run against shared databases are notorious for creating false positives when data changes in ways that tests didn’t take into consideration.<br>
+It is better to not use a database if possible or to ensure the test has its own unique and isolated instance if a database MUST be used,<br>
+Better yet, disconnect tests from databases altogether. Mocks are your friend. You can create interfaces or mock existing interface so that the tests run faster and intended results are obvious.</p></li>
+<li><p><strong>Avoid magic strings, magic numbers, other magic.</strong> It is often in writing tests that I realize I need an enum, const, class, or what-have-you.</p></li>
+<li><p><strong>Single Responsibility Principle applies to tests.</strong><br>
+You want tests to <em>isolate</em> failures, not <em>conglomerate</em> them. A test should fail for one reason only, and that reason is the purpose of the test.<br>
+Sometimes you can’t avoid some collateral influence, but most of the time you can avoid most of it. The more single-focused the test is, the easier it is to understand and maintain.</p></li>
+<li><p><strong>Refactor your tests.</strong><br>
+Eliminating duplication and structuring the tests so you can find them is not a waste of time. Test utility packages are very helpful and can reduce the size and complexity of your tests.</p></li>
+<li><p><strong>Ease up on test-class-per-production-class.</strong><br>
+Try writing one test class per testing scenario, even if it means many test classes per production function.<br>
+A test class provides a shared setup. That suggests that a test class should correspond to some initial condition in which various activities are expected to have context-specific results.<br>
+Therefore a test class describes <em>some system state, from the point of view of the code</em> that is being tested.<br>
+Maybe many test classes per production class can be better understood this way, and trying to force that into test class per production class is a mistake.<br>
+Perhaps test classes should have <em>Friends’ Naming</em>, such as “TheOneWhereRossBuysADuck.”</p></li>
+<li><p><strong>Consider the system of names used in tests.</strong><br>
+Compare test names to each other, to the class that contains them, to the context in which they operate. Try to make the names reflect the domain and the situation.<br>
+And, particularly, make the name of the test match well with the assertion, because when the test fails people will typically see the name of the test and the assertion message first; they probably shouldn’t have to read the file and the text of the test to know what mistake they just made!</p></li>
+<li><p><strong>Write the Test First</strong><br>
+If you have written the code first, you will write the tests according to what the code does, from the point of view of the coder who just wrote the code.<br>
+If you write the tests first, then you are beginning as a user of the code, and the tests are helping you define a usable and reasonable API. This results in tests and code that are more readable and more usable.<br>
+This outside-in progression tends to produce better tests and better code, where “better” means that it is harder to misunderstand. Misunderstanding the purpose and effect of code in maintenance tends to introduce defects.</p></li>
+<li><p><strong>Remember the High-Fidelity Rule</strong><br>
+A critical rule of testing is that the code being tested has no idea whatsoever that it is being tested. If the code checks to see if it is running in a test, whatsoever, even once, even in a deeply-buried conditional corner case, then the code is not reliable. You haven’t checked to see what it will do in production – you’ve written code to pass a test only, not to work <em>even though</em> it is in a test.</p></li>
 </ol>
-<div>
-If you are trying TDD, you should probably skip right to the <a href="https://pragprog.com/magazines/2012-01/unit-tests-are-first">FIRST qualities</a> of <a href="https://www.youtube.com/watch?v=H3LOyuqhaJA">microtests</a>.&nbsp;
-</div>
-</div>
+<p>If you are trying TDD, you should probably skip right to the <a href="https://pragprog.com/magazines/2012-01/unit-tests-are-first">FIRST qualities</a> of <a href="https://www.youtube.com/watch?v=H3LOyuqhaJA">microtests</a>.</p>
 
 
 

@@ -158,202 +158,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div style="text-align: left;">
-Here is a .vimrc file built from the recommendations in my Vim book, “<a href="https://leanpub.com/VimLikeAPro">Use Vim Like A Pro</a>” (available on <a data-preview="" href="https://leanpub.com/" target="_blank">LeanPub</a>).
-</div>
-<span><a name="more"></a></span>
-<p>
-<br>
-</p>
-<p style="text-align: left;">
-<span style="background-color: #cccccc; font-family: courier; font-size: x-small;">&nbsp;</span><span style="background-color: white; font-family: Consolas; font-size: x-small;">” ===================================================================</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Basic .vimrc Configuration</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Based on recommendations from “Use Vim Like a Pro”</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Copy this to ~/.vimrc to use</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” ===================================================================</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Turn on all the magic, including Explorer and syntax highlighting</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+syntax+enable&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">syntax enable</a></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Show me when I’m in insert/overtype mode</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set <a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+showmode&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">showmode</a></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” When a command is in progress, show it in the status bar</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set <a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+showcmd&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">showcmd</a></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Magic for completion at the : command line</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set <a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+wildmenu&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">wildmenu</a></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Turn on the “<a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+ruler+command&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">ruler</a>” (status info) at the bottom of the screen</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set ruler</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Turn on <a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=man+pages&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">man pages</a> (type :<a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+Man+command&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">Man</a> )</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">runtime ftplugin/man.vim</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Indent in a smart way, instead of returning to the left margin all the time</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set <a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+autoindent&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">autoindent</a></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Expand tabs to spaces</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set <a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+expandtab&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">expandtab</a></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Don’t wrap text (makes windows ugly)</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set <a data-preview="" href="https://www.google.com/search?ved=1t:260882&amp;q=vim+nowrap&amp;bbid=381129527146258002&amp;bpid=2762546178294925711" target="_blank">nowrap</a></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Highlight all matches in text when you search</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set hlsearch</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Show matches for braces, parens, etc.</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set showmatch</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Do case-insensitive searching</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set ignorecase</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” When a search phrase has uppercase, don’t be case insensitive</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set smartcase</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Tell the editor where to search for files</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set path=.,..,/usr/include/<strong>,/usr/share/</strong></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” When I want spell-checking, I want it to be english</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set spelllang=en_us</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Use industry standard 8-char tabs</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set tabstop=8</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Use standard 4-char indentation</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set shiftwidth=4</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Indent/Dedent to nearest 4-char boundary</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set shiftround</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;"><br></span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">” Show line numbers (recommended for programming)</span>
-</p>
-<p style="text-align: left;">
-<span style="background-color: white; font-family: Consolas; font-size: x-small;">set number</span>
-</p>
-<div>
-<br>
-</div>
+<p>Here is a .vimrc file built from the recommendations in my Vim book, “<a href="https://leanpub.com/VimLikeAPro">Use Vim Like A Pro</a>” (available on <a href="https://leanpub.com/">LeanPub</a>).</p>
+<pre class="text"><code> " ===================================================================
+" Basic .vimrc Configuration
+" Based on recommendations from "Use Vim Like a Pro"
+" Copy this to ~/.vimrc to use
+" ===================================================================
+
+" Turn on all the magic, including Explorer and syntax highlighting
+syntax enable
+
+" Show me when I'm in insert/overtype mode
+set showmode
+
+" When a command is in progress, show it in the status bar
+set showcmd
+
+" Magic for completion at the : command line
+set wildmenu
+
+" Turn on the "ruler" (status info) at the bottom of the screen
+set ruler
+
+" Turn on man pages (type :Man )
+runtime ftplugin/man.vim
+
+" Indent in a smart way, instead of returning to the left margin all the time
+set autoindent
+
+" Expand tabs to spaces
+set expandtab
+
+" Don't wrap text (makes windows ugly)
+set nowrap
+
+" Highlight all matches in text when you search
+set hlsearch
+
+" Show matches for braces, parens, etc.
+set showmatch
+
+" Do case-insensitive searching
+set ignorecase
+
+" When a search phrase has uppercase, don't be case insensitive
+set smartcase
+
+" Tell the editor where to search for files
+set path=.,..,/usr/include/**,/usr/share/**
+
+" When I want spell-checking, I want it to be english
+set spelllang=en_us
+
+" Use industry standard 8-char tabs
+set tabstop=8
+
+" Use standard 4-char indentation
+set shiftwidth=4
+
+" Indent/Dedent to nearest 4-char boundary
+set shiftround
+
+" Show line numbers (recommended for programming)
+set number</code></pre>
 
 
 

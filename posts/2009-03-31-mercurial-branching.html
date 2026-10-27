@@ -158,7 +158,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>It’s easy to do local branching in <a href="http://www.selenic.com/mercurial/wiki/">mercurial</a>. My partner was exploring it for the first time and asked if this was supported in mercurial since it was supported in <a href="http://git-scm.com/">git</a>. I didn’t know, and dug into the <a href="http://hgbook.red-bean.com/">the Mercurial book</a> (pdf book) to find the answer. It’s really very easy, though the use of <code>update</code> is a little odd. <br><br>You only really need the <code>update</code> and <code>branch</code> commands, but I include others here because they provide aid and comfort.<br><br><code>hg branch <i>Name</i></code> creates branch <span style="font-style: italic;">Name</span>, and it becomes active on the next commit.<br><code>hg branch</code> shows the current branch (no param).<br><code>hg branches</code> shows the local branches.<br><code>hg update <span style="font-style: italic;">Name</span></code> switches to the branch called <span style="font-style: italic;">Name</span>.<br><code>hg tip</code> shows you where you are wrt: branches, etc.<br><code>hg merge <span style="font-style: italic;">Name</span></code> merges the named branch with the current one.<br><br>When you do a commit and allow mercurial to call up the editor, the commit message will be populated with the tip information, so you know for sure which branch you are in.<br><br><span style="font-style:italic;">WAIT!<span style="font-weight:bold;"></span></span> these branches are not what you think they are. They are (as darrint said) permanent, and you can’t really push to (or pull from) a separate repo into a temp branch. It’s a very different concept from <span style="font-style:italic;">svn switch.</span><br><br>So be careful with that axe eugene.</p>
+<p>It’s easy to do local branching in <a href="http://www.selenic.com/mercurial/wiki/">mercurial</a>. My partner was exploring it for the first time and asked if this was supported in mercurial since it was supported in <a href="http://git-scm.com/">git</a>. I didn’t know, and dug into the <a href="http://hgbook.red-bean.com/">the Mercurial book</a> (pdf book) to find the answer. It’s really very easy, though the use of <code>update</code> is a little odd.</p>
+<p>You only really need the <code>update</code> and <code>branch</code> commands, but I include others here because they provide aid and comfort.</p>
+<p><code>hg branch Name</code> creates branch <em>Name</em>, and it becomes active on the next commit.<br>
+<code>hg branch</code> shows the current branch (no param).<br>
+<code>hg branches</code> shows the local branches.<br>
+<code>hg update Name</code> switches to the branch called <em>Name</em>.<br>
+<code>hg tip</code> shows you where you are wrt: branches, etc.<br>
+<code>hg merge Name</code> merges the named branch with the current one.</p>
+<p>When you do a commit and allow mercurial to call up the editor, the commit message will be populated with the tip information, so you know for sure which branch you are in.</p>
+<p><em>WAIT!</em> these branches are not what you think they are. They are (as darrint said) permanent, and you can’t really push to (or pull from) a separate repo into a temp branch. It’s a very different concept from <em>svn switch.</em></p>
+<p>So be careful with that axe eugene.</p>
 
 
 

@@ -167,22 +167,21 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Your team is hard at work, testing and coding and planning, and suddenly the build breaks.&nbsp;Now what can you do? The broken build might not be your fault at all, and besides you have work of your own to do. You could go ahead and practice business-as-usual, but this is probably a bad idea.<br> <br> Here’s what I say:<br> <br>
+<p>Your team is hard at work, testing and coding and planning, and suddenly the build breaks. Now what can you do? The broken build might not be your fault at all, and besides you have work of your own to do. You could go ahead and practice business-as-usual, but this is probably a bad idea.</p>
+<p>Here’s what I say:</p>
 <ul>
-<li>
-<span style="font-size: large;"><b>Never pull from a broken build</b></span>. <br>Assume that version control is poison. If you are not the one fixing the build (and shouldn’t you be?) then you should leave it be. The last thing you want to do is import brokenness into your local build environment. Import from a “green” build, and you will know that any brokenness is your problem.
-</li>
-<li>
-<b><span style="font-size: large;">Test locally before considering pushing code</span></b> to the CI build, even though it takes a bit more time. There is really no good time to NOT know that you’ve broken something. A little “due diligence” goes a long way.
-</li>
-<li>
-<b><span style="font-size: large;">Never push to the CI server if your local build is broken</span></b>.<br> If your build is broken, it inconveniences only you. If someone is working on the build and you push a second mistake, they won’t know if they fixed it or broke it worse. If the build is not broken, why bother pushing errors to it?&nbsp;
-</li>
-<li>
-<b><span style="font-size: large;">If you’re not fixing the build, never push a working local change to a broken build</span></b>. <br>This is a kindness akin to not walking in the dirt your mother is sweeping up. If you push a change while the build is broken, the person fixing the build will have yet another update/build/test cycle on his hands before he can push his fix to the server. Don’t punish the volunteer by pushing your changes. Wait, pull, merge, retest.
-</li>
+<li><p><strong>Never pull from a broken build</strong>.<br>
+Assume that version control is poison. If you are not the one fixing the build (and shouldn’t you be?) then you should leave it be. The last thing you want to do is import brokenness into your local build environment. Import from a “green” build, and you will know that any brokenness is your problem.</p></li>
+<li><p><strong>Test locally before considering pushing code</strong> to the CI build, even though it takes a bit more time. There is really no good time to NOT know that you’ve broken something. A little “due diligence” goes a long way.</p></li>
+<li><p><strong>Never push to the CI server if your local build is broken</strong>.<br>
+If your build is broken, it inconveniences only you. If someone is working on the build and you push a second mistake, they won’t know if they fixed it or broke it worse. If the build is not broken, why bother pushing errors to it?</p></li>
+<li><p><strong>If you’re not fixing the build, never push a working local change to a broken build</strong>.<br>
+This is a kindness akin to not walking in the dirt your mother is sweeping up. If you push a change while the build is broken, the person fixing the build will have yet another update/build/test cycle on his hands before he can push his fix to the server. Don’t punish the volunteer by pushing your changes. Wait, pull, merge, retest.</p></li>
 </ul>
-<p><br> We have installed annunciators for teams. Sometimes they are flashing lights, sometimes a glowing orb, sometimes speakers playing a particular noise, sometimes it’s just a person standing up and yelling that the build is down. Usually there is some electronic communication (jabber message or email) as well.<br> <br> Why do we all need to know that the build is broken, and how long it is broken? So that we can alter our behavior. Someone needs to jump in and fix the build quickly, and everyone else needs to let them or help them. By leaving the build broken, continuing to build and push code as always, or pushing additional errors into the build, we are just getting in the way of the team.<br> <br> Build annunciators should let you know when you need to get out of the way. &nbsp;They don’t have to be piercing and shrill or overly bright, but they need to keep the team aware that the build is not “green.”<br> <br> It’s not just a good idea… well, actually it is.<br> <br></p>
+<p>We have installed annunciators for teams. Sometimes they are flashing lights, sometimes a glowing orb, sometimes speakers playing a particular noise, sometimes it’s just a person standing up and yelling that the build is down. Usually there is some electronic communication (jabber message or email) as well.</p>
+<p>Why do we all need to know that the build is broken, and how long it is broken? So that we can alter our behavior. Someone needs to jump in and fix the build quickly, and everyone else needs to let them or help them. By leaving the build broken, continuing to build and push code as always, or pushing additional errors into the build, we are just getting in the way of the team.</p>
+<p>Build annunciators should let you know when you need to get out of the way. They don’t have to be piercing and shrill or overly bright, but they need to keep the team aware that the build is not “green.”</p>
+<p>It’s not just a good idea… well, actually it is.</p>
 
 
 

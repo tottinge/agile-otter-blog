@@ -166,8 +166,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I saw this in a python tutorial today:<br></p>
-<pre>if os.path.exists("/tmp/uPlayer"):
+<p>I saw this in a python tutorial today:</p>
+<pre class="text"><code>
+if os.path.exists("/tmp/uPlayer"):
    f = open("/tmp/uPlayer/STATUS", "w")
    f.write("IDLE")
    f.close
@@ -175,17 +176,10 @@ else:
    os.mkdir("/tmp/uPlayer")
    f = open("/tmp/uPlayer/STATUS", "w")
    f.write("IDLE")
-   f.close
-</pre>
-<p>
-Really, now? We start by duplicating the whole open/write thing in order to create a directory? Maybe one of the problems people have with clean coding is that their examples are poor. If you write, it behooves you to write <a href="http://butunclebob.com/ArticleS.BobKoss.RefrigeratorCode">refrigerator code.</a>
-</p>
-<p>
-Not to mention that close is a function, so it needs parentheses. This code doesn’t even do what it thinks it is doing. It’s closing the file when f goes out of scope, not when we reference the f.close bound method.
-</p>
-<p>
-It makes me sad for the children.
-</p>
+   f.close</code></pre>
+<p>Really, now? We start by duplicating the whole open/write thing in order to create a directory? Maybe one of the problems people have with clean coding is that their examples are poor. If you write, it behooves you to write <a href="http://butunclebob.com/ArticleS.BobKoss.RefrigeratorCode">refrigerator code.</a></p>
+<p>Not to mention that close is a function, so it needs parentheses. This code doesn’t even do what it thinks it is doing. It’s closing the file when f goes out of scope, not when we reference the f.close bound method.</p>
+<p>It makes me sad for the children.</p>
 
 
 

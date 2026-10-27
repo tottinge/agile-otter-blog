@@ -158,113 +158,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-&nbsp;Sometime back in my early days of programming, I learned to enjoy a truth table.
-</p>
-<p>
-Fizzbuzz seems to beg for a simple truth table - the values ‘<span style="font-family: Consolas;">should_fizz</span>’, and ‘<span style="font-family: Consolas;">should_buzz</span>’ form up a simple tuple of booleans, and the choices are<br>
-</p>
-<ul style="text-align: left;">
-<li>
-True, False - fizz
-</li>
-<li>
-False, True - buzz
-</li>
-<li>
-True, True - fizzbuzz
-</li>
-<li>
-False, False - string of the number
-</li>
+<p>Sometime back in my early days of programming, I learned to enjoy a truth table.</p>
+<p>Fizzbuzz seems to beg for a simple truth table - the values ‘<code>should_fizz</code>’, and ‘<code>should_buzz</code>’ form up a simple tuple of booleans, and the choices are</p>
+<ul>
+<li>True, False - fizz</li>
+<li>False, True - buzz</li>
+<li>True, True - fizzbuzz</li>
+<li>False, False - string of the number</li>
 </ul>
-<br>
-<p>
-</p>
-<p>
-This expresses rather neatly in Python, is efficient and pythonic, and handles negative cases neatly also:
-</p>
-<p>
-<br>
-</p>
-<p>
-</p>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/fizzbuzz-match-two-rules.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="Python FizzBuzz using match with divisibility by three and five" data-original-height="286" data-original-width="570" height="161" src="../assets/fizzbuzz-match-two-rules.png" width="320"></a>
-</div>
-<p>
-</p>
-<p>
-<br><br>
-</p>
-<div class="separator" style="clear: both; text-align: center;">
-
-</div>
-<p>
-But here’s the rub:&nbsp;<br>
-</p>
-<p>
-One of the “normal” changes is to add a rule that multiples of 7 say ‘woof’ even if they are also divisible by 3 or 5. That’s a peculiar rule, but let’s consider it for a moment.
-</p>
-<p>
-If I am going to add another term to the set, I have to edit the match line and every case line. I will have to add new cases for all the possible truth values in my new 3-tuple table. That’s not so much fun.&nbsp;
-</p>
-<p>
-<a href="../assets/fizzbuzz-match-three-rules.png" style="clear: left; display: inline; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img alt="Python FizzBuzz match expanded with a divisibility-by-seven rule" data-original-height="338" data-original-width="668" height="197" src="../assets/fizzbuzz-match-three-rules.png" width="390"></a>
-</p>
-<p>
-The changes to my test suite are, at least, minimal.
-</p>
-<p>
-The best expression in our codebase <i>may not be</i> the one that does the tidiest job of expressing our algorithm using well-considered and idiomatic means.&nbsp;
-</p>
-<p>
-Perhaps the best algorithmic expression is the one that lets us make the next change easily without sacrificing any functionality or performance (in case performance matters).
-</p>
-<p>
-The if/else version, while being less appealing to the table-loving otter, will expand much more gracefully.&nbsp;&nbsp;
-</p>
-<p>
-An LLM can convert the structure of sufficiently small and tidy algorithms (functions, for instance) into different equivalent forms that pass the same tests, and can do so in mere seconds.
-</p>
-<p>
-</p>
-<div class="separator" style="clear: both; text-align: left;">
-<a href="../assets/fizzbuzz-if-statements.png" style="clear: left; margin-bottom: 1em; margin-right: 1em; text-align: center;"><img alt="Python FizzBuzz implemented with sequential if statements" data-original-height="250" data-original-width="384" height="172" src="../assets/fizzbuzz-if-statements.png" width="265"></a>
-</div>
-<p>
-From here, all that is necessary is to add one more <b>if</b> statement. That’s so trivial, I won’t bother illustrating it here.
-</p>
-<p>
-This leaves us with a few interesting takeaways:
-</p>
-<p>
-</p>
-<ul style="text-align: left;">
-<li>
-Expressing requirements as <b>tests</b> will support refactoring.
-</li>
-<li>
-The <b>“best” expression</b> is the one that makes the next change easy.
-</li>
-<li>
-You may not know in advance which kinds of changes to expect, so it’s nice to <b>be able to restructure</b> your code at the last minute, before adding a new feature.
-</li>
-<li>
-<b>Don’t be overly precious</b>&nbsp;when writing the first version. Don’t try to anticipate all future uses. It will likely have to be reworked when an inelegant change appears.<br>
-</li>
+<p>This expresses rather neatly in Python, is efficient and pythonic, and handles negative cases neatly also:</p>
+<p><a href="../assets/fizzbuzz-match-two-rules.png"><img src="../assets/fizzbuzz-match-two-rules.png" alt="Python FizzBuzz using match with divisibility by three and five" width="320" height="161"></a></p>
+<p>But here’s the rub:</p>
+<p>One of the “normal” changes is to add a rule that multiples of 7 say ‘woof’ even if they are also divisible by 3 or 5. That’s a peculiar rule, but let’s consider it for a moment.</p>
+<p>If I am going to add another term to the set, I have to edit the match line and every case line. I will have to add new cases for all the possible truth values in my new 3-tuple table. That’s not so much fun.</p>
+<p><a href="../assets/fizzbuzz-match-three-rules.png"><img src="../assets/fizzbuzz-match-three-rules.png" alt="Python FizzBuzz match expanded with a divisibility-by-seven rule" width="390" height="197"></a></p>
+<p>The changes to my test suite are, at least, minimal.</p>
+<p>The best expression in our codebase <em>may not be</em> the one that does the tidiest job of expressing our algorithm using well-considered and idiomatic means.</p>
+<p>Perhaps the best algorithmic expression is the one that lets us make the next change easily without sacrificing any functionality or performance (in case performance matters).</p>
+<p>The if/else version, while being less appealing to the table-loving otter, will expand much more gracefully.</p>
+<p>An LLM can convert the structure of sufficiently small and tidy algorithms (functions, for instance) into different equivalent forms that pass the same tests, and can do so in mere seconds.</p>
+<p><a href="../assets/fizzbuzz-if-statements.png"><img src="../assets/fizzbuzz-if-statements.png" alt="Python FizzBuzz implemented with sequential if statements" width="265" height="172"></a></p>
+<p>From here, all that is necessary is to add one more <strong>if</strong> statement. That’s so trivial, I won’t bother illustrating it here.</p>
+<p>This leaves us with a few interesting takeaways:</p>
+<ul>
+<li>Expressing requirements as <strong>tests</strong> will support refactoring.</li>
+<li>The <strong>“best” expression</strong> is the one that makes the next change easy.</li>
+<li>You may not know in advance which kinds of changes to expect, so it’s nice to <strong>be able to restructure</strong> your code at the last minute, before adding a new feature.</li>
+<li><strong>Don’t be overly precious</strong> when writing the first version. Don’t try to anticipate all future uses. It will likely have to be reworked when an inelegant change appears.</li>
 </ul>
-<div>
-I know that fizzbuzz isn’t a very sophisticated problem, but these same ideas will be more important to you (rather than less) in large and complex production environments.
-</div>
-<div>
-<br>
-</div>
-<div>
-The idea that the structure or readability of a solution can be “just in time” because of LLMs was once posited to me by Gregg Caines. I am still playing with that idea when I can.&nbsp;
-</div>
-<p>
-</p>
+<p>I know that fizzbuzz isn’t a very sophisticated problem, but these same ideas will be more important to you (rather than less) in large and complex production environments.</p>
+<p>The idea that the structure or readability of a solution can be “just in time” because of LLMs was once posited to me by Gregg Caines. I am still playing with that idea when I can.</p>
 
 
 

@@ -158,125 +158,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-&nbsp;I don’t know if there is another name for this pattern, but I’ve been calling it “progressive admission” and using it for many years.
-</p>
-<p>
-It is a story splitting skill, related to the “walking skelton” AKA “tracer bullet” technique.
-</p>
-<p>
-Say you are about to build a program that reads from a message queue and processes messages.&nbsp;
-</p>
-<h2 style="text-align: left;" class="anchored">
-Start Closed
-</h2>
-<p>
-The first stage is to build the end-to-end system (reader, checker) that does nothing. No matter what you feed it, the front-end checker (correctly) reports that it’s not implemented. This is beginning <i>all closed.&nbsp;</i>
-</p>
-<p>
-At this stage, you can start testing the clients and the exception handling/reporting.&nbsp;
-</p>
-<h2 style="text-align: left;" class="anchored">
-First Admissions
-</h2>
-<div>
-Now you pick the simplest message. It could be a health message or an ill-formed message. This one message or message type is <i>admitted</i>. The program correctly rejects the ill-formed message, or answers the health message with a hard-coded message result.
-</div>
-<div>
-<br>
-</div>
-<div>
-At this time, all other messages are rejected by default. The chosen message is the only exception. It is “admitted” to the processing side.
-</div>
-<div>
-<br>
-</div>
-<div>
-The system is not only unit-testable (ensure it rejects ill-formed messages) but it is end-to-end testable and could be harmlessly deployed.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-Additional Admissions
-</h2>
-<div>
-Continue handling specific messages while all others are rejected as “not implemented” still.
-</div>
-<div>
-<br>
-</div>
-<div>
-Eventually you will be set to handle the simplest, or most common, or most interesting message. You will admit exactly one kind of message that slips past the checker into the processing section. Instead of rejecting it as unimplemented, you build a simple implementation.
-</div>
-<div>
-<br>
-</div>
-<div>
-This one kind of message is truly implemented. You have widened the admission by one message type or shape.&nbsp; Any message that doesn’t come in that shape is rejected as invalid or not implemented.
-</div>
-<div>
-<br>
-</div>
-<div>
-You can likely admit one message at a time and possibly cover several iterations in a day. Each is well tested (unit and end-to-end). You can TDD these, refactoring after every green state.
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-“Final” Admission
-</h2>
-<div>
-At some point, you will have implemented the last of the planned messages, and you’ve done so with full testing, and any message that “surprises” the service is rejected according to a well-established pattern.
-</div>
-<div>
-<br>
-</div>
-<div>
-The service is probably already deployed and likely has been doing useful work for some time. You didn’t have to wait until you covered all the cases and all the corner cases – this was automatically done with sharp focus.
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-Continuing Admissions
-</h2>
-<div>
-Software tends to never be finished as long as people are using it. Each change to a message and every new message or schema can be implemented fairly easily using progressive admission for the various shapes and conditions that apply.
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-Versioned Interfaces
-</h2>
-<div>
-It’s wise to version your interfaces. When you add a message, you bump the minor version. Only when an existing message is changed or deprecated will you bump the major. Only changes to existing messages are “breaking” changes.
-</div>
-<h2 style="text-align: left;" class="anchored">
-Applicability
-</h2>
-<div>
-It’s not just message-processing applications. It’s anything with a clear input-processing-output cycle. This is easier to imagine with a microservice that reads a queue, but it can be a batch file input, or http operations, or just about anything, including input fields and UI controls.
-</div>
-<div>
-<br>
-</div>
-<div>
-I’m not saying that you can, must, or should do everything this way, but it’s a pattern worth considering.
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-AKA
-</h2>
-<div>
-I don’t know if someone already named this - I’d be shocked if nobody did. It’s a handy way to slice story implementation, though. As I find other names, I’ll list them here with links.
-</div>
+<p>I don’t know if there is another name for this pattern, but I’ve been calling it “progressive admission” and using it for many years.</p>
+<p>It is a story splitting skill, related to the “walking skelton” AKA “tracer bullet” technique.</p>
+<p>Say you are about to build a program that reads from a message queue and processes messages.</p>
+<section id="start-closed" class="level2">
+<h2 class="anchored" data-anchor-id="start-closed">Start Closed</h2>
+<p>The first stage is to build the end-to-end system (reader, checker) that does nothing. No matter what you feed it, the front-end checker (correctly) reports that it’s not implemented. This is beginning <em>all closed.</em></p>
+<p>At this stage, you can start testing the clients and the exception handling/reporting.</p>
+</section>
+<section id="first-admissions" class="level2">
+<h2 class="anchored" data-anchor-id="first-admissions">First Admissions</h2>
+<p>Now you pick the simplest message. It could be a health message or an ill-formed message. This one message or message type is <em>admitted</em>. The program correctly rejects the ill-formed message, or answers the health message with a hard-coded message result.</p>
+<p>At this time, all other messages are rejected by default. The chosen message is the only exception. It is “admitted” to the processing side.</p>
+<p>The system is not only unit-testable (ensure it rejects ill-formed messages) but it is end-to-end testable and could be harmlessly deployed.</p>
+</section>
+<section id="additional-admissions" class="level2">
+<h2 class="anchored" data-anchor-id="additional-admissions">Additional Admissions</h2>
+<p>Continue handling specific messages while all others are rejected as “not implemented” still.</p>
+<p>Eventually you will be set to handle the simplest, or most common, or most interesting message. You will admit exactly one kind of message that slips past the checker into the processing section. Instead of rejecting it as unimplemented, you build a simple implementation.</p>
+<p>This one kind of message is truly implemented. You have widened the admission by one message type or shape. Any message that doesn’t come in that shape is rejected as invalid or not implemented.</p>
+<p>You can likely admit one message at a time and possibly cover several iterations in a day. Each is well tested (unit and end-to-end). You can TDD these, refactoring after every green state.</p>
+</section>
+<section id="final-admission" class="level2">
+<h2 class="anchored" data-anchor-id="final-admission">“Final” Admission</h2>
+<p>At some point, you will have implemented the last of the planned messages, and you’ve done so with full testing, and any message that “surprises” the service is rejected according to a well-established pattern.</p>
+<p>The service is probably already deployed and likely has been doing useful work for some time. You didn’t have to wait until you covered all the cases and all the corner cases – this was automatically done with sharp focus.</p>
+</section>
+<section id="continuing-admissions" class="level2">
+<h2 class="anchored" data-anchor-id="continuing-admissions">Continuing Admissions</h2>
+<p>Software tends to never be finished as long as people are using it. Each change to a message and every new message or schema can be implemented fairly easily using progressive admission for the various shapes and conditions that apply.</p>
+</section>
+<section id="versioned-interfaces" class="level2">
+<h2 class="anchored" data-anchor-id="versioned-interfaces">Versioned Interfaces</h2>
+<p>It’s wise to version your interfaces. When you add a message, you bump the minor version. Only when an existing message is changed or deprecated will you bump the major. Only changes to existing messages are “breaking” changes.</p>
+</section>
+<section id="applicability" class="level2">
+<h2 class="anchored" data-anchor-id="applicability">Applicability</h2>
+<p>It’s not just message-processing applications. It’s anything with a clear input-processing-output cycle. This is easier to imagine with a microservice that reads a queue, but it can be a batch file input, or http operations, or just about anything, including input fields and UI controls.</p>
+<p>I’m not saying that you can, must, or should do everything this way, but it’s a pattern worth considering.</p>
+</section>
+<section id="aka" class="level2">
+<h2 class="anchored" data-anchor-id="aka">AKA</h2>
+<p>I don’t know if someone already named this - I’d be shocked if nobody did. It’s a handy way to slice story implementation, though. As I find other names, I’ll list them here with links.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

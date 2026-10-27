@@ -158,7 +158,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>So you have a method defined on an abstract base class, and you are going be messing with it. Someone decided to hang a deep inheritance hierarchy (deep to me means three levels or more) on the class. You want to know who is using an inherited method.<br><br>What G (Tim Gifford) did was pretty simple, but mighty handy. He just declared an override method on the abtract class’s method, and used resharper’s methods (show usages, show inheritors). <br><br>Quick intelligence, little real effort, and you delete the override method when you’re done.<br><br>This is almost as nice as Dave Chelimsky’s trick of commenting out a variable declaration in order to see where the variable is used. In VS.NET + Resharper, all the usages turn red. :-)</p>
+<p>So you have a method defined on an abstract base class, and you are going be messing with it. Someone decided to hang a deep inheritance hierarchy (deep to me means three levels or more) on the class. You want to know who is using an inherited method.</p>
+<p>What G (Tim Gifford) did was pretty simple, but mighty handy. He just declared an override method on the abtract class’s method, and used resharper’s methods (show usages, show inheritors).</p>
+<p>Quick intelligence, little real effort, and you delete the override method when you’re done.</p>
+<p>This is almost as nice as Dave Chelimsky’s trick of commenting out a variable declaration in order to see where the variable is used. In VS.NET + Resharper, all the usages turn red. :-)</p>
 
 
 

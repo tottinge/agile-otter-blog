@@ -158,150 +158,128 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div dir="ltr" style="text-align: left;" data-trbidi="on">
-<br> <br> WARNING: the blogger “WYSIWYG” editor is really not very good about the “WYSIWYG” bit… so this article looks great in the editor but is a real crapshow in the actual post. I’m fixing it. Be kind, and bear with me.<br> <br> In <a href="https://elearning.industriallogic.com/gh/submit?Action=BrowseAlbumsAction">our eLearning</a>, we publish problems and solutions. Sometimes people contribute other solutions and we show those as well. Today’s sample comes from our Test-Driven Development album.<br> <br>
-<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><img alt="Album Art for Test-Driven Development" height="250" src="https://lh4.googleusercontent.com/rhQ5lDtf5Bnc8ZywYZetPzKzChINpt33KTm5agGsNBX5DVkYS6CpPJUC1x-k-tpPqGnKQu45_EaWsNyvgAp3md8IWre9iBb5l9MTnD5ZACn61dNkWgq0MDQfqFTnPT6l6slLFTGJ" style="-webkit-transform: rotate(0.00rad); border: none; transform: rotate(0.00rad);" width="250"></span>
-</div>
-<b style="font-weight: normal;"><br></b> <br> <br> Geepaw hill tells us “everything matters” – so today I’m going to nitpick at something that (in this case) is tiny and you might consider it insignificant. So be it.<br> <br> But just the same, I would like to introduce you to a process that can improve your code and design in ways subtle and profound.<br> <br> In this case, it stays a little to the subtle side, but that’s okay for a blog.<br> <br> Here is a source code example:<br> <br><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.GOLD, 900, 1), 49.95); <br>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.GOLD, 900, 2), 64.45); <br>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 1), 29.95); <br>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 3), 72.95);</span><br><br>This test is checking a hypothetical phone billing calculation.<br> <br> Let’s look at these lines and figure out how much unique content exists per line.<br>
-<h3 style="line-height: 1.38; margin-bottom: 2pt; margin-top: 12pt; text-align: left;" class="anchored">
-<span style="background-color: transparent; color: #434343; font-family: &quot;arial&quot;; font-size: 13.999999999999998pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br></span>
-</h3>
-<h3 style="line-height: 1.38; margin-bottom: 2pt; margin-top: 12pt; text-align: left;" class="anchored">
-<span style="background-color: transparent; color: #434343; font-family: &quot;arial&quot;; font-size: 13.999999999999998pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">De-Noise-Ify</span>
-</h3>
-<b style="font-weight: normal;"><br></b> <br> Duplicated:<br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.</span>
-</blockquote>
-<b style="font-weight: normal;"><br></b> <br> 56 characters of every line are duplicated. You probably didn’t even read them after the first line.<b style="font-weight: normal;"><br></b> <br>
-<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br></span> <span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">Unique:</span><br> <span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br></span>
-</div>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">GOLD, 900, 1), 49.95);<br> </span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">GOLD, 900, 2), 64.45);<br> </span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">SILVER, 490, 1), 29.95);<br> </span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">SILVER, 490, 3), 72.95);</span>
-</blockquote>
-<p><br></p>
-<br> About 25 characters are <i>not</i> the duplicated prefix.<br> <br> Of these, even fewer are unique (if you drop punctuation).<br> <br> With 2/3 of every line being noise, it’s pretty obvious that this code is inviting you to copy and paste. Heck, it’s practically demanding it.<br> <br> How many times would you want to type those first 56 characters (plus indentation)?<br> <br> Most of the time when people copy and paste, it’s because the code asks them to do that.<br> <br> I’m willing to wager a pleasant adult beverage that the four-line test was written by copying the first line three times.<br> <br> If we were to get minimal noise, it might look like this:<b style="font-weight: normal;"><br></b> <br> <span style="font-family: Courier New, Courier, monospace; font-size: x-small;">
-<div>
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;"><br></span>
-</div>
-&nbsp; &nbsp; SILVER 490 3 72.95</span><b style="font-weight: normal;"><br></b> <br>
-<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">Now we’ve got it to four points of data, and that’s pretty noiseless. Do you know what it means? </span><span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span>
-</div>
-<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br></span> <span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">Nope. I didn’t think so.</span><br> <span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> </span><span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span>
-</div>
-<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">This has all the noise removed, but also all the information. </span>
-</div>
-<b style="font-weight: normal;"><br></b> <br>
-<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">If you have near-zero signal, then having low noise doesn’t help.</span>
-</div>
-<b style="font-weight: normal;"><br></b> <br>
-<div dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">But if you have little signal, having a lot of noise doesn’t make it any better either. </span>
-</div>
-<b style="font-weight: normal;"><br></b> <br>
-<h3 style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt; text-align: left;" class="anchored">
-<span style="background-color: transparent; color: #434343; font-family: &quot;arial&quot;; font-size: 13.999999999999998pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;">Find Significance</span>
-</h3>
-<b style="font-weight: normal;"><br></b> <br> <br> There is a violation of the fidelity rule here. The fidelity rule tells us this:<br>
-<blockquote class="tr_bq blockquote">
-<b>One reads the tests to understand the code. One does not read the code to understand what the test does.</b>
-</blockquote>
-<br> The first three numbers describe facts about a simple phone bill.<br> <br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;">public static double calculateRate(int plan, int minutes, int numLines)</span>
-</blockquote>
-<br> <br> The other is the expected amount of the calculation (here done in decimal because it’s just a teaching example). <br> <br> So when the plan is type=SILVER, and billing is for 3 lines and 490 minutes of use, the expected result is $72.95. <br> <br> Now the question is how to phrase this. We are a little stymied because there are two different kinds of plans being tested here for two different conditions each. We’re not going to come up with a test name that reflects that because it’s a number of different ideas.<br> <br> Maybe the tests are too big.<br>
-<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
-<span style="text-decoration-color: initial; text-decoration-style: initial;"><span style="font-weight: normal;">We could divide the tests into GOLD tests and SILVER tests.&nbsp;</span></span>
-</h4>
-<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
-<span style="font-weight: normal;">We could make four different tests.</span>
-</h4>
-<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
-<span style="text-decoration-color: initial; text-decoration-style: initial;"><span style="font-weight: normal;">We could lean on naming.</span></span>
-</h4>
-<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
-<span style="text-decoration-color: initial; text-decoration-style: initial;"><span style="font-weight: normal;">We could add comments.</span></span>
-</h4>
-<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
-<span style="font-weight: normal;">We could just look more deeply at the code…</span>
-</h4>
-<h4 dir="ltr" style="line-height: 1.464; margin-bottom: 2pt; margin-top: 12pt;" class="anchored">
-<span style="text-decoration-color: initial; text-decoration-style: initial;"><span style="font-weight: normal;">When we look at the code we see that the algorithm is the same regardless of plan. Only some numerical values change per plan. That’s interesting.</span></span>
-</h4>
-<h3 style="text-align: left;" class="anchored">
-<br>Exalt the Significant
-</h3>
-<div style="text-align: left;">
+<p>WARNING: the blogger “WYSIWYG” editor is really not very good about the “WYSIWYG” bit… so this article looks great in the editor but is a real crapshow in the actual post. I’m fixing it. Be kind, and bear with me.</p>
+<p>In <a href="https://elearning.industriallogic.com/gh/submit?Action=BrowseAlbumsAction">our eLearning</a>, we publish problems and solutions. Sometimes people contribute other solutions and we show those as well. Today’s sample comes from our Test-Driven Development album.</p>
+<p><img src="../assets/a-little-signal-to-noise-1.jpg" alt="Album Art for Test-Driven Development" width="250" height="250"></p>
+<p>Geepaw hill tells us “everything matters” – so today I’m going to nitpick at something that (in this case) is tiny and you might consider it insignificant. So be it.</p>
+<p>But just the same, I would like to introduce you to a process that can improve your code and design in ways subtle and profound.</p>
+<p>In this case, it stays a little to the subtle side, but that’s okay for a blog.</p>
+<p>Here is a source code example:</p>
+<pre class="text"><code>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.GOLD, 900, 1), 49.95);
+AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.GOLD, 900, 2), 64.45);
+AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 1), 29.95);
+AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 3), 72.95);</code></pre>
+<p>This test is checking a hypothetical phone billing calculation.</p>
+<p>Let’s look at these lines and figure out how much unique content exists per line.</p>
+<section id="de-noise-ify" class="level2">
+<h2 class="anchored" data-anchor-id="de-noise-ify">De-Noise-Ify</h2>
+<p>Duplicated:</p>
+<pre class="text"><code>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.</code></pre>
+<p>56 characters of every line are duplicated. You probably didn’t even read them after the first line.</p>
+<p>Unique:</p>
+<pre class="text"><code>GOLD, 900, 1), 49.95);
+ GOLD, 900, 2), 64.45);
+ SILVER, 490, 1), 29.95);
+ SILVER, 490, 3), 72.95);</code></pre>
+<p>About 25 characters are <em>not</em> the duplicated prefix.</p>
+<p>Of these, even fewer are unique (if you drop punctuation).</p>
+<p>With 2/3 of every line being noise, it’s pretty obvious that this code is inviting you to copy and paste. Heck, it’s practically demanding it.</p>
+<p>How many times would you want to type those first 56 characters (plus indentation)?</p>
+<p>Most of the time when people copy and paste, it’s because the code asks them to do that.</p>
+<p>I’m willing to wager a pleasant adult beverage that the four-line test was written by copying the first line three times.</p>
+<p>If we were to get minimal noise, it might look like this:</p>
+<pre class="text"><code>
 
-</div>
-<br> <br> Possibly we could rework the code a bit. I’m going to take some liberties and not actually build and run this, but just examine some different organization.<br> <br>
-<div dir="ltr" style="line-height: 1.464; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var baseRate = 29.95;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var included=500;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var extraMinutesRate=0.54;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var extraLines=21.50;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var baseRate = 29.95;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var included=500;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var extraMinutesRate=0.54;</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var extraLines=21.50;</span><span style="background-color: transparent; color: black; font-family: &quot;arial&quot;; font-size: 11pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> </span>
-</div>
-<b style="font-weight: normal;"><br></b> <br>
-<div dir="ltr" style="line-height: 1.464; margin-bottom: 0pt; margin-top: 0pt;">
-<span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> var silver = new Plan(baseRate, extraLines, quota, extraMin);</span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"><br class="kix-line-break"></span><span style="background-color: transparent; color: black; font-family: &quot;courier new&quot;; font-size: 10pt; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre;"> assertEqual(72.95, silver.calculate(lines=3, minutes=490));</span>
-</div>
-<b style="font-weight: normal;"><br></b> <br> There is more to this, though.<br>
-<div>
-<ul style="text-align: left;">
-<li>
-The significance of 490 minutes is that it is less than 500.&nbsp;
-</li>
-<li>
-The significance of 3 is that it’s two more lines than the 1 included in the plan.
-</li>
-<li>
-<span style="color: black; font-family: &quot;times new roman&quot;; font-size: 11pt; vertical-align: baseline; white-space: pre;">I</span>n this test, the extraMinutesRate is insignificant. It’s a shame we have to provide it.
-</li>
-</ul>
-<div style="line-height: 1.464; margin-bottom: 0pt; margin-top: 0pt;">
-<br> I’m not even going to talk about the primitive obsession, using floats for money, or any of the other obvious issues here. Especially not having small classes for minutes, and for money, and type-safe function parameters to keep us from shooting ourselves in the foot via mishandling of variables. Far be it from me to mention any of that. This is, after all, a training exercise.
-</div>
-<h3 style="text-align: left;" class="anchored">
-<br>Avoid Duplication
-</h3>
-<div style="text-align: left;">
-
-</div>
-<br> <br> Now we’re getting closer to something that can be understood from the test. The signal is increased considerably. That’s a good thing. Sadly, these numbers are going to be all over the tests and duplicated in the production code. <br> <br> That violates the Single Point Of Truth (SPOT) principle, and also damages our signal-to-noise ratio. <br> <br> Now we’ll have numbers all over the place duplicating numbers in other places, and we’ll have to be careful to ensure that they all agree when they should. Ew. We need something better.<br> <br> Maybe what we need now is to create a record type to hold the variables for different rates. Let’s call them GOLD_RATE_PACKAGE and SILVER_RATE_PACKAGE for now.<br> <br> And then we could create constants that further exalt the DIFFERENCES in numbers, rather than just stating a number and leaving it to the reader to reverse-engineer the tester’s choices.<br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace; font-size: x-small;"><br></span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">var silver = new Plan(SILVER_RATE_PACKAGE);</span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">var underQuota = SILVER_RATE_PACKAGE.minutes_quota - 1;<br> </span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AssertEqual( 29.95, silver.calculate(minutes=underQuota, lines=1));</span><span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AssertEqual( 72.95, silver.calculate(minutes=underQuota, lines=3));</span>
+    SILVER 490 3 72.95</code></pre>
+<p>Now we’ve got it to four points of data, and that’s pretty noiseless. Do you know what it means?</p>
+<p>Nope. I didn’t think so.</p>
+<p>This has all the noise removed, but also all the information.</p>
+<p>If you have near-zero signal, then having low noise doesn’t help.</p>
+<p>But if you have little signal, having a lot of noise doesn’t make it any better either.</p>
+</section>
+<section id="find-significance" class="level2">
+<h2 class="anchored" data-anchor-id="find-significance">Find Significance</h2>
+<p>There is a violation of the fidelity rule here. The fidelity rule tells us this:</p>
+<blockquote class="blockquote">
+<p><strong>One reads the tests to understand the code. One does not read the code to understand what the test does.</strong></p>
 </blockquote>
-<br>This could be taken further, but consider this example v. the original.<br> <span style="font-family: Courier New, Courier, monospace; font-size: x-small;"><br></span> <span style="font-family: Courier New, Courier, monospace; font-size: x-small;">AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 1), 29.95); <br>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 3), 72.95);</span><br> <br> On one hand, they assertions are <i>almost</i> exactly the same. On the other hand, there is a <i>huge difference </i>in the signal-to-noise ratio and the places one has to look to research why the first answer should be 29.95.<br>
-<h3 style="text-align: left;" class="anchored">
-<br>So Friggin What?
-</h3>
-<br> The point of this is not “my code is better than yours” or “I’m cooler than you” (which is almost certainly false).<br> <br> What I’m suggesting is that there are subtle-but-different changes even in simple code if we consider the signal-to-noise ratio in our code.<br>
+<p>The first three numbers describe facts about a simple phone bill.</p>
+<pre class="text"><code>public static double calculateRate(int plan, int minutes, int numLines)</code></pre>
+<p>The other is the expected amount of the calculation (here done in decimal because it’s just a teaching example).</p>
+<p>So when the plan is type=SILVER, and billing is for 3 lines and 490 minutes of use, the expected result is $72.95.</p>
+<p>Now the question is how to phrase this. We are a little stymied because there are two different kinds of plans being tested here for two different conditions each. We’re not going to come up with a test name that reflects that because it’s a number of different ideas.</p>
+<p>Maybe the tests are too big.</p>
+<section id="we-could-divide-the-tests-into-gold-tests-and-silver-tests." class="level3">
+<h3 class="anchored" data-anchor-id="we-could-divide-the-tests-into-gold-tests-and-silver-tests.">We could divide the tests into GOLD tests and SILVER tests.</h3>
+</section>
+<section id="we-could-make-four-different-tests." class="level3">
+<h3 class="anchored" data-anchor-id="we-could-make-four-different-tests.">We could make four different tests.</h3>
+</section>
+<section id="we-could-lean-on-naming." class="level3">
+<h3 class="anchored" data-anchor-id="we-could-lean-on-naming.">We could lean on naming.</h3>
+</section>
+<section id="we-could-add-comments." class="level3">
+<h3 class="anchored" data-anchor-id="we-could-add-comments.">We could add comments.</h3>
+</section>
+<section id="we-could-just-look-more-deeply-at-the-code" class="level3">
+<h3 class="anchored" data-anchor-id="we-could-just-look-more-deeply-at-the-code">We could just look more deeply at the code…</h3>
+</section>
+<section id="when-we-look-at-the-code-we-see-that-the-algorithm-is-the-same-regardless-of-plan.-only-some-numerical-values-change-per-plan.-thats-interesting." class="level3">
+<h3 class="anchored" data-anchor-id="when-we-look-at-the-code-we-see-that-the-algorithm-is-the-same-regardless-of-plan.-only-some-numerical-values-change-per-plan.-thats-interesting.">When we look at the code we see that the algorithm is the same regardless of plan. Only some numerical values change per plan. That’s interesting.</h3>
+</section>
+</section>
+<section id="exalt-the-significant" class="level2">
+<h2 class="anchored" data-anchor-id="exalt-the-significant">Exalt the Significant</h2>
+<p>Possibly we could rework the code a bit. I’m going to take some liberties and not actually build and run this, but just examine some different organization.</p>
+<pre class="text"><code> var baseRate = 29.95;
+ var included=500;
+ var extraMinutesRate=0.54;
+ var extraLines=21.50;
+ var baseRate = 29.95;
+ var included=500;
+ var extraMinutesRate=0.54;
+ var extraLines=21.50;
+ var silver = new Plan(baseRate, extraLines, quota, extraMin);
+ assertEqual(72.95, silver.calculate(lines=3, minutes=490));</code></pre>
+<p>There is more to this, though.</p>
 <ul>
-<li>
-<i>De-Noise-ify </i>
-</li>
-<li>
-<i>Find and Exalt the Significant&nbsp;</i>
-</li>
-<li>
-<i>Avoid Duplication&nbsp;</i>
-</li>
+<li>The significance of 490 minutes is that it is less than 500.</li>
+<li>The significance of 3 is that it’s two more lines than the 1 included in the plan.</li>
+<li>In this test, the extraMinutesRate is insignificant. It’s a shame we have to provide it.</li>
 </ul>
-<br> As a result, you end up with code that is more obvious at a glance and likely has a better design as well.<br> <br> This matters to me because I care about the code rather deeply.
-</div>
-<div>
-<br> Maybe you don’t like it as well as the original.<br> <br> That’s okay, but what do you come up with when you follow the same process?
-</div>
-<div>
-<br>
-</div>
-</div>
+<p>I’m not even going to talk about the primitive obsession, using floats for money, or any of the other obvious issues here. Especially not having small classes for minutes, and for money, and type-safe function parameters to keep us from shooting ourselves in the foot via mishandling of variables. Far be it from me to mention any of that. This is, after all, a training exercise.</p>
+</section>
+<section id="avoid-duplication" class="level2">
+<h2 class="anchored" data-anchor-id="avoid-duplication">Avoid Duplication</h2>
+<p>Now we’re getting closer to something that can be understood from the test. The signal is increased considerably. That’s a good thing. Sadly, these numbers are going to be all over the tests and duplicated in the production code.</p>
+<p>That violates the Single Point Of Truth (SPOT) principle, and also damages our signal-to-noise ratio.</p>
+<p>Now we’ll have numbers all over the place duplicating numbers in other places, and we’ll have to be careful to ensure that they all agree when they should. Ew. We need something better.</p>
+<p>Maybe what we need now is to create a record type to hold the variables for different rates. Let’s call them GOLD_RATE_PACKAGE and SILVER_RATE_PACKAGE for now.</p>
+<p>And then we could create constants that further exalt the DIFFERENCES in numbers, rather than just stating a number and leaving it to the reader to reverse-engineer the tester’s choices.</p>
+<pre class="text"><code>
+var silver = new Plan(SILVER_RATE_PACKAGE);var underQuota = SILVER_RATE_PACKAGE.minutes_quota - 1;
+ AssertEqual( 29.95, silver.calculate(minutes=underQuota, lines=1));AssertEqual( 72.95, silver.calculate(minutes=underQuota, lines=3));</code></pre>
+<p>This could be taken further, but consider this example v. the original.</p>
+<pre class="text"><code>AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 1), 29.95);
+AreEqualWithPrecision(PhoneBill.calculateRate(PhoneBill.SILVER, 490, 3), 72.95);</code></pre>
+<p>On one hand, they assertions are <em>almost</em> exactly the same. On the other hand, there is a <em>huge difference</em> in the signal-to-noise ratio and the places one has to look to research why the first answer should be 29.95.</p>
+</section>
+<section id="so-friggin-what" class="level2">
+<h2 class="anchored" data-anchor-id="so-friggin-what">So Friggin What?</h2>
+<p>The point of this is not “my code is better than yours” or “I’m cooler than you” (which is almost certainly false).</p>
+<p>What I’m suggesting is that there are subtle-but-different changes even in simple code if we consider the signal-to-noise ratio in our code.</p>
+<ul>
+<li><em>De-Noise-ify</em></li>
+<li><em>Find and Exalt the Significant</em></li>
+<li><em>Avoid Duplication</em></li>
+</ul>
+<p>As a result, you end up with code that is more obvious at a glance and likely has a better design as well.</p>
+<p>This matters to me because I care about the code rather deeply.</p>
+<p>Maybe you don’t like it as well as the original.</p>
+<p>That’s okay, but what do you come up with when you follow the same process?</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

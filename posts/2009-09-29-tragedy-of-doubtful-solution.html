@@ -158,11 +158,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<span style="font-weight: bold;">The Background</span><br> <br> I (re)tell a story frequently about a place I worked in the 90s. There was a piece of code with an absurd cyclomatic complexity score, running literally hundreds of lines in length, and being called from myriad places in the code base.<br> <br> The code was written to check to see if two ranges were overlapping. Being written in a poor 4GL, it took four parameters representing the starting and stopping dates of two time ranges. Such a simple task for the code to be so horrible and lengthy. In C it would look rather like this:<br>
-<pre class="code"> bool ranges_are_overlapping(int a, int b, int c, int d){
- }</pre>
-<br> It quickly became clear to the most casual reader that the ranges were a..b and c..d. Well, sort of. The code was defensive and was written with the understanding that the range-defining arguments could be somewhat unordered:<br>
-<pre class="code"> if ( (a&lt;b) &amp;&amp; (c&lt;d) ) {
+<p><strong>The Background</strong></p>
+<p>I (re)tell a story frequently about a place I worked in the 90s. There was a piece of code with an absurd cyclomatic complexity score, running literally hundreds of lines in length, and being called from myriad places in the code base.</p>
+<p>The code was written to check to see if two ranges were overlapping. Being written in a poor 4GL, it took four parameters representing the starting and stopping dates of two time ranges. Such a simple task for the code to be so horrible and lengthy. In C it would look rather like this:</p>
+<pre class="text"><code>
+ bool ranges_are_overlapping(int a, int b, int c, int d){
+ }</code></pre>
+<p>It quickly became clear to the most casual reader that the ranges were a..b and c..d. Well, sort of. The code was defensive and was written with the understanding that the range-defining arguments could be somewhat unordered:</p>
+<pre class="text"><code>
+ if ( (a&lt;b) &amp;&amp; (c&lt;d) ) {
     // blah blah
  }
  else if ( (a==b) &amp;&amp; (c&lt;d) ){
@@ -188,9 +192,10 @@ ul.task-list li input[type="checkbox"] {
  }
  else if ( (a&gt;b) &amp;&amp; (c&gt;d) ){
     // blah blah
- }</pre>
-<br> Now, of course, even once we square away the range markers, there are a whole host of possibilities. A could be less than, equal to, or greater than C, and B could likewise be greater than, less than, or equal to D. <br>
-<pre class="code">     if ( (a&lt;c) &amp;&amp; (b&lt;d)) {
+ }</code></pre>
+<p>Now, of course, even once we square away the range markers, there are a whole host of possibilities. A could be less than, equal to, or greater than C, and B could likewise be greater than, less than, or equal to D.</p>
+<pre class="text"><code>
+     if ( (a&lt;c) &amp;&amp; (b&lt;d)) {
         // Lets call this "inner block"
         if ( b &gt; c ) {
         }
@@ -223,9 +228,13 @@ ul.task-list li input[type="checkbox"] {
      }
      else if ( (a&gt;c) &amp;&amp; (b&gt;d)) {
        // cut/paste/edit "inner block" from above
-     }</pre>
-<br> Of course, each permutation of the range start and end relationship would require a full repetition of the comparisons of the range starts and ends complete with cut-n-paste-n-edit inner blocks. We do not attempt to recreate the entire mess here.<br> <br> I bet the programmer responsible for this routine wrote more lines of code that day than anyone else on the team. What he lacked in efficiency, he made up in diligence.<br> <br> The code was correct in its results, but it was huge and slow and tedious to desk-check. It had no tests, automated or otherwise. <br> <br> I replaced it with the rather ordinary and obvious solution:<br>
-<pre class="code">
+     }</code></pre>
+<p>Of course, each permutation of the range start and end relationship would require a full repetition of the comparisons of the range starts and ends complete with cut-n-paste-n-edit inner blocks. We do not attempt to recreate the entire mess here.</p>
+<p>I bet the programmer responsible for this routine wrote more lines of code that day than anyone else on the team. What he lacked in efficiency, he made up in diligence.</p>
+<p>The code was correct in its results, but it was huge and slow and tedious to desk-check. It had no tests, automated or otherwise.</p>
+<p>I replaced it with the rather ordinary and obvious solution:</p>
+<pre class="text"><code>
+
  int left_start = min(a,b);
  int left_end = max(a,b);
 
@@ -233,8 +242,23 @@ ul.task-list li input[type="checkbox"] {
  int right_end = max(c,d);
 
  bool distinct = ( left_end &lt; right_start) || (right_end &lt; left_start);
- return !distinct;</pre>
-<p><br> Straighten out the begin/end so you don’t need a Cartesian explosion of <span style="font-style: italic;">if</span> statements, and then look at the ranges. When either range ends before the other starts, there is no overlap. Otherwise, you have overlap.<br> <br> It is hardly a miracle of profound logic or deep mathematical insight. Nor of excessive typing and careful editing.<br> <br> Young Tim actually had to work that out on paper. It worked great, was much smaller and simpler, and ran much faster than the ugly monstrosity that was there before.<br> <br> The reason I’m writing this is not to express that I’m revolted by bad code or to brag that I replaced it with good code. It is not to ridicule diligent-yet-misguided junior programmers. The point of this blog is what happened next.<br> <br> <span style="font-weight: bold;">What Happened Next</span><br> <br> I was called into the boss’ office. Someone noticed my code improvement! He showed me the old code and the new, both printed out in neat stacks on his desk. I grinned and said “Yes, it’s much faster now.” <br> <br> He didn’t smile back. He frowned. <br> <br> He told me that it was clear from the original code that the author had thought through all of the possible scenarios and had accounted for them. Mine, on the other hand, showed no such diligence. I clearly had not put any real effort into my work. My answer was too small. Even though they couldn’t make it fail in testing (yet), he knew that I must have left something out. As a result of disbelief in my abilities, he was rolling back my change. <br> <br> I was upset that a small working algorithm was about to be tossed out and a messy steaming pile of code put back in. I was more upset with the accusation that I did not think through the cases, and that (despite all evidence to the contrary!) I had written an insufficient piece of code. <br> <br> I tried to defend my solution, even pulling out my scrap paper with all the overlap scenarios on it, but it was too late. The decision was made. I and my solution were obviously inferior. Chastised, I returned to work at my desk.<br> <br> I began to lose interest in the company where I had previously intended to spend my entire career. In time I left and have had a good time of it.<br> <br> <span style="font-weight: bold;">The Payoff</span><br> <br> Why blog about it in 2009? Because my TDD associates have blogged and tweeted about how, in TDD, the code becomes more generic as the tests become more specific.<br> <br> If the Tim of 1994 had known about TDD, he would have built up a large and specific base of tests covering all the cases represented by the old code. His tests would have demonstrated that he’d thought through all the permutations, and the simpler solution might have been fielded. Tim would have been saved a moment of humiliation, and that poor application would have gotten a boost in performance.<br> <br> TDD would have made the code better, and it would have improved the experience I had there. It would have given me visible evidence of my thinking. With a body of unit tests, there is proof that we’ve thought things through. An oblique, small solution cannot provide that on its own. <br> <br> Young programmers: consider this advice. The more elegant solutions you devise will need a body of proof if you are to survive clue-challenged technical managers. If you don’t do TDD for the sake of the code, do it for yourself.</p>
+ return !distinct;</code></pre>
+<p>Straighten out the begin/end so you don’t need a Cartesian explosion of <em>if</em> statements, and then look at the ranges. When either range ends before the other starts, there is no overlap. Otherwise, you have overlap.</p>
+<p>It is hardly a miracle of profound logic or deep mathematical insight. Nor of excessive typing and careful editing.</p>
+<p>Young Tim actually had to work that out on paper. It worked great, was much smaller and simpler, and ran much faster than the ugly monstrosity that was there before.</p>
+<p>The reason I’m writing this is not to express that I’m revolted by bad code or to brag that I replaced it with good code. It is not to ridicule diligent-yet-misguided junior programmers. The point of this blog is what happened next.</p>
+<p><strong>What Happened Next</strong></p>
+<p>I was called into the boss’ office. Someone noticed my code improvement! He showed me the old code and the new, both printed out in neat stacks on his desk. I grinned and said “Yes, it’s much faster now.”</p>
+<p>He didn’t smile back. He frowned.</p>
+<p>He told me that it was clear from the original code that the author had thought through all of the possible scenarios and had accounted for them. Mine, on the other hand, showed no such diligence. I clearly had not put any real effort into my work. My answer was too small. Even though they couldn’t make it fail in testing (yet), he knew that I must have left something out. As a result of disbelief in my abilities, he was rolling back my change.</p>
+<p>I was upset that a small working algorithm was about to be tossed out and a messy steaming pile of code put back in. I was more upset with the accusation that I did not think through the cases, and that (despite all evidence to the contrary!) I had written an insufficient piece of code.</p>
+<p>I tried to defend my solution, even pulling out my scrap paper with all the overlap scenarios on it, but it was too late. The decision was made. I and my solution were obviously inferior. Chastised, I returned to work at my desk.</p>
+<p>I began to lose interest in the company where I had previously intended to spend my entire career. In time I left and have had a good time of it.</p>
+<p><strong>The Payoff</strong></p>
+<p>Why blog about it in 2009? Because my TDD associates have blogged and tweeted about how, in TDD, the code becomes more generic as the tests become more specific.</p>
+<p>If the Tim of 1994 had known about TDD, he would have built up a large and specific base of tests covering all the cases represented by the old code. His tests would have demonstrated that he’d thought through all the permutations, and the simpler solution might have been fielded. Tim would have been saved a moment of humiliation, and that poor application would have gotten a boost in performance.</p>
+<p>TDD would have made the code better, and it would have improved the experience I had there. It would have given me visible evidence of my thinking. With a body of unit tests, there is proof that we’ve thought things through. An oblique, small solution cannot provide that on its own.</p>
+<p>Young programmers: consider this advice. The more elegant solutions you devise will need a body of proof if you are to survive clue-challenged technical managers. If you don’t do TDD for the sake of the code, do it for yourself.</p>
 
 
 

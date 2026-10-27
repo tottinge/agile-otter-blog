@@ -158,158 +158,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="p1">
-Single-entry, single-exit programming was a great breakthrough that led to a serious improvement in the lives of many programmers. In the jurassic period of software development, anyway. In the modern era, among good programmers, I think that single-exit is an example of the many <i>once-best practices</i> that outlive their usefulness.
-</div>
-<div class="p1">
-<p><br></p>
-</div>
-<div class="p1">
-Method length and nesting are our primary enemies. Multiple returns in nested, long methods turn trouble into disaster for the poor developer who has to understand and debug a routine, not to mention the guy who lost the coin toss and has to actually modify it. &nbsp;Once code is bad, multiple returns makes it far worse.
-</div>
-<div class="p1">
-<p><br></p>
-</div>
-<div class="p2">
-Start with pure function length:
-</div>
-<div class="p1">
-
-</div>
+<p>Single-entry, single-exit programming was a great breakthrough that led to a serious improvement in the lives of many programmers. In the jurassic period of software development, anyway. In the modern era, among good programmers, I think that single-exit is an example of the many <em>once-best practices</em> that outlive their usefulness.</p>
+<p>Method length and nesting are our primary enemies. Multiple returns in nested, long methods turn trouble into disaster for the poor developer who has to understand and debug a routine, not to mention the guy who lost the coin toss and has to actually modify it. Once code is bad, multiple returns makes it far worse.</p>
+<p>Start with pure function length:</p>
 <ul>
-<li>
-In a 500-line function two returns is dangerous, and five would be maddening.
-</li>
-<li>
-Drop to 50 lines, and it’s still pretty daunting.
-</li>
-<li>
-Drop to 10 lines, and the risk of missing a return or misunderstanding the method is slight.
-</li>
-<li>
-At 5 lines, there’s no hint of the problem that single-exit solves.
-</li>
+<li>In a 500-line function two returns is dangerous, and five would be maddening.</li>
+<li>Drop to 50 lines, and it’s still pretty daunting.</li>
+<li>Drop to 10 lines, and the risk of missing a return or misunderstanding the method is slight.</li>
+<li>At 5 lines, there’s no hint of the problem that single-exit solves.</li>
 </ul>
-<div class="p2">
-Switch to nesting depth:
-</div>
-<div class="p1">
-
-</div>
+<p>Switch to nesting depth:</p>
 <ul>
-<li>
-&nbsp;If you are nested 15 conditionals and loops deep, that extra return is obscure with a capital O.&nbsp;
-</li>
-<li>
-At 5 conditionals deep it’s frightful. It’s hard to tell at a glance which lines are being executed and when.
-</li>
-<li>
-But what if you’re never more than two levels deep in a function? Returns are crazy obvious.
-</li>
+<li>If you are nested 15 conditionals and loops deep, that extra return is obscure with a capital O.</li>
+<li>At 5 conditionals deep it’s frightful. It’s hard to tell at a glance which lines are being executed and when.</li>
+<li>But what if you’re never more than two levels deep in a function? Returns are crazy obvious.</li>
 </ul>
-<div class="p2">
-See how this one rule serves you supremely well when your code stinks, but does you no favors when your code is short and clear?&nbsp;
-</div>
-<div class="p1">
-
-</div>
-<blockquote class="tr_bq blockquote">
-Q: “Doctor, I broke my arm in two places! What should I do?”<br> A: “Stay out of those places!”
+<p>See how this one rule serves you supremely well when your code stinks, but does you no favors when your code is short and clear?</p>
+<blockquote class="blockquote">
+<p>Q: “Doctor, I broke my arm in two places! What should I do?”<br>
+A: “Stay out of those places!”</p>
 </blockquote>
-<div class="p2">
-Single-entry/single-exit can even be harmful to the readability of an otherwise short function if it forces variables to be created up front instead of at first use, or if it causes code to be more deeply nested.&nbsp;
-</div>
-<div class="p2">
-<p><br></p>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp;int doSomething(int parameter) {</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><span class="Apple-tab-span"></span>&nbsp; &nbsp; &nbsp; &nbsp; int result = 0;</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp; if ( 0 != parameter ) {</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;result = x/parameter;</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp; }</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;return result</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp;}</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br> </span>
-</div>
-<div class="p2">
-<p>Here the real feature of the function (the division) is hidden inside an if clause. It makes the code seem as if its goal is to return zero, and that the division is a side effect that occurs when a condition is just right. It’a s funny de-emphasis of the essential goal of the function.<br> <br></p>
-</div>
-<div class="p1">
-<p>Let’s invert the condition to create a guard clause instead:<br> <br></p>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp;int doSomething(int parameter) {</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;if ( 0 == parameter ) {</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><span class="Apple-tab-span"> </span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return 0;</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;}</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;return x/parameter;</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp;}</span>
-</div>
-<div class="p2">
-<p><br> The actual functionality is exalted, and the early return is more clearly an effect of having a parameter that you must protect against. The readability here is not degraded, but instead enhanced. &nbsp;This is a good time to remind the reader that the shortness of the function makes it so.<br> <br></p>
-</div>
-<div class="p1">
-It is no worse even if I squish an if onto one line (another no-no in many shops).&nbsp;
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp;int doSomething(parameter) {</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;if ( 0 == parameter ) {return 0;}</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;return x/parameter;</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp;}</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br> </span>
-</div>
-<div class="p1">
-The same rule seems to apply when there are more parameters to check and when the work to be done is more than a single line:<br> <br> <br>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp;int doSomething(int parameter1, double parameter2) {</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;if ( 0 == parameter1 ) {</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return 0;</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;}</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;if ( (parameter2 &lt; 0) || (parameter2 &gt; 1)) {</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return 0;</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;}</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;double part1 = parameter2 * x;</span><br> <span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;int result = int(part1/parameter);</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp; &nbsp;return result;</span>
-</div>
-<div class="p3">
-<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">&nbsp; &nbsp; &nbsp;}</span>
-</div>
-<br> <br> We have the advantage that the function is divided into checking parameters and returning results, so it is still pretty readable and clean. There is little nesting, and few lines. On the other hand, the astute reader will notice that we’re up to 11 lines now, and with a little more expansion we could have a Long Method on our hands, at which time the single-exit rule will apply again (welcome back to the Jurassic period).<br> <br> We will outgrow an awful lot of our hard-n-fast rules by writing small, clear functions. A lot of “best practices” are really just “ways to tolerate poor practices.” &nbsp;
-</div>
-<div class="p1">
-<p><br></p>
-</div>
-<div class="p1">
-Some of our old 1970s C programming rules were very valid in their time, but following them when they don’t apply is as silly as a Chicagoan elephant-proofing his bathtub. &nbsp;
-</div>
-<div class="p2">
-<p><br></p>
-</div>
+<p>Single-entry/single-exit can even be harmful to the readability of an otherwise short function if it forces variables to be created up front instead of at first use, or if it causes code to be more deeply nested.</p>
+<pre class="text"><code>     int doSomething(int parameter) {
+        int result = 0;
+        if ( 0 != parameter ) {
+           result = x/parameter;
+        }
+       return result
+     }</code></pre>
+<p>Here the real feature of the function (the division) is hidden inside an if clause. It makes the code seem as if its goal is to return zero, and that the division is a side effect that occurs when a condition is just right. It’a s funny de-emphasis of the essential goal of the function.</p>
+<p>Let’s invert the condition to create a guard clause instead:</p>
+<pre class="text"><code>   int doSomething(int parameter) {
+       if ( 0 == parameter ) {
+            return 0;
+       }
+       return x/parameter;
+   }</code></pre>
+<p>The actual functionality is exalted, and the early return is more clearly an effect of having a parameter that you must protect against. The readability here is not degraded, but instead enhanced. This is a good time to remind the reader that the shortness of the function makes it so.</p>
+<p>It is no worse even if I squish an if onto one line (another no-no in many shops).</p>
+<pre class="text"><code>     int doSomething(parameter) {
+       if ( 0 == parameter ) {return 0;}
+       return x/parameter;
+     }</code></pre>
+<p>The same rule seems to apply when there are more parameters to check and when the work to be done is more than a single line:</p>
+<pre class="text"><code>     int doSomething(int parameter1, double parameter2) {
+       if ( 0 == parameter1 ) {
+           return 0;
+       }
+       if ( (parameter2 &lt; 0) || (parameter2 &gt; 1)) {
+           return 0;
+       }
+       double part1 = parameter2 * x;
+       int result = int(part1/parameter);
+       return result;
+     }</code></pre>
+<p>We have the advantage that the function is divided into checking parameters and returning results, so it is still pretty readable and clean. There is little nesting, and few lines. On the other hand, the astute reader will notice that we’re up to 11 lines now, and with a little more expansion we could have a Long Method on our hands, at which time the single-exit rule will apply again (welcome back to the Jurassic period).</p>
+<p>We will outgrow an awful lot of our hard-n-fast rules by writing small, clear functions. A lot of “best practices” are really just “ways to tolerate poor practices.”</p>
+<p>Some of our old 1970s C programming rules were very valid in their time, but following them when they don’t apply is as silly as a Chicagoan elephant-proofing his bathtub.</p>
 
 
 

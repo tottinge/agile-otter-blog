@@ -152,63 +152,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-So a given web application has an architecture that involves a UI and an API and under that some domain objects, data, etc.
-</p>
-<p>
-When a new feature comes up, there is a <b><i>gherkin test </i></b>that does NOT go through selenium, but directly to the API. In developing the gherkin test, the team drives out the changes needed by the API and gets it working.
-</p>
-<p>
-The gherkin test is a “story test” and checks to see if the system (behind the UI) works correctly. It does data, persistence, etc in a safe way.
-</p>
-<p>
-But to build the code, you are <i><b>doing TDD directly on the API</b></i> and the deeper domain objects. As you do, you are refactoring and committing (of course).
-</p>
-<p>
-The microtests and the gherkin tests together are super-fast, so you run both in<i><b> the auto tester</b></i>. The auto tester re-runs the tests any time the code is changed and compile-able. This means the tests are&nbsp;run many sometimes more than once a minute. You’re always clear where you stand.
-</p>
-<p>
-But of course, there is a web page to deal with. You create <b><i>render tests</i></b> that will turn data (specifically the kind needed or returned by the API) into a web page.&nbsp;
-</p>
-<p>
-Now, these are back-end rendered old-school style. You get that working correctly. <br><br>It works, but is it ugly? Is it awful? Sigh.
-</p>
-<p>
-Okay, you fire up the webserver and look at the page, and sure it’s ugly. You work on the CSS and make it look better. You’re using a d<i><b>evelopment web server that reloads</b></i> the page when the HTML or CSS changes so fixing the aesthetics and flow is fairly quick (if tedious).
-</p>
-<p>
-But where is your automated test to be sure the wiring between the web page and the API is working correctly?&nbsp;
-</p>
-<p>
-Okay, you write some <b>selenium tests</b>. Just the necessary ones, maybe just automating tests you were doing by hand to check out the web page(s) rendering(s).
-</p>
-<p>
-It just so happens that someone built a testing tool that pretends to be the webserver! You write some <i><b>HTTP-level tests</b></i> that do the GET, POST, PUT, DELETE and they run quite fast and give you confidence. You might eventually replace the selenium tests with HTTP-level tests but for now you leave some of them in place.
-</p>
-<p>
-Hey, the app works! You <i><b>deploy</b></i>.&nbsp;
-</p>
-<p>
-You’re ready to move on to the next feature, but your friend brings up a problem.&nbsp;
-</p>
-<p>
-<span style="font-size: medium;">Y<b>our friend mentions that some of the code exercised and checked by the UI test is <i>also</i> checked by other tests.</b></span>
-</p>
-<p>
-The render tests check the DOM, the API tests check message-passing, the microtests check underlying functions, the UI tests are end-to-end: while there are many different tests, many code paths are indeed covered by integration tests and end-to-end tests as well.
-</p>
-<p>
-Your friend says<i> “this is inefficient because the same code is getting coverage more than once.”</i>
-</p>
-<p>
-You smile.<br><br>You know it’s <i><b>not</b></i> inefficient, because you aren’t measuring efficiency by total lines written or the number of times you <i>had to&nbsp;</i>run the tests, or by some standard of minimal coverage.
-</p>
-<p>
-You know that human efficiency is high - it’s a quick, reliable, and safe way to create a system that can be safely refactored, extended, modified.
-</p>
-<p>
-You value safety over efficiency, and efficiency is a side-effect.
-</p>
+<p>So a given web application has an architecture that involves a UI and an API and under that some domain objects, data, etc.</p>
+<p>When a new feature comes up, there is a <strong><em>gherkin test</em></strong> that does NOT go through selenium, but directly to the API. In developing the gherkin test, the team drives out the changes needed by the API and gets it working.</p>
+<p>The gherkin test is a “story test” and checks to see if the system (behind the UI) works correctly. It does data, persistence, etc in a safe way.</p>
+<p>But to build the code, you are <strong><em>doing TDD directly on the API</em></strong> and the deeper domain objects. As you do, you are refactoring and committing (of course).</p>
+<p>The microtests and the gherkin tests together are super-fast, so you run both in <strong><em>the auto tester</em></strong>. The auto tester re-runs the tests any time the code is changed and compile-able. This means the tests are run many sometimes more than once a minute. You’re always clear where you stand.</p>
+<p>But of course, there is a web page to deal with. You create <strong><em>render tests</em></strong> that will turn data (specifically the kind needed or returned by the API) into a web page.</p>
+<p>Now, these are back-end rendered old-school style. You get that working correctly.</p>
+<p>It works, but is it ugly? Is it awful? Sigh.</p>
+<p>Okay, you fire up the webserver and look at the page, and sure it’s ugly. You work on the CSS and make it look better. You’re using a d<strong><em>evelopment web server that reloads</em></strong> the page when the HTML or CSS changes so fixing the aesthetics and flow is fairly quick (if tedious).</p>
+<p>But where is your automated test to be sure the wiring between the web page and the API is working correctly?</p>
+<p>Okay, you write some <strong>selenium tests</strong>. Just the necessary ones, maybe just automating tests you were doing by hand to check out the web page(s) rendering(s).</p>
+<p>It just so happens that someone built a testing tool that pretends to be the webserver! You write some <strong><em>HTTP-level tests</em></strong> that do the GET, POST, PUT, DELETE and they run quite fast and give you confidence. You might eventually replace the selenium tests with HTTP-level tests but for now you leave some of them in place.</p>
+<p>Hey, the app works! You <strong><em>deploy</em></strong>.</p>
+<p>You’re ready to move on to the next feature, but your friend brings up a problem.</p>
+<p>Y<strong>our friend mentions that some of the code exercised and checked by the UI test is <em>also</em> checked by other tests.</strong></p>
+<p>The render tests check the DOM, the API tests check message-passing, the microtests check underlying functions, the UI tests are end-to-end: while there are many different tests, many code paths are indeed covered by integration tests and end-to-end tests as well.</p>
+<p>Your friend says <em>“this is inefficient because the same code is getting coverage more than once.”</em></p>
+<p>You smile.</p>
+<p>You know it’s <strong><em>not</em></strong> inefficient, because you aren’t measuring efficiency by total lines written or the number of times you <em>had to</em> run the tests, or by some standard of minimal coverage.</p>
+<p>You know that human efficiency is high - it’s a quick, reliable, and safe way to create a system that can be safely refactored, extended, modified.</p>
+<p>You value safety over efficiency, and efficiency is a side-effect.</p>
 
 
 

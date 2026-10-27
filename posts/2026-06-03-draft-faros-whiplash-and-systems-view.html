@@ -158,296 +158,105 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-The Faros report on AI-assisted development has been rattling around in my head for a few days.
-</p>
-<p>
-The story it tells is a strange one:
-</p>
-<p>
-</p>
-<ul style="text-align: left;">
-<li>
-Teams are producing more code.&nbsp;
-</li>
-<li>
-More tasks are being completed.&nbsp;
-</li>
-<li>
-More pull requests are being created.&nbsp;
-</li>
+<p>The Faros report on AI-assisted development has been rattling around in my head for a few days.</p>
+<p>The story it tells is a strange one:</p>
+<ul>
+<li>Teams are producing more code.</li>
+<li>More tasks are being completed.</li>
+<li>More pull requests are being created.</li>
 </ul>
-<p>
-</p>
-<p>
-And yet :
-</p>
-<p>
-</p>
-<ul style="text-align: left;">
-<li>
-waiting times are up,&nbsp;
-</li>
-<li>
-review times are up,&nbsp;
-</li>
-<li>
-lead times are up,&nbsp;
-</li>
-<li>
-incidents are up, and
-</li>
-<li>
-&nbsp;bugs are up.&nbsp;
-</li>
+<p>And yet :</p>
+<ul>
+<li>waiting times are up,</li>
+<li>review times are up,</li>
+<li>lead times are up,</li>
+<li>incidents are up, and</li>
+<li>bugs are up.</li>
 </ul>
-<p>
-</p>
-<p>
-The picture shows a development process that’s getting busier without getting faster.
-</p>
-<p>
-My first reaction was the same as everyone else’s. Maybe the AI-generated code just isn’t very good. The report certainly contains evidence that quality is suffering. But the more I looked at the numbers, the more I focused on waiting times.
-</p>
-<p>
-I’ve spent enough years looking at value stream maps to have a habit of looking for queues.
-</p>
-<p>
-A surprising amount of “developer behaviour” turns out to be queue behaviour in disguise.
-</p>
-<p>
-</p>
-<ul style="text-align: left;">
-<li>
-A review problem turns out to be a queue.
-</li>
-<li>
-An approval problem turns out to be a queue.
-</li>
-<li>
-A testing problem turns out to be a queue.
-</li>
-<li>
-A dependency problem often turns out to be several queues standing on each other’s shoulders.
-</li>
+<p>The picture shows a development process that’s getting busier without getting faster.</p>
+<p>My first reaction was the same as everyone else’s. Maybe the AI-generated code just isn’t very good. The report certainly contains evidence that quality is suffering. But the more I looked at the numbers, the more I focused on waiting times.</p>
+<p>I’ve spent enough years looking at value stream maps to have a habit of looking for queues.</p>
+<p>A surprising amount of “developer behaviour” turns out to be queue behaviour in disguise.</p>
+<ul>
+<li>A review problem turns out to be a queue.</li>
+<li>An approval problem turns out to be a queue.</li>
+<li>A testing problem turns out to be a queue.</li>
+<li>A dependency problem often turns out to be several queues standing on each other’s shoulders.</li>
 </ul>
-<p>
-</p>
-<p>
-The Faros report shows that production increases dramatically, but review latency increases even more dramatically. More work enters the system, but much more seems to be waiting in it. People are touching more tasks, more pull requests, and switching context more often.
-</p>
-<p>
-<i>That doesn’t look like a coding problem.</i>
-</p>
-<p>
-It looks like a system that has become better at <i>starting</i> work than <i>finishing</i>&nbsp;it.
-</p>
-<h2 style="text-align: left;" class="anchored">
-The Waiting is the Hardest Part
-</h2>
-<p>
-I’ve seen something similar before in a non-agentic space: a feature gets split into several tickets. The database work goes one way. The service work goes another way. Somebody takes the UI. Somebody else takes the tests. Everybody is busy. If you walk around asking people how things are going, the answers are encouraging. Progress is being made everywhere. Each person’s tickets are progressing…
-</p>
-<p>
-…and yet the feature doesn’t seem to finish.
-</p>
-<p>
-There’s always one more thing waiting for another thing.
-</p>
-<p>
-</p>
-<ul style="text-align: left;">
-<li>
-The API is ready, but the UI isn’t.
-</li>
-<li>
-The UI is ready, but testing isn’t.
-</li>
-<li>
-Testing is done, but deployment isn’t.
-</li>
-<li>
-Deployment is done, but something failed and has come back.
-</li>
+<p>The Faros report shows that production increases dramatically, but review latency increases even more dramatically. More work enters the system, but much more seems to be waiting in it. People are touching more tasks, more pull requests, and switching context more often.</p>
+<p><em>That doesn’t look like a coding problem.</em></p>
+<p>It looks like a system that has become better at <em>starting</em> work than <em>finishing</em> it.</p>
+<section id="the-waiting-is-the-hardest-part" class="level2">
+<h2 class="anchored" data-anchor-id="the-waiting-is-the-hardest-part">The Waiting is the Hardest Part</h2>
+<p>I’ve seen something similar before in a non-agentic space: a feature gets split into several tickets. The database work goes one way. The service work goes another way. Somebody takes the UI. Somebody else takes the tests. Everybody is busy. If you walk around asking people how things are going, the answers are encouraging. Progress is being made everywhere. Each person’s tickets are progressing…</p>
+<p>…and yet the feature doesn’t seem to finish.</p>
+<p>There’s always one more thing waiting for another thing.</p>
+<ul>
+<li>The API is ready, but the UI isn’t.</li>
+<li>The UI is ready, but testing isn’t.</li>
+<li>Testing is done, but deployment isn’t.</li>
+<li>Deployment is done, but something failed and has come back.</li>
 </ul>
-<p>
-</p>
-<p>
-Most of the feature’s life was spent not being worked on at all. It was spent waiting for other pieces of itself.
-</p>
-<p>
-Years ago I started thinking about that as a <a href="https://www.industriallogic.com/blog/scatter-gather/">scatter-gather problem</a>.&nbsp;
-</p>
-<p>
-We talk a lot about the scatter because that’s the part where people expect to become productive. We don’t spend nearly as much time talking about the gathering, which is where all the dependencies, assumptions, misunderstandings, and timing problems finally converge.
-</p>
-<p>
-The moment we split the work, we also created an obligation to put it back together. Every “scatter” requires a “gather.”&nbsp;
-</p>
-<p>
-AI makes it easier to start work. A developer can explore more ideas, create more code, open more pull requests, and move more quickly from a blank screen to something that looks finished. This is generally a good thing for prototypes, but it’s not necessarily a good thing for production code.&nbsp;
-</p>
-<p>
-It runs up some metrics. The cycle time is faster, the ticket closure rate is higher, and the per-person “velocity” (for the gullible who track such things) increases.
-</p>
-<p>
-Software has a peculiar property: a thing can be finished locally and unfinished globally at the same time. Tickets are not features, after all.
-</p>
-<p>
-</p>
-<ul style="text-align: left;">
-<li>
-Some code exists, but its feature doesn’t.
-</li>
-<li>
-Some branches exist, but their delivery doesn’t.
-</li>
-<li>
-The ticket is done, but no value is evidenced.
-</li>
+<p>Most of the feature’s life was spent not being worked on at all. It was spent waiting for other pieces of itself.</p>
+<p>Years ago I started thinking about that as a <a href="https://www.industriallogic.com/blog/scatter-gather/">scatter-gather problem</a>.</p>
+<p>We talk a lot about the scatter because that’s the part where people expect to become productive. We don’t spend nearly as much time talking about the gathering, which is where all the dependencies, assumptions, misunderstandings, and timing problems finally converge.</p>
+<p>The moment we split the work, we also created an obligation to put it back together. Every “scatter” requires a “gather.”</p>
+<p>AI makes it easier to start work. A developer can explore more ideas, create more code, open more pull requests, and move more quickly from a blank screen to something that looks finished. This is generally a good thing for prototypes, but it’s not necessarily a good thing for production code.</p>
+<p>It runs up some metrics. The cycle time is faster, the ticket closure rate is higher, and the per-person “velocity” (for the gullible who track such things) increases.</p>
+<p>Software has a peculiar property: a thing can be finished locally and unfinished globally at the same time. Tickets are not features, after all.</p>
+<ul>
+<li>Some code exists, but its feature doesn’t.</li>
+<li>Some branches exist, but their delivery doesn’t.</li>
+<li>The ticket is done, but no value is evidenced.</li>
 </ul>
-<p>
-</p>
-<p>
-More code was being written, but the downstream parts of the system seemed to be struggling. The system appeared to be accumulating inventory faster than it could absorb it.
-</p>
-<p>
-If that’s what’s happening, then the interesting question isn’t whether AI writes good code. The interesting question is whether coding was ever the limiting constraint in the first place.
-</p>
-<p>
-The Theory of Constraints tells us that accelerating a non-constraint creates inventory.&nbsp;
-</p>
-<p>
-Reinertsen tells us that inventory increases our lead time.&nbsp;
-</p>
-<p>
-Little’s Law tells us that increasing work-in-process has consequences, whether we acknowledge them or not.
-</p>
-<p>
-The Faros report don’t prove any of those explanations; it only make them hard to ignore.
-</p>
-<h2 style="text-align: left;" class="anchored">
-Does Quality Really Matter?
-</h2>
-<div>
-Defects were doubled in the study. That’s significant. Also, note that those are escaped defects. How many were spotted at coding time, review time, in automated tests, or in manual testing and corrected?&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-When a defect is discovered, it is returned to the developer’s individual work queue (since most people haven’t caught on to co-creative work). Those round-trips add up. When an item is returned for work, it must repeat parts of the journey to completion, resulting in delay of that item.
-</div>
-<div>
-<br>
-</div>
-<div>
-But it’s worse than that.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-When development on feature B stops to remediate feature A, B is also slowed, as are all the features waiting in the queue behind B.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Low quality disrupts and delays work. This has been known for many decades, and I suspect it is obvious, but still hear arguments that it doesn’t matter as long as the coding is quick.
-</div>
-<div>
-<br>
-</div>
-<div>
-Maybe people have a misguided notion that AIs don’t make mistakes? That would explain why this didn’t seem obvious and inevitable to them?
-</div>
-<div>
-<br>
-</div>
-<div>
-The key concept here is <a href="https://www.industriallogic.com/blog/first-time-through/">First Time Through</a>. If code is of acceptable quality when it is submitted to the quality gate “gauntlet”, then back-flow is controlled. It might be that back-flow is eliminated entirely, or it may be reduced enough that it ceases to be a major issue.
-</div>
-<div>
-<br>
-</div>
-<div>
-Quality - internal quality as well as the absence of bugs, is <b>flow protection</b>. As long as you have significant rework, you can not have predictable work. Flow is turbulent and unpredictable.&nbsp;
-</div>
-<h2 style="text-align: left;" class="anchored">
-Why Collaboration?
-</h2>
-<p>
-Collaboration is one of the many ways to improve First Time Through without lowering the quality bar.
-</p>
-<p>
-Suppose the work is highly dependent.&nbsp;
-</p>
-<p>
-Suppose we’re building a feature that spans a service, a database, a UI, tests, deployment, and a few things nobody remembered to mention during planning.&nbsp;
-</p>
-<p>
-We can divide that work (scatter) and coordinate later (gather), or we can coordinate earlier and work it together.
-</p>
-<p>
-Neither choice eliminates coordination. The coordination exists either way.
-</p>
-<p>
-The difference is when it happens, where it happens, and what happens while we’re waiting for it.
-</p>
-<p>
-We need to approach it in an intentional and systematic way.&nbsp;
-</p>
-<p>
-How long should a team keep being “accidentally” disrupted by “interruptions” of integration when they happen every week, or many times per month? When does it stop being a surprise and start being simple negligence?&nbsp;
-</p>
-<p>
-People argue that adding people to a task will make it late, and cite Brooks’ Law, but that’s a mistake. Brook’s law holds that adding <i>new</i> people to a <i>late</i> project will create drag, slowing overall progress and delaying the work.&nbsp; I agree and salute the formulation.&nbsp;
-</p>
-<p>
-But this isn’t that situation - having enough people with the right skills to begin with is just good resourcing.
-</p>
-<p>
-When we talk about collaborative work, it is about adding knowledgeable people who are familiar with the team and fully briefed on a task, and doing it early – initially – so that everyone may contribute the best of their skills to achieving a complete task without late integration surprises.&nbsp;
-</p>
-<p>
-Collaboration is<b>&nbsp;flow protection</b>. It eliminates backflow of work by raising initial quality and by integrating the tasks one by one, rather than “brick building” for a huge integration at the end.
-</p>
-<p>
-That’s why I have a hard time seeing collaborative work as a “mere preference”. In some situations, it probably is.
-</p>
-<p>
-There is no reason to avoid doing perfectly independent work in parallel. This is one of the best reasons to have multiple teams and multiple products.&nbsp;
-</p>
-<p>
-The reason organisations struggle with poorly organised systems (think “God Classes”) is that they make truly independent work a rare and lucky circumstance.
-</p>
-<p>
-Software delivery systems are full of work that appears independent until it encounters the shared constraint. By the time dependencies become visible, the economics have already changed for the worse.
-</p>
-<h2 style="text-align: left;" class="anchored">
-What’s that mean?
-</h2>
-<p>
-The story does not indicate that AI is making developers <i>less effective </i>or <i>slower</i>&nbsp;at task completion<i>.</i>
-</p>
-<p>
-It does seem to suggest that any gains in speed are lost to downstream queues, activities, and possibly back-flow.&nbsp;
-</p>
-<p>
-It also suggests that agentic code has more hard-to-detect errors.
-</p>
-<p>
-Perhaps agentic coding is exposing where the system already limits flow and comprehension. If that’s true, then the results in the Faros report are to be expected, and possibly inevitable.
-</p>
-<p>
-At some point, the conversation must stop being about speed of coding and start being about the system that surrounds the code.
-</p>
-<p>
-That’s where we need to start looking.
-</p>
+<p>More code was being written, but the downstream parts of the system seemed to be struggling. The system appeared to be accumulating inventory faster than it could absorb it.</p>
+<p>If that’s what’s happening, then the interesting question isn’t whether AI writes good code. The interesting question is whether coding was ever the limiting constraint in the first place.</p>
+<p>The Theory of Constraints tells us that accelerating a non-constraint creates inventory.</p>
+<p>Reinertsen tells us that inventory increases our lead time.</p>
+<p>Little’s Law tells us that increasing work-in-process has consequences, whether we acknowledge them or not.</p>
+<p>The Faros report don’t prove any of those explanations; it only make them hard to ignore.</p>
+</section>
+<section id="does-quality-really-matter" class="level2">
+<h2 class="anchored" data-anchor-id="does-quality-really-matter">Does Quality Really Matter?</h2>
+<p>Defects were doubled in the study. That’s significant. Also, note that those are escaped defects. How many were spotted at coding time, review time, in automated tests, or in manual testing and corrected?</p>
+<p>When a defect is discovered, it is returned to the developer’s individual work queue (since most people haven’t caught on to co-creative work). Those round-trips add up. When an item is returned for work, it must repeat parts of the journey to completion, resulting in delay of that item.</p>
+<p>But it’s worse than that.</p>
+<p>When development on feature B stops to remediate feature A, B is also slowed, as are all the features waiting in the queue behind B.</p>
+<p>Low quality disrupts and delays work. This has been known for many decades, and I suspect it is obvious, but still hear arguments that it doesn’t matter as long as the coding is quick.</p>
+<p>Maybe people have a misguided notion that AIs don’t make mistakes? That would explain why this didn’t seem obvious and inevitable to them?</p>
+<p>The key concept here is <a href="https://www.industriallogic.com/blog/first-time-through/">First Time Through</a>. If code is of acceptable quality when it is submitted to the quality gate “gauntlet”, then back-flow is controlled. It might be that back-flow is eliminated entirely, or it may be reduced enough that it ceases to be a major issue.</p>
+<p>Quality - internal quality as well as the absence of bugs, is <strong>flow protection</strong>. As long as you have significant rework, you can not have predictable work. Flow is turbulent and unpredictable.</p>
+</section>
+<section id="why-collaboration" class="level2">
+<h2 class="anchored" data-anchor-id="why-collaboration">Why Collaboration?</h2>
+<p>Collaboration is one of the many ways to improve First Time Through without lowering the quality bar.</p>
+<p>Suppose the work is highly dependent.</p>
+<p>Suppose we’re building a feature that spans a service, a database, a UI, tests, deployment, and a few things nobody remembered to mention during planning.</p>
+<p>We can divide that work (scatter) and coordinate later (gather), or we can coordinate earlier and work it together.</p>
+<p>Neither choice eliminates coordination. The coordination exists either way.</p>
+<p>The difference is when it happens, where it happens, and what happens while we’re waiting for it.</p>
+<p>We need to approach it in an intentional and systematic way.</p>
+<p>How long should a team keep being “accidentally” disrupted by “interruptions” of integration when they happen every week, or many times per month? When does it stop being a surprise and start being simple negligence?</p>
+<p>People argue that adding people to a task will make it late, and cite Brooks’ Law, but that’s a mistake. Brook’s law holds that adding <em>new</em> people to a <em>late</em> project will create drag, slowing overall progress and delaying the work. I agree and salute the formulation.</p>
+<p>But this isn’t that situation - having enough people with the right skills to begin with is just good resourcing.</p>
+<p>When we talk about collaborative work, it is about adding knowledgeable people who are familiar with the team and fully briefed on a task, and doing it early – initially – so that everyone may contribute the best of their skills to achieving a complete task without late integration surprises.</p>
+<p>Collaboration is <strong>flow protection</strong>. It eliminates backflow of work by raising initial quality and by integrating the tasks one by one, rather than “brick building” for a huge integration at the end.</p>
+<p>That’s why I have a hard time seeing collaborative work as a “mere preference”. In some situations, it probably is.</p>
+<p>There is no reason to avoid doing perfectly independent work in parallel. This is one of the best reasons to have multiple teams and multiple products.</p>
+<p>The reason organisations struggle with poorly organised systems (think “God Classes”) is that they make truly independent work a rare and lucky circumstance.</p>
+<p>Software delivery systems are full of work that appears independent until it encounters the shared constraint. By the time dependencies become visible, the economics have already changed for the worse.</p>
+</section>
+<section id="whats-that-mean" class="level2">
+<h2 class="anchored" data-anchor-id="whats-that-mean">What’s that mean?</h2>
+<p>The story does not indicate that AI is making developers <em>less effective</em> or <em>slower</em> at task completion<em>.</em></p>
+<p>It does seem to suggest that any gains in speed are lost to downstream queues, activities, and possibly back-flow.</p>
+<p>It also suggests that agentic code has more hard-to-detect errors.</p>
+<p>Perhaps agentic coding is exposing where the system already limits flow and comprehension. If that’s true, then the results in the Faros report are to be expected, and possibly inevitable.</p>
+<p>At some point, the conversation must stop being about speed of coding and start being about the system that surrounds the code.</p>
+<p>That’s where we need to start looking.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

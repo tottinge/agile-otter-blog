@@ -157,29 +157,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-After a fresh checkout, a number of tests started failing on my laptop. This is new (within the past week or so). The problem is actually fairly tiny, but is a good lesson on testing in the presence of environmental assumptions.<br><br>Apparently there are customizations which we can apply to our computer’s “en-US” mapping, like choosing 24-hour clocks or military dates. Of course, I had done so when I first got my computer because I like military style date/time strings. It never mattered at all until this morning.<br><br>So look at this line:<br> CultureInfo culture = new CultureInfo(“en-US”)<br><br>When we call it, we don’t get the unmodified stock version of en-US (what ever the heck that might be) but our customized one. This is generally good when we’re working on our own laptop, because we get the version we’ve configured. In unit tests, though, it’s not so good. The tester’s machine was not set up quite like my machine, and this caused the failures.<br><br><span style="color:blue;">As a side note, this is evil:
-<pre><br>    Assert.That(expected == actual);<br><span style="color: rgb(204, 204, 204);"></span></pre>
-<br>The problem is that it tells me “expected true, but received false.” That is hardly enough information for me to realize that the issue was in date formatting. Instead, something like:
-<pre><br>   Assert.That(expected, Is.EqualTo(actual));<br></pre>
-<br>will tell me that it expected “January 12, 2009” but received “12 Jan 2009”. That is far better than the former error message. Write your tests to isolate and explain errors, typing speed is far less important.<br></span><br><br>That means that we really do need to be more specific about formats because we are indirectly or accidentally testing locale-specific date-to-string conversions. These tests are indirectly testing the CultureInfo configuration of the machine on which they run.<br><br>In the test cases I’m looking over, the code should probably not be converting dates to strings, but the system under test is built that way. Perhaps the failing tests are just showing a weakness in the design. Note that it is easier to compare DateTime instances than to convert them to strings first. Regardless, dates &amp; times are being strung together and the tests can fail on other people’s machines.<br><br>What to do?<br>
+<p>After a fresh checkout, a number of tests started failing on my laptop. This is new (within the past week or so). The problem is actually fairly tiny, but is a good lesson on testing in the presence of environmental assumptions.</p>
+<p>Apparently there are customizations which we can apply to our computer’s “en-US” mapping, like choosing 24-hour clocks or military dates. Of course, I had done so when I first got my computer because I like military style date/time strings. It never mattered at all until this morning.</p>
+<p>So look at this line:<br>
+CultureInfo culture = new CultureInfo(“en-US”)</p>
+<p>When we call it, we don’t get the unmodified stock version of en-US (what ever the heck that might be) but our customized one. This is generally good when we’re working on our own laptop, because we get the version we’ve configured. In unit tests, though, it’s not so good. The tester’s machine was not set up quite like my machine, and this caused the failures.</p>
+<p>As a side note, this is evil:</p>
+<pre class="text"><code>
+    Assert.That(expected == actual);</code></pre>
+<p>The problem is that it tells me “expected true, but received false.” That is hardly enough information for me to realize that the issue was in date formatting. Instead, something like:</p>
+<pre class="text"><code>
+   Assert.That(expected, Is.EqualTo(actual));</code></pre>
+<p>will tell me that it expected “January 12, 2009” but received “12 Jan 2009”. That is far better than the former error message. Write your tests to isolate and explain errors, typing speed is far less important.</p>
+<p>That means that we really do need to be more specific about formats because we are indirectly or accidentally testing locale-specific date-to-string conversions. These tests are indirectly testing the CultureInfo configuration of the machine on which they run.</p>
+<p>In the test cases I’m looking over, the code should probably not be converting dates to strings, but the system under test is built that way. Perhaps the failing tests are just showing a weakness in the design. Note that it is easier to compare DateTime instances than to convert them to strings first. Regardless, dates &amp; times are being strung together and the tests can fail on other people’s machines.</p>
+<p>What to do?</p>
 <ul>
-<li>
-I could configure the tests to require my formatting, but that only works for me, not you.
-</li>
-<li>
-I can certainly reconfigure my machine to use the stock formatting, and that makes the tests pass for me but not the next guy who likes “01 Jan” better than “Jan 01”. It leaves the sloppiness in the tests.<br>
-</li>
-<li>
-I can take the time to make the tests specify their expected formats. This is relatively easy, as most tests are not written in such a fragile manner. It leaves the sloppiness in the code, though.<br>
-</li>
-<li>
-I can mock the CultureInfo with a nice factory, but that may be rendering the parser tests moot. They seem to be specifying that en-US does dates a predictable way (which is overspecifying the string, or underspecifying the tests depending on how you squint).
-</li>
-<li>
-I can change the system under test to not string-convert dates and times. That will just push that into the UI code-behind so it might be a bit of work. It would kill the sloppiness entirely, though.<br>
-</li>
+<li>I could configure the tests to require my formatting, but that only works for me, not you.</li>
+<li>I can certainly reconfigure my machine to use the stock formatting, and that makes the tests pass for me but not the next guy who likes “01 Jan” better than “Jan 01”. It leaves the sloppiness in the tests.</li>
+<li>I can take the time to make the tests specify their expected formats. This is relatively easy, as most tests are not written in such a fragile manner. It leaves the sloppiness in the code, though.</li>
+<li>I can mock the CultureInfo with a nice factory, but that may be rendering the parser tests moot. They seem to be specifying that en-US does dates a predictable way (which is overspecifying the string, or underspecifying the tests depending on how you squint).</li>
+<li>I can change the system under test to not string-convert dates and times. That will just push that into the UI code-behind so it might be a bit of work. It would kill the sloppiness entirely, though.</li>
 </ul>
-<p><br><br>Now the interesting questions are what you would do, and what your development manager would like you to do, and what the Customer would like you to do. Discuss among yourselves.</p>
+<p>Now the interesting questions are what you would do, and what your development manager would like you to do, and what the Customer would like you to do. Discuss among yourselves.</p>
 
 
 

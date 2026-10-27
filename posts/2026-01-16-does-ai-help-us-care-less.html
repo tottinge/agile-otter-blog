@@ -158,138 +158,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-&nbsp;
-</p>
-<h2 style="text-align: left;" class="anchored">
-A bit of background:
-</h2>
-<p>
-I was chatting with some colleagues and friends this week about AI-augmented workflows.&nbsp;
-</p>
-<p>
-M was talking about having LLMs “write the epics and features” for teams. He was envisioning a flow where a PO or PM would have much less cognitive effort and could do this work alone and then hand it off to the teams for execution.
-</p>
-<p>
-Of course, the teams are using LLMs to help with testing and code generation, and to explain code that should probably be refactored to make LLM explanations unnecessary. There are also AI code reviews, though they burn a lot of tokens for what they deliver.
-</p>
-<p>
-I was more cognisant that we should never (per Agile Manifesto) use tools or processes to <i>reduce</i> the interactions between humans doing the work, but might want to use them to <i>improve</i> or <i>enhance</i> those conversations.
-</p>
-<p>
-M talked about the really important conversations he wants to focus on: the discussion that happens when users and sponsors can see the working product increment and give feedback.&nbsp; Those conversations are crucial for setting priorities and UX guidelines.&nbsp;
-</p>
-<p>
-I agreed that discussions about working code are crucial, but wanted to push harder on “AI writes the epics and features.”&nbsp;<br><br>I (currently) think it’s an overstatement - AI can’t really do that, it’s a very human activity of collecting requirements and understanding the problems, but it can provide a lot of the text if you can describe the process to the LLM well enough (at which time, why didn’t you write it yourself)?&nbsp; It can suggest phrasings and breakdown, but can it “write the epics and features”?&nbsp;<br><br>But that was missing an important point, and something stuck in the back of my head: there is something important going on when the write-up isn’t laborious.&nbsp;
-</p>
-<p>
-Perhaps something deeply important and non-obvious.&nbsp;
-</p>
-<p>
-That’s when it finally hit me.
-</p>
-<h2 style="text-align: left;" class="anchored">
-A realisation:
-</h2>
-<div>
-The advantage of having an AI assist in the up-front work is the same as having AI assistance in coding and refactoring: <span style="color: #660000;"><b><i>we are less invested</i></b></span> in the materials.
-</div>
-<div>
-<br>
-</div>
-<div>
-Bear with me for a minute…
-</div>
-<div>
-<br>
-</div>
-<div>
-You have probably seen some initiatives where the teams spent weeks or months getting the requirements “just right.” The effort feels like value. Dropping or adding requirements feels like someone has defaced a beautiful painting or sculpture. We are invested in the whole thing being the way it is.
-</div>
-<div>
-<br>
-</div>
-<div>
-You may already have stories about people building throwaway PoC or UI prototypes via “vibe-coding” or something similar.&nbsp; If people see that the prototype is deeply flawed, they discard it. There isn’t the same urge to fight for it. Also, if it looks “pretty good” people are not so invested that they won’t take feedback and make changes.
-</div>
-<div>
-<br>
-</div>
-<div>
-<div>
-But now, what if you have a machine express your ideas about the new epic/feature/story for you in 5 minutes? If you hate it, you scrap it and start over. If it’s not quite right, you can either repeat the prompt or edit the artefact and move on. You have invested minutes, not weeks. You don’t care that much about the description; it still needs to be correct, but you can do it over while getting coffee.
-</div>
-<div>
-<br>
-</div>
-</div>
-<div>
-This can help <i>improve</i> team interactions. Think of the LLM as creating the first draft, and the team as revising, improving, or rejecting it. It is more a proposal than an artefact. People become invested in outcomes rather than in preserving their invested labour. This can be a very positive situation. They are more ready to accept feedback without being defensive.
-</div>
-<div>
-<br>
-</div>
-<div>
-The same is true of automated tests: you generated some tests, but they were awful. They used the wrong technologies, ran too slowly, left “junk” behind in the file system or database, and were unreliable. Maybe they hard-coded the wrong information. You revert to the last good state and try again with a better prompt. You can do this a dozen times, faster than you could rewrite just a few tests by hand.
-</div>
-<div>
-<br>
-</div>
-<div>
-Lower investment in the specifics of test technology may help us be more invested in having high-quality, fast-running tests.&nbsp;
-</div>
-<div>
-<div>
-<br class="Apple-interchange-newline">Emotional investment also happens in development when the team has built a monumental plan for the new subsystem and has architected it to perfection. They know what they’ll build in the next 8 months, all the features they’ll add, all the performance enhancements, all the leverage built in the early releases. If, as sometimes happens, the business decides that the first three weeks’ work is sufficient and cancels the rest of the feature, the team feels like someone reneged on a bet or broke a promise. They feel cheated.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-This emotional aspect of the work is troublesome, but more troublesome is that they added speculative or anticipatory features to the code that are now redundant. They knew they would need those features, but now the code looks pointlessly overbuilt.
-</div>
-<div>
-<br>
-</div>
-<div>
-With a bit less emotional investment in the planned future, we can build incrementally and make each iteration’s design sufficient only to meet current needs. We lack the urge to treat every plan as a huge commitment or stair-step to a planned future. With a lower level of commitment to the plan, we can focus on making the current iteration useful and production-ready.
-</div>
-<div>
-<br>
-</div>
-</div>
-<div>
-Refactoring has the same advantage. You decide that it’s time to stop using Python dicts and use a more well-defined data object. You try DataClasses, but you don’t like those. You use a NamedTuple or a SimpleNamespace. You drop those and create a wrapper over the dictionary instead. You like that design, and keep it. You weren’t invested in the discarded implementations. You did those things in passing, and it was as easy to throw them away as it was to keep going. You focused on decision-making, choosing the best implementation for your context.
-</div>
-<div>
-<br>
-</div>
-<div>
-In all these cases, using the AI has maybe not reduced your time-to-completion so much as it has enabled you to be more objective and selective. You weren’t fooled by having worked hard for a long time to make a perfect thing; you were willing to drop an idea and pivot more readily. You had “clinical distance.”
-</div>
-<div>
-<br>
-</div>
-<div>
-It may be that the advantage of AI-augmented coding isn’t that we get the same work done faster (which we apparently don’t) but that the reduced effort gives us reduced emotional investment. Ideally, that will give us the ability to make better decisions.
-</div>
-<div>
-<br>
-</div>
-<div>
-Let’s watch and see.<br><br><br>
-</div>
-<div>
-<br>
-</div>
-<div>
-<br>
-</div>
-<p>
-<br>
-</p>
+<section id="a-bit-of-background" class="level2">
+<h2 class="anchored" data-anchor-id="a-bit-of-background">A bit of background:</h2>
+<p>I was chatting with some colleagues and friends this week about AI-augmented workflows.</p>
+<p>M was talking about having LLMs “write the epics and features” for teams. He was envisioning a flow where a PO or PM would have much less cognitive effort and could do this work alone and then hand it off to the teams for execution.</p>
+<p>Of course, the teams are using LLMs to help with testing and code generation, and to explain code that should probably be refactored to make LLM explanations unnecessary. There are also AI code reviews, though they burn a lot of tokens for what they deliver.</p>
+<p>I was more cognisant that we should never (per Agile Manifesto) use tools or processes to <em>reduce</em> the interactions between humans doing the work, but might want to use them to <em>improve</em> or <em>enhance</em> those conversations.</p>
+<p>M talked about the really important conversations he wants to focus on: the discussion that happens when users and sponsors can see the working product increment and give feedback. Those conversations are crucial for setting priorities and UX guidelines.</p>
+<p>I agreed that discussions about working code are crucial, but wanted to push harder on “AI writes the epics and features.”</p>
+<p>I (currently) think it’s an overstatement - AI can’t really do that, it’s a very human activity of collecting requirements and understanding the problems, but it can provide a lot of the text if you can describe the process to the LLM well enough (at which time, why didn’t you write it yourself)? It can suggest phrasings and breakdown, but can it “write the epics and features”?</p>
+<p>But that was missing an important point, and something stuck in the back of my head: there is something important going on when the write-up isn’t laborious.</p>
+<p>Perhaps something deeply important and non-obvious.</p>
+<p>That’s when it finally hit me.</p>
+</section>
+<section id="a-realisation" class="level2">
+<h2 class="anchored" data-anchor-id="a-realisation">A realisation:</h2>
+<p>The advantage of having an AI assist in the up-front work is the same as having AI assistance in coding and refactoring: <strong><em>we are less invested</em></strong> in the materials.</p>
+<p>Bear with me for a minute…</p>
+<p>You have probably seen some initiatives where the teams spent weeks or months getting the requirements “just right.” The effort feels like value. Dropping or adding requirements feels like someone has defaced a beautiful painting or sculpture. We are invested in the whole thing being the way it is.</p>
+<p>You may already have stories about people building throwaway PoC or UI prototypes via “vibe-coding” or something similar. If people see that the prototype is deeply flawed, they discard it. There isn’t the same urge to fight for it. Also, if it looks “pretty good” people are not so invested that they won’t take feedback and make changes.</p>
+<p>But now, what if you have a machine express your ideas about the new epic/feature/story for you in 5 minutes? If you hate it, you scrap it and start over. If it’s not quite right, you can either repeat the prompt or edit the artefact and move on. You have invested minutes, not weeks. You don’t care that much about the description; it still needs to be correct, but you can do it over while getting coffee.</p>
+<p>This can help <em>improve</em> team interactions. Think of the LLM as creating the first draft, and the team as revising, improving, or rejecting it. It is more a proposal than an artefact. People become invested in outcomes rather than in preserving their invested labour. This can be a very positive situation. They are more ready to accept feedback without being defensive.</p>
+<p>The same is true of automated tests: you generated some tests, but they were awful. They used the wrong technologies, ran too slowly, left “junk” behind in the file system or database, and were unreliable. Maybe they hard-coded the wrong information. You revert to the last good state and try again with a better prompt. You can do this a dozen times, faster than you could rewrite just a few tests by hand.</p>
+<p>Lower investment in the specifics of test technology may help us be more invested in having high-quality, fast-running tests.</p>
+<p>Emotional investment also happens in development when the team has built a monumental plan for the new subsystem and has architected it to perfection. They know what they’ll build in the next 8 months, all the features they’ll add, all the performance enhancements, all the leverage built in the early releases. If, as sometimes happens, the business decides that the first three weeks’ work is sufficient and cancels the rest of the feature, the team feels like someone reneged on a bet or broke a promise. They feel cheated.</p>
+<p>This emotional aspect of the work is troublesome, but more troublesome is that they added speculative or anticipatory features to the code that are now redundant. They knew they would need those features, but now the code looks pointlessly overbuilt.</p>
+<p>With a bit less emotional investment in the planned future, we can build incrementally and make each iteration’s design sufficient only to meet current needs. We lack the urge to treat every plan as a huge commitment or stair-step to a planned future. With a lower level of commitment to the plan, we can focus on making the current iteration useful and production-ready.</p>
+<p>Refactoring has the same advantage. You decide that it’s time to stop using Python dicts and use a more well-defined data object. You try DataClasses, but you don’t like those. You use a NamedTuple or a SimpleNamespace. You drop those and create a wrapper over the dictionary instead. You like that design, and keep it. You weren’t invested in the discarded implementations. You did those things in passing, and it was as easy to throw them away as it was to keep going. You focused on decision-making, choosing the best implementation for your context.</p>
+<p>In all these cases, using the AI has maybe not reduced your time-to-completion so much as it has enabled you to be more objective and selective. You weren’t fooled by having worked hard for a long time to make a perfect thing; you were willing to drop an idea and pivot more readily. You had “clinical distance.”</p>
+<p>It may be that the advantage of AI-augmented coding isn’t that we get the same work done faster (which we apparently don’t) but that the reduced effort gives us reduced emotional investment. Ideally, that will give us the ability to make better decisions.</p>
+<p>Let’s watch and see.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

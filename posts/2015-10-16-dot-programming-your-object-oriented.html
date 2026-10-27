@@ -158,27 +158,71 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-I was once told to “exalt the obvious.”<br> <br> There is a power in it, because sometimes we overlook obvious things that are blessings to us and can reshape our world. This, I think, is one such.<br> <br> <br> ’Way back in the 80s and 90s we were trying to get people to practice Object-Oriented Design and Object-Oriented Languages were gaining a bit of ground. Heck, in ’86 or so C++ started to be a big deal, because it mixed some OO with our beloved C. Soon we saw semi-OO BASIC and even a version of Object-Oriented COBOL. Wow.<br> <br> We tried to codify principles and practices that helped people to do good design. You probably followed all the great stuff we did at Object Mentor, led by Uncle Bob Martin (who I still appreciate and respect, though we don’t see each other very often).<br> <br> We expounded on coupling and cohesion, as well we should, but we lacked the mechanism in our programming environments to help us really seat the idea of OO in the minds of our fellows.<br> <br> <b>Serendipity</b><br> <br> Well, in the meantime, the IDE manufacturers (and plugin writers, God bless them) created something that solves 1/2 of the problem. They created <i>smart code completion</i>.<br> <br> Yes, it was a long time ago. And yes, &nbsp;it’s everywhere, from IntelliJ and Eclipse to Pycharm and Idle, from Vim’s to Emacs. Nothing new in the mechanism here.<br> <br> Heck, most of us wouldn’t want to consider using an editor that couldn’t give us some kind of smart completion. It would be like working in <b><i>edlin.</i></b><br> <br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/Screenshot 2015-10-16 15.13.10.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="Screenshot 2015-10-16 15.13.10.png" border="0" height="126" src="../assets/Screenshot 2015-10-16 15.13.10.png" width="400"></a>
-</div>
-<br> <br> And, dolts that we are, we said “oh, that’s kind of nice” and we went about our business as usual, and didn’t react to the amazing manna from heaven that this innovation represents.<br> <br> We snatched defeat from the jaws of victory!<br> <br> What were we thinking?<br> <br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="http://rs895.pbsrc.com/albums/ac159/GIFsforhire/Facepalm/facepalm.gif~c200" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="facepalm.gif~c200" border="0" src="http://rs895.pbsrc.com/albums/ac159/GIFsforhire/Facepalm/facepalm.gif~c200"></a>
-</div>
-<br> <br> See, what this really gives us is….. <doot dada="" dooot="">….</doot><br>
-<div style="text-align: center;">
-<span style="font-family: 'Trebuchet MS', sans-serif;"><span style="font-size: x-large;">DOT PROGRAMMING</span></span>
-</div>
-<br> <br> So, basically, you type the name of a thing and then a <b>dot</b>, and you’re given a list of actions that the thing can perform.<br> <br> Big deal, you’re still saying?<br> <br> Okay. Let me slow this down for you.<br> <br> When you write a program, you will not read the documentation. You don’t have time and inclination for that.<br> <br> You don’t memorize the class hierarchy or the class interface. There are far too many classes and you are far too smart and mobile and frankly short on time to spend a bunch of time memorizing stuff. You are no fool.<br> <br> You won’t read all the code. Nobody reads all the code. The days when you wanted to write long methods so that people can read them from top-to-bottom are over. That’s dead. Dead like .bat scripts and CP/M. It’s over.<br> <br> So now, you’re working in a class and you type the name of some object and you press the <b>dot</b>. The list that pops up is your guide to the world of the object whose name lives on the left side of the dot you just pressed.<br> <br> And you know everyone else is doing the same thing.<br> <br> <b>THEREFORE</b>:<br> <br> When you write a method that does anything remotely interesting, you have one VERY important question to answer:<br> <br>
-<blockquote class="tr_bq blockquote">
-When someone needs this method, where will they look for it?
+<p>I was once told to “exalt the obvious.”</p>
+<p>There is a power in it, because sometimes we overlook obvious things that are blessings to us and can reshape our world. This, I think, is one such.</p>
+<p>’Way back in the 80s and 90s we were trying to get people to practice Object-Oriented Design and Object-Oriented Languages were gaining a bit of ground. Heck, in ’86 or so C++ started to be a big deal, because it mixed some OO with our beloved C. Soon we saw semi-OO BASIC and even a version of Object-Oriented COBOL. Wow.</p>
+<p>We tried to codify principles and practices that helped people to do good design. You probably followed all the great stuff we did at Object Mentor, led by Uncle Bob Martin (who I still appreciate and respect, though we don’t see each other very often).</p>
+<p>We expounded on coupling and cohesion, as well we should, but we lacked the mechanism in our programming environments to help us really seat the idea of OO in the minds of our fellows.</p>
+<p><strong>Serendipity</strong></p>
+<p>Well, in the meantime, the IDE manufacturers (and plugin writers, God bless them) created something that solves 1/2 of the problem. They created <em>smart code completion</em>.</p>
+<p>Yes, it was a long time ago. And yes, it’s everywhere, from IntelliJ and Eclipse to Pycharm and Idle, from Vim’s to Emacs. Nothing new in the mechanism here.</p>
+<p>Heck, most of us wouldn’t want to consider using an editor that couldn’t give us some kind of smart completion. It would be like working in <strong><em>edlin.</em></strong></p>
+<p><a href="../assets/Screenshot 2015-10-16 15.13.10.png"><img src="../assets/Screenshot 2015-10-16 15.13.10.png" alt="Screenshot 2015-10-16 15.13.10.png" width="400" height="126"></a></p>
+<p>And, dolts that we are, we said “oh, that’s kind of nice” and we went about our business as usual, and didn’t react to the amazing manna from heaven that this innovation represents.</p>
+<p>We snatched defeat from the jaws of victory!</p>
+<p>What were we thinking?</p>
+<p><a href="../assets/dot-programming-your-object-oriented-1.gif"><img src="../assets/dot-programming-your-object-oriented-1.gif" class="img-fluid" alt="facepalm.gif~c200"></a></p>
+<p>See, what this really gives us is… &lt;fanfare /&gt;</p>
+<p><strong>DOT PROGRAMMING</strong></p>
+<p>So, basically, you type the name of a thing and then a <strong>dot</strong>, and you’re given a list of actions that the thing can perform.</p>
+<p>Big deal, you’re still saying?</p>
+<p>Okay. Let me slow this down for you.</p>
+<p>When you write a program, you will not read the documentation. You don’t have time and inclination for that.</p>
+<p>You don’t memorize the class hierarchy or the class interface. There are far too many classes and you are far too smart and mobile and frankly short on time to spend a bunch of time memorizing stuff. You are no fool.</p>
+<p>You won’t read all the code. Nobody reads all the code. The days when you wanted to write long methods so that people can read them from top-to-bottom are over. That’s dead. Dead like .bat scripts and CP/M. It’s over.</p>
+<p>So now, you’re working in a class and you type the name of some object and you press the <strong>dot</strong>. The list that pops up is your guide to the world of the object whose name lives on the left side of the dot you just pressed.</p>
+<p>And you know everyone else is doing the same thing.</p>
+<p><strong>THEREFORE</strong>:</p>
+<p>When you write a method that does anything remotely interesting, you have one VERY important question to answer:</p>
+<blockquote class="blockquote">
+<p>When someone needs this method, where will they look for it?</p>
 </blockquote>
-<br> Or, slightly rephrased:<br>
-<blockquote class="tr_bq blockquote">
-What object should be on the left of the dot?&nbsp;
+<p>Or, slightly rephrased:</p>
+<blockquote class="blockquote">
+<p>What object should be on the left of the dot?</p>
 </blockquote>
-<p><br> Let’s say the object is a “Playlist.” Don’t worry about what that means, just stay with me here. And assume you’re writing a report to say which playlists are used by which accounts in the system, and how long each one is. Just imagine that’s valuable.<br> <br> <b>Failure Is Always An Option</b><br> <br> You <i>could</i>, of course, write a method that takes a Playlist object and returns the number of items contained in the playlist. That’s useful. Before you really understood the universality of DOT PROGRAMMING you might have written it as a local function to avoid “mucking with the design.”<br> <br> But now you’re enlightened.<br> <br> Now you realize that most people who need a playlist’s length probably won’t go looking for it in your crummy little report class out in the jerkwater corners of the application.<br> <br> Their cool new code should have nothing to do with your report class. This is especially true if their code is in the UI or Web Page or deep in the business logic.<br> <br> Your current code will not be the object on the left of that <b>dot</b>.<br> <br> You can leave it where it is, but that doesn’t sound like such a great idea now.<br> <br> <b>Cohesion: The Single Responsibility Purpose</b><br> <br> Where did you look for the length function? Why, you looked for it as a method on the Playlist. <br> <br> When you saw it didn’t exist, you wrote your method into the report.<br> <br> It would have saved you time if the method already existed on the class where it operates.<br> <br> And then it hits you. When the next programmer doesn’t see it pop up as a choice on the Playlist object, they’re going to write it too. And the next one. And the next.<br> <br> Everyone will duplicate this method unless they find it in the <i>one place</i> that it <i>really belong</i>s (ie that it is <i>expected</i>) in the code base.<br> <br> And they might mess it up. And then you’re going to think your method is at fault and go debugging in the wrong place, possibly. That’s going to suck.<br> <br> This waste will continue until someone decides to move the method to someplace where their coworkers can find it … and then they’ll have to find and delete all the duplicates that have popped up or else there will be bloat everywhere.<br> <br> Oh, no. There probably already is.<br> <br> <b>Feature Envy</b><br> <br> But the method is all about the Playlist, and only touches methods and variables of the Playlist. It really has almost nothing to do with your report. It’s in the wrong place.<br> <br> And sure enough, it’s in four or five other places.<br> <br> <b>Refactoring</b><br> <br> So you resolve to move the method to the only reasonable place where it won’t cause duplication and frustration and wasted effort – to the Playlist class.<br> <br> And you’ll get rid of the duplicates.<br> <br> <b>Quality</b><br> <br> But if you’re going to put it on the Playlist class where everyone is going to be able to call it, then it had darned well better work. You don’t want to be the fault of future failures.<br> <br> So you pick the best (most comprehensive or performant) of the existing methods. Maybe we combine the strengths of two or more of those methods together.<br> <br> Then we methodically replace the calls to some local getPlaylistLength and getPlayListSize and countOfItemsInPlaylist with Playlist.getLength(). So far everything <i>seems</i> &nbsp;to still work.<br> <br> So I guess we’d better write some automated tests that put this thing through its paces and are wise to its subtleties, like recursive containment and non-unique contents, and …. wait, are we using the right data structure for this?<br> <br> Now we’ve got testing (though it’s post-facto) and design thinking, because if we put it in the right place, then its quality <i>matters</i>.<br> <br> <b>Embrace Dot Programming</b><br> <br> An object-oriented system is really a system organized like a big filing cabinet. Things (data, methods) are located where you expect them to be.<br> <br> Dot Programming is just Object Oriented Programming, if we decide to listen to what our code is telling us about the social context of our work.<br> <br></p>
+<p>Let’s say the object is a “Playlist.” Don’t worry about what that means, just stay with me here. And assume you’re writing a report to say which playlists are used by which accounts in the system, and how long each one is. Just imagine that’s valuable.</p>
+<p><strong>Failure Is Always An Option</strong></p>
+<p>You <em>could</em>, of course, write a method that takes a Playlist object and returns the number of items contained in the playlist. That’s useful. Before you really understood the universality of DOT PROGRAMMING you might have written it as a local function to avoid “mucking with the design.”</p>
+<p>But now you’re enlightened.</p>
+<p>Now you realize that most people who need a playlist’s length probably won’t go looking for it in your crummy little report class out in the jerkwater corners of the application.</p>
+<p>Their cool new code should have nothing to do with your report class. This is especially true if their code is in the UI or Web Page or deep in the business logic.</p>
+<p>Your current code will not be the object on the left of that <strong>dot</strong>.</p>
+<p>You can leave it where it is, but that doesn’t sound like such a great idea now.</p>
+<p><strong>Cohesion: The Single Responsibility Purpose</strong></p>
+<p>Where did you look for the length function? Why, you looked for it as a method on the Playlist.</p>
+<p>When you saw it didn’t exist, you wrote your method into the report.</p>
+<p>It would have saved you time if the method already existed on the class where it operates.</p>
+<p>And then it hits you. When the next programmer doesn’t see it pop up as a choice on the Playlist object, they’re going to write it too. And the next one. And the next.</p>
+<p>Everyone will duplicate this method unless they find it in the <em>one place</em> that it <em>really belong</em>s (ie that it is <em>expected</em>) in the code base.</p>
+<p>And they might mess it up. And then you’re going to think your method is at fault and go debugging in the wrong place, possibly. That’s going to suck.</p>
+<p>This waste will continue until someone decides to move the method to someplace where their coworkers can find it … and then they’ll have to find and delete all the duplicates that have popped up or else there will be bloat everywhere.</p>
+<p>Oh, no. There probably already is.</p>
+<p><strong>Feature Envy</strong></p>
+<p>But the method is all about the Playlist, and only touches methods and variables of the Playlist. It really has almost nothing to do with your report. It’s in the wrong place.</p>
+<p>And sure enough, it’s in four or five other places.</p>
+<p><strong>Refactoring</strong></p>
+<p>So you resolve to move the method to the only reasonable place where it won’t cause duplication and frustration and wasted effort – to the Playlist class.</p>
+<p>And you’ll get rid of the duplicates.</p>
+<p><strong>Quality</strong></p>
+<p>But if you’re going to put it on the Playlist class where everyone is going to be able to call it, then it had darned well better work. You don’t want to be the fault of future failures.</p>
+<p>So you pick the best (most comprehensive or performant) of the existing methods. Maybe we combine the strengths of two or more of those methods together.</p>
+<p>Then we methodically replace the calls to some local getPlaylistLength and getPlayListSize and countOfItemsInPlaylist with Playlist.getLength(). So far everything <em>seems</em> to still work.</p>
+<p>So I guess we’d better write some automated tests that put this thing through its paces and are wise to its subtleties, like recursive containment and non-unique contents, and …. wait, are we using the right data structure for this?</p>
+<p>Now we’ve got testing (though it’s post-facto) and design thinking, because if we put it in the right place, then its quality <em>matters</em>.</p>
+<p><strong>Embrace Dot Programming</strong></p>
+<p>An object-oriented system is really a system organized like a big filing cabinet. Things (data, methods) are located where you expect them to be.</p>
+<p>Dot Programming is just Object Oriented Programming, if we decide to listen to what our code is telling us about the social context of our work.</p>
 
 
 

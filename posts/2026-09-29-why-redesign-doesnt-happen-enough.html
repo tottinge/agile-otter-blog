@@ -158,79 +158,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">Code degrades because it is strongly anchored to the past. </span>
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">Instead of updating, refactoring, reorganising, and rearchitecting the code as we learn over the years, a system tends to keep its original shape, as developers shoehorn new features in with If/else statements.</span>
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">Imagine you are one of N people working individually in the codebase, each of you on a personally assigned task, not in groups. </span>
-</p>
-<p>
-</p><p><span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">Any change one of you makes has a non-zero chance of causing a merge conflict for someone else.</span></p>
-The larger the change, the greater the chance that some part of it will conflict. <br>
-<p></p>
-<p>
-Multiply that by the number of people making changes.
-</p>
-<p>
-Remember: when separately-made changes conflict, the first person to merge sees no problems, but the&nbsp;second&nbsp;person to merge has&nbsp;to resolve the conflict.&nbsp;
-</p>
-<p>
-People hate resolving merge conflicts. It is tedious and exacting work. You have to understand not only your own change, but the other person’s, and figure out how to harmonise them. If you get one brace or parenthesis misplaced, however, you’ll end up with code that doesn’t work.
-</p>
-<p>
-Now imagine that you’ve realised that there is a lot of “misplaced semantics” in your code base. There is a data structure, but everwhere it’s created there are a set of <span style="font-family: Consolas;">if</span> statements, and everywhere it is manipulated there are <span style="font-family: Consolas;">if</span> statements using one member and comparing to a constant… essentially there are clear state-based behaviors, using copied and repeated conditions.
-</p>
-<p>
-Recognising that this is an open door to a whole class of errors, you convert this to a class, bringing all the if statements into the class, and making the manipulations members of the class, and in short time you’ve reduced the size and complexity of the codebase, and the data is treated uniformly and correctly the whole way through! Nice work. A nice, well-evidenced refactoring like this is one of the ways a code base grows more coherent over time.
-</p>
-<p>
-And, of course, you have tests over all the areas of code you changed. These are numerous and fast-running, all integrated into the test suite and all passing.
-</p>
-<p>
-You check the changes in…
-</p>
-<p>
-What are the chances that some change by some person touched any of the places you just improved? Or any of the tests that were revised?&nbsp;
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">The thought of disrupting your N-1 is enough to stop all forward movement.</span>
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">The change is valid, good, proven, and by golly it makes the program safer to change and easier to read than ever before! You don’t even need 1/3 of the comments that were there before. This is a righteous change.</span>
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">It also touched 15 of production code files (further proof it was needed: those semantics had already spread that far!) and many dozens of lines. </span>
-</p>
-<p>
-Now you think of the N-1 colleagues, any or all of whom may have a PR already waiting or code changes that simply started before your nice change.
-</p>
-<p>
-Some of them will slow down and might even introduce a bug while resolving the merge conflict.
-</p>
-<p>
-If they are slowed down, the manager is probably going to be aware of it, and certainly they will be if a defect results. You’ll take the blame for the defect and for the slowdown.
-</p>
-<p>
-Here is your moment of decision. Do you push the change, or abandon it?
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">This fear of changing code is a significant social effect.</span>
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">The code remains anchored to some point in the past, it’s original design ossified.</span>
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">Pretty soon all of the functions the software ACTUALLY performs are written in as EXCEPTIONS to the flow it no longer follows.</span>
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;"><b><i>What interventions would defang this fear and allow teams to move the design and architecture forward? </i></b></span>
-</p>
-<p>
-<span style="background-color: white; color: rgba(0, 0, 0, 0.9); font-family: system-ui, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Ubuntu, Oxygen, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; white-space: pre-wrap;">That question is the point of this post. What do you think? How would you change your ways of work?</span>
-</p>
+<p>Code degrades because it is strongly anchored to the past.</p>
+<p>Instead of updating, refactoring, reorganising, and rearchitecting the code as we learn over the years, a system tends to keep its original shape, as developers shoehorn new features in with If/else statements.</p>
+<p>Imagine you are one of N people working individually in the codebase, each of you on a personally assigned task, not in groups.</p>
+<p>Any change one of you makes has a non-zero chance of causing a merge conflict for someone else. The larger the change, the greater the chance that some part of it will conflict.</p>
+<p>Multiply that by the number of people making changes.</p>
+<p>Remember: when separately-made changes conflict, the first person to merge sees no problems, but the second person to merge has to resolve the conflict.</p>
+<p>People hate resolving merge conflicts. It is tedious and exacting work. You have to understand not only your own change, but the other person’s, and figure out how to harmonise them. If you get one brace or parenthesis misplaced, however, you’ll end up with code that doesn’t work.</p>
+<p>Now imagine that you’ve realised that there is a lot of “misplaced semantics” in your code base. There is a data structure, but everwhere it’s created there are a set of <code>if</code> statements, and everywhere it is manipulated there are <code>if</code> statements using one member and comparing to a constant… essentially there are clear state-based behaviors, using copied and repeated conditions.</p>
+<p>Recognising that this is an open door to a whole class of errors, you convert this to a class, bringing all the if statements into the class, and making the manipulations members of the class, and in short time you’ve reduced the size and complexity of the codebase, and the data is treated uniformly and correctly the whole way through! Nice work. A nice, well-evidenced refactoring like this is one of the ways a code base grows more coherent over time.</p>
+<p>And, of course, you have tests over all the areas of code you changed. These are numerous and fast-running, all integrated into the test suite and all passing.</p>
+<p>You check the changes in…</p>
+<p>What are the chances that some change by some person touched any of the places you just improved? Or any of the tests that were revised?</p>
+<p>The thought of disrupting your N-1 is enough to stop all forward movement.</p>
+<p>The change is valid, good, proven, and by golly it makes the program safer to change and easier to read than ever before! You don’t even need 1/3 of the comments that were there before. This is a righteous change.</p>
+<p>It also touched 15 of production code files (further proof it was needed: those semantics had already spread that far!) and many dozens of lines.</p>
+<p>Now you think of the N-1 colleagues, any or all of whom may have a PR already waiting or code changes that simply started before your nice change.</p>
+<p>Some of them will slow down and might even introduce a bug while resolving the merge conflict.</p>
+<p>If they are slowed down, the manager is probably going to be aware of it, and certainly they will be if a defect results. You’ll take the blame for the defect and for the slowdown.</p>
+<p>Here is your moment of decision. Do you push the change, or abandon it?</p>
+<p>This fear of changing code is a significant social effect.</p>
+<p>The code remains anchored to some point in the past, it’s original design ossified.</p>
+<p>Pretty soon all of the functions the software ACTUALLY performs are written in as EXCEPTIONS to the flow it no longer follows.</p>
+<p><strong><em>What interventions would defang this fear and allow teams to move the design and architecture forward?</em></strong></p>
+<p>That question is the point of this post. What do you think? How would you change your ways of work?</p>
 
 
 

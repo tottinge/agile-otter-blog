@@ -159,12 +159,48 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-A classic unit test blunder is to make use of the system time freely in your code. Another blunder is to monkey-patch your preferred time function.<br><br>I was working with some ATs which failed because they were written with a date in mind, and the calendar has marched on since those days. The answer is fairly obvious, to override date function. With a little searching, I find a utility fixture for forcing a given date/time. It worked as long as I ran the test in isolation, but failed when I ran the test in its suite.<br><br>Code in the system performed imports as “from mx.DateTime import now”, and ‘now’ became a stable reference to whatever mx.DateTime.now happens to be. If you change the reference in mx.DateTime, it doesn’t affect your stable reference. It binds at the time the mx.DateTime importer is loaded.<br><br>Now, python does some nice optimization. When you import a file, it doesn’t necessarily read the file from disk. If the file is already loaded, it merely maps the namespace of the module into the current namespace (as requested by the import statement).<br><br>So the file Importer.py imports using “from mx.DateTime import now”. If that happens after the fixture has monkey-patched mx.DateTime.now to some silly lambda method, then ‘now’ in Importer points to the lambda. If, on the other hand, it was imported prior to the monkey patch, ‘now’ points to the original function. If mx.DateTime.now is changed after Importer imported it, it has no effect. That’s true even if the change is to set it back to mx.DateTime.now’s original value.<br><br>Now let’s say that Importer did “import mx.DateTime” and didn’t bind ‘now’ to mx.DateTime.now but instead called the method as mx.DateTime.now(). Now the monkey patch is fine. The reference is indirect, via lookup, and not via a bound reference. If we always called mx.DateTime.now, then monkey-patching (“mx.DateTime.now = lambda: return DateTime(blah)”) will work, and un-patching it will work too. Some would say “problem solved”. I suppose that would do it. But in Python, we consider this kind of patching to be evil. We try to respect module boundaries and not make implicit changes.<br><br>We can write our own function in a module and have it call mx.DateTime.now() and replace it to force the current date, but that puts us back in the same trouble if anyone writes “from TimsModule import now”. That stable reference problem comes back for TimsModule as it did for mx.DateTime.<br><br>So we need a function that can be used with a bound reference or called via the module path, and still give us the results we want. Back in C++ days, J.Coplein wrote up the envelope/letter pattern (aka pImpl). You need a function that delegates its implementation (like a ‘strategy’). This is easy since all functions in python are objects:<br><span style="font-weight: bold;">—— NowFunction.py</span><br>
-<pre><br>from mx.DateTime import now as originalNowFunction<br><br>def now():<br>    return now.implementation()<br><br>now.implementation = originalNowFunction<br></pre>
-<br><br>Now we need an example of a program which imports now() and calls it repeatedly, so that we can prove that it is affected dynamically by changes to the implementation:<br><br><span style="font-weight: bold;">—– Importer.py</span><br>
-<pre><br><br>from NowFunction import now<br><br>def lookNow():<br>    "Watch how now() changes implementation"<br>    for i in xrange(35):<br>        yield now()<br><br></pre>
-<br><br>What’s left is a program that manipulates the now function and demonstrates that the first file is getting the full benefit of setting and unsetting the implementation. Something that will set it to various values and back. Maybe based on some well-known programming example (with no attempt at optimizing or playing code golf):<br><span style="font-weight: bold;">—– test.py</span><br>
-<pre><br>import Importer<br>from NowFunction import now, originalNowFunction<br><br>for n,value in enumerate(Importer.lookNow()):<br>    if (n % 3) == 0:<br>        now.implementation = lambda: "fizz"<br>    if (n % 5) == 0:<br>        now.implementation = lambda: "buzz"<br>    if (n % 5) == 0 and (n % 3) == 0:<br>        now.implementation = lambda: "fizzbuzz"<br>    if (n % 7) == 0:<br>        now.implementation = originalNowFunction<br>    print n, "Got",value, ", next sample ", now()<br></pre>
+<p>A classic unit test blunder is to make use of the system time freely in your code. Another blunder is to monkey-patch your preferred time function.</p>
+<p>I was working with some ATs which failed because they were written with a date in mind, and the calendar has marched on since those days. The answer is fairly obvious, to override date function. With a little searching, I find a utility fixture for forcing a given date/time. It worked as long as I ran the test in isolation, but failed when I ran the test in its suite.</p>
+<p>Code in the system performed imports as “from mx.DateTime import now”, and ‘now’ became a stable reference to whatever mx.DateTime.now happens to be. If you change the reference in mx.DateTime, it doesn’t affect your stable reference. It binds at the time the mx.DateTime importer is loaded.</p>
+<p>Now, python does some nice optimization. When you import a file, it doesn’t necessarily read the file from disk. If the file is already loaded, it merely maps the namespace of the module into the current namespace (as requested by the import statement).</p>
+<p>So the file Importer.py imports using “from mx.DateTime import now”. If that happens after the fixture has monkey-patched mx.DateTime.now to some silly lambda method, then ‘now’ in Importer points to the lambda. If, on the other hand, it was imported prior to the monkey patch, ‘now’ points to the original function. If mx.DateTime.now is changed after Importer imported it, it has no effect. That’s true even if the change is to set it back to mx.DateTime.now’s original value.</p>
+<p>Now let’s say that Importer did “import mx.DateTime” and didn’t bind ‘now’ to mx.DateTime.now but instead called the method as mx.DateTime.now(). Now the monkey patch is fine. The reference is indirect, via lookup, and not via a bound reference. If we always called mx.DateTime.now, then monkey-patching (“mx.DateTime.now = lambda: return DateTime(blah)”) will work, and un-patching it will work too. Some would say “problem solved”. I suppose that would do it. But in Python, we consider this kind of patching to be evil. We try to respect module boundaries and not make implicit changes.</p>
+<p>We can write our own function in a module and have it call mx.DateTime.now() and replace it to force the current date, but that puts us back in the same trouble if anyone writes “from TimsModule import now”. That stable reference problem comes back for TimsModule as it did for mx.DateTime.</p>
+<p>So we need a function that can be used with a bound reference or called via the module path, and still give us the results we want. Back in C++ days, J.Coplein wrote up the envelope/letter pattern (aka pImpl). You need a function that delegates its implementation (like a ‘strategy’). This is easy since all functions in python are objects:<br>
+<strong>—— NowFunction.py</strong></p>
+<pre class="text"><code>
+from mx.DateTime import now as originalNowFunction
+
+def now():
+    return now.implementation()
+
+now.implementation = originalNowFunction</code></pre>
+<p>Now we need an example of a program which imports now() and calls it repeatedly, so that we can prove that it is affected dynamically by changes to the implementation:</p>
+<p><strong>—– Importer.py</strong></p>
+<pre class="text"><code>
+
+from NowFunction import now
+
+def lookNow():
+    "Watch how now() changes implementation"
+    for i in xrange(35):
+        yield now()</code></pre>
+<p>What’s left is a program that manipulates the now function and demonstrates that the first file is getting the full benefit of setting and unsetting the implementation. Something that will set it to various values and back. Maybe based on some well-known programming example (with no attempt at optimizing or playing code golf):<br>
+<strong>—– test.py</strong></p>
+<pre class="text"><code>
+import Importer
+from NowFunction import now, originalNowFunction
+
+for n,value in enumerate(Importer.lookNow()):
+    if (n % 3) == 0:
+        now.implementation = lambda: "fizz"
+    if (n % 5) == 0:
+        now.implementation = lambda: "buzz"
+    if (n % 5) == 0 and (n % 3) == 0:
+        now.implementation = lambda: "fizzbuzz"
+    if (n % 7) == 0:
+        now.implementation = originalNowFunction
+    print n, "Got",value, ", next sample ", now()</code></pre>
 
 
 

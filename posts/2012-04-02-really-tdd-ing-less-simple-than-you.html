@@ -164,124 +164,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<br>
-<div class="p1">
-TDD is a pretty simple system, as popularly described. &nbsp;For an individual doing a kata or playing with some example code it is really just three steps. On card #44 of <a href="http://www.pragprog.com/titles/olag/agile-in-a-flash">AgileInAFlash</a> it looks like this:
-</div>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/Screen shot 2012-03-27 at 8.52.50 AM.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="Screen shot 2012-03-27 at 8.52.50 AM.png" border="0" height="264" src="../assets/Screen shot 2012-03-27 at 8.52.50 AM.png" width="320"></a>
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-It’s the right way to think about TDD, and the right way to get started.
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-When you get to a real project in a team environment you have many other issues to consider. &nbsp;In a modern team environment, with a DVCS, it looks more like this:
-</div>
-<div class="p1">
-
-</div>
-<ol>
-<li>
-Get the current code (<i>git pull</i>, <i>get clone</i>, <i>hg pull -u</i>, whatever)
-</li>
-<li>
-Run all the tests and be sure they’re all really green, to avoid blaming yourself for unrelated breakages.
-</li>
-<li>
-If there are no tests, write a trivial failing test (“<i>assertTrue(false)</i>”) to prove your testing setup (ide, scripts, makefiles) really work. Then delete the trivial test.
-</li>
-<li>
-<a href="http://agileotter.blogspot.com/2011/09/you-cannot-possibly-do-tdd-after-coding.html" target="_blank">Write one “real” red test.</a> INSIST ON RED.
-</li>
-<li>
-Write code to turn it green.
-</li>
-<li>
-Local commit “save your game”
-</li>
-<li>
-Refactor (or intentionally choose not to).
-</li>
-<li>
-Check to be sure you’re still green.
-</li>
-<li>
-Local commit.
-</li>
-<li>
-Push your change to the shared repo (or have a darned good reason not to).
-</li>
-<li>
-Start from (1) again.
-</li>
+<p>TDD is a pretty simple system, as popularly described. For an individual doing a kata or playing with some example code it is really just three steps. On card #44 of <a href="http://www.pragprog.com/titles/olag/agile-in-a-flash">AgileInAFlash</a> it looks like this:</p>
+<p><a href="../assets/Screen shot 2012-03-27 at 8.52.50 AM.png"><img src="../assets/Screen shot 2012-03-27 at 8.52.50 AM.png" alt="Screen shot 2012-03-27 at 8.52.50 AM.png" width="320" height="264"></a></p>
+<p>It’s the right way to think about TDD, and the right way to get started.</p>
+<p>When you get to a real project in a team environment you have many other issues to consider. In a modern team environment, with a DVCS, it looks more like this:</p>
+<ol type="1">
+<li>Get the current code (<em>git pull</em>, <em>get clone</em>, <em>hg pull -u</em>, whatever)</li>
+<li>Run all the tests and be sure they’re all really green, to avoid blaming yourself for unrelated breakages.</li>
+<li>If there are no tests, write a trivial failing test (“<em>assertTrue(false)</em>”) to prove your testing setup (ide, scripts, makefiles) really work. Then delete the trivial test.</li>
+<li><a href="../posts/2011-09-06-you-cannot-possibly-do-tdd-after-coding.html">Write one “real” red test.</a> INSIST ON RED.</li>
+<li>Write code to turn it green.</li>
+<li>Local commit “save your game”</li>
+<li>Refactor (or intentionally choose not to).</li>
+<li>Check to be sure you’re still green.</li>
+<li>Local commit.</li>
+<li>Push your change to the shared repo (or have a darned good reason not to).</li>
+<li>Start from (1) again.</li>
 </ol>
-The first two steps are really important, because our peers may have checked in code without being sure that all the tests pass. We don’t always work with perfect Agile coworkers (especially in a company with multiple teams, or one in transition, or both).<br>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-If you don’t commit on either side of a refactoring (steps 6 and 9) you can quickly end up with no recourse but to revert and lose minutes or hours of work. Because the hard part of programming is the learning and thinking, losing code is really a triviality but it isn’t fun to have to retype the code you have already built once. &nbsp;It’s good to have a known “green” state to return to, and the more recent the better.&nbsp;
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-There is more to the flow than I listed, though. If you get a red test, you have to back up a few steps. If you did anything significant, you will want to push to the main code line after each refactoring and possibly after each green bar (steps 9 and 6, respectively).&nbsp;
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-It’s often wise to put the “real” code to turn the test green (step 5) into your <i>test class</i> initially, and then migrate it to the production code during the refactoring break (step 7). It keeps you from having to bounce around between a bunch of files and tightens your cycle considerably.
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-Since you are pair-programming – as sensible people do – you might switch pairs at every red (step 4) or every green test result (step 5). That’s a small ritual that keeps everyone’s head in the game.&nbsp;
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-If you have a messy code base and/or a refactoring that touches code in a great many places, you may want to do the refactoring (step 7) in the fresh main line code, and then pull the refactoring back to your local copy. Trying to keep large refactorings in a branch will cause a lot of integration pain. Best to get it to everyone soon, and get it over with.
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-If you use feature branching (God help you) then everything gets harder to do, and you’ll feel a pressure to avoid pulling code updates and rerunning tests (steps 1 &amp; 2). Avoiding them makes it <i>worse</i>. The longer you’re off the main code line, the worse all your merges will be. Get back on soonest.
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-If you don’t have a DVCS (again, God help you!) then it all gets rather messy because non-distributed version control means you can’t have a local commit. Some people say that’s better, but I say it ain’t*. A remote commit takes a lot more time than a local savepoint, and having dozens of them at once, every minute or two from every pair, can drag a reasonably good server to its knees.
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-<span style="font-size: xx-small;">* Apologies to Billy Joel, and of course my 4th grade English teacher.</span>
-</div>
-<div class="p1">
-<br>
-</div>
-<div class="p1">
-<br>
-</div>
+<p>The first two steps are really important, because our peers may have checked in code without being sure that all the tests pass. We don’t always work with perfect Agile coworkers (especially in a company with multiple teams, or one in transition, or both).</p>
+<p>If you don’t commit on either side of a refactoring (steps 6 and 9) you can quickly end up with no recourse but to revert and lose minutes or hours of work. Because the hard part of programming is the learning and thinking, losing code is really a triviality but it isn’t fun to have to retype the code you have already built once. It’s good to have a known “green” state to return to, and the more recent the better.</p>
+<p>There is more to the flow than I listed, though. If you get a red test, you have to back up a few steps. If you did anything significant, you will want to push to the main code line after each refactoring and possibly after each green bar (steps 9 and 6, respectively).</p>
+<p>It’s often wise to put the “real” code to turn the test green (step 5) into your <em>test class</em> initially, and then migrate it to the production code during the refactoring break (step 7). It keeps you from having to bounce around between a bunch of files and tightens your cycle considerably.</p>
+<p>Since you are pair-programming – as sensible people do – you might switch pairs at every red (step 4) or every green test result (step 5). That’s a small ritual that keeps everyone’s head in the game.</p>
+<p>If you have a messy code base and/or a refactoring that touches code in a great many places, you may want to do the refactoring (step 7) in the fresh main line code, and then pull the refactoring back to your local copy. Trying to keep large refactorings in a branch will cause a lot of integration pain. Best to get it to everyone soon, and get it over with.</p>
+<p>If you use feature branching (God help you) then everything gets harder to do, and you’ll feel a pressure to avoid pulling code updates and rerunning tests (steps 1 &amp; 2). Avoiding them makes it <em>worse</em>. The longer you’re off the main code line, the worse all your merges will be. Get back on soonest.</p>
+<p>If you don’t have a DVCS (again, God help you!) then it all gets rather messy because non-distributed version control means you can’t have a local commit. Some people say that’s better, but I say it ain’t*. A remote commit takes a lot more time than a local savepoint, and having dozens of them at once, every minute or two from every pair, can drag a reasonably good server to its knees.</p>
+<p>* Apologies to Billy Joel, and of course my 4th grade English teacher.</p>
 
 
 

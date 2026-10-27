@@ -158,61 +158,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div dir="ltr" style="text-align: left;" data-trbidi="on">
-<br> Why do we care if people call what they’re doing TDD or BDD or why do we care if they actually do it?<br> <br>
-<h4 style="text-align: left;" class="anchored">
-Saying It
-</h4>
-<br> When people mislabel what they’re doing and refer to it as “BDD” or “TDD” or “Scrum” or “Agile” when it isn’t, it screws up all the conversations that follow until we manage to unravel that they’re really just doing automated testing, or iterations, or what-have-you.<br> <br> Clarity in a conversation has the same value as clarity in code, and maybe more so.<br> <br> Someone told me that they were doing TDD, and we were well into the conversation before I realized that everything I had said for several minutes had been totally misconstrued.<br> <br> What they thought was TDD was “holding a testing sprint before release”<br> <br> So, the value in crisp terminology is improved communication.<br> <br> What is the value proposition for misusing terms?<br> <br> I guess some people — even in the agile world — don’t know that TDD and BDD are processes, not artifacts or tools; and that neither is just another name for “automated testing.”<br> <br> You’d think we all know better, but no.<br> <br> <br> <b>Why does TDD beat just writing tests after using test-coverage tool?</b><br> <br> <br> It doesn’t have to be TDD, you know. Cope says he can get equivalent results using DbC, and Cope isn’t given to making such statements lightly. So there are different ways to get similar results (it seems).<br> <br> If you find other ways of achieving the same goals (or over-achieving by also solving other goals) then, by all means, teach me what you learn.<br> <br> Of course, you can use test coverage tools with TDD, so really having the coverage tool is a wash. There is nothing about TDD that forbids having measurement.<br> <br> Let’s stick to TDD v. Test-After for a moment:<br> <br>
-<ul style="text-align: left;">
-<li>
-It brings testing across <a href="http://agileotter.blogspot.com/2015/08/the-bs-line.html">the RW/BS line</a>. Test-after tends to live on the BS side, even though we like to think it doesn’t.
-</li>
-<li>
-It <i>begins</i>&nbsp;with the developer as a <i>user</i> of a class/function and <i>ends up</i>&nbsp;with the developer as an implementer.
-</li>
-<li>
-It keeps the code runnable at all times, since you can’t have the code “up on blocks” for hours at a time and run the tests.
-</li>
-<li>
-The feedback loops are hella fast. You know that everything was fine 10 seconds ago, and you’ve only written two lines of code and now it’s broken.
-</li>
+<p>Why do we care if people call what they’re doing TDD or BDD or why do we care if they actually do it?</p>
+<section id="saying-it" class="level2">
+<h2 class="anchored" data-anchor-id="saying-it">Saying It</h2>
+<p>When people mislabel what they’re doing and refer to it as “BDD” or “TDD” or “Scrum” or “Agile” when it isn’t, it screws up all the conversations that follow until we manage to unravel that they’re really just doing automated testing, or iterations, or what-have-you.</p>
+<p>Clarity in a conversation has the same value as clarity in code, and maybe more so.</p>
+<p>Someone told me that they were doing TDD, and we were well into the conversation before I realized that everything I had said for several minutes had been totally misconstrued.</p>
+<p>What they thought was TDD was “holding a testing sprint before release”</p>
+<p>So, the value in crisp terminology is improved communication.</p>
+<p>What is the value proposition for misusing terms?</p>
+<p>I guess some people — even in the agile world — don’t know that TDD and BDD are processes, not artifacts or tools; and that neither is just another name for “automated testing.”</p>
+<p>You’d think we all know better, but no.</p>
+<p><strong>Why does TDD beat just writing tests after using test-coverage tool?</strong></p>
+<p>It doesn’t have to be TDD, you know. Cope says he can get equivalent results using DbC, and Cope isn’t given to making such statements lightly. So there are different ways to get similar results (it seems).</p>
+<p>If you find other ways of achieving the same goals (or over-achieving by also solving other goals) then, by all means, teach me what you learn.</p>
+<p>Of course, you can use test coverage tools with TDD, so really having the coverage tool is a wash. There is nothing about TDD that forbids having measurement.</p>
+<p>Let’s stick to TDD v. Test-After for a moment:</p>
+<ul>
+<li>It brings testing across <a href="../posts/2015-08-12-the-bs-line.html">the RW/BS line</a>. Test-after tends to live on the BS side, even though we like to think it doesn’t.</li>
+<li>It <em>begins</em> with the developer as a <em>user</em> of a class/function and <em>ends up</em> with the developer as an implementer.</li>
+<li>It keeps the code runnable at all times, since you can’t have the code “up on blocks” for hours at a time and run the tests.</li>
+<li>The feedback loops are hella fast. You know that everything was fine 10 seconds ago, and you’ve only written two lines of code and now it’s broken.</li>
 </ul>
-<br> <br> Typically, the code is written (as an implementor) so it has an inside-out API. You get the algorithm right, and then you expose the variables via some function calls and make sure that it does its job. This can be complicated in some cases, so the code that I’m typing at 14:30 may have been typed into code that was last run yesterday. Or the day before. If I’m writing it all in one go, I don’t have to keep it runnable. After all, I only need it to work when it’s done.<br> <br> And then it’s <i>done.&nbsp;</i>Well, you know, other than tests.<br> <br> The code could conceivably be shipped, and the author has checked and double-checked it on the fly. We’ve had the debugger out to fix some problems so we know it works.<br> <br> Still, the Powers That Be say there have to be automated tests. So there is an immediate emotional foot-dragging and obligatory feel to the work, but we’re professionals so we push through…<br> <br> &nbsp;… and then we see that to test some variation, we would have to <i>change the code</i>. That’s one thing when it’s <b>being</b> written, but dammit the code is <i>done</i> and I don’t want to change it just to make the tests pass; how much do I need this test? This is another source of emotional foot-dragging and obligation. <i>Maybe</i> we push through that and change the code or write a complicated test.<br> <br> … and writing the test we see that it’s a pain to pass all these parameters. It’s a little ticklish because there are 3 integers in the parameter list in a row so it’s easy to get the wrong value in the wrong place. OTOH, the code is <i>done</i> and changing the interface will mean changing the finished code and all the tests. Emotional foot-dragging kicks in. Can we just leave it the way it is? Note that in TDD we would be faced with this decision repeatedly, increasing the likelihood that we would revise the interface for safety’s sake.<br> <br> There are other points of friction. While there should logically be NO DIFFERENCE in doing test-after instead of test-before, it somehow just never turns out that way.<br> <br> The only thing that test-after ensures is that<b> there are tests</b>; one of the less interesting side-effects of TDD. TDD isn’t about writing tests; it’s about driving the development of code in a special way with the side-effect that there is pretty good test coverage at the end.<br> <br>
-<h4 style="text-align: left;" class="anchored">
-Don’t take my word for it.
-</h4>
-<br> Anyone is welcome to try an experiment.<br> <br> If you are not sure that TDD makes any sense, or that it’s effective, then try doing TDD for two weeks and then doing test-after for two weeks and evaluate the quality of the code and the quality of the tests and the quality of the experience.<br> <br>
-<ul style="text-align: left;">
-<li>
-Is the non-TDD way as safe?&nbsp;
-</li>
-<li>
-Is the code as frequently runnable and integrated?
-</li>
-<li>
-Is the feedback as fast?&nbsp;
-</li>
-<li>
-Does it result in as good a code interface?&nbsp;
-</li>
-<li>
-Does it feel like the testing is a natural part of the work flow?&nbsp;
-</li>
-<li>
-Does it lend to refactoring as easily?&nbsp;
-</li>
-<li>
-Is the code just as good (accurate, simple, clear)?
-</li>
-<li>
-What other benefits do you get from the non-TDD method?&nbsp;
-</li>
+<p>Typically, the code is written (as an implementor) so it has an inside-out API. You get the algorithm right, and then you expose the variables via some function calls and make sure that it does its job. This can be complicated in some cases, so the code that I’m typing at 14:30 may have been typed into code that was last run yesterday. Or the day before. If I’m writing it all in one go, I don’t have to keep it runnable. After all, I only need it to work when it’s done.</p>
+<p>And then it’s <em>done.</em> Well, you know, other than tests.</p>
+<p>The code could conceivably be shipped, and the author has checked and double-checked it on the fly. We’ve had the debugger out to fix some problems so we know it works.</p>
+<p>Still, the Powers That Be say there have to be automated tests. So there is an immediate emotional foot-dragging and obligatory feel to the work, but we’re professionals so we push through…</p>
+<p>… and then we see that to test some variation, we would have to <em>change the code</em>. That’s one thing when it’s <strong>being</strong> written, but dammit the code is <em>done</em> and I don’t want to change it just to make the tests pass; how much do I need this test? This is another source of emotional foot-dragging and obligation. <em>Maybe</em> we push through that and change the code or write a complicated test.</p>
+<p>… and writing the test we see that it’s a pain to pass all these parameters. It’s a little ticklish because there are 3 integers in the parameter list in a row so it’s easy to get the wrong value in the wrong place. OTOH, the code is <em>done</em> and changing the interface will mean changing the finished code and all the tests. Emotional foot-dragging kicks in. Can we just leave it the way it is? Note that in TDD we would be faced with this decision repeatedly, increasing the likelihood that we would revise the interface for safety’s sake.</p>
+<p>There are other points of friction. While there should logically be NO DIFFERENCE in doing test-after instead of test-before, it somehow just never turns out that way.</p>
+<p>The only thing that test-after ensures is that <strong>there are tests</strong>; one of the less interesting side-effects of TDD. TDD isn’t about writing tests; it’s about driving the development of code in a special way with the side-effect that there is pretty good test coverage at the end.</p>
+</section>
+<section id="dont-take-my-word-for-it." class="level2">
+<h2 class="anchored" data-anchor-id="dont-take-my-word-for-it.">Don’t take my word for it.</h2>
+<p>Anyone is welcome to try an experiment.</p>
+<p>If you are not sure that TDD makes any sense, or that it’s effective, then try doing TDD for two weeks and then doing test-after for two weeks and evaluate the quality of the code and the quality of the tests and the quality of the experience.</p>
+<ul>
+<li>Is the non-TDD way as safe?</li>
+<li>Is the code as frequently runnable and integrated?</li>
+<li>Is the feedback as fast?</li>
+<li>Does it result in as good a code interface?</li>
+<li>Does it feel like the testing is a natural part of the work flow?</li>
+<li>Does it lend to refactoring as easily?</li>
+<li>Is the code just as good (accurate, simple, clear)?</li>
+<li>What other benefits do you get from the non-TDD method?</li>
 </ul>
-<br> And don’t just limit that to test-after. There are probably better ways than TDD, and we’ll find them by going forward. Likely the answer is not “just don’t do it” but in doing something even more simple, valuable, and profound in its place.<br> <br> FIND THAT BETTER WAY!<br> <br> And then come here and post a link to what you’ve learned. I’m all ears!<br> <br>
-</div>
+<p>And don’t just limit that to test-after. There are probably better ways than TDD, and we’ll find them by going forward. Likely the answer is not “just don’t do it” but in doing something even more simple, valuable, and profound in its place.</p>
+<p>FIND THAT BETTER WAY!</p>
+<p>And then come here and post a link to what you’ve learned. I’m all ears!</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

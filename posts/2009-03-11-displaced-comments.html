@@ -158,19 +158,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-Code comments are a topic which still draws a lot of heat (and an occasional burst of light) in programmer debates.<br> <br> I understand. &nbsp;If you are dealing with long, complicated functions with dozens of if conditions, many levels of indentation, and a number of design issues all at once then comments are a survival mechanism. They’re absolutely an indispensable coping mechanism. Deleting them will make your code many times worse than it is already. In this regard, comments are a lot like the <a href="http://agileotter.blogspot.com/2011/12/single-return-aka-elephant-proofing.html" target="_blank">single-exit rule</a>.<br> <br> Also, like the single-exit rule, this coping mechanism is unnecessary when code is small and simple and everything is reasonably well-named. <br> <br> Still, we find many comments that code would be better off without.<br> <br> After spending time in debate, discussion, observation, and consolidation, my friends and I have come to the realization that there are only three important rules governing the use of comments.<br> <br> <b><br></b> <b>The Primary Rule</b>:<br>
-<blockquote class="tr_bq blockquote">
-Comments are for ideas <i>cannot</i> be expressed in code.&nbsp;
-</blockquote>
-<br> <b>The Redundancy Rule</b>: <br>
+<p>Code comments are a topic which still draws a lot of heat (and an occasional burst of light) in programmer debates.</p>
+<p>I understand. If you are dealing with long, complicated functions with dozens of if conditions, many levels of indentation, and a number of design issues all at once then comments are a survival mechanism. They’re absolutely an indispensable coping mechanism. Deleting them will make your code many times worse than it is already. In this regard, comments are a lot like the <a href="../posts/2011-12-02-single-return-aka-elephant-proofing.html">single-exit rule</a>.</p>
+<p>Also, like the single-exit rule, this coping mechanism is unnecessary when code is small and simple and everything is reasonably well-named.</p>
+<p>Still, we find many comments that code would be better off without.</p>
+<p>After spending time in debate, discussion, observation, and consolidation, my friends and I have come to the realization that there are only three important rules governing the use of comments.</p>
+<p><strong>The Primary Rule</strong>:</p>
 <blockquote class="blockquote">
-Comments which repeat the code (add no information) must be deleted.
+<p>Comments are for ideas <em>cannot</em> be expressed in code.</p>
 </blockquote>
-<br> <b>The Single Truth Rule</b>:<br>
+<p><strong>The Redundancy Rule</strong>:</p>
 <blockquote class="blockquote">
-If the comment says something that the code could say (via explanatory variables, functions, or even by better naming of existing entities) then the code must be changed to make the comment redundant (see rule 2).&nbsp;
+<p>Comments which repeat the code (add no information) must be deleted.</p>
 </blockquote>
-<p><br> If we believe a comment is necessary, we examine it in the context of the code. Can we apply the Single Truth Rule to make the comment redundant (often via “extract method” refactoring or possibly with some renaming)? If so, then we invoke the Redundancy Rule and drop the comment.<br> <br> Sometimes, we find that the Primary Rule is in effect. Perhaps we were forced by constraints to make an unusual choice (such as bubble-sort instead of quicksort, or an exhaustive sequential search instead of a binary search) and the code cannot express that algorithm choice easily. In that case the comment can remain. At some point, someone may come along and use refactoring techniques (perhaps renaming bubble_sort to slow_sort_in_constrained_memory).<br> <br> This set of rules is also present with some good commentary at the <a href="http://ruthlesslyhelpful.net/2012/02/25/rules-for-commenting-code/" target="_blank">Ruthlessly Helpful Blog</a>&nbsp;and is included in the <a href="https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&amp;album=recognizingSmells&amp;devLanguage=Java" target="_blank">Code Smells album</a> at <a href="http://www.industriallogic.com/" target="_blank">Industrial Logic</a>.</p>
+<p><strong>The Single Truth Rule</strong>:</p>
+<blockquote class="blockquote">
+<p>If the comment says something that the code could say (via explanatory variables, functions, or even by better naming of existing entities) then the code must be changed to make the comment redundant (see rule 2).</p>
+</blockquote>
+<p>If we believe a comment is necessary, we examine it in the context of the code. Can we apply the Single Truth Rule to make the comment redundant (often via “extract method” refactoring or possibly with some renaming)? If so, then we invoke the Redundancy Rule and drop the comment.</p>
+<p>Sometimes, we find that the Primary Rule is in effect. Perhaps we were forced by constraints to make an unusual choice (such as bubble-sort instead of quicksort, or an exhaustive sequential search instead of a binary search) and the code cannot express that algorithm choice easily. In that case the comment can remain. At some point, someone may come along and use refactoring techniques (perhaps renaming bubble_sort to slow_sort_in_constrained_memory).</p>
+<p>This set of rules is also present with some good commentary at the <a href="http://ruthlesslyhelpful.net/2012/02/25/rules-for-commenting-code/">Ruthlessly Helpful Blog</a> and is included in the <a href="https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&amp;album=recognizingSmells&amp;devLanguage=Java">Code Smells album</a> at <a href="http://www.industriallogic.com/">Industrial Logic</a>.</p>
 
 
 

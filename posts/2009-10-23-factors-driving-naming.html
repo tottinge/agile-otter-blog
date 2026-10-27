@@ -152,41 +152,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-As I lay awake in bed after about 4 hours of sleep, it suddenly dawned on me that we’ve not given enough thought to why we need good names and when we need good names. My blanket statement of position is strong enough: <span style="font-style:italic;">code that is hard/slow to understand is hard/slow to change reliably</span>. When we use better (not just longer) names, we find our code can be easier for others to understand.<br>
-<div>
-<br>
-</div>
-<div>
-We can vet our naming system by pair programming. If we and our partners cannot devise a way to make the code more readable, then it is probably readable enough for now. By using TDD we can create executable specifications that further explain why the code might have an odd turn or surprising detail. Further, when a complex problem has a simple and generic solution, the tests show that we’ve covered all the bases (or that we haven’t). Between the clear and obvious tests and the clear and obvious code we can largely eliminate the need for comments and frequent vertical line breaks and flowerboxes. Code + Test can be clear enough.<br>
-<div>
-<br>There seem to be three factors that drive the need for clarity in naming.<br>
+<p>As I lay awake in bed after about 4 hours of sleep, it suddenly dawned on me that we’ve not given enough thought to why we need good names and when we need good names. My blanket statement of position is strong enough: <em>code that is hard/slow to understand is hard/slow to change reliably</em>. When we use better (not just longer) names, we find our code can be easier for others to understand.</p>
+<p>We can vet our naming system by pair programming. If we and our partners cannot devise a way to make the code more readable, then it is probably readable enough for now. By using TDD we can create executable specifications that further explain why the code might have an odd turn or surprising detail. Further, when a complex problem has a simple and generic solution, the tests show that we’ve covered all the bases (or that we haven’t). Between the clear and obvious tests and the clear and obvious code we can largely eliminate the need for comments and frequent vertical line breaks and flowerboxes. Code + Test can be clear enough.</p>
+<p>There seem to be three factors that drive the need for clarity in naming.</p>
 <ul>
-<li>
-<span style="font-weight:bold;">Distance from declaration.</span> We approximate this with “scope”. An iteration variable in a list comprehension is created and used all in one expression, and need not carry the context that would be needed for a class name from a distant package/namespace or (God forbid!) a global boolean variable. We need to contextualize things that will be used far from their point of declaration. Things used near declaration/initialization need not carry as much context via naming.
-</li>
-<br>
-<li>
-<span style="font-weight:bold;">Number of names that are “in play”</span> in a given routine will drive the need to create clear distinctions between the objects they name. In a method like <code>Math.Min(int x, int y)</code> there is not much we need to know about x and y. They are just two ints, and we want to know which is lesser. But if we have a function that is manipulating 11 variables in 4 lines then we start to have a problem with variable density. People with particularly strong math skills don’t feel the need as much because they learned earlier to deal with extremely economical notation, but that knack is more a rite of passage than a readability ideal to be propagated. In a name-crowded space, it is simply harder to differentiate one thing from another and people may type ‘r’ meaning ‘k’. As my colleague Vadim points out, it is more important here to have an easy visual distinction between names (something overly long names may hurt more than help).
-</li>
-<br>
-<li>
-<span style="font-weight:bold;">Infrequency of use</span> drives to longer names. The less a name is used in any given context, the more it must describe its own purpose. Conversely, a name that is used repeatedly in many contexts becomes familiar to developers, and having a long name merely makes it tedious to read and easier to confuse with similar long names.
-</li>
+<li><strong>Distance from declaration.</strong> We approximate this with “scope”. An iteration variable in a list comprehension is created and used all in one expression, and need not carry the context that would be needed for a class name from a distant package/namespace or (God forbid!) a global boolean variable. We need to contextualize things that will be used far from their point of declaration. Things used near declaration/initialization need not carry as much context via naming.</li>
+<li><strong>Number of names that are “in play”</strong> in a given routine will drive the need to create clear distinctions between the objects they name. In a method like <code>Math.Min(int x, int y)</code> there is not much we need to know about x and y. They are just two ints, and we want to know which is lesser. But if we have a function that is manipulating 11 variables in 4 lines then we start to have a problem with variable density. People with particularly strong math skills don’t feel the need as much because they learned earlier to deal with extremely economical notation, but that knack is more a rite of passage than a readability ideal to be propagated. In a name-crowded space, it is simply harder to differentiate one thing from another and people may type ‘r’ meaning ‘k’. As my colleague Vadim points out, it is more important here to have an easy visual distinction between names (something overly long names may hurt more than help).</li>
+<li><strong>Infrequency of use</strong> drives to longer names. The less a name is used in any given context, the more it must describe its own purpose. Conversely, a name that is used repeatedly in many contexts becomes familiar to developers, and having a long name merely makes it tedious to read and easier to confuse with similar long names.</li>
 </ul>
-<div>
-I have long approximated these issues with a rule (from James Grenning, I think) that the length of a name should be in direct proportion to its scope. My colleague Vadim has challenged the simple rule but I was not really ready to think past it until a recent amicable disagreement with Bob Martin on naming, followed by a serendipitous period of activity-free nocturnal wakefulness.
-</div>
-<div>
-<br>
-</div>
-<div>
-Now I think I’m seeing naming as trade-offs between these forces. As always, I am interested in counterpoint and comment.
-</div>
-<div>
-<br>
-</div>
-</div>
-</div>
+<p>I have long approximated these issues with a rule (from James Grenning, I think) that the length of a name should be in direct proportion to its scope. My colleague Vadim has challenged the simple rule but I was not really ready to think past it until a recent amicable disagreement with Bob Martin on naming, followed by a serendipitous period of activity-free nocturnal wakefulness.</p>
+<p>Now I think I’m seeing naming as trade-offs between these forces. As always, I am interested in counterpoint and comment.</p>
 
 
 

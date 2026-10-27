@@ -158,28 +158,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-I’m involved in writing a new <span style="font-style: italic;">agile agile guide</span> with <a href="http://langrsoft.com/blog/blog.shtml">Jeff Langr</a>. We are taking agile concepts and trying to boil them down to the simplest forms that cover the bases reasonably well.<br><br>It is rather like playing The Three Things (AKA “the Two Things”) game for Agile software development. An example:<br><br>Acceptance Tests<br><br>
+<p>I’m involved in writing a new <em>agile agile guide</em> with <a href="http://langrsoft.com/blog/blog.shtml">Jeff Langr</a>. We are taking agile concepts and trying to boil them down to the simplest forms that cover the bases reasonably well.</p>
+<p>It is rather like playing The Three Things (AKA “the Two Things”) game for Agile software development. An example:</p>
+<p>Acceptance Tests</p>
 <ul>
-<li>
-Define “done done” for stories
-</li>
-<li>
-Must be automated
-</li>
-<li>
-Document all uses of the system
-</li>
-<li>
-Should be usable as the basis for system documentation
-</li>
-<li>
-Do not replace exploratory tests
-</li>
-<li>
-Run in as-close-as-possible-to-production environment
-</li>
+<li>Define “done done” for stories</li>
+<li>Must be automated</li>
+<li>Document all uses of the system</li>
+<li>Should be usable as the basis for system documentation</li>
+<li>Do not replace exploratory tests</li>
+<li>Run in as-close-as-possible-to-production environment</li>
 </ul>
-<p><br><br>This list is intended as a small set of reminders, so that when one is in the midst of a project, one might find some guidance. Is the test really fit for use as documentation or written as programmer-ese? Is it describing the feature well enough to guide development? Is the Continuous Integration environment running it in a naive or unusual system configuration? Should we run these tests manually?<br><br>The bullet list should speak to you. If not, then read through the explanation below.<br><br><span style="font-weight: bold;">Define “done done” for stories</span><br><br>Clearly some of the greatest value in ATs is that they are executable specifications. No work should be assigned for completion without some ATs first being created that describe the feature fairly fully. I tend to not require fully comprehensive coverage for all ATs, but I find that sometimes I am wrong not to. This point is as important as it is difficult. We are frequently finding “missed requirements” or “unexpected interactions.” The answer for these is probably not to have full Big Design Up-Front (BDUF) but to find a more agile way to deal with corrections and changes.<br><br><span style="font-weight: bold;">Must be automated</span><br><br>ATs really have to be automated. Manual testing simply cannot scale. We can expect to run every automated test we’ve ever written a few times a day, but could hardly expect to run all of the manual tests we could have written even once every two weeks. Automation doesn’t just make testing convenient, it makes continual testing possible.<br><br><span style="font-weight: bold;">Document all uses of the system</span><br><br>Even uses of a system that pre-exist the team’s agile transition still need tests. This is because the second value of acceptance tests is in preventing regressions or detecting brokenness. It is never a good time to be ignorant of the fact that you’ve broken your system.<br><br><span style="font-weight: bold;">Should be usable as the basis for system documentation</span><br><br>The third value of the ATs is that they document the system. That should make it easier for people whose job is also to document the system. Often this power of testing is overlooked, especially when the test are written in a non-literate style.<br><br><span style="font-weight: bold;">Do not replace exploratory tests</span><br><br>Of course, automated tests are never complete and features are prone to have unintended interactions or consequences. Professional testers are valuable teammates. Their exploratory testing may uncover things that programmers, intimate with the workings of their code, might not.<br><br><span style="font-weight: bold;">Run in as-close-as-possible-to-production environment</span><br><br>Finally, tests need to run on their target platform. It happens, though. It’s better to find any platform issues earlier in the process though. If the tests include a database, it ought to be the same kind of database you’ll see in production. Likewise file systems, network hardware &amp; software, etc. It might be handy to have a CI system run the tests once on a development-like system and then install and run again on a production-like environment.</p>
+<p>This list is intended as a small set of reminders, so that when one is in the midst of a project, one might find some guidance. Is the test really fit for use as documentation or written as programmer-ese? Is it describing the feature well enough to guide development? Is the Continuous Integration environment running it in a naive or unusual system configuration? Should we run these tests manually?</p>
+<p>The bullet list should speak to you. If not, then read through the explanation below.</p>
+<p><strong>Define “done done” for stories</strong></p>
+<p>Clearly some of the greatest value in ATs is that they are executable specifications. No work should be assigned for completion without some ATs first being created that describe the feature fairly fully. I tend to not require fully comprehensive coverage for all ATs, but I find that sometimes I am wrong not to. This point is as important as it is difficult. We are frequently finding “missed requirements” or “unexpected interactions.” The answer for these is probably not to have full Big Design Up-Front (BDUF) but to find a more agile way to deal with corrections and changes.</p>
+<p><strong>Must be automated</strong></p>
+<p>ATs really have to be automated. Manual testing simply cannot scale. We can expect to run every automated test we’ve ever written a few times a day, but could hardly expect to run all of the manual tests we could have written even once every two weeks. Automation doesn’t just make testing convenient, it makes continual testing possible.</p>
+<p><strong>Document all uses of the system</strong></p>
+<p>Even uses of a system that pre-exist the team’s agile transition still need tests. This is because the second value of acceptance tests is in preventing regressions or detecting brokenness. It is never a good time to be ignorant of the fact that you’ve broken your system.</p>
+<p><strong>Should be usable as the basis for system documentation</strong></p>
+<p>The third value of the ATs is that they document the system. That should make it easier for people whose job is also to document the system. Often this power of testing is overlooked, especially when the test are written in a non-literate style.</p>
+<p><strong>Do not replace exploratory tests</strong></p>
+<p>Of course, automated tests are never complete and features are prone to have unintended interactions or consequences. Professional testers are valuable teammates. Their exploratory testing may uncover things that programmers, intimate with the workings of their code, might not.</p>
+<p><strong>Run in as-close-as-possible-to-production environment</strong></p>
+<p>Finally, tests need to run on their target platform. It happens, though. It’s better to find any platform issues earlier in the process though. If the tests include a database, it ought to be the same kind of database you’ll see in production. Likewise file systems, network hardware &amp; software, etc. It might be handy to have a CI system run the tests once on a development-like system and then install and run again on a production-like environment.</p>
 
 
 

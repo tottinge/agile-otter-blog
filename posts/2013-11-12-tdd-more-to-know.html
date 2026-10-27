@@ -166,75 +166,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-The basics are well-known:<br> <br>
+<p>The basics are well-known:</p>
 <ul>
-<li>
-Everyone knows the <a href="http://agileinaflash.blogspot.com/2009/02/red-green-refactor.html" target="_blank">basic cycle of TDD.</a>
-</li>
-<li>
-You should also know the improved <a href="http://industriallogic.com/" target="_blank">Industrial Logic</a> version of<a href="http://www.industriallogic.com/blog/test-driven-development-with-continuous-delivery/" target="_blank"> the TDD cycle</a>.
-</li>
-<li>
-You have heard Uncle Bob’s <a href="http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd" target="_blank">three rules</a>.
-</li>
+<li>Everyone knows the <a href="http://agileinaflash.blogspot.com/2009/02/red-green-refactor.html">basic cycle of TDD.</a></li>
+<li>You should also know the improved <a href="http://industriallogic.com/">Industrial Logic</a> version of <a href="http://www.industriallogic.com/blog/test-driven-development-with-continuous-delivery/">the TDD cycle</a>.</li>
+<li>You have heard Uncle Bob’s <a href="http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd">three rules</a>.</li>
 </ul>
-<br> But there is so much more to know.<br> <br> I have been gathering little sound bites for you which may help you build your skills and knowledge.<br> <br> Please feel free to drop additional factoids or questions. I’m happy to explain any of these at length if you like.<br> <br> Here is my list:<br>
-<ol>
-<li>
-Your code has two parts: the part you have covered with TDD, and the part that requires you to use a debugger.
-</li>
-<li>
-Microtests are <a href="http://agileinaflash.blogspot.com/2009/02/first.html" target="_blank">F.I.R.S.T.&nbsp;</a>&nbsp;(you <a href="http://agileotter.blogspot.com/2011/09/you-cannot-possibly-do-tdd-after-coding.html" target="_blank">cannot TDD after</a> writing the code)
-</li>
-<li>
-Only microtests are appropriate for TDD; other tests are useful, but not for TDD.
-</li>
-<li>
-Microtests are not all your tests - you need other levels of test still.&nbsp;
-</li>
-<li>
-TDD does not validate your system; it only speeds development and improves quality.
-</li>
-<li>
-TDD without a pair programming partner is like programming while wearing only one shoe.
-</li>
-<li>
-TDD’s power is in the shortness of the cycle and the constant invitation to evaluate and refactor; this is why test-after doesn’t yield the same results.
-</li>
-<li>
-We absolutely will unabashedly <i>change production code</i> in order to make tests pass (e.g.&nbsp;to make it testable)
-</li>
-<li>
-If you don’t do the ‘refactor’ and ‘integrate’ steps of the cycle, it can only end in tears.
-</li>
-<li>
-<a href="http://stackoverflow.com/questions/1257560/when-is-a-test-not-a-unit-test" target="_blank">Depending on clock or file system or database or web services or anything outside the function</a> under test disqualifies your test as a microtest.
-</li>
-<li>
-Don’t try to test the unit in context; this way lies trouble. Test it in artificial context.
-</li>
-<li>
-Don’t build a bigger framework for testing; make a smaller test.
-</li>
-<li>
-You have to know what is the micro-unit of code you’re trying to test.
-</li>
-<li>
-TDD is <i>not</i> slow. It just seems like it is <i>going to be</i> slow.
-</li>
-<li>
-You don’t have to read the code to understand a good test.&nbsp;
-</li>
-<li>
-TDD is a specific discipline. It can be <a href="http://agileinaflash.blogspot.com/2009/03/tdd-process-smells.html" target="_blank">done wrong or badly</a>.
-</li>
-<li>
-Tests have their own <a href="http://agileinaflash.blogspot.com/2009/06/tdd-antipatterns.html" target="_blank">anti-patterns</a>.
-</li>
+<p>But there is so much more to know.</p>
+<p>I have been gathering little sound bites for you which may help you build your skills and knowledge.</p>
+<p>Please feel free to drop additional factoids or questions. I’m happy to explain any of these at length if you like.</p>
+<p>Here is my list:</p>
+<ol type="1">
+<li>Your code has two parts: the part you have covered with TDD, and the part that requires you to use a debugger.</li>
+<li>Microtests are <a href="http://agileinaflash.blogspot.com/2009/02/first.html">F.I.R.S.T.</a> (you <a href="../posts/2011-09-06-you-cannot-possibly-do-tdd-after-coding.html">cannot TDD after</a> writing the code)</li>
+<li>Only microtests are appropriate for TDD; other tests are useful, but not for TDD.</li>
+<li>Microtests are not all your tests - you need other levels of test still.</li>
+<li>TDD does not validate your system; it only speeds development and improves quality.</li>
+<li>TDD without a pair programming partner is like programming while wearing only one shoe.</li>
+<li>TDD’s power is in the shortness of the cycle and the constant invitation to evaluate and refactor; this is why test-after doesn’t yield the same results.</li>
+<li>We absolutely will unabashedly <em>change production code</em> in order to make tests pass (e.g.&nbsp;to make it testable)</li>
+<li>If you don’t do the ‘refactor’ and ‘integrate’ steps of the cycle, it can only end in tears.</li>
+<li><a href="http://stackoverflow.com/questions/1257560/when-is-a-test-not-a-unit-test">Depending on clock or file system or database or web services or anything outside the function</a> under test disqualifies your test as a microtest.</li>
+<li>Don’t try to test the unit in context; this way lies trouble. Test it in artificial context.</li>
+<li>Don’t build a bigger framework for testing; make a smaller test.</li>
+<li>You have to know what is the micro-unit of code you’re trying to test.</li>
+<li>TDD is <em>not</em> slow. It just seems like it is <em>going to be</em> slow.</li>
+<li>You don’t have to read the code to understand a good test.</li>
+<li>TDD is a specific discipline. It can be <a href="http://agileinaflash.blogspot.com/2009/03/tdd-process-smells.html">done wrong or badly</a>.</li>
+<li>Tests have their own <a href="http://agileinaflash.blogspot.com/2009/06/tdd-antipatterns.html">anti-patterns</a>.</li>
 </ol>
-<div>
-Visit <a href="http://anarchycreek.com/2009/05/20/theyre-called-microtests/" target="_blank">They’re Called Microtests</a> by Mike Hill, and then maybe consider learning more at <a href="http://goo.gl/WCAAWN" target="_blank">Industrial Logic</a>.
-</div>
+<p>Visit <a href="http://anarchycreek.com/2009/05/20/theyre-called-microtests/">They’re Called Microtests</a> by Mike Hill, and then maybe consider learning more at <a href="http://goo.gl/WCAAWN">Industrial Logic</a>.</p>
 
 
 

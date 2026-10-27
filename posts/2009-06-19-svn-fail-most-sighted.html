@@ -158,11 +158,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-The svn fail I see most is like this:<br><br><br>
-<blockquote style="font-family: courier new;" class="blockquote">
-&lt;&lt;&lt;&lt; working<br> # some line<br>====<br>&gt;&gt;&gt;&gt;&gt; other
-</blockquote>
-<p><br><br>Now, how is it a conflict that I added a line of code and trunk didn’t? I will freely admit that the diffing stuff is very smart and not very easy. I want to cut a lot of slack, and I’m happy that this is easy to resolve, but I really have to wonder how that is not an update rather than a conflict.</p>
+<p>The svn fail I see most is like this:</p>
+<pre class="text"><code>&lt;&lt;&lt;&lt; working
+     # some line
+====
+&gt;&gt;&gt;&gt;&gt; other</code></pre>
+<p>Now, how is it a conflict that I added a line of code and trunk didn’t? I will freely admit that the diffing stuff is very smart and not very easy. I want to cut a lot of slack, and I’m happy that this is easy to resolve, but I really have to wonder how that is not an update rather than a conflict.</p>
 
 
 

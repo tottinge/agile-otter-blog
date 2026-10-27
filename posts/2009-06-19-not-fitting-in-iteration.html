@@ -152,21 +152,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-I was in denial for quite along time. I thought that there were really no tasks that couldn’t be broken down and implemented in phases. I’m in a change now that is trying my ideals.<br><br>Of course, this is a cross-cutting concern that deals with a big “ility.” In particular it deals with scalability but I don’t want to provide a bunch of detail that will distract us from the point.<br><br>The code is legacy in both the MFeathers meaning “without unit tests” an in the sense of “handed down from one generation to another, unsuspecting one.” The new generation has done some excellent work getting huge tracts of land cleared and fenced with TDD and AT and what-have-you. Really, quite the transformation. The original designers had a philosophy and working style that did not survive the transformation (we think for the better) so there are architectural/design decisions being unmade on a regular basis.<br><br>In particular, there is this giant jellyfish of a design decision that’s gotten in the way. It has long, long, long tentacles that extend far into the depths of layers of code, across the type system in funny ways, and into the realm of architectural concerns. When it’s fixed, it will make the system better in many ways, and will clear the way to a whole host of other improvements. In short, it may be the coolest subproject in the whole company. <br><br>The jellyfish represents the munging of two or three separate concerns in one mechanism. It is a facility that was so amazingly handy that developers used it whenever they could. Remember that one man’s fuzzy boundaries are another man’s flexible solution. Now the concerns have to be split and the mechanism changed.<br>
-<blockquote style="font-style: italic; font-weight: bold;" class="blockquote">
-… one man’s fuzzy boundaries are another man’s flexible solution …
+<p>I was in denial for quite along time. I thought that there were really no tasks that couldn’t be broken down and implemented in phases. I’m in a change now that is trying my ideals.</p>
+<p>Of course, this is a cross-cutting concern that deals with a big “ility.” In particular it deals with scalability but I don’t want to provide a bunch of detail that will distract us from the point.</p>
+<p>The code is legacy in both the MFeathers meaning “without unit tests” an in the sense of “handed down from one generation to another, unsuspecting one.” The new generation has done some excellent work getting huge tracts of land cleared and fenced with TDD and AT and what-have-you. Really, quite the transformation. The original designers had a philosophy and working style that did not survive the transformation (we think for the better) so there are architectural/design decisions being unmade on a regular basis.</p>
+<p>In particular, there is this giant jellyfish of a design decision that’s gotten in the way. It has long, long, long tentacles that extend far into the depths of layers of code, across the type system in funny ways, and into the realm of architectural concerns. When it’s fixed, it will make the system better in many ways, and will clear the way to a whole host of other improvements. In short, it may be the coolest subproject in the whole company.</p>
+<p>The jellyfish represents the munging of two or three separate concerns in one mechanism. It is a facility that was so amazingly handy that developers used it whenever they could. Remember that one man’s fuzzy boundaries are another man’s flexible solution. Now the concerns have to be split and the mechanism changed.</p>
+<blockquote class="blockquote">
+<p>… one man’s fuzzy boundaries are another man’s flexible solution …</p>
 </blockquote>
-<br>We’ve managed to dredge up one stinging tentacle after the other, but there are still several more. In the course of doing so, we’ve had to make a branch (a short-term <span style="font-style: italic;">fork</span>, really) and we spend a pretty significant amount of time merging code from the trunk.<br><br>I was commenting to a pair partner (Hi, Nick) the other day that we should have worked out a way to get this thing out in iteration-sized buckets. As soon as I said it I realized that we would have, had we known that the finished result was going to look like it does now/so-far.<br><br>This is not the first jellyfish I’ve met while swimming in legacy waters. In another company, Ed worked on a problem for an entire year and yet there were unexpected avenues in data access that still complicated the process. Not because Ed wasn’t thorough and smart, but things can get out of hand politically and technically. Politics complicated the technical work, and there was little fun to go around.<br><br>I’m trying to recover and determine how we could have made these changes in smaller steps, staying in a nice, green, running trunk with the rest of the team. I just can’t see how we could have done it without knowing the many things we learned through refactoring and exploring and periodic cul-de-sacs in the code. It was bigger than any of our heads.<br><br>So what is the point?<br>
+<p>We’ve managed to dredge up one stinging tentacle after the other, but there are still several more. In the course of doing so, we’ve had to make a branch (a short-term <em>fork</em>, really) and we spend a pretty significant amount of time merging code from the trunk.</p>
+<p>I was commenting to a pair partner (Hi, Nick) the other day that we should have worked out a way to get this thing out in iteration-sized buckets. As soon as I said it I realized that we would have, had we known that the finished result was going to look like it does now/so-far.</p>
+<p>This is not the first jellyfish I’ve met while swimming in legacy waters. In another company, Ed worked on a problem for an entire year and yet there were unexpected avenues in data access that still complicated the process. Not because Ed wasn’t thorough and smart, but things can get out of hand politically and technically. Politics complicated the technical work, and there was little fun to go around.</p>
+<p>I’m trying to recover and determine how we could have made these changes in smaller steps, staying in a nice, green, running trunk with the rest of the team. I just can’t see how we could have done it without knowing the many things we learned through refactoring and exploring and periodic cul-de-sacs in the code. It was bigger than any of our heads.</p>
+<p>So what is the point?</p>
 <ul>
-<li>
-Is the uncertainty the problem, and could we have killed it first?<br>
-</li>
-<li>
-An opportunity for links &amp; advice from my small, but wise, readership.
-</li>
-<li>
-The merge I’m waiting on is sucking all my CPU and enthusiasm, and I had to do something.<br>
-</li>
+<li>Is the uncertainty the problem, and could we have killed it first?</li>
+<li>An opportunity for links &amp; advice from my small, but wise, readership.</li>
+<li>The merge I’m waiting on is sucking all my CPU and enthusiasm, and I had to do something.</li>
 </ul>
 
 

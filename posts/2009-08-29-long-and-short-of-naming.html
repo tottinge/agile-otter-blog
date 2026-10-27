@@ -158,77 +158,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-The point of good naming is not to make the names long but to make them clear and obvious.&nbsp;
-<div>
-<br>
-</div>
-<div>
-A coworker showed me some code where variable namess were descriptive, but rather similar to each other in shape and containing some of the same words.&nbsp; He then showed me the same code where the variable names were replaced with X, Y, and Z to illustrate that (even in this case) shorter names were superior. He was right.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-When I’m looking at code, I need to see its structure. When long identifiers obscure the structure, will struggle.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-I also need to see all the ways a given variable is used in the function. If I can barely tell the difference between variable names (ie I have to READ them all to tell them apart) then it’s more work.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-Is a short, distinctive, nonsensical name better than a long hard-to-distinguish name? Can that be true? In the context of a passage of code (not just an isolated name) it certainly can be true.&nbsp; A short, distinct, and clear name is even better.
-</div>
-<div>
-<br>
-</div>
-<div>
-Good naming has never been about making names long. It has always been about making them clear.
-</div>
-<div>
-<br>
-</div>
-<div>
-Typically overlong names are a result of messy context. I really don’t need to see <span style="font-family: courier;">ClientAddressStreetString</span> and try to tell it from <span style="font-family: courier;">ClientAddressZipcodeString</span>.
-</div>
-<div>
-<br>
-</div>
-<div>
-These names are long and similar in shape. I can read them and tell them apart, but the change is 3/4ths of the way through the pile of syllables.<br><br>If the code is complex enough it might be better if the strings were A1 and A2 so I could see each at a glance. In this case, I think I would rather see them called “zip” and “street” so that I could tell them apart easily and they would make sense in the context of ClientAddress. <br><br>When you are tempted to make overly long names, consider these concepts instead:
-</div>
-<div>
-<ol>
-<li>
-If you add type context and are not writing a type conversion, you’re probably doing something wrong. If the only form of the variable is a string, then “string” context wart is entirely unnecessary as a suffix or prefix.
-</li>
-<li>
-If you have to add a class name to a variable as a wart (eg “<span style="font-family: courier;">ClientAddressStreet</span>”) then maybe you are doing the work in the wrong place. The name should make sense in its context, so that context warts are unneeded.
-</li>
-<li>
-A short bad name is better than a long bad name.
-</li>
-<li>
-The similarity of multiple names destroys readability. Consider reading a book where the main characters all had names that were all too similar:
+<p>The point of good naming is not to make the names long but to make them clear and obvious.</p>
+<p>A coworker showed me some code where variable namess were descriptive, but rather similar to each other in shape and containing some of the same words. He then showed me the same code where the variable names were replaced with X, Y, and Z to illustrate that (even in this case) shorter names were superior. He was right.</p>
+<p>When I’m looking at code, I need to see its structure. When long identifiers obscure the structure, will struggle.</p>
+<p>I also need to see all the ways a given variable is used in the function. If I can barely tell the difference between variable names (ie I have to READ them all to tell them apart) then it’s more work.</p>
+<p>Is a short, distinctive, nonsensical name better than a long hard-to-distinguish name? Can that be true? In the context of a passage of code (not just an isolated name) it certainly can be true. A short, distinct, and clear name is even better.</p>
+<p>Good naming has never been about making names long. It has always been about making them clear.</p>
+<p>Typically overlong names are a result of messy context. I really don’t need to see <code>ClientAddressStreetString</code> and try to tell it from <code>ClientAddressZipcodeString</code>.</p>
+<p>These names are long and similar in shape. I can read them and tell them apart, but the change is 3/4ths of the way through the pile of syllables.</p>
+<p>If the code is complex enough it might be better if the strings were A1 and A2 so I could see each at a glance. In this case, I think I would rather see them called “zip” and “street” so that I could tell them apart easily and they would make sense in the context of ClientAddress.</p>
+<p>When you are tempted to make overly long names, consider these concepts instead:</p>
+<ol type="1">
+<li><p>If you add type context and are not writing a type conversion, you’re probably doing something wrong. If the only form of the variable is a string, then “string” context wart is entirely unnecessary as a suffix or prefix.</p></li>
+<li><p>If you have to add a class name to a variable as a wart (eg “<code>ClientAddressStreet</code>”) then maybe you are doing the work in the wrong place. The name should make sense in its context, so that context warts are unneeded.</p></li>
+<li><p>A short bad name is better than a long bad name.</p></li>
+<li><p>The similarity of multiple names destroys readability. Consider reading a book where the main characters all had names that were all too similar:</p>
 <blockquote class="blockquote">
-George’s son Georgy turned to Geoffrey’s daughter Georgina whose question about Geoffrey and Geordi had clearly aroused Geoffrey’s son George’s curiosity. He feared Georgia would realize that her past history with George’s Georgina was no longer a secret to Geoffrey. Would Georgia maintain her silence? “Georgina,” he asked, “talk to me of Geography and Geology and let’s leave Georgia with Georgy to discuss choreography.”
-</blockquote>
-</li>
-<li>
-If your long names start to obscure the path, we can’t call them “good names”.
-</li>
-<li>
-Even in the face of long bad names, abbreviations and mental mapping are not good things. They may happen to be less bad than some other bad things you could have done instead, but they’re still not good names.
-</li>
+<p>George’s son Georgy turned to Geoffrey’s daughter Georgina whose question about Geoffrey and Geordi had clearly aroused Geoffrey’s son George’s curiosity. He feared Georgia would realize that her past history with George’s Georgina was no longer a secret to Geoffrey. Would Georgia maintain her silence? “Georgina,” he asked, “talk to me of Geography and Geology and let’s leave Georgia with Georgy to discuss choreography.”</p>
+</blockquote></li>
+<li><p>If your long names start to obscure the path, we can’t call them “good names”.</p></li>
+<li><p>Even in the face of long bad names, abbreviations and mental mapping are not good things. They may happen to be less bad than some other bad things you could have done instead, but they’re still not good names.</p></li>
 </ol>
-<div>
-Any misunderstanding of “good naming” to mean “good and long” is indeed a misunderstanding. Longer names are not, pound for pound, better than shorter names in a given context.
-</div>
-</div>
+<p>Any misunderstanding of “good naming” to mean “good and long” is indeed a misunderstanding. Longer names are not, pound for pound, better than shorter names in a given context.</p>
 
 
 

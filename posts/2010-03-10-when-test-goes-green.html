@@ -158,19 +158,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-My assertion today is: If we would read the code we’re writing, we wouldn’t write the code we’re writing.<br><br>We know the red-&gt;green-&gt;refactor cycle, but I find repeatedly that programmers are “optimizing” out the last step. It tends to run more like red-&gt;green-&gt;next. Perhaps there is confusion over what is supposed to happen when the test turns green.<br><br>The first thing that is supposed to happen is that you read the code you’ve just written to see if it makes any sense at all. While this sounds perfectly sensible, it often does not happen. Programming is not just typing. It is easy for programmers to rush to complete their assignments and never really examine their work.<br><br>I saw an example recently where the old code said:
-<pre class="code"><br>    DateTime date = DateTime.Parse(datestring);<br></pre>
-As a minimal-perturbation change to push to green, the developer changed the code to say
-<pre class="code"><br>   DateTime date = DateTime.Parse(DateTime.Now.ToString());<br></pre>
-Had he or his partner actually read that code, they would have realized that it was a little silly, and replaced it with
-<pre class="code"><br>  DateTime date = DateTime.Now;<br></pre>
-However, I suspect that they never examined it past the green bar. It worked, and that is a virtue, but it was doing too much and the team would be totally embarrassed to see their blunder in print. I fixed it, and the programmers remain anonymous here. They’re good programmers, but this time it seems they sailed past the green bar without a thought.<br><br>When the bar turns green, read your code. Read the test code and read the code it invokes. It is not at all unusual to find that you have done something short-sighted, complicated, or (God forbid) clever. That code needs to be cleaned up before your peers see it!
-<div>
-<br>
-</div>
-<div>
-For a brilliant example, see <a href="https://www.youtube.com/watch?v=wf-BqAjZb8M&amp;ab_channel=PyCon2015">Raymond Hettinger’s video </a>on pythonic code.<br><br>Once you read the code, you will know what is wrong with it, and then you can use the various refactorings provided by your development tool or outlined in the fine Refactoring book. You can take your code from one “green” (all tests passing)_ state to another until it is no longer apparent that you ever did anything silly to begin with. <br><br>Be particularly suspicious of any code you’ve written into your tests or test fixtures that ought to be in the classes you are testing. Tests are meant to be extremely lean and fast-running, whereas business objects are meant to be capable. If you start writing capable test fixtures that call upon lean business objects you know you’ve gone wrong. Refactor the code.<br><br>I wish that we could lengthen the sequence to red-&gt;green-&gt;read-&gt;refactor so people would understand the process and apply it. I suppose that we take too much of “refactor” for granted. Nevertheless, the secret to TDD is in that third step, and all refactoring begins with reading and evaluating the code we’ve written.<br><br>After all, a program unexamined is not worth writing.
-</div>
+<p>My assertion today is: If we would read the code we’re writing, we wouldn’t write the code we’re writing.</p>
+<p>We know the red-&gt;green-&gt;refactor cycle, but I find repeatedly that programmers are “optimizing” out the last step. It tends to run more like red-&gt;green-&gt;next. Perhaps there is confusion over what is supposed to happen when the test turns green.</p>
+<p>The first thing that is supposed to happen is that you read the code you’ve just written to see if it makes any sense at all. While this sounds perfectly sensible, it often does not happen. Programming is not just typing. It is easy for programmers to rush to complete their assignments and never really examine their work.</p>
+<p>I saw an example recently where the old code said:</p>
+<pre class="text"><code>
+    DateTime date = DateTime.Parse(datestring);</code></pre>
+<p>As a minimal-perturbation change to push to green, the developer changed the code to say</p>
+<pre class="text"><code>
+   DateTime date = DateTime.Parse(DateTime.Now.ToString());</code></pre>
+<p>Had he or his partner actually read that code, they would have realized that it was a little silly, and replaced it with</p>
+<pre class="text"><code>
+  DateTime date = DateTime.Now;</code></pre>
+<p>However, I suspect that they never examined it past the green bar. It worked, and that is a virtue, but it was doing too much and the team would be totally embarrassed to see their blunder in print. I fixed it, and the programmers remain anonymous here. They’re good programmers, but this time it seems they sailed past the green bar without a thought.</p>
+<p>When the bar turns green, read your code. Read the test code and read the code it invokes. It is not at all unusual to find that you have done something short-sighted, complicated, or (God forbid) clever. That code needs to be cleaned up before your peers see it!</p>
+<p>For a brilliant example, see <a href="https://www.youtube.com/watch?v=wf-BqAjZb8M&amp;ab_channel=PyCon2015">Raymond Hettinger’s video</a> on pythonic code.</p>
+<p>Once you read the code, you will know what is wrong with it, and then you can use the various refactorings provided by your development tool or outlined in the fine Refactoring book. You can take your code from one “green” (all tests passing)_ state to another until it is no longer apparent that you ever did anything silly to begin with.</p>
+<p>Be particularly suspicious of any code you’ve written into your tests or test fixtures that ought to be in the classes you are testing. Tests are meant to be extremely lean and fast-running, whereas business objects are meant to be capable. If you start writing capable test fixtures that call upon lean business objects you know you’ve gone wrong. Refactor the code.</p>
+<p>I wish that we could lengthen the sequence to red-&gt;green-&gt;read-&gt;refactor so people would understand the process and apply it. I suppose that we take too much of “refactor” for granted. Nevertheless, the secret to TDD is in that third step, and all refactoring begins with reading and evaluating the code we’ve written.</p>
+<p>After all, a program unexamined is not worth writing.</p>
 
 
 

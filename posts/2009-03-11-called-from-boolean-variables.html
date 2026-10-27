@@ -158,28 +158,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-One feature I hate to see in any code base (and have seen in several) is the “called from” argument to a function.<br>
-<pre><br>class EvilPoliticalRobotDouble: Minion {<br> ...<br> public void runForElection(Person replicatedPerson, bool CalledFromRNC=false) { ... }<br>}<br></pre>
-<br><br>There are three different reasons that I hate this kind of “feature” and consider it harmful to clean code.<br><br>The first reason is that it doesn’t even hint at what will happen if it is set true v. being set false. What thing will the code do differently? What decisions will it affect? Will it change the transactionality of the function? Behave in a less thread-safe manner? Will it be non-persistent? Will it choose a fast approximation over calculating an accurate answer? Will it choose different sources for the facts it acts upon? A different database? A different configuration file? Will it rely on different global variables (ick!)? Will it choose not to retry failed operations? What? What?? What?!?<br><br>The second reason is that there is something very wrong about a function knowing who its caller is. Shouldn’t it do the same thing whether it is called from a test or a any of a hundred other places? If it changes its behavior, doesn’t that make it a different function? It sounds to me like it is really two functions if it has a flag telling which function to use. That doesn’t seem like clean code to me.<br><br>The third reason is that these things tend to cascade and pollute many methods on many objects. I’ve seen a number of functions that receive one or more “called from” indicators and pass them on to the called methods of subordinate classes. It may be that the function I’m calling with <code>calledFromWebPage=true</code> makes no distinction whatsoever. It may be that it passes it to a function which passes it to a function which passes it to a function that cares. How can you tell?<br><br>I consider the “calledFrom” parameter to be a naming smell at the very least, and a deep design fault at the very most. I suggest one eliminate such things.<br>
-<ol>
-<li>
-Trace the variable down and find out what it really does.
-</li>
-<li>
-Rename it so that it will make sense in tests.
-</li>
-<li>
-Wrap some tests around the true case and the false case.<br>
-</li>
-<li>
-Look at using “extract method” to break out the variable=true from variable=false parts
-</li>
-<li>
-Try creating two paths, one for the ‘true’ case and one for the ‘false’ case.
-</li>
-<li>
-Alternative to 5: see if there’s a different way to get the behavior a the lowest-level method, so that you don’t have to corrupt the whole stack with ‘calledBy’ variables to get the effect you want.
-</li>
+<p>One feature I hate to see in any code base (and have seen in several) is the “called from” argument to a function.</p>
+<pre class="text"><code>
+class EvilPoliticalRobotDouble: Minion {
+ ...
+ public void runForElection(Person replicatedPerson, bool CalledFromRNC=false) { ... }
+}</code></pre>
+<p>There are three different reasons that I hate this kind of “feature” and consider it harmful to clean code.</p>
+<p>The first reason is that it doesn’t even hint at what will happen if it is set true v. being set false. What thing will the code do differently? What decisions will it affect? Will it change the transactionality of the function? Behave in a less thread-safe manner? Will it be non-persistent? Will it choose a fast approximation over calculating an accurate answer? Will it choose different sources for the facts it acts upon? A different database? A different configuration file? Will it rely on different global variables (ick!)? Will it choose not to retry failed operations? What? What?? What?!?</p>
+<p>The second reason is that there is something very wrong about a function knowing who its caller is. Shouldn’t it do the same thing whether it is called from a test or a any of a hundred other places? If it changes its behavior, doesn’t that make it a different function? It sounds to me like it is really two functions if it has a flag telling which function to use. That doesn’t seem like clean code to me.</p>
+<p>The third reason is that these things tend to cascade and pollute many methods on many objects. I’ve seen a number of functions that receive one or more “called from” indicators and pass them on to the called methods of subordinate classes. It may be that the function I’m calling with <code>calledFromWebPage=true</code> makes no distinction whatsoever. It may be that it passes it to a function which passes it to a function which passes it to a function that cares. How can you tell?</p>
+<p>I consider the “calledFrom” parameter to be a naming smell at the very least, and a deep design fault at the very most. I suggest one eliminate such things.</p>
+<ol type="1">
+<li>Trace the variable down and find out what it really does.</li>
+<li>Rename it so that it will make sense in tests.</li>
+<li>Wrap some tests around the true case and the false case.</li>
+<li>Look at using “extract method” to break out the variable=true from variable=false parts</li>
+<li>Try creating two paths, one for the ‘true’ case and one for the ‘false’ case.</li>
+<li>Alternative to 5: see if there’s a different way to get the behavior a the lowest-level method, so that you don’t have to corrupt the whole stack with ‘calledBy’ variables to get the effect you want.</li>
 </ol>
 
 

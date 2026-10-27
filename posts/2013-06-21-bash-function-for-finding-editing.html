@@ -77,35 +77,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -187,11 +158,20 @@ window.Quarto = {
 </header>
 
 
-This is just a little bash script for those times when you know what you want to change, but aren’t sure where it is in the directory.<br> <br>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Courier New, Courier, monospace;">fixwhere()<br>{<br>&nbsp; &nbsp; files=<span class="math inline">\((grep -ril "\)</span>{1}” *)<br>&nbsp; &nbsp; if [ -n “<span class="math inline">\(files" ]; then&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; vim +/"\)</span>{1}” <span class="math inline">\({files}&lt;br /&gt;&amp;nbsp; &amp;nbsp; else&lt;br /&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; echo "not found: [\)</span>{1}]“<br>&nbsp; &nbsp; fi<br>}</span>
-</blockquote>
-<p><br> I use this whenever I have a bunch of text files. It’s especially handy when you’re working with a markup language. <br> <br> I specifically wrote it to use ‘<span style="font-family: Courier New, Courier, monospace;">vim</span>’ and the&nbsp;<span style="font-family: Courier New, Courier, monospace;">+/pattern</span> function. &nbsp;I don’t actually know a good way to have it load any <span style="font-family: Courier New, Courier, monospace;">${EDITOR}</span> you use and search for the pattern in that editor.<br> <br> I suppose if the time comes and I need to generalize, I will write a <span style="font-family: Courier New, Courier, monospace;">load_search_and_edit</span>() function. For now, it works for me and makes me happy.<br> <br> Cheers.</p>
+<p>This is just a little bash script for those times when you know what you want to change, but aren’t sure where it is in the directory.</p>
+<pre class="text"><code>fixwhere()
+{
+    files=$(grep -ril "${1}" *)
+    if [ -n "$files" ]; then
+        vim +/"${1}" ${files}
+    else
+        echo "not found: [${1}]"
+    fi
+}</code></pre>
+<p>I use this whenever I have a bunch of text files. It’s especially handy when you’re working with a markup language.</p>
+<p>I specifically wrote it to use ‘<code>vim</code>’ and the <code>+/pattern</code> function. I don’t actually know a good way to have it load any <code>${EDITOR}</code> you use and search for the pattern in that editor.</p>
+<p>I suppose if the time comes and I need to generalize, I will write a <code>load_search_and_edit</code>() function. For now, it works for me and makes me happy.</p>
+<p>Cheers.</p>
 
 
 

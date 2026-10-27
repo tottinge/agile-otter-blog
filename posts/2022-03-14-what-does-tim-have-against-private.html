@@ -152,253 +152,113 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-&nbsp;A big thread erupted, all full of misunderstandings and miscommunications, about the idea of “private” methods.&nbsp;
-</p>
-<p>
-It all started quite innocently (I maintain) when someone asked how we felt about testing private methods. Some people jumped in with “Absolutely Not! Never! That’s wrong! Test via public interfaces.”<br><br>I thought a little longer, and said “I’m not sure” and then later “I’m not sure that ‘private’ is even needed.”
-</p>
-<p>
-This is where the problems started, and maybe here I can clarify what I meant by it all.&nbsp;
-</p>
-<p>
-People assume (and insist) that I could only possibly mean that they should substitute ‘public’ for all protected and private members, polluting the interface, and inviting the violation of a class’ internal state.&nbsp;
-</p>
-<p>
-That was never my intention and still isn’t. Still, this is what people insist that I must have meant from the start. I suppose this is because that’s what they imagined me to mean and it’s hard to admit that you’re wrong, or perhaps because this is social media so people never miss an opportunity to double-down and pile on if at all possible. It’s like a sport.&nbsp;<br><br>It’s also entirely possible that I didn’t communicate well at all in short tweets. Maybe that’s all on me. I can’t say.
-</p>
-<p>
-Well, you’ve come this far, so let’s see if I can’t communicate better in blog than in twitter, since I can write in peace without people accusing me of meaning the wrong thing while I try to explain what I actually mean.<br><br>If I’ve managed to make sense with this post, let me know.&nbsp;
-</p>
-<p>
-If I’ve not, the forum is open for clarifying questions below.
-</p>
-<h2 style="text-align: left;" class="anchored">
-Autocomplete is a big deal.
-</h2>
-<p>
-The good thing about ‘private’ and ‘protected’ – the thing that actually makes programming easier/better, is that the<b><i> methods aren’t offered by auto-complete</i></b>. The idea of locking people out of calling the method? Not even remotely a second-degree concern.
-</p>
-<p>
-People program by autocomplete. You type the name of a thing, press the dot, and you get a list of things you can do. You may never look at the documentation, or read the example code, but you will see the autocomplete hundreds of times a day.
-</p>
-<p>
-When you want to disable an account, there is likely to be a ‘disable’ method attached to an account. You choose that method, run the tests, ship it. That’s how you normally will navigate.<br>
-</p>
-<p>
-When you don’t see a method you want, you might pop up a level and use the module or some management API interface. Again, you type the name and a dot, and you look for ‘disable’ in the recommended names.&nbsp;
-</p>
-<p>
-Private and Protected are two of the ways to keep functions out of that list, and if they’re not in the list, you’re not likely to even consider calling them.
-</p>
-<h2 style="text-align: left;" class="anchored">
-Arbitrarily Located Functions
-</h2>
-<div>
-A developer is implementing a class and realizes that they need to compare date ranges. They write that up, drop it into a private method, and all is well.
-</div>
-<div>
-<br>
-</div>
-<div>
-Or is it?&nbsp;<br><br>
-</div>
-<div>
-Why is <i>that </i>method located in <i>this</i>&nbsp;class? Does it have high cohesion? No.&nbsp;Does it support the purpose of this class directly? No.&nbsp;<br>
-</div>
-<div>
-<br>
-</div>
-<div>
-Why then? Because this class calls the function, and this is the file I was editing when I wrote the function.
-</div>
-<div>
-<br>
-</div>
-<div>
-In other words, the function doesn’t belong here according to any rule of design, but it wasn’t found anywhere else either. The developer drops it into the class with ‘private’ and moves on.
-</div>
-<div>
-<br>
-</div>
-<div>
-What I’ve found is that often the private methods in one class are repeatedly reinvented in private methods of other classes. Sometimes they’re even copied and pasted directly from one class to another.
-</div>
-<div>
-<br>
-</div>
-<div>
-Why? Because this is the class they had open in the editor when they realized they needed the function, and it’s not available for calling because it’s private in the other class.&nbsp; So they copied it.
-</div>
-<div>
-<br>
-</div>
-<div>
-Arbitrarily located functions, hidden from view, repeated by invention and copying, likely hiding the opportunity for Single Point Of Truth (SPOT) abstractions and libraries that would make everyone’s job a little easier.<br><br>This isn’t a rare occurrence.&nbsp;<br><br>By being hidden and arbitrarily located, they invite duplication and reinvention.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<h2 style="text-align: left;" class="anchored">
-Testability of Private Methods? None
-</h2>
-<p>
-When we talk about testing private methods, it’s a non-starter. If you put the word ‘private’ on the front of a method in most languages, you cannot call that method from a test. That means you can’t possibly test private methods.
-</p>
-<p>
-Okay, there is a way, but it involves reflection and that’s an obscenity. If you ever use reflection to crack into some legacy code and test hidden methods, make sure you remove that hack as soon as humanly possible (or sooner) because it’s a travesty. It’s awful. It will fail you if the method is renamed or moved. Reflection is generally a bad idea, and I wouldn’t do that (much, or for long).
-</p>
-<p>
-If you are doing TDD (and why wouldn’t you?) you test the public methods, and if they’re using private methods then the private methods are being exercised. If you have meaningful tests and assertions, then the private methods are being tested through the public interface and that’s probably okay.
-</p>
-<p>
-If you’re not doing TDD (and why not?) then you may not have code that tests all the private behaviors. You may have to read all the code in order to exercise it properly, which is a pain.
-</p>
-<p>
-If you’re doing test-after development (but why?) you’ve written the code and now you have to write tests around it. Every private method is a called from some public method and you’re going to have to figure out how to get down into that private method code and recognize if it’s working correctly or not.
-</p>
-<p>
-By being private, those methods have cut off the easiest route to testability – calling the method directly.
-</p>
-<p>
-<br>
-</p>
-<h2 style="text-align: left;" class="anchored">
-Should You Test Implementation?
-</h2>
-<p>
-You should: implementation is how code behaves and you have to test behavior.
-</p>
-<p>
-There are caveats here:
-</p>
-<p>
-</p>
-<ul style="text-align: left;">
-<li>
-If you’re structure-aware in your tests, they’ll resist structural refactoring
-</li>
-<li>
-If you’re time-sequence-aware in your tests, they’ll resist time-order refactoring
-</li>
-<li>
-If you’re using reflection, you’re poisoning our future and must be stopped (half-grin)
-</li>
+<p>A big thread erupted, all full of misunderstandings and miscommunications, about the idea of “private” methods.</p>
+<p>It all started quite innocently (I maintain) when someone asked how we felt about testing private methods. Some people jumped in with “Absolutely Not! Never! That’s wrong! Test via public interfaces.”</p>
+<p>I thought a little longer, and said “I’m not sure” and then later “I’m not sure that ‘private’ is even needed.”</p>
+<p>This is where the problems started, and maybe here I can clarify what I meant by it all.</p>
+<p>People assume (and insist) that I could only possibly mean that they should substitute ‘public’ for all protected and private members, polluting the interface, and inviting the violation of a class’ internal state.</p>
+<p>That was never my intention and still isn’t. Still, this is what people insist that I must have meant from the start. I suppose this is because that’s what they imagined me to mean and it’s hard to admit that you’re wrong, or perhaps because this is social media so people never miss an opportunity to double-down and pile on if at all possible. It’s like a sport.</p>
+<p>It’s also entirely possible that I didn’t communicate well at all in short tweets. Maybe that’s all on me. I can’t say.</p>
+<p>Well, you’ve come this far, so let’s see if I can’t communicate better in blog than in twitter, since I can write in peace without people accusing me of meaning the wrong thing while I try to explain what I actually mean.</p>
+<p>If I’ve managed to make sense with this post, let me know.</p>
+<p>If I’ve not, the forum is open for clarifying questions below.</p>
+<section id="autocomplete-is-a-big-deal." class="level2">
+<h2 class="anchored" data-anchor-id="autocomplete-is-a-big-deal.">Autocomplete is a big deal.</h2>
+<p>The good thing about ‘private’ and ‘protected’ – the thing that actually makes programming easier/better, is that the <strong><em>methods aren’t offered by auto-complete</em></strong>. The idea of locking people out of calling the method? Not even remotely a second-degree concern.</p>
+<p>People program by autocomplete. You type the name of a thing, press the dot, and you get a list of things you can do. You may never look at the documentation, or read the example code, but you will see the autocomplete hundreds of times a day.</p>
+<p>When you want to disable an account, there is likely to be a ‘disable’ method attached to an account. You choose that method, run the tests, ship it. That’s how you normally will navigate.</p>
+<p>When you don’t see a method you want, you might pop up a level and use the module or some management API interface. Again, you type the name and a dot, and you look for ‘disable’ in the recommended names.</p>
+<p>Private and Protected are two of the ways to keep functions out of that list, and if they’re not in the list, you’re not likely to even consider calling them.</p>
+</section>
+<section id="arbitrarily-located-functions" class="level2">
+<h2 class="anchored" data-anchor-id="arbitrarily-located-functions">Arbitrarily Located Functions</h2>
+<p>A developer is implementing a class and realizes that they need to compare date ranges. They write that up, drop it into a private method, and all is well.</p>
+<p>Or is it?</p>
+<p>Why is <em>that</em> method located in <em>this</em> class? Does it have high cohesion? No.&nbsp;Does it support the purpose of this class directly? No.</p>
+<p>Why then? Because this class calls the function, and this is the file I was editing when I wrote the function.</p>
+<p>In other words, the function doesn’t belong here according to any rule of design, but it wasn’t found anywhere else either. The developer drops it into the class with ‘private’ and moves on.</p>
+<p>What I’ve found is that often the private methods in one class are repeatedly reinvented in private methods of other classes. Sometimes they’re even copied and pasted directly from one class to another.</p>
+<p>Why? Because this is the class they had open in the editor when they realized they needed the function, and it’s not available for calling because it’s private in the other class. So they copied it.</p>
+<p>Arbitrarily located functions, hidden from view, repeated by invention and copying, likely hiding the opportunity for Single Point Of Truth (SPOT) abstractions and libraries that would make everyone’s job a little easier.</p>
+<p>This isn’t a rare occurrence.</p>
+<p>By being hidden and arbitrarily located, they invite duplication and reinvention.</p>
+</section>
+<section id="testability-of-private-methods-none" class="level2">
+<h2 class="anchored" data-anchor-id="testability-of-private-methods-none">Testability of Private Methods? None</h2>
+<p>When we talk about testing private methods, it’s a non-starter. If you put the word ‘private’ on the front of a method in most languages, you cannot call that method from a test. That means you can’t possibly test private methods.</p>
+<p>Okay, there is a way, but it involves reflection and that’s an obscenity. If you ever use reflection to crack into some legacy code and test hidden methods, make sure you remove that hack as soon as humanly possible (or sooner) because it’s a travesty. It’s awful. It will fail you if the method is renamed or moved. Reflection is generally a bad idea, and I wouldn’t do that (much, or for long).</p>
+<p>If you are doing TDD (and why wouldn’t you?) you test the public methods, and if they’re using private methods then the private methods are being exercised. If you have meaningful tests and assertions, then the private methods are being tested through the public interface and that’s probably okay.</p>
+<p>If you’re not doing TDD (and why not?) then you may not have code that tests all the private behaviors. You may have to read all the code in order to exercise it properly, which is a pain.</p>
+<p>If you’re doing test-after development (but why?) you’ve written the code and now you have to write tests around it. Every private method is a called from some public method and you’re going to have to figure out how to get down into that private method code and recognize if it’s working correctly or not.</p>
+<p>By being private, those methods have cut off the easiest route to testability – calling the method directly.</p>
+</section>
+<section id="should-you-test-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="should-you-test-implementation">Should You Test Implementation?</h2>
+<p>You should: implementation is how code behaves and you have to test behavior.</p>
+<p>There are caveats here:</p>
+<ul>
+<li>If you’re structure-aware in your tests, they’ll resist structural refactoring</li>
+<li>If you’re time-sequence-aware in your tests, they’ll resist time-order refactoring</li>
+<li>If you’re using reflection, you’re poisoning our future and must be stopped (half-grin)</li>
 </ul>
-<p style="text-align: left;">
-There are rules, of course. You don’t lock down things that you want to change, and you don’t leave unspoken the things that must be true. Your tests specify how your world behaves at a certain level.
-</p>
-<p style="text-align: left;">
-Sometimes that’s too high a level and there are mini-behaviors you need to check too.
-</p>
-<p style="text-align: left;">
-I’ve seen cases where testing only at the interface required hundreds of tests, but testing at the internal level requires barely a dozen. This is because at the higher level, you need all the combinations of all the paths of all the subordinate functions. At lower levels, you need one for each path in a function.
-</p>
-<p style="text-align: left;">
-High-level end-to-end and integration tests take a long time to run, and microtests are cheap and fast.
-</p>
-<p style="text-align: left;">
-We tend to do microtesting (or unit testing) so that we can afford to run the tests in a tight TDD cycle.&nbsp;
-</p>
-<p style="text-align: left;">
-To argue against testing implementation functions is to argue against unit testing and microtesting on principle.
-</p>
-<p style="text-align: left;">
-If you should only use the most-public interface, then shouldn’t you only test at the UI level? Yeah, this is not a good idea.&nbsp;
-</p>
-<p style="text-align: left;">
-So how can we get at the lower-level functions? If they’re all private, we can’t but it is totally possible if they are public methods on lower-level classes that are composed (“encapsulated”) by the API classes.&nbsp;
-</p>
-<p style="text-align: left;">
-<br>
-</p>
-<h2 style="text-align: left;" class="anchored">
-Interfaces and Implementations
-</h2>
-<p style="text-align: left;">
-In many languages, you can declare a public interface, and that interface can be implemented by other classes.
-</p>
-<p style="text-align: left;">
-It’s accepted that one should always program to the interface in those languages. This way, one can only use the declared, public interface of the implementations. This keeps the implementations substitutable (via Liskov Substitution Principle).&nbsp;
-</p>
-<p style="text-align: left;">
-Non-interface methods of the implementers are <i>already hidden</i>: callers have no access to them via the interface.&nbsp;
-</p>
-<p style="text-align: left;">
-If you’re using the interface, and you press the dot, then only methods in the public interface are presented. The other methods of the implementer may as well not exist, because they are not available here.
-</p>
-<p style="text-align: left;">
-If you have segregated interfaces, this is even nicer. It may be that two or three public interfaces are the right way to think and design interactions, but combining a few of those interfaces together is the better way to implement the behaviors. No user of one interface has any awareness that the other interfaces exist on the object, nor of the public methods of the other interfaces, nor any of the public methods of the implementers.
-</p>
-<p style="text-align: left;">
-In order to reach the public methods of the implementer, a caller would have to <i><b>down-cast</b></i> from the interface to the implementation (a no-no that justifies a sharp crack across the knuckles with a yardstick) in order to even know that other methods exist.&nbsp;
-</p>
-<p style="text-align: left;">
-This is convenient. This means that all methods of the implementers can be public without exposing those methods to callers.&nbsp; Since they’re public, you can write tests directly against them. Because the implementation is being tested also through the interface, it’s easy to ensure that it behaves as a whole implementation.
-</p>
-<p style="text-align: left;">
-Why not make them private? Because it’s redundant and limits testing.&nbsp;
-</p>
-<p style="text-align: left;">
-Without polluting the public interface, one has a fully open and testable class.
-</p>
-<p style="text-align: left;">
-<br>
-</p>
-<h2 style="text-align: left;" class="anchored">
-Thinking a little more deeply
-</h2>
-<div>
-Private methods, when we choose to use them, may signal a need for us to think more deeply about our situation and strategies.
-</div>
-<p>
-</p>
-<ol style="text-align: left;">
-<li>
-<b>In a Rat’s Nest:</b><br>sometimes people are doing test-last (after coding) and they have a complex method. You shouldn’t have big, complex methods if you have any other choice. To try to manage the complexity, they may extract some private methods.<br>In order to test through the API, you have to navigate the rat’s nest. You will have to set up deep data structures and some combination of boolean conditions that will allow you to get to the private method’s function call, and then to exercise the code inside that method.<br>It’s easier to make the method’s access less restricted and test it directly than to have dozens of long and complicated tests. Perhaps package-public, perhaps protected so you can cheat with inherit-to-expose.&nbsp;<br>It’s better to test the code easily than to write awful, fragile, internals-aware tests.
-</li>
-<li>
-<b>Missed Abstractions</b><br>Where one class has a bunch of private methods, often there is some cohesion between those methods. If one were to set the private methods side-by-side, one might recognize that there have been missed abstractions.<br>Maybe some of the methods are generic string, date, or math functions. These could be public methods in a utility package or more-primitive type. If you move them to the “right” place, they can be fully testable and can be reused within the codebase. They would not be public methods of the class you’re working on.<br>Perhaps some of those represent a lower-level concept that is munged into the current class. If they were pulled out, they could become testable, public methods on the new class. They would still not appear in the public interface of the class you’re working on.<br>
-</li>
-<li>
-<b>In Languages without Private</b><br>In Python, smalltalk, and similar languages there’s no ‘private’ and we’ve been okay with that for a long time (since the 70s for Smalltalk).&nbsp;<br>While people say that encapsulation is a core feature of OOD (and it is) it isn’t the “private” keyword that causes encapsulation. It’s done via composition.<br>In a Python module, you can choose what classes you expose and which you don’t. You have a class with a public API, which is composed of classes/functions that aren’t part of the public API. They’re tested directly within the module and don’t have a “private” keyword associated with them. They might not have underscore-decorated names or any other semblance of access protections.&nbsp;<br>
-</li>
-<li>
-<b>Other APIs</b><br>In any language, the Model class or the API class may have a simple interface into the module (as described above) but the module may have a lot of complicated functions and logic divided into multiple classes and functions.&nbsp;<br>The model class doesn’t have any ‘private’ methods at all - it just calls the public methods of other classes in the module. Those classes have copious tests and may not have any methods declared Private or Protected, because only the API and tests call those methods - they’re not visible to the outside world (protection from <a href="https://www.hyrumslaw.com/">Hyrum’s Law</a>)<br>
-</li>
+<p>There are rules, of course. You don’t lock down things that you want to change, and you don’t leave unspoken the things that must be true. Your tests specify how your world behaves at a certain level.</p>
+<p>Sometimes that’s too high a level and there are mini-behaviors you need to check too.</p>
+<p>I’ve seen cases where testing only at the interface required hundreds of tests, but testing at the internal level requires barely a dozen. This is because at the higher level, you need all the combinations of all the paths of all the subordinate functions. At lower levels, you need one for each path in a function.</p>
+<p>High-level end-to-end and integration tests take a long time to run, and microtests are cheap and fast.</p>
+<p>We tend to do microtesting (or unit testing) so that we can afford to run the tests in a tight TDD cycle.</p>
+<p>To argue against testing implementation functions is to argue against unit testing and microtesting on principle.</p>
+<p>If you should only use the most-public interface, then shouldn’t you only test at the UI level? Yeah, this is not a good idea.</p>
+<p>So how can we get at the lower-level functions? If they’re all private, we can’t but it is totally possible if they are public methods on lower-level classes that are composed (“encapsulated”) by the API classes.</p>
+</section>
+<section id="interfaces-and-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="interfaces-and-implementations">Interfaces and Implementations</h2>
+<p>In many languages, you can declare a public interface, and that interface can be implemented by other classes.</p>
+<p>It’s accepted that one should always program to the interface in those languages. This way, one can only use the declared, public interface of the implementations. This keeps the implementations substitutable (via Liskov Substitution Principle).</p>
+<p>Non-interface methods of the implementers are <em>already hidden</em>: callers have no access to them via the interface.</p>
+<p>If you’re using the interface, and you press the dot, then only methods in the public interface are presented. The other methods of the implementer may as well not exist, because they are not available here.</p>
+<p>If you have segregated interfaces, this is even nicer. It may be that two or three public interfaces are the right way to think and design interactions, but combining a few of those interfaces together is the better way to implement the behaviors. No user of one interface has any awareness that the other interfaces exist on the object, nor of the public methods of the other interfaces, nor any of the public methods of the implementers.</p>
+<p>In order to reach the public methods of the implementer, a caller would have to <strong><em>down-cast</em></strong> from the interface to the implementation (a no-no that justifies a sharp crack across the knuckles with a yardstick) in order to even know that other methods exist.</p>
+<p>This is convenient. This means that all methods of the implementers can be public without exposing those methods to callers. Since they’re public, you can write tests directly against them. Because the implementation is being tested also through the interface, it’s easy to ensure that it behaves as a whole implementation.</p>
+<p>Why not make them private? Because it’s redundant and limits testing.</p>
+<p>Without polluting the public interface, one has a fully open and testable class.</p>
+</section>
+<section id="thinking-a-little-more-deeply" class="level2">
+<h2 class="anchored" data-anchor-id="thinking-a-little-more-deeply">Thinking a little more deeply</h2>
+<p>Private methods, when we choose to use them, may signal a need for us to think more deeply about our situation and strategies.</p>
+<ol type="1">
+<li><p><strong>In a Rat’s Nest:</strong><br>
+sometimes people are doing test-last (after coding) and they have a complex method. You shouldn’t have big, complex methods if you have any other choice. To try to manage the complexity, they may extract some private methods.<br>
+In order to test through the API, you have to navigate the rat’s nest. You will have to set up deep data structures and some combination of boolean conditions that will allow you to get to the private method’s function call, and then to exercise the code inside that method.<br>
+It’s easier to make the method’s access less restricted and test it directly than to have dozens of long and complicated tests. Perhaps package-public, perhaps protected so you can cheat with inherit-to-expose.<br>
+It’s better to test the code easily than to write awful, fragile, internals-aware tests.</p></li>
+<li><p><strong>Missed Abstractions</strong><br>
+Where one class has a bunch of private methods, often there is some cohesion between those methods. If one were to set the private methods side-by-side, one might recognize that there have been missed abstractions.<br>
+Maybe some of the methods are generic string, date, or math functions. These could be public methods in a utility package or more-primitive type. If you move them to the “right” place, they can be fully testable and can be reused within the codebase. They would not be public methods of the class you’re working on.<br>
+Perhaps some of those represent a lower-level concept that is munged into the current class. If they were pulled out, they could become testable, public methods on the new class. They would still not appear in the public interface of the class you’re working on.</p></li>
+<li><p><strong>In Languages without Private</strong><br>
+In Python, smalltalk, and similar languages there’s no ‘private’ and we’ve been okay with that for a long time (since the 70s for Smalltalk).<br>
+While people say that encapsulation is a core feature of OOD (and it is) it isn’t the “private” keyword that causes encapsulation. It’s done via composition.<br>
+In a Python module, you can choose what classes you expose and which you don’t. You have a class with a public API, which is composed of classes/functions that aren’t part of the public API. They’re tested directly within the module and don’t have a “private” keyword associated with them. They might not have underscore-decorated names or any other semblance of access protections.</p></li>
+<li><p><strong>Other APIs</strong><br>
+In any language, the Model class or the API class may have a simple interface into the module (as described above) but the module may have a lot of complicated functions and logic divided into multiple classes and functions.<br>
+The model class doesn’t have any ‘private’ methods at all - it just calls the public methods of other classes in the module. Those classes have copious tests and may not have any methods declared Private or Protected, because only the API and tests call those methods - they’re not visible to the outside world (protection from <a href="https://www.hyrumslaw.com/">Hyrum’s Law</a>)</p></li>
 </ol>
-<h2 style="text-align: left;" class="anchored">
-So What Do You Do Instead
-</h2>
-<div>
-<ul style="text-align: left;">
-<li>
-<b>Don’t pollute the public interface of a class with private methods.</b> If you simply flip the <b>private</b> methods to be <b>public</b>, you’ll lose understandability of the interface and create unwanted dependencies. This is what I recommend <b>not</b>&nbsp;doing. Keep interfaces clear and clean.
-</li>
-<li>
-<b>Move your methods </b>to the places where they belong (where they have cohesion) and can be easily found by others.
-</li>
-<li>
-<b>Try not to need private methods</b>. They should be rare. Remember, many OO languages don’t even have the concept of <i>private</i>&nbsp;and they’re just fine without them.
-</li>
-<li>
-in some legacy code test-after situations, <b>you might raise accessibility of a method to public</b>, protected, or module-private in order to support refactoring via better tests (in the short term)
-</li>
-<li>
-Consider<b> using encapsulation properly</b>: by composing behaviors under an API, rather than by housing all behaviors in the API’s class.
-</li>
-<li>
-In some languages, you have ‘interface’ or ‘protocol’ classes that <b>declare an interface to use</b>. Do that when there is a clear public interface.&nbsp;
-</li>
+</section>
+<section id="so-what-do-you-do-instead" class="level2">
+<h2 class="anchored" data-anchor-id="so-what-do-you-do-instead">So What Do You Do Instead</h2>
+<ul>
+<li><strong>Don’t pollute the public interface of a class with private methods.</strong> If you simply flip the <strong>private</strong> methods to be <strong>public</strong>, you’ll lose understandability of the interface and create unwanted dependencies. This is what I recommend <strong>not</strong> doing. Keep interfaces clear and clean.</li>
+<li><strong>Move your methods</strong> to the places where they belong (where they have cohesion) and can be easily found by others.</li>
+<li><strong>Try not to need private methods</strong>. They should be rare. Remember, many OO languages don’t even have the concept of <em>private</em> and they’re just fine without them.</li>
+<li>in some legacy code test-after situations, <strong>you might raise accessibility of a method to public</strong>, protected, or module-private in order to support refactoring via better tests (in the short term)</li>
+<li>Consider <strong>using encapsulation properly</strong>: by composing behaviors under an API, rather than by housing all behaviors in the API’s class.</li>
+<li>In some languages, you have ‘interface’ or ‘protocol’ classes that <strong>declare an interface to use</strong>. Do that when there is a clear public interface.</li>
 </ul>
-<div>
-And, of course, I would be remiss if I didn’t admit that I do sometimes create private methods. I try not to, and when I find a better way than settling on private, I am usually happier.&nbsp; I sometimes leave a little cruft like private methods until I have more information and can see a better design form; it may take weeks or months.&nbsp;<br><br>So yeah, there are private methods in my code. I just don’t see that as “good coding” and a “solution.” It’s temporary.
-</div>
-</div>
-<p>
-</p>
+<p>And, of course, I would be remiss if I didn’t admit that I do sometimes create private methods. I try not to, and when I find a better way than settling on private, I am usually happier. I sometimes leave a little cruft like private methods until I have more information and can see a better design form; it may take weeks or months.</p>
+<p>So yeah, there are private methods in my code. I just don’t see that as “good coding” and a “solution.” It’s temporary.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

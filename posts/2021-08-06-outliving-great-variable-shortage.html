@@ -158,69 +158,21 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-&nbsp;
-</p>
-<div id="article-275" class="atomentry" style="font-family: Verdana, Helvetica, sans-serif; font-size: 12px; margin: 0px 0px 3em;">
-<h2 class="title anchored" style="color: #003399; font-family: Arial, Helvetica, sans-serif; font-size: 1.8em; letter-spacing: -1px; line-height: 1.7; margin: 0px; padding: 0px;">
-<br>
-</h2>
-<p class="author" style="color: #003399; font-family: Arial, Helvetica, sans-serif; font-weight: bold; line-height: 1.7; margin: 0px 0px 10px; padding: 0px 0px 0px 2px;">
-Originally Posted &nbsp;<abbr class="published" style="border: none; color: #aaaaaa;" title="2007-02-26T23:07:00-06:00"><span class="typo_date" title="Tue, 27 Feb 2007 05:07:00 GMT">on 2/26/2007</span></abbr>
-</p>
-<div class="content">
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-One of the more annoying problems in code, confounding readability and maintainability, frustrating test-writing, is that of the multidomain variable.
-</p>
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-I suppose somebody forgot to clue me in to the Great Variable Shortage that is coming. I have seen people recycling variables to mean different things at different times in the program or different states of the containing object. I’ve witnessed magic negative values in variables that normally would contain a count (sometimes as indicators that there is no count, much as a&nbsp;<span class="caps">NULL</span>/nil/None would). I might be willing to tolerate this in programming languages where a null value is not present.
-</p>
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-Yet I have seen some code spring from multidomain variables that made the code rather less than obvious. I think that it can be a much worse problem than tuple madness.
-</p>
-<div class="extended" style="padding-top: 5px;">
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-I have a rule that I stand by in OO and in database design, and that is that a variable should have a single, reasonable domain. It is either a flag or a counter. It is either an indicator or a measurement. It is never both, depending on the state of something else.
-</p>
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-It is sort of like applying Curly’s law (Single Responsibility Principle) to variables. A variable should mean one thing, and one thing only. It should not mean one thing in one circumstance and carry a different value from a different domain some other time. It should not mean two things at once. It must not be both a floor polish and a dessert topping. It should mean One Thing and should mean it all of the time.
-</p>
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-Surely I’ll take a shot from someone citing the value of a reduced footprint, and I won’t argue very long about the value of using only as much memory as you must. In C++ I was a happy advocate of bitfields. I haven’t been overly vocal about using various data-packing schemes, but I think that it can be a reasonable choice for compressing many values into a smaller space, but I will maintain that multipurpose variables are a bad idea, and will damage the readability of any body of code.
-</p>
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-I suggest, in the case of constrained footprint where there truly is a Great Variable Shortage (<acronym title="tm">GVS</acronym>) that&nbsp;<strong>if</strong>&nbsp;(and that’s a big&nbsp;<strong>if</strong>) the author absolutely&nbsp;<span class="caps">MUST</span>&nbsp;repurpose variables on the fly that it is the lot of that programmer to make sure that users of the class/struct never have to know that it is being done. Never. Including those writing unit tests. The class will have to keep data-packing and variable-repurposing as a dirty secret.
-</p>
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-Perhaps a strong statement or two in rule-form should be made here:
-</p>
-<ol style="margin: 1em; padding: 0px;">
-<li style="line-height: 16px; margin: 0px; padding: 2px 0px 0px;">
-A variable should have a&nbsp;<span class="caps">SINGLE DOMAIN</span>.
-</li>
-<li style="line-height: 16px; margin: 0px; padding: 2px 0px 0px;">
-One must&nbsp;<span class="caps">NEVER GET CAUGHT</span>&nbsp;repurposing a variable.
-</li>
+<p><strong>Originally Posted on 2/26/2007</strong> · <a href="https://web.archive.org/web/20120315102554/http://blog.objectmentor.com/articles/2007/02/26/outliving-the-great-variable-shortage">Archived original</a></p>
+<p>One of the more annoying problems in code, confounding readability and maintainability, frustrating test-writing, is that of the multidomain variable.</p>
+<p>I suppose somebody forgot to clue me in to the Great Variable Shortage that is coming. I have seen people recycling variables to mean different things at different times in the program or different states of the containing object. I’ve witnessed magic negative values in variables that normally would contain a count (sometimes as indicators that there is no count, much as a NULL/nil/None would). I might be willing to tolerate this in programming languages where a null value is not present.</p>
+<p>Yet I have seen some code spring from multidomain variables that made the code rather less than obvious. I think that it can be a much worse problem than tuple madness.</p>
+<p>I have a rule that I stand by in OO and in database design, and that is that a variable should have a single, reasonable domain. It is either a flag or a counter. It is either an indicator or a measurement. It is never both, depending on the state of something else.</p>
+<p>It is sort of like applying Curly’s law (Single Responsibility Principle) to variables. A variable should mean one thing, and one thing only. It should not mean one thing in one circumstance and carry a different value from a different domain some other time. It should not mean two things at once. It must not be both a floor polish and a dessert topping. It should mean One Thing and should mean it all of the time.</p>
+<p>Surely I’ll take a shot from someone citing the value of a reduced footprint, and I won’t argue very long about the value of using only as much memory as you must. In C++ I was a happy advocate of bitfields. I haven’t been overly vocal about using various data-packing schemes, but I think that it can be a reasonable choice for compressing many values into a smaller space, but I will maintain that multipurpose variables are a bad idea, and will damage the readability of any body of code.</p>
+<p>I suggest, in the case of constrained footprint where there truly is a Great Variable Shortage (GVS) that <strong>if</strong> (and that’s a big <strong>if</strong>) the author absolutely MUST repurpose variables on the fly that it is the lot of that programmer to make sure that users of the class/struct never have to know that it is being done. Never. Including those writing unit tests. The class will have to keep data-packing and variable-repurposing as a dirty secret.</p>
+<p>Perhaps a strong statement or two in rule-form should be made here:</p>
+<ol type="1">
+<li>A variable should have a SINGLE DOMAIN.</li>
+<li>One must NEVER GET CAUGHT repurposing a variable.</li>
 </ol>
-<p style="line-height: 15px; margin: 0px 0px 1.2em; padding: 0px;">
-We don’t have to make do with the smallest number of variable&nbsp;<strong>names</strong>&nbsp;possible. Try to learn to live in plenty: use all the variables you want. For the sake of readability, consider having a single purpose for every variable not only at a given point in time but for the entire program you’re writing.
-</p>
-</div>
-</div>
-<ul class="meta" style="border-bottom: 1px solid rgb(85, 85, 85); border-top: 1px solid rgb(85, 85, 85); color: #555555; font-size: 10px; list-style: none; margin: 0px; padding: 5px 0px 5px 20px;">
-<li class="categories" style="color: black; font-size: 12px; line-height: 13px; margin: 0px; padding: 0px;">
-Posted in&nbsp;<a href="https://web.archive.org/web/20120315102554/http://blog.objectmentor.com/articles/category/tims-tepid-torrent" rel="tag" style="color: #555555; text-decoration-line: none;">Tim’s Tepid Torrent</a>
-</li>
-<li style="color: black; font-size: 12px; line-height: 13px; margin: 0px; padding: 0px;">
-Meta&nbsp;<a href="https://web.archive.org/web/20120315102554/http://blog.objectmentor.com/articles/2007/02/26/outliving-the-great-variable-shortage#trackbacks" style="color: #555555; text-decoration-line: none;">no trackbacks</a>,&nbsp;<a href="https://web.archive.org/web/20120315102554/http://blog.objectmentor.com/articles/2007/02/26/outliving-the-great-variable-shortage#comments" style="color: #555555; text-decoration-line: none;">34 comments</a>,&nbsp;<a href="https://web.archive.org/web/20120315102554/http://blog.objectmentor.com/articles/2007/02/26/outliving-the-great-variable-shortage" rel="bookmark" style="color: #555555; text-decoration-line: none;">permalink</a>,&nbsp;<a href="https://web.archive.org/web/20120315102554/http://blog.objectmentor.com/xml/rss/article/275/feed.xml" style="color: #555555; text-decoration-line: none;">rss</a>,&nbsp;<a href="https://web.archive.org/web/20120315102554/http://blog.objectmentor.com/xml/atom/article/275/feed.xml" style="color: #555555; text-decoration-line: none;">atom</a>
-</li>
-<li>
-</li>
-</ul>
-</div>
-<div id="article-187" class="atomentry" style="font-family: Verdana, Helvetica, sans-serif; font-size: 12px; margin: 0px 0px 3em;">
-
-</div>
+<p>We don’t have to make do with the smallest number of variable <strong>names</strong> possible. Try to learn to live in plenty: use all the variables you want. For the sake of readability, consider having a single purpose for every variable not only at a given point in time but for the entire program you’re writing.</p>
+<p>Posted in <a href="https://web.archive.org/web/20120315102554/http://blog.objectmentor.com/articles/category/tims-tepid-torrent">Tim’s Tepid Torrent</a></p>
 
 
 

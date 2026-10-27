@@ -158,7 +158,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I had a small task to build a subversion post-commit trigger. I didn’t know my way around the subversion library, and so I started spiking… the <span style="font-style: italic;">old</span> way. I fired up an interactive session and tried playing with it. I created a repo by hand and started running merges and copies and checkins, and had the trigger print stuff out. There is Nothing wrong with doing that, by the way.<br><br>The problem was that I didn’t toss it out and TDD the new one into existence. I TDDed my way through any new routines, and extracted-n-tested any tricky bits until my main loop was much smaller, but I didn’t toss it and TDD it back into existence. I kept the prototype.<br><br>As a result, I have this code that’s pretty simple and nice, and there in the middle is this post-coding-tested wart. It works, it passed code review, but I’m not going to put this one up on my fridge. The routine has a triply-nested loop and is at least a dozen lines long. It’s disgraceful. Worse yet, the tests are hard to read because of the deep structure. <br><br>First chance, I’m rewriting that thing. I have to recover some professional pride.</p>
+<p>I had a small task to build a subversion post-commit trigger. I didn’t know my way around the subversion library, and so I started spiking… the <em>old</em> way. I fired up an interactive session and tried playing with it. I created a repo by hand and started running merges and copies and checkins, and had the trigger print stuff out. There is Nothing wrong with doing that, by the way.</p>
+<p>The problem was that I didn’t toss it out and TDD the new one into existence. I TDDed my way through any new routines, and extracted-n-tested any tricky bits until my main loop was much smaller, but I didn’t toss it and TDD it back into existence. I kept the prototype.</p>
+<p>As a result, I have this code that’s pretty simple and nice, and there in the middle is this post-coding-tested wart. It works, it passed code review, but I’m not going to put this one up on my fridge. The routine has a triply-nested loop and is at least a dozen lines long. It’s disgraceful. Worse yet, the tests are hard to read because of the deep structure.</p>
+<p>First chance, I’m rewriting that thing. I have to recover some professional pride.</p>
 
 
 

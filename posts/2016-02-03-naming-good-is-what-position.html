@@ -158,71 +158,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-I want to drop in a quick note about variable and class naming, one of my favorite hobby horses.<br><br>I talked a little bit about choosing <a href="http://agileotter.blogspot.com/2015/10/dot-programming-your-object-oriented.html" target="_blank">more completable names</a> already. I think that is very important, and you would be well-served by paying attention to that bit.<br><br>Today let’s consider the <a href="https://en.wikipedia.org/wiki/Serial_position_effect" target="_blank">serial position effect</a>.<br> <br> In any programming namespace, we’re going to come across some naming issues. Here is a non-comprehensive, non-exclusive list:<br> <br>
+<p>I want to drop in a quick note about variable and class naming, one of my favorite hobby horses.</p>
+<p>I talked a little bit about choosing <a href="../posts/2015-10-16-dot-programming-your-object-oriented.html">more completable names</a> already. I think that is very important, and you would be well-served by paying attention to that bit.</p>
+<p>Today let’s consider the <a href="https://en.wikipedia.org/wiki/Serial_position_effect">serial position effect</a>.</p>
+<p>In any programming namespace, we’re going to come across some naming issues. Here is a non-comprehensive, non-exclusive list:</p>
 <ul>
-<li>
-Objects with a common base will want to include the base class name in the derived class, leaving us with <i>MonoNUnitTestRunner</i> derived from <i>NUnitTestRunner</i> derived from <i>TestRunner</i>, possibly breaking naming in its derivation from <i>CodeEvaluationRunner</i> and on and on.
-</li>
-<li>
-Objects in languages with declared interfaces have a tendency to want to declare the interfaces in their names. An <i>iUserAction</i> will have a <i>UserActionImpl</i> in many cases, whose children may follow the prior rule above.&nbsp;
-</li>
-<li>
-People love naming the patterns they use in implementing an interface. You will see names like <i>UserActionVisitorFactory</i>&nbsp;
-</li>
-<li>
-Noise words will creep in, so that you may have a <i>Subscriber </i>class with a base class tied to persistence. You can’t call them both <i>Subscriber </i>unless you split them into separate namespaces, so you’ll tend to name one <i>SubscriberInfo</i> or <i>SubscriberDataObject</i> or the like. Not to mention <i>SubscriberObject</i> and <i>SubscriberManager</i> and <i>BaseSubscriber.</i>&nbsp;Of course “manager”, and “info” and “data” and “object” are completely noise words in an OO system, but they sure are prevalent.<i>&nbsp;</i>
-</li>
-<li>
-Fuzziness and generality will be signaled by the use of vague terms. <i>Identifier</i>&nbsp;is general, <i>FactoryManager</i>&nbsp;is general, pattern-related (possibly) and vague. &nbsp;Often when we don’t have a clear, unique purpose for an object, we’ll use vague terms. &nbsp;It might be a code smell. It means that other, similar terms will have to carry “warts” or “qualifications” to be unique. Maybe there must be a <i>UniqueShortStringId </i>so that we don’t confuse it with the UUID or GUID we use in <i>Id.</i>&nbsp;
-</li>
-<li>
-People suspicious of the ‘magic’ of namespaces may feel uncomfortable with letting the namespaces and class names be sorted out by the compiler (for some reason) and may embed namespaces and class names in their object and method names. I know, it’s redundant and seems silly, but it happens. We end up with <i>CustomerManagement.Customer.getCustomerName()</i>. Sigh.
-</li>
+<li>Objects with a common base will want to include the base class name in the derived class, leaving us with <em>MonoNUnitTestRunner</em> derived from <em>NUnitTestRunner</em> derived from <em>TestRunner</em>, possibly breaking naming in its derivation from <em>CodeEvaluationRunner</em> and on and on.</li>
+<li>Objects in languages with declared interfaces have a tendency to want to declare the interfaces in their names. An <em>iUserAction</em> will have a <em>UserActionImpl</em> in many cases, whose children may follow the prior rule above.</li>
+<li>People love naming the patterns they use in implementing an interface. You will see names like <em>UserActionVisitorFactory</em></li>
+<li>Noise words will creep in, so that you may have a <em>Subscriber</em> class with a base class tied to persistence. You can’t call them both <em>Subscriber</em> unless you split them into separate namespaces, so you’ll tend to name one <em>SubscriberInfo</em> or <em>SubscriberDataObject</em> or the like. Not to mention <em>SubscriberObject</em> and <em>SubscriberManager</em> and <em>BaseSubscriber.</em> Of course “manager”, and “info” and “data” and “object” are completely noise words in an OO system, but they sure are prevalent.</li>
+<li>Fuzziness and generality will be signaled by the use of vague terms. <em>Identifier</em> is general, <em>FactoryManager</em> is general, pattern-related (possibly) and vague. Often when we don’t have a clear, unique purpose for an object, we’ll use vague terms. It might be a code smell. It means that other, similar terms will have to carry “warts” or “qualifications” to be unique. Maybe there must be a <em>UniqueShortStringId</em> so that we don’t confuse it with the UUID or GUID we use in <em>Id.</em></li>
+<li>People suspicious of the ‘magic’ of namespaces may feel uncomfortable with letting the namespaces and class names be sorted out by the compiler (for some reason) and may embed namespaces and class names in their object and method names. I know, it’s redundant and seems silly, but it happens. We end up with <em>CustomerManagement.Customer.getCustomerName()</em>. Sigh.</li>
 </ul>
-<div>
-Is it wrong to have compound names? Probably not, and besides “wrong” is an uninteresting qualifier. Maybe better questions will help:
-</div>
-<div>
+<p>Is it wrong to have compound names? Probably not, and besides “wrong” is an uninteresting qualifier. Maybe better questions will help:</p>
 <ul>
-<li>
-Is it helpful?&nbsp;
-</li>
-<li>
-s it only a coping mechanism for over-used namespaces?&nbsp;
-</li>
-<li>
-Is it a signal that our code is degrading?&nbsp;
-</li>
-<li>
-Is it a sign that we’re doing a good job?&nbsp;
-</li>
-<li>
-Is it a temporary state, that might be leading us toward more manageable code?&nbsp;
-</li>
+<li>Is it helpful?</li>
+<li>s it only a coping mechanism for over-used namespaces?</li>
+<li>Is it a signal that our code is degrading?</li>
+<li>Is it a sign that we’re doing a good job?</li>
+<li>Is it a temporary state, that might be leading us toward more manageable code?</li>
 </ul>
-</div>
-<div>
-<br>Rather than answer ethical questions that we don’t have room for in this space, let’s consider instead that we have compound names, for better or worse.<br><br>What ordering should we use?<br><br>Serial position effect tells us that we will recall the first and last parts of the name most clearly. This has been illustrated in even smaller scale by silly facebook posts like this:
-</div>
-<blockquote class="tr_bq blockquote">
-<span style="font-family: Times, Times New Roman, serif;">“If you can raed tihs, tehn you hvae a vrey rrae gfit. Olny sveen penecrt of plpoe are albe to usdtnernad tihs txet. You hvae an azimang bairn!”</span>
+<p>Rather than answer ethical questions that we don’t have room for in this space, let’s consider instead that we have compound names, for better or worse.</p>
+<p>What ordering should we use?</p>
+<p>Serial position effect tells us that we will recall the first and last parts of the name most clearly. This has been illustrated in even smaller scale by silly facebook posts like this:</p>
+<blockquote class="blockquote">
+<p>“If you can raed tihs, tehn you hvae a vrey rrae gfit. Olny sveen penecrt of plpoe are albe to usdtnernad tihs txet. You hvae an azimang bairn!”</p>
 </blockquote>
-Which of course, contains misinformation because just about anyone can read it if they look at it for a few seconds and can read English at all.<br> <br> The interesting bit though, is that it is true that you don’t really struggle that much when the middles are scrambled because your brain doesn’t really latch onto the middles.<br> <br> Maybe this is why it’s easier reading these really short paragraphs than the long ones above and the short bullet points instead of the longer ones.<br><br>It seems that if we are going to use long compound names, we might be better off if we:<br> <br>
+<p>Which of course, contains misinformation because just about anyone can read it if they look at it for a few seconds and can read English at all.</p>
+<p>The interesting bit though, is that it is true that you don’t really struggle that much when the middles are scrambled because your brain doesn’t really latch onto the middles.</p>
+<p>Maybe this is why it’s easier reading these really short paragraphs than the long ones above and the short bullet points instead of the longer ones.</p>
+<p>It seems that if we are going to use long compound names, we might be better off if we:</p>
 <ul>
-<li>
-Put the most important word at the front to support dot-programming.
-</li>
-<li>
-Put the next most important word at the end of the name, so it’s memorable and recognizable.
-</li>
-<li>
-Either delete the other parts because they’re noise, or bury them in the middle.
-</li>
+<li>Put the most important word at the front to support dot-programming.</li>
+<li>Put the next most important word at the end of the name, so it’s memorable and recognizable.</li>
+<li>Either delete the other parts because they’re noise, or bury them in the middle.</li>
 </ul>
-<div>
-Give it a shot today when you’re programming. It might lead you to more clear and easily-read names!
-</div>
-<p><br> <br> <br></p>
+<p>Give it a shot today when you’re programming. It might lead you to more clear and easily-read names!</p>
 
 
 

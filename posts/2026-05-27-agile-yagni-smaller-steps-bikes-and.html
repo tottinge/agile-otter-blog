@@ -158,125 +158,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-&nbsp;There is a commonly shown drawing, which came from a <a href="https://blog.crisp.se/2016/01/25/henrikkniberg/making-sense-of-mvp">great Kniberg post </a>(of course), explaining how every iteration in an agile development method produces something usable, and the capability of it grows over time. Rather than building parts to assemble later, as typically is done in function decomposition and bottom-up building. I reproduced the image here, to introduce the topic better.<br><br>
-</p>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/incremental-vehicles-crossed-out.png" style="margin-left: 1em; margin-right: 1em;"><img alt="Incremental vehicle delivery contrasted with assembling unusable vehicle parts" data-original-height="411" data-original-width="609" height="216" src="../assets/incremental-vehicles-crossed-out.png" width="320"></a>
-</div>
-<br><br>Of course, critics answer by saying “well, if I ordered a car, I don’t want a scooter or a motorcycle! I want a CAR!!!”&nbsp;
-<div>
-<br>
-</div>
-<div>
-This argument misses the point entirely, but is frequently given as a counterargument. Henrik’s point was that in the crossed-out picture, you have to wait until the whole car is constructed before you get any benefit at all.&nbsp;
-</div>
-<div>
-<br>
-</div>
-<div>
-The point is not that we “wasted time” building intermediate forms, but rather that we began producing value from the start and increased it over time.
-<p>
-</p>
-<p>
-Henrik Kniberg is entirely right, yet people keep insisting that you have to drive in a straight line to the target outcome and not build releasable “value drops” along the way if you want to get there, a point debunked by Geepaw Hill in his <a href="https://www.geepawhill.org/2021/12/30/mmmss-the-pin-making-floptimization/">“Floptimization” posts</a>, which he illustrates thusly:
-</p>
-<p>
-<br>
-</p>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/most-efficient-path.png" style="margin-left: 1em; margin-right: 1em;"><img alt="Diagram titled The Most Efficient Path showing a walking skeleton and iterative route to a destination" data-original-height="750" data-original-width="1333" height="180" src="../assets/most-efficient-path.png" width="320"></a>
-</div>
-<br><br>
-<p>
-</p>
-<p>
-But let’s return to this image:<br><br><br>
-</p>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/incremental-vehicles.png" style="margin-left: 1em; margin-right: 1em;"><img alt="Skateboard, scooter, bicycle, motorcycle, and car as useful incremental deliveries" data-original-height="370" data-original-width="1402" height="84" src="../assets/incremental-vehicles.png" width="320"></a>
-</div>
-<div class="separator" style="clear: both; text-align: left;">
-<br>
-</div>
-<div class="separator" style="clear: both; text-align: left;">
-What I feel is missing is the degree to which agile methods give control to the end-user (or their surrogate in project/product management.&nbsp;&nbsp;
-</div>
-<div class="separator" style="clear: both; text-align: left;">
-<br>
-</div>
-<div class="separator" style="clear: both; text-align: left;">
-For instance, if you were to build a car as shown in the first image (under the red X) you might miss this opportunity:
-</div>
-<div class="separator" style="clear: both; text-align: left;">
-<br>
-</div>
-<br>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/yagni-stop-at-bike.png" style="margin-left: 1em; margin-right: 1em;"><img alt="Customer choosing the bicycle and declining later vehicle iterations" data-original-height="439" data-original-width="800" height="176" src="../assets/yagni-stop-at-bike.png" width="320"></a>
-</div>
-<p>
-</p>
-<div class="separator" style="clear: both;">
-What if you built a car for a person who really only wanted a bicycle? An automobile is a well-known solution to a problem of personal transportation. In the right context, it’s irreplaceable. On the other hand, many people are happier with a less expensive and restrictive mode of transport.&nbsp;
-</div>
-<div class="separator" style="clear: both;">
-<br>
-</div>
-<div class="separator" style="clear: both;">
-What if a bicycle was enough, but you were building a chassis and engine, and couldn’t deliver the bicycle?
-</div>
-<div class="separator" style="clear: both;">
-<br>I’ve been in circumstances where a client said, “This is fine, I don’t want the other 50% of the plan.”&nbsp; The team became despondent. They’d built in features, functions, and architecture in anticipation of the final system – things that would be wasted now that the feature ended short of the goal. They considered going into rebellion and building the final car anyway, against the client’s wishes and their own managers’.&nbsp;
-</div>
-<div class="separator" style="clear: both;">
-<br>
-</div>
-<div class="separator" style="clear: both;">
-In a more agile stance, you don’t pre-build what you “are going to need later”; you build perfectly for what it does today. This was well explained by all the original XP developers. They referred to their principle as YAGNI (You Aren’t Going to Need It). If you don’t need some feature or function for the current iteration, you leave it out.
-</div>
-<div class="separator" style="clear: both;">
-<br>
-</div>
-<div class="separator" style="clear: both;">
-There is another reason not to pre-build to an anticipated solution: the user may end up going in directions you had not considered originally.
-</div>
-<div class="separator" style="clear: both;">
-<br>
-</div>
-<div class="separator" style="clear: both;">
-This is not a rare occurrence.<br><br>Sometimes, a partial version of a planned feature unlocks a whole new customer base that was hitherto unserved. Once market fit is realised, the product takes a different direction; it serves the new market and may not follow the planned trajectory at all.
-</div>
-<p>
-If the original plan had been followed (the one Kniberg scratched out with a red X), there would have been no chance to spot the new opportunity and grow in a profitable new direction.&nbsp;
-</p>
-<p>
-Also, any pre-built architecture and non-YAGNI code would create friction, slowing growth in the new area and creating rework for the development teams.
-</p>
-<p>
-I illustrate the concept this way:
-</p>
-<p>
-<br>
-</p>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="../assets/incremental-vehicles-future.png" style="margin-left: 1em; margin-right: 1em;"><img alt="Scooter, bicycle, motorcycle, hang glider, and jet pack as evolving deliveries" data-original-height="768" data-original-width="2048" height="120" src="../assets/incremental-vehicles-future.png" width="320"></a>
-</div>
-<div class="separator" style="clear: both; text-align: center;">
-<br>
-</div>
-<div class="separator" style="clear: both; text-align: left;">
-In agile methods, you avoid pre-building. You focus on the work at hand, and build value every iteration. You don’t assume an end-target many weeks or months from now. You take many more much smaller steps, each valuable in its own right, and allow the feed back from customers and product managers determine how you will progress.&nbsp; You take Many More Much Smaller Steps in order to enable feedback and decision-making along the way.
-</div>
-<div class="separator" style="clear: both; text-align: left;">
-<br>
-</div>
-<div class="separator" style="clear: both; text-align: left;">
-Missing these opportunity guts agile methods of their true power to satisfy customers, and leaves you with a risk of building the wrong thing soonest.
-</div>
-<p>
-</p>
-</div>
+<p>There is a commonly shown drawing, which came from a <a href="https://blog.crisp.se/2016/01/25/henrikkniberg/making-sense-of-mvp">great Kniberg post</a> (of course), explaining how every iteration in an agile development method produces something usable, and the capability of it grows over time. Rather than building parts to assemble later, as typically is done in function decomposition and bottom-up building. I reproduced the image here, to introduce the topic better.</p>
+<p><a href="../assets/incremental-vehicles-crossed-out.png"><img src="../assets/incremental-vehicles-crossed-out.png" alt="Incremental vehicle delivery contrasted with assembling unusable vehicle parts" width="320" height="216"></a></p>
+<p>Of course, critics answer by saying “well, if I ordered a car, I don’t want a scooter or a motorcycle! I want a CAR!!!”</p>
+<p>This argument misses the point entirely, but is frequently given as a counterargument. Henrik’s point was that in the crossed-out picture, you have to wait until the whole car is constructed before you get any benefit at all.</p>
+<p>The point is not that we “wasted time” building intermediate forms, but rather that we began producing value from the start and increased it over time.</p>
+<p>Henrik Kniberg is entirely right, yet people keep insisting that you have to drive in a straight line to the target outcome and not build releasable “value drops” along the way if you want to get there, a point debunked by Geepaw Hill in his <a href="https://www.geepawhill.org/2021/12/30/mmmss-the-pin-making-floptimization/">“Floptimization” posts</a>, which he illustrates thusly:</p>
+<p><a href="../assets/most-efficient-path.png"><img src="../assets/most-efficient-path.png" alt="Diagram titled The Most Efficient Path showing a walking skeleton and iterative route to a destination" width="320" height="180"></a></p>
+<p>But let’s return to this image:</p>
+<p><a href="../assets/incremental-vehicles.png"><img src="../assets/incremental-vehicles.png" alt="Skateboard, scooter, bicycle, motorcycle, and car as useful incremental deliveries" width="320" height="84"></a></p>
+<p>What I feel is missing is the degree to which agile methods give control to the end-user (or their surrogate in project/product management.</p>
+<p>For instance, if you were to build a car as shown in the first image (under the red X) you might miss this opportunity:</p>
+<p><a href="../assets/yagni-stop-at-bike.png"><img src="../assets/yagni-stop-at-bike.png" alt="Customer choosing the bicycle and declining later vehicle iterations" width="320" height="176"></a></p>
+<p>What if you built a car for a person who really only wanted a bicycle? An automobile is a well-known solution to a problem of personal transportation. In the right context, it’s irreplaceable. On the other hand, many people are happier with a less expensive and restrictive mode of transport.</p>
+<p>What if a bicycle was enough, but you were building a chassis and engine, and couldn’t deliver the bicycle?</p>
+<p>I’ve been in circumstances where a client said, “This is fine, I don’t want the other 50% of the plan.” The team became despondent. They’d built in features, functions, and architecture in anticipation of the final system – things that would be wasted now that the feature ended short of the goal. They considered going into rebellion and building the final car anyway, against the client’s wishes and their own managers’.</p>
+<p>In a more agile stance, you don’t pre-build what you “are going to need later”; you build perfectly for what it does today. This was well explained by all the original XP developers. They referred to their principle as YAGNI (You Aren’t Going to Need It). If you don’t need some feature or function for the current iteration, you leave it out.</p>
+<p>There is another reason not to pre-build to an anticipated solution: the user may end up going in directions you had not considered originally.</p>
+<p>This is not a rare occurrence.</p>
+<p>Sometimes, a partial version of a planned feature unlocks a whole new customer base that was hitherto unserved. Once market fit is realised, the product takes a different direction; it serves the new market and may not follow the planned trajectory at all.</p>
+<p>If the original plan had been followed (the one Kniberg scratched out with a red X), there would have been no chance to spot the new opportunity and grow in a profitable new direction.</p>
+<p>Also, any pre-built architecture and non-YAGNI code would create friction, slowing growth in the new area and creating rework for the development teams.</p>
+<p>I illustrate the concept this way:</p>
+<p><a href="../assets/incremental-vehicles-future.png"><img src="../assets/incremental-vehicles-future.png" alt="Scooter, bicycle, motorcycle, hang glider, and jet pack as evolving deliveries" width="320" height="120"></a></p>
+<p>In agile methods, you avoid pre-building. You focus on the work at hand, and build value every iteration. You don’t assume an end-target many weeks or months from now. You take many more much smaller steps, each valuable in its own right, and allow the feed back from customers and product managers determine how you will progress. You take Many More Much Smaller Steps in order to enable feedback and decision-making along the way.</p>
+<p>Missing these opportunity guts agile methods of their true power to satisfy customers, and leaves you with a risk of building the wrong thing soonest.</p>
 
 
 
