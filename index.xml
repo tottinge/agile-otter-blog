@@ -196,6 +196,7 @@
   <category>AI</category>
   <category>XP</category>
   <category>continuousDelivery</category>
+  <category>learning</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-09-26-the-ticket-is-not-work.html</guid>
   <pubDate>Fri, 25 Sep 2026 23:00:00 GMT</pubDate>
 </item>
@@ -648,6 +649,7 @@
   <category>flow</category>
   <category>AI</category>
   <category>scrum</category>
+  <category>teams</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-06-15-do-agents-think-youre-doing-agile-wrong.html</guid>
   <pubDate>Sun, 14 Jun 2026 23:00:00 GMT</pubDate>
 </item>
@@ -838,6 +840,7 @@
  ]]></description>
   <category>flow</category>
   <category>AI</category>
+  <category>teams</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-06-03-draft-faros-whiplash-and-systems-view.html</guid>
   <pubDate>Tue, 02 Jun 2026 23:00:00 GMT</pubDate>
 </item>
@@ -918,6 +921,7 @@
 
 
  ]]></description>
+  <category>learning</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-05-27-agile-yagni-smaller-steps-bikes-and.html</guid>
   <pubDate>Tue, 26 May 2026 23:00:00 GMT</pubDate>
 </item>
@@ -945,6 +949,7 @@
 
 
  ]]></description>
+  <category>teams</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-03-28-pipeline-gates-populator.html</guid>
   <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
 </item>
@@ -977,6 +982,7 @@
 
  ]]></description>
   <category>AI</category>
+  <category>learning</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-02-13-believing-in-people.html</guid>
   <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
 </item>
