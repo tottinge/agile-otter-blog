@@ -114,7 +114,7 @@
 <p>Some of them will slow down and might even introduce a bug while resolving the merge conflict.</p>
 <p>If they are slowed down, the manager is probably going to be aware of it, and certainly they will be if a defect results. You’ll take the blame for the defect and for the slowdown.</p>
 <p>Here is your moment of decision. Do you push the change, or abandon it?</p>
-<p>This fear of changing code is a significant social effect.</p>
+<p>This <a href="../posts/2009-02-06-coding-your-way-out-of-fear-of-change.html">fear of changing code</a> is a significant social effect.</p>
 <p>The code remains anchored to some point in the past, it’s original design ossified.</p>
 <p>Pretty soon all of the functions the software ACTUALLY performs are written in as EXCEPTIONS to the flow it no longer follows.</p>
 <p><strong><em>What interventions would defang this fear and allow teams to move the design and architecture forward?</em></strong></p>
@@ -170,7 +170,7 @@
 <section id="a-chance-for-renaissance" class="level2">
 <h2 class="anchored" data-anchor-id="a-chance-for-renaissance">A Chance For Renaissance</h2>
 <p>Properly understood, the goal is still to deliver code early and often so you can collect feedback and improve your product concept, and to maintain a highly maintainable codebase so you can keep doing so.</p>
-<p>The point of working in groups isn’t “because it’s nice” or “because we like it” – it’s because one person’s judgment is subject to personal preferences and blind spots, and that inconsistency and risk of failure require handoffs and reviews. That’s all terrible for flow. If we could produce code at the desk that has already passed all the tests and reviews and also implements entire features (not just backend or just frontend or just data or service), then we can deliver early and often again.</p>
+<p>The point of working in groups isn’t “because it’s nice” or “because we like it” – it’s because one person’s judgment is subject to personal preferences and blind spots, and that inconsistency and risk of failure require <a href="../posts/2025-09-12-why-is-working-faster-not-working.html">handoffs and reviews</a>. That’s all terrible for flow. If we could produce code at the desk that has already passed all the tests and reviews and also implements entire features (not just backend or just frontend or just data or service), then we can deliver early and often again.</p>
 <p>If we could get our eyes off of tickets, ticket grooming, and ticket closure, then maybe we could focus on deliveries and feedback and code craft again.</p>
 </section>
 <section id="the-agentic-age" class="level2">
@@ -662,7 +662,7 @@
 
 <p>I published my first post on <a href="http://www.butunclebob.com/ArticleS.TimOttinger.SoonerNotFaster">Sooner, not Faster</a> in 2006 on Object Mentor’s blog (“But Uncle Bob!” was the title), a wiki I was encouraged by Bob to use daily. Later this theme had been picked up by many people. Ryan expanded it to “Sooner, Safer, Smarter” and I appreciate that also.</p>
 <p>I’ve had years, decades in fact, to be working through what it means to deliver sooner and more often.</p>
-<p>I’ve been introduced to many concepts that are related, and I’ve created a short guide to flow to help people quickly come to terms with the systems view (ToC, Reinertsen’s Flow, Continuous Delivery) as a mechanical system of queues and inventories.</p>
+<p>I’ve been introduced to many concepts that are related, and I’ve created a short guide to flow to help people quickly come to terms with the systems view (ToC, Reinertsen’s Flow, Continuous Delivery) as a mechanical system of <a href="../posts/2025-09-12-why-is-working-faster-not-working.html">queues and inventories</a>.</p>
 <p>That is a very important lens that brings us to appreciate that we can do better without working harder, longer, faster, or even agentic aids. It even explains why working harder, faster, longer, and with code agents hasn’t really panned out so far.</p>
 <p>What really does matter is story splitting, writing good code, and working together.</p>
 <p>Yes, those are the things that all the agile methods actually recommended before some yahoos turned the agile community into a ticketing system vendor’s cash cow.</p>
@@ -708,7 +708,7 @@
 
 
 
-<p>Companies often build their software development as a <strong><em>series of handoffs</em></strong>.</p>
+<p>Companies often build their software development as a <strong><em><a href="../posts/2025-09-12-why-is-working-faster-not-working.html">series of handoffs</a></em></strong>.</p>
 <p>Every handoff is a <strong><em>queue</em></strong>.</p>
 <p>Queues determine how long work <strong>waits</strong>.</p>
 <p>The busier the person receiving queued work is, the <strong><em>deeper the queue becomes</em></strong>, and the longer work waits to be served.</p>
@@ -716,7 +716,7 @@
 <p>For flow reasons, it is better for people to be waiting on work than for work to wait on people.</p>
 <p><strong><em>Rejection loops</em></strong> send work products back to earlier stages, disrupting waiting work and delaying release.</p>
 <p>Rejection loops in the process make <strong><em>prediction</em></strong> for all work products difficult, if not impossible.</p>
-<p>Collaboration, quality practices, small batches, trunk-based development, and early feedback all work because they improve First-Time-Through and reduce rejection loops. Ignoring those kinds of measures means you have no flow protection.</p>
+<p>Collaboration, quality practices, small batches, trunk-based development, and early feedback all work because they improve First-Time-Through and <a href="../posts/2025-07-07-how-much-rework-do-you-want.html">reduce rejection loops</a>. Ignoring those kinds of measures means you have no flow protection.</p>
 <p>Once rejection loops become rare, the remaining delays are largely visible and manageable.</p>
 <p>Ignore these basic facts, and delivery cannot be efficient, quick, or predictable.</p>
 <p>Skill matters. especially if you can produce code that will pass all the quality gates on the first try. Eliminating rework and re-queuing by raising quality is a powerful tactic.</p>

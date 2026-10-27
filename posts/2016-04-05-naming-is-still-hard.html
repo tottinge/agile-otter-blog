@@ -186,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="identifying-a-noise-word">Identifying a Noise Word</h2>
 <p>Trying to finesse or expand the word <em>Instance</em> is not productive here.</p>
 <p>The problem with <em>Instance</em> is that it is a noise word. It is like Data, Manager, Information, and so many other space-consuming bits of non-meaning we often assign to variables and classes.</p>
-<p>So maybe the question that helps with naming is to ask again why this function exists.</p>
+<p>So maybe the question that helps with naming is to ask again <a href="../posts/2009-03-20-simple-act-of-using-better-name-instead.html">why this function exists</a>.</p>
 <p>It seems to me that it exists to provide the date formatter that the user requested from among the many date formats that may exist in different locales.</p>
 <p>That suggests that the name should probably be something like getLocaleSpecificDateFormatter, but that’s a real handful to type and most of the interesting words are near the end. Eww.</p>
 <p>Perhaps <em>getLocaleFormatter()</em> is sufficient, since it’s in the DateFormat package to begin with.</p>
@@ -221,7 +221,7 @@ String formattedDate = df.format(now);</code></pre>
 <li>the idioms of the programming language</li>
 <li>using a compound name to progressively reveal the intent of the method</li>
 <li>the difficulty of changing APIs whose users are unknown to us</li>
-<li>the fact that naming is an ongoing battle (see remark about <em>df,</em> above)</li>
+<li>the fact that <a href="../posts/2012-05-16-process-for-naming-tests.html">naming is an ongoing battle</a> (see remark about <em>df,</em> above)</li>
 </ul>
 <p>I welcome your comments and criticisms.</p>
 
