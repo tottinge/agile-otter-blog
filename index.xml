@@ -194,6 +194,8 @@
  ]]></description>
   <category>flow</category>
   <category>AI</category>
+  <category>XP</category>
+  <category>continuousDelivery</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-09-26-the-ticket-is-not-work.html</guid>
   <pubDate>Fri, 25 Sep 2026 23:00:00 GMT</pubDate>
 </item>
@@ -645,6 +647,7 @@
  ]]></description>
   <category>flow</category>
   <category>AI</category>
+  <category>scrum</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-06-15-do-agents-think-youre-doing-agile-wrong.html</guid>
   <pubDate>Sun, 14 Jun 2026 23:00:00 GMT</pubDate>
 </item>
@@ -692,6 +695,7 @@
  ]]></description>
   <category>flow</category>
   <category>AI</category>
+  <category>continuousDelivery</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-06-06-sooner-and-sooner-still.html</guid>
   <pubDate>Fri, 05 Jun 2026 23:00:00 GMT</pubDate>
 </item>
