@@ -638,7 +638,7 @@
 <section id="my-comments" class="level2">
 <h2 class="anchored" data-anchor-id="my-comments">My Comments</h2>
 <p>The answer and the question both largely ignore the fact that people can work together and co-create software without handoffs and tickets and dividing work up. If you assign a feature to a team of five, you don’t break it into one-person tickets and then mob up on each of those – you slice work differently and not as small.</p>
-<p>Notice also that it assumes that teamwork is only good for rescue situations, where someone is stuck. I’ve yet to see an LLM assume teamwork of any kind except as a rare exception. I don’t know why. Teams have been working in mobs, pairs, and swarms for decades, but it only seems to rate as a “if you can’t handle the work alone, then get help” situation. Odd that. This is perhaps because they’re using Atlassian as a canonical source of information, and Atlassian is invested in a soloist, ticket-driven approach.</p>
+<p>Notice also that it assumes that teamwork is only good for rescue situations, where someone is stuck. I’ve yet to see an LLM assume teamwork of any kind except as a rare exception. I don’t know why. <a href="../posts/2011-01-28-pairing-competence-and-recognition.html">Teams have been working in mobs, pairs, and swarms for decades</a>, but it only seems to rate as a “if you can’t handle the work alone, then get help” situation. Odd that. This is perhaps because they’re using Atlassian as a canonical source of information, and Atlassian is invested in a soloist, ticket-driven approach.</p>
 <p>It is nice that swarming and flow at least get a mention.</p>
 
 
@@ -818,7 +818,7 @@
 <p>People argue that adding people to a task will make it late, and cite Brooks’ Law, but that’s a mistake. Brook’s law holds that adding <em>new</em> people to a <em>late</em> project will create drag, slowing overall progress and delaying the work. I agree and salute the formulation.</p>
 <p>But this isn’t that situation - having enough people with the right skills to begin with is just good resourcing.</p>
 <p>When we talk about collaborative work, it is about adding knowledgeable people who are familiar with the team and fully briefed on a task, and doing it early – initially – so that everyone may contribute the best of their skills to achieving a complete task without late integration surprises.</p>
-<p>Collaboration is <strong>flow protection</strong>. It eliminates backflow of work by raising initial quality and by integrating the tasks one by one, rather than “brick building” for a huge integration at the end.</p>
+<p>Collaboration is <strong><a href="../posts/2017-03-12-the-lightweight-tweetstream.html">flow protection</a></strong>. It eliminates backflow of work by raising initial quality and by integrating the tasks one by one, rather than “brick building” for a huge integration at the end.</p>
 <p>That’s why I have a hard time seeing collaborative work as a “mere preference”. In some situations, it probably is.</p>
 <p>There is no reason to avoid doing perfectly independent work in parallel. This is one of the best reasons to have multiple teams and multiple products.</p>
 <p>The reason organisations struggle with poorly organised systems (think “God Classes”) is that they make truly independent work a rare and lucky circumstance.</p>

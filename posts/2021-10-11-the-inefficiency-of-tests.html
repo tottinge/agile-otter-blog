@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 <p>When a new feature comes up, there is a <strong><em>gherkin test</em></strong> that does NOT go through selenium, but directly to the API. In developing the gherkin test, the team drives out the changes needed by the API and gets it working.</p>
 <p>The gherkin test is a “story test” and checks to see if the system (behind the UI) works correctly. It does data, persistence, etc in a safe way.</p>
 <p>But to build the code, you are <strong><em>doing TDD directly on the API</em></strong> and the deeper domain objects. As you do, you are refactoring and committing (of course).</p>
-<p>The microtests and the gherkin tests together are super-fast, so you run both in <strong><em>the auto tester</em></strong>. The auto tester re-runs the tests any time the code is changed and compile-able. This means the tests are run many sometimes more than once a minute. You’re always clear where you stand.</p>
+<p>The microtests and the gherkin tests together are <a href="../posts/2014-10-20-microtesting-tdd-quick-checklist.html">super-fast</a>, so you run both in <strong><em>the auto tester</em></strong>. The auto tester re-runs the tests any time the code is changed and compile-able. This means the tests are run many sometimes more than once a minute. You’re always clear where you stand.</p>
 <p>But of course, there is a web page to deal with. You create <strong><em>render tests</em></strong> that will turn data (specifically the kind needed or returned by the API) into a web page.</p>
 <p>Now, these are back-end rendered old-school style. You get that working correctly.</p>
 <p>It works, but is it ugly? Is it awful? Sigh.</p>

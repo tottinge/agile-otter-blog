@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 <li>It brings testing across <a href="../posts/2015-08-12-the-bs-line.html">the RW/BS line</a>. Test-after tends to live on the BS side, even though we like to think it doesn’t.</li>
 <li>It <em>begins</em> with the developer as a <em>user</em> of a class/function and <em>ends up</em> with the developer as an implementer.</li>
 <li>It keeps the code runnable at all times, since you can’t have the code “up on blocks” for hours at a time and run the tests.</li>
-<li>The feedback loops are hella fast. You know that everything was fine 10 seconds ago, and you’ve only written two lines of code and now it’s broken.</li>
+<li>The <a href="../posts/2014-10-20-microtesting-tdd-quick-checklist.html">feedback loops are hella fast</a>. You know that everything was fine 10 seconds ago, and you’ve only written two lines of code and now it’s broken.</li>
 </ul>
 <p>Typically, the code is written (as an implementor) so it has an inside-out API. You get the algorithm right, and then you expose the variables via some function calls and make sure that it does its job. This can be complicated in some cases, so the code that I’m typing at 14:30 may have been typed into code that was last run yesterday. Or the day before. If I’m writing it all in one go, I don’t have to keep it runnable. After all, I only need it to work when it’s done.</p>
 <p>And then it’s <em>done.</em> Well, you know, other than tests.</p>
