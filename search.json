@@ -2613,9 +2613,23 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Tim Ottinger",
     "section": "",
-    "text": "This site is being rebuilt from the Agile Otter Blog archive.\n\n\n\nTim Ottinger"
+    "text": "I’m Tim Ottinger: a long-time developer, agilist, XPer, and specialist in software design, TDD, CI/CD, flow, and collaborative delivery.\nI wrote the second chapter of Clean Code. I originated and co-authored Agile in a Flash with Jeff Langr, and wrote Use VIM Like a Pro. I have also reviewed and edited many books on code craft, agility, and design patterns before publication."
+  },
+  {
+    "objectID": "about.html#what-i-do",
+    "href": "about.html#what-i-do",
+    "title": "About Tim Ottinger",
+    "section": "What I do",
+    "text": "What I do\nI have taught modern software practices and code craft to thousands of people around the world. My work has included high-energy physics, heavy manufacturing, agriculture, insurance, oncology, respiratory health, and commercial Linux distributions.\nI worked twice with Robert C. Martin at Object Mentor, where I taught physicists at the Stanford Linear Accelerator Center to improve software design for high-energy physics. I worked with Ian Murdock at Progeny Linux Systems on tools for creating commercial Linux distributions, and built industrial balancing machines with ITW.\nFor fourteen years I worked with Joshua Kerievsky’s company, Industrial Logic. I helped organizations create flagship products, transform legacy code, design training, improve delivery systems, and coach software development executives.\nI’m known as “the Agile Otter,” a play on my surname and my connections with Extreme Programming and agile practice. I now live in Scotland. I speak one human language and many programming languages."
+  },
+  {
+    "objectID": "about.html#ideas-that-shape-my-work",
+    "href": "about.html#ideas-that-shape-my-work",
+    "title": "About Tim Ottinger",
+    "section": "Ideas that shape my work",
+    "text": "Ideas that shape my work\nThese essays provide useful background for the recurring ideas in this archive:\n\nAgile at Heart — agility shows up in values and daily practice, not in labels or ceremony.\nAgile, Post-Agile, Beyond Agile: Where Do We Go From Here? — frequent delivery creates the feedback that makes adaptation possible.\nSave Your Project — limiting work in progress helps teams finish valuable work sooner.\nWorking Agreements — explicit agreements help people create safety and work well together.\nIndividual Work Assignments: Neither Individual Nor Working — software delivery depends on collective ownership and real teamwork.\nYou Cannot Possibly Do TDD After Coding — test-first work is a design and feedback practice, not a testing phase.\nSimple v. Clear v. Easy v. Primitive — good design depends on representing knowledge well, not merely making code short or familiar.\nProcess Improvement Principles — improvement matters more than compliance with a named process.\n\nThe original biographical post, “Who (the heck) Am I?”, remains in the archive."
   },
   {
     "objectID": "posts/2008-10-06-move-from-objectmentor.html",
