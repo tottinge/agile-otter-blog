@@ -109,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img" aria-label="RSS feed">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -165,9 +165,19 @@ ul.task-list li input[type="checkbox"] {
 <p>The Problem</p>
 <p>An <a href="https://hackernoon.com/test-driven-development-is-fundamentally-wrong-hor3z4d">article</a> has been shared with me by several friends and also by some critics, and some people who are both, describing how TDD is fundamentally wrong, and doing test-after-development is better.</p>
 <p>To be fair, the process described here is fundamentally wrong:</p>
-<p><a href="../assets/fundamentally-wrong-1.png"><img src="../assets/fundamentally-wrong-1.png" alt="" width="320" height="172"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/fundamentally-wrong-1.png"><img src="../assets/fundamentally-wrong-1.png" alt="A HackerNoon article lists a TDD process that repeatedly rewrites tests before sending code to QA" width="320" height="172" class="figure-img"></a></p>
+<figcaption>A HackerNoon article lists a TDD process that repeatedly rewrites tests before sending code to QA</figcaption>
+</figure>
+</div>
 <p>The problems with step #1 would indeed lead to the wasteful problems described below it. The recommendation here would certainly be better than the process described above:</p>
-<p><a href="../assets/fundamentally-wrong-2.png"><img src="../assets/fundamentally-wrong-2.png" alt="" width="320" height="116"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/fundamentally-wrong-2.png"><img src="../assets/fundamentally-wrong-2.png" alt="The HackerNoon article recommends implementing first and writing tests only when code is complete" width="320" height="116" class="figure-img"></a></p>
+<figcaption>The HackerNoon article recommends implementing first and writing tests only when code is complete</figcaption>
+</figure>
+</div>
 <section id="tdd-is-fundamentally-wrong-is-fundamentally-wrong" class="level2">
 <h2 class="anchored" data-anchor-id="tdd-is-fundamentally-wrong-is-fundamentally-wrong">TDD Is Fundamentally Wrong is Fundamentally Wrong</h2>
 <p>Now, the problem with this article is more fundamental than the problem being described.</p>
@@ -183,7 +193,12 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="so-what-is-tdd">So What Is TDD?</h2>
 <p>TDD was originally described as a three-step dance that repeats over and over as one develops code.</p>
 <p>You can take that <a href="https://tidyfirst.substack.com/p/canon-tdd">straight from the horse’s mouth</a> (so to speak):</p>
-<p><a href="../assets/fundamentally-wrong-3.png"><img src="../assets/fundamentally-wrong-3.png" alt="" width="365" height="204"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/fundamentally-wrong-3.png"><img src="../assets/fundamentally-wrong-3.png" alt="Kent Beck's Canon TDD process: list scenarios, make one test runnable, pass it, optionally refactor, and repeat" width="365" height="204" class="figure-img"></a></p>
+<figcaption>Kent Beck’s Canon TDD process: list scenarios, make one test runnable, pass it, optionally refactor, and repeat</figcaption>
+</figure>
+</div>
 <p>To these three steps, we (at Industrial Logic) added a fourth and final step. Others may also have independently added this 4th step, I don’t know.</p>
 <ol type="1">
 <li><strong>Write a test that does not pass,</strong> and in fact cannot pass, because the functionality it describes does not exist. This <a href="../posts/2011-09-06-you-cannot-possibly-do-tdd-after-coding.html">failing test</a> is the RED step, so-called because test-running programs generally produce the results of a failed test run colored red.</li>
