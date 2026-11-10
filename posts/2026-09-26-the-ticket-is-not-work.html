@@ -82,14 +82,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="The Ticket Is Not The Work – Agile Otter Blog">
 <meta property="og:description" content="Tickets can support software development, but they are representations of work rather than the collaborative learning and delivery work itself.">
-<meta property="og:image" content="https://tottinge.github.io/agile-otter-blog/assets/agile-otter-watermark.jpg">
+<meta property="og:image" content="https://agileotter.dev/assets/agile-otter-watermark.jpg">
 <meta property="og:site_name" content="Agile Otter Blog">
 <meta property="og:image:alt" content="Agile Otter: @tottinge">
 <meta property="og:image:height" content="1600">
 <meta property="og:image:width" content="1297">
 <meta name="twitter:title" content="The Ticket Is Not The Work – Agile Otter Blog">
 <meta name="twitter:description" content="Tickets can support software development, but they are representations of work rather than the collaborative learning and delivery work itself.">
-<meta name="twitter:image" content="https://tottinge.github.io/agile-otter-blog/assets/agile-otter-watermark.jpg">
+<meta name="twitter:image" content="https://agileotter.dev/assets/agile-otter-watermark.jpg">
 <meta name="twitter:image:alt" content="Agile Otter: @tottinge">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -221,6 +221,7 @@ ul.task-list li input[type="checkbox"] {
 <p>After all, there are dozens of boring articles being dumped into social media about how “agile is dead because of AI” – but realise they’re not talking about original agile. They’re talking about the ticket culture. I hope they’re right.</p>
 <p>This is our chance to drop the ticket culture and return to developing releases instead of “percentage of backlog completed by ticket count.”</p>
 <p>A few people augmented by a competent agent to research and, review intentions, vet ideas against the shape of the code, support coding and testing… well, it makes all of the things we did in XP suddenly affordable.</p>
+<p>Those opportunities still require care, testing, and judgment. Faster code generation alone does not guarantee earlier delivery; my <a href="../posts/2026-11-10-ai-slowdown-listicle.html">AI Slowdown Listicle</a> collects research on the limitations and failure modes we need to understand.</p>
 <p>Not sure how to implement the next feature? Have agents research libraries, techniques, tools, and approaches. Have it give 5 or 10 suggestions. Have it research the current codebase(s) and see which fit the prevailing design and pattern. It can be enlightening.</p>
 <p>You don’t have tests? Have agents produce test scaffolding, which you can improve into “proper” unit tests later. If you have the right agentic skills, it can create testing seams as it works, leaving your code more testable and readable.</p>
 <p>You don’t like writing new tests? Okay, critique the agent’s tests. Have it write them; you give corrections and suggestions so that the tests fit your sense of clarity and usefulness.</p>
@@ -308,7 +309,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog");
+        var filterRegex = new RegExp("https:\/\/agileotter\.dev");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

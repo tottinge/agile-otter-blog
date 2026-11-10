@@ -82,14 +82,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Speculating on Challenges of Spec-Driven Development – Agile Otter Blog">
 <meta property="og:description" content="A forward-looking list of challenges for spec-driven development, including aging documents and the need to keep specifications aligned with change.">
-<meta property="og:image" content="https://tottinge.github.io/agile-otter-blog/assets/agile-otter-watermark.jpg">
+<meta property="og:image" content="https://agileotter.dev/assets/agile-otter-watermark.jpg">
 <meta property="og:site_name" content="Agile Otter Blog">
 <meta property="og:image:alt" content="Agile Otter: @tottinge">
 <meta property="og:image:height" content="1600">
 <meta property="og:image:width" content="1297">
 <meta name="twitter:title" content="Speculating on Challenges of Spec-Driven Development – Agile Otter Blog">
 <meta name="twitter:description" content="A forward-looking list of challenges for spec-driven development, including aging documents and the need to keep specifications aligned with change.">
-<meta name="twitter:image" content="https://tottinge.github.io/agile-otter-blog/assets/agile-otter-watermark.jpg">
+<meta name="twitter:image" content="https://agileotter.dev/assets/agile-otter-watermark.jpg">
 <meta name="twitter:image:alt" content="Agile Otter: @tottinge">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -227,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
 <p>It runs the code (the compiled, linked, optimized, code that transited the virtual machine down to machine code – a version of code that may not look all that much like the source code, and certainly not much like the specifications.</p>
 <p>All the truth is in the source code, but it may be poorly organized for human understanding.</p>
 <p>Agents tend to “shoe horn” functionality into existing code with if statements and flags and primitive variables. The more primitive the code is, the worse they will be about this.</p>
-<p>The design degradation we see from agentic development is well documented, so I won’t try to reproduce it here.</p>
+<p>The design degradation we see from agentic development is <a href="../posts/2026-11-10-ai-slowdown-listicle.html">well documented</a>, so I won’t try to reproduce it here.</p>
 <p>But it degrades less if there are good abstractions, good names, good use of the programming language, and good locality of references.</p>
 <p>In other word, if the design is good, it is more likely to not muck it up.</p>
 <p>Rather than “freeing us” from worrying about good design and code craft, agentic development makes us MORE dependent on well-written code. It needs to have good abstractions, data types, and algorithms. It needs all items to be well named.</p>
@@ -311,7 +311,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tottinge\.github\.io\/agile-otter-blog");
+        var filterRegex = new RegExp("https:\/\/agileotter\.dev");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
