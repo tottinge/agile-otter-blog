@@ -17,7 +17,46 @@
 <width>144</width>
 </image>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Sat, 17 Oct 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>AI Slowdown Listicle</title>
+  <link>https://tottinge.github.io/agile-otter-blog/posts/2026-11-10-ai-slowdown-listicle.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Please read this as a research list. Do not read it as “the ammunition list for naysayers,” because that’s not how it is intended.</p>
+<p>It seems that agentic code is not perfect or “at the highest level of skill” by default, and so a prudent developer will spend significant time adopting or building harnesses, skills, and tools to improve ai.</p>
+<p>It behoves us as practitioners to know what AI does well, what it does poorly, and how/when to use it to best effect. That means we study not only strengths, but also failure modes.</p>
+<p>Enjoy.</p>
+<ul>
+<li><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR RCT</a>: Early-2025 AI and experienced open-source developers</li>
+<li><a href="https://dora.dev/dora-report-2025/">DORA 2025</a>: State of AI-assisted Software Development</li>
+<li><a href="https://www.gitclear.com/ai_assistant_code_quality_2025_research">GitClear</a>: AI Copilot Code Quality (2025)</li>
+<li>[GitClear](https://www.gitclear.com/the_ai_code_quality_maintainability_gap: The Maintainability Gap (2026)</li>
+<li><a href="https://youtu.be/Ib5GBkD555M?si=PlUFSSPEcLvI43V3">Why AI Factories Fail</a> - Dex Horthy’s story (VIDEO)</li>
+<li><a href="https://arxiv.org/html/2601.15195">GitHub</a> agentic PR study</li>
+<li><a href="https://www.microsoft.com/en-us/research/publication/llms-corrupt-your-documents-when-you-delegate/">DELEGATE-52</a>: LLMs Corrupt Your Documents When You Delegate</li>
+<li><a href="https://openreview.net/forum?id=DiZ67nkfay">Context Rot Bench</a></li>
+<li><a href="https://www.reddit.com/r/ClaudeCode/comments/1xq2n3t/a_year_after_the_100_ai_mandate_nobody/">Viral Reddit Article</a></li>
+<li><a href="https://www.youtube.com/watch?v=U46fJ2bJ-co">The Bjarne Stroustrup interview</a>, in which he comments on what humans (not AI) must do.</li>
+</ul>
+<p>It is my understanding (2026-11-10) that AI doesn’t mean all the work will be done perfectly and immediately, nor does it mean that programming skill does not matter.</p>
+<p>On the contrary, it seems that for AI to work, we have to double down on the skills that XP, code craft, clean coding, automated testing, and such communities have recommended for decades.</p>
+<p>I have found that there are advantages to basing your work on <a href="https://agileotter.dev/posts/2026-08-19-eight-code-virtues-draft.html">The 8 Code Virtues</a> and a solid base of unit tests and mutation testing.</p>
+<p>Engage with me via social to add your favourite articles to this list.</p>
+
+
+
+ ]]></description>
+  <category>AI</category>
+  <category>flow</category>
+  <category>productivity</category>
+  <category>listicle</category>
+  <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-11-10-ai-slowdown-listicle.html</guid>
+  <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Speculating on Challenges of Spec-Driven Development</title>
   <link>https://tottinge.github.io/agile-otter-blog/posts/2026-10-18-speculative-challenges-of-spec-driven.html</link>
@@ -1163,38 +1202,6 @@
   <category>AI</category>
   <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-01-20-considering-spec-driven-development.html</guid>
   <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Bash Variable Expansion</title>
-  <link>https://tottinge.github.io/agile-otter-blog/posts/2026-01-17-bash-variable-expansion.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>This is one of those things that just doesn’t stick in my head, so I’m dropping this note to remind myself.</p>
-<p>I often have trouble recalling cryptic variable names in bash, make, and perl. For my own sake, I thought I’d make a quick list of favorites and refer some sources.</p>
-<p>Maybe you’ll find this useful too.</p>
-<ul>
-<li>Variable value, but exit if no such variable: <em>${var:?“error message”}</em></li>
-<li>Use default if variable isn’t set: <em>${var:=“default”}</em></li>
-<li>Get a substring<em>: ${var: start: length}</em></li>
-<li>Length: <em>${#var}</em></li>
-<li>Uppercase: <em>${var@U}</em></li>
-<li>Lowercase<em>: ${var@L}</em></li>
-</ul>
-<p>The first one is quite helpful when you expect a particular set of parameters and don’t want to write if/then logic about each of them.</p>
-<pre class="text"><code>#/bin/env bash
-directory=${1:? You must provide a directory to search}
-pattern=${2:? You must provide a search term for filenames}
-find ${directory} -name ${pattern}</code></pre>
-<p><em>See more at the <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">gnu shell expansion</a> page.</em></p>
-
-
-
- ]]></description>
-  <guid>https://tottinge.github.io/agile-otter-blog/posts/2026-01-17-bash-variable-expansion.html</guid>
-  <pubDate>Sat, 17 Jan 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
