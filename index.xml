@@ -17,7 +17,106 @@
 <width>144</width>
 </image>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 11 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Why Not Waterfall</title>
+  <link>https://agileotter.dev/posts/2026-11-11-why-not-waterfall.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="blockquote">
+<p>Stage-gated delivery, PRINCE2 included, moves work through signed-off phases, with change control and tolerances as its brake. It suits work where requirements genuinely do not move: contractual, regulated, or tied to hardware.</p>
+<p>The awkward part for agile purists: a detailed specification written up front is exactly what an AI agent works best from. The heavy documentation agile criticised is now the input that makes AI implementation reliable.</p>
+</blockquote>
+<p>This was the incentive for me to write up a quick list of why waterfall (the method I practiced and even led for part of the 80s and 90s) actually didn’t work.</p>
+<p>I was a practitioner, and a true believer, until we realized that trying the same mathod harder wasn’t going to make it work, and the standard complaint “we need to spend more time up front” actually made it worse.</p>
+<section id="key-concept-of-waterfall-change-is-bad" class="level2">
+<h2 class="anchored" data-anchor-id="key-concept-of-waterfall-change-is-bad">Key concept of waterfall: Change is <em>BAD</em></h2>
+<p>Let’s honor the above quote. “It suits work where requirements genuinely do not move.”</p>
+<p>That is a perfectly reasonable assertion.</p>
+<p>As a waterfall practitioner in the 80s and early 90s, I feel that I can provide some background.</p>
+<p>In waterfall, the assumed “normal” situation is:</p>
+<ol type="1">
+<li>Business requirements and concept are gathered.</li>
+<li>Technical requirements are composed</li>
+<li>Design is devised</li>
+<li>Coding is done</li>
+<li>Testing checks that code matches design</li>
+<li>Delivery happens</li>
+</ol>
+<p>There was an optional step: 7. Maintenance contract</p>
+<p>Often a contract is signed and committed to in or around step 1. The initial requirements are legally not allowed to change, under penalty.</p>
+<p>The initial design is everything in waterfall.</p>
+<p>For anything to flow <strong>backward</strong> is an aberration. Once done, a phase is supposed to be done.</p>
+<p>In other words, the plan is fragile and brittle in the face of change.</p>
+<p>The resulting product must be delivered as specified, regardless of what happens in the world.</p>
+<p>A successful contract delivers exactly to the contract, even if that’s no longer useful or desirable when it’s delivered.</p>
+<p>This supports the initial statement that it is for when requirements genuinely don’t change.</p>
+<p>Of course we always have changes, and always had. There was never a project that wasn’t “disrupted” by changes of some sort. If it’s not a change the environment or technology, it was a disruptive change in the market.</p>
+<p>But let’s not focus on that here (we did that <a href="../posts/2014-01-30-agile-and-waterfall-more-different-than.html">elsewhere</a>).</p>
+</section>
+<section id="documentation-makes-ai-reliable" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-makes-ai-reliable">Documentation makes AI Reliable?</h2>
+<p>A large corpus of detailed documentation has not been proven to make AI reliable. Agents can still misunderstand intent, miss constraints, optimise the letter of the spec rather than its purpose, or fail during long multi-step work.</p>
+<p>AI agents have limited context, and when there is too much documentation for them to manage, they lose context or else summarise to maintain context and lose detail. Sometimes they “guess” based on the existing code, and may or may not consider the tests.</p>
+<p>In addition, everything that isn’t given in detail in the agentic instruction is a dice roll. If it were “reliable” then regenerating off the same specs would always result in the same system. This has not been proven (or if it has, I’d love to see the specs).</p>
+<p>AI is (intentionally) not deterministic. You don’t get the same results, even when given the same input. That’s just not how it works.</p>
+<p>There is also still a problem of interpretation with AI: if a spec says “the service must return results within 200 ms,” an AI could cache stale data, skip validation, or drop error handling to meet the timing requirement. The specification was met; the intended system was not.</p>
+</section>
+<section id="but-now-its-fast" class="level2">
+<h2 class="anchored" data-anchor-id="but-now-its-fast">But Now It’s Fast</h2>
+<p>The hope is often that because it may take days or weeks to write code that may have taken months or years before, there isn’t time for the industry to change, or for requirements to change, or for anything to be discovered that might change the initial requirements.</p>
+<p>Some hope that because it was “easy” enough to generate the code in a few weeks, it would be just as easy to do it over with the changed specifications.</p>
+<p>It does seem more palatable if the period from specification to delivery is drastically shorter.</p>
+<p>I suspect this is why people are keen on trying waterfall again, now that there is AI to speed some steps of the development process.</p>
+<p>The hope people have is that “taking it back to requirements” will be essentially free now, that it’s a matter of updating a document and regenerating the code.</p>
+<p>I have less faith that this is so easy; generating the code is not as safe, deterministic, and reliable as people may wish.</p>
+<p>There are two issues:</p>
+<ol type="1">
+<li><p>Speed of coding <a href="../posts/2025-09-12-why-is-working-faster-not-working.html">doesn’t translate</a> to speed of delivery. <a href="https://agileotter.dev/posts/2026-11-10-ai-slowdown-listicle.html">Sometimes it is slower</a>.</p></li>
+<li><p><em>Accepting</em> new code is not driven by code generation speed. The customer will be faced with a new system that will work somewhat differently, or look different, or feel different. Even the invisible changes <a href="https://www.hyrumslaw.com/">may be troublesome</a> to the customer.</p></li>
+</ol>
+</section>
+<section id="green-fields-turn-brown" class="level2">
+<h2 class="anchored" data-anchor-id="green-fields-turn-brown">Green Fields Turn Brown</h2>
+<p>A waterfall ends when the code is delivered. This is a key notion from the start of the contract and all the way through.</p>
+<p>A waterfall is a one-way flow from ideas to a single delivery, and then the developer is done.</p>
+<p>The problem with this idea is that a useful program is never finished.</p>
+<blockquote class="blockquote">
+<p>“It is invariably the case that a program, once in operation, will be felt to be only part of the answer to the problems at hand.” - Peter Naur</p>
+</blockquote>
+<p>Once the program exists, you will not want to maintain it by editing the requirements and regenerating the whole application, for reasons given above.</p>
+<p>But also, you run into the whole <a href="https://agileotter.dev/posts/2026-10-18-speculative-challenges-of-spec-driven.html">set of problems</a> that you have with a large corpus of documentation.</p>
+<p>The problem I’ve stated with document-driven specification and generation is:</p>
+<blockquote class="blockquote">
+<p>In the grand scheme of things, greenfield development is a rather niche problem.</p>
+</blockquote>
+<p>Nearly all developers, nearly all the time, are working in brownfield systems that may have been greenfield systems at one time.</p>
+<p>The whole point of agile development was not tied to disdain for document writing, but rather a realisation that we need feedback loops in order to achieve market fit and satisfy customers.</p>
+<p>If you could reliably generate the first version in minutes (which, by the way, is a “parlor trick” done by framework vendors and tool-makers for years), you still will have to deal with expanding needs and requirement connections for years.</p>
+<p>In waterfall, teams deferred changes to the “follow-on maintenance contract” and ignored change as much as possible as they built the system that we knew would not really satisfy the customers.</p>
+<p>But if no changes happen before or after delivery, and the initial requirements were exactly correct, then waterfall would be fine.</p>
+</section>
+<section id="its-been-done-before" class="level2">
+<h2 class="anchored" data-anchor-id="its-been-done-before">It’s been done before</h2>
+<p>This isn’t the first “generate the code from documents” trend. It’s been tried many times before, including CASE tools. I suppose it is possible that agentic development is enough of a game changer that it will work and sustain now.</p>
+<p>I’m willing to be convinced, but it’s failed every time until now.</p>
+<blockquote class="blockquote">
+<p>This time, for sure. - Bullwinkle J Moose</p>
+</blockquote>
+
+
+</section>
+
+ ]]></description>
+  <category>agile</category>
+  <category>management</category>
+  <category>continuousDelivery</category>
+  <guid>https://agileotter.dev/posts/2026-11-11-why-not-waterfall.html</guid>
+  <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>AI Slowdown Listicle</title>
   <link>https://agileotter.dev/posts/2026-11-10-ai-slowdown-listicle.html</link>
@@ -82,8 +181,8 @@
 <li><a href="https://arxiv.org/html/2508.06414v2">What Makes In-Context Examples Effective for Code Generation?</a></li>
 <li><a href="https://ar5iv.labs.arxiv.org/html/2504.10557">The Code Barrier: What LLMs Actually Understand?</a></li>
 <li><a href="https://arxiv.org/html/2510.03178">When Names Disappear: Revealing What LLMs Actually Understand About Code</a></li>
-<li><a href="https://agileotter.dev/naming-is-still-hard/">Naming Is Still Hard</a></li>
-<li><a href="https://agileotter.dev/wrong-naming-revisit/">Wrong Naming Revisit</a></li>
+<li><a href="../posts/2016-04-05-naming-is-still-hard.html">Naming Is Still Hard</a></li>
+<li><a href="../posts/2014-11-04-wrong-naming-revisit.html">Wrong Naming Revisit</a></li>
 </ul>
 </section>
 <section id="structure-makes-systems-navigable" class="level2">
@@ -93,8 +192,8 @@
 <li><a href="https://arxiv.org/html/2609.27891">Schrödinger’s Code Repository: Have LLMs Learned SWE-bench or Memorized It?</a></li>
 <li><a href="https://arxiv.org/html/2606.14061v4">LLM Agents Can See Code Repositories</a></li>
 <li><a href="https://arxiv.org/pdf/2506.24015v3">Hierarchical Knowledge Injection for Improving LLM-based Program Repair</a></li>
-<li><a href="https://agileotter.dev/time-for-an-8th-virtue-coherence/">Time for an 8th Virtue: Coherence</a></li>
-<li><a href="https://agileotter.dev/posts/2026-08-19-eight-code-virtues-draft.html">Eight Code Virtues</a></li>
+<li><a href="../posts/2026-06-03-time-for-8th-virtue-coherence.html">Time for an 8th Virtue: Coherence</a></li>
+<li><a href="../posts/2026-08-19-eight-code-virtues-draft.html">Eight Code Virtues</a></li>
 </ul>
 </section>
 <section id="duplication-hides-missing-concepts" class="level2">
@@ -105,8 +204,8 @@
 <li><a href="https://arxiv.org/abs/1701.05472">Do Code Clones Matter?</a></li>
 <li><a href="https://arxiv.org/html/2603.24755v2">SlopCodeBench</a></li>
 <li><a href="https://arxiv.org/html/2606.21804v2">CodeThread</a></li>
-<li><a href="https://agileotter.dev/posts/2026-08-19-eight-code-virtues-draft.html">Eight Code Virtues</a></li>
-<li><a href="https://agileotter.dev/posts/2010-02-22-simple-v-clear-v-easy-v-primitive.html">Simple V. Clear V. Easy V. Primitive</a></li>
+<li><a href="../posts/2026-08-19-eight-code-virtues-draft.html">Eight Code Virtues</a></li>
+<li><a href="../posts/2010-02-22-simple-v-clear-v-easy-v-primitive.html">Simple V. Clear V. Easy V. Primitive</a></li>
 </ul>
 </section>
 <section id="simplicity-reduces-future-risk" class="level2">
@@ -116,7 +215,7 @@
 <li><a href="https://arxiv.org/html/2603.24755v2">SlopCodeBench</a></li>
 <li><a href="https://arxiv.org/html/2603.04177v2">CodeTaste</a></li>
 <li><a href="https://arxiv.org/html/2511.04824v2">Agentic Refactoring</a></li>
-<li><a href="https://agileotter.dev/why-redesign-doesnt-happen-enough/">Why Redesign Doesn’t Happen (Enough)</a></li>
+<li><a href="../posts/2026-09-29-why-redesign-doesnt-happen-enough.html">Why Redesign Doesn’t Happen (Enough)</a></li>
 </ul>
 </section>
 <section id="tests-preserve-behavior" class="level2">
@@ -140,8 +239,8 @@
 <li><a href="https://arxiv.org/html/2601.16661v1">Revisiting the Role of Natural Language Code Comments in Code Translation</a></li>
 <li><a href="https://arxiv.org/html/2506.11007">Impact of Comments on LLM Comprehension of Legacy Code</a></li>
 <li><a href="https://aclanthology.org/2025.eval4nlp-1.4.pdf">Reliable Inline Code Documentation with LLMs</a></li>
-<li><a href="https://agileotter.dev/code-comments-are-not-code-theyre-not-executable/">Code Comments Are Not Code; They’re Not Executable</a></li>
-<li><a href="https://agileotter.dev/apologize-in-code/">Apologize in Code</a></li>
+<li><a href="https://www.linkedin.com/posts/agileotter_code-comments-are-not-code-theyre-not-executable-activity-7307460783875997697-MwQL">Code Comments Are Not Code; They’re Not Executable</a></li>
+<li><a href="https://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode">Apologize in Code</a></li>
 </ul>
 </section>
 <section id="review-is-part-of-the-work" class="level2">
@@ -153,7 +252,7 @@
 <li><a href="https://arxiv.org/html/2607.13196v1">From Human-Centric to Agentic Code Review</a></li>
 <li><a href="https://arxiv.org/html/2609.17598v1">Not All Agents Are Equal</a></li>
 <li><a href="https://arxiv.org/html/2607.21832v1">How Do AI Coding Agents Contribute?</a></li>
-<li><a href="https://agileotter.dev/posts/2026-09-26-the-ticket-is-not-work.html">The Ticket Is Not the Work</a></li>
+<li><a href="../posts/2026-09-26-the-ticket-is-not-work.html">The Ticket Is Not the Work</a></li>
 <li><a href="http://agileotter.blogspot.com/2026/01/does-ai-help-us-care-less.html">Does AI Help Us Care Less?</a></li>
 </ul>
 </section>
@@ -162,9 +261,9 @@
 <p>Here we have some articles (some by me) commenting on the famous slowdown some companies have reported.</p>
 <p>The most important idea here is that task completion (closing a ticket, generating code) is less important than whether the completed work can be promoted to production without “bouncing back” from CI or testing for rework.</p>
 <ul>
-<li><a href="https://agileotter.dev/posts/2026-06-06-sooner-and-sooner-still.html">Sooner — And Sooner Still</a></li>
+<li><a href="../posts/2026-06-06-sooner-and-sooner-still.html">Sooner — And Sooner Still</a></li>
 <li><a href="http://agileotter.blogspot.com/2025/09/why-is-working-faster-not-working.html">Why Is Working Faster Not Working?</a></li>
-<li><a href="https://agileotter.dev/the-faros-whiplash-and-the-systems-view/">The Faros Whiplash and the Systems View</a></li>
+<li><a href="../posts/2026-06-03-draft-faros-whiplash-and-systems-view.html">The Faros Whiplash and the Systems View</a></li>
 <li><a href="https://resources.anthropic.com/hubfs/Scaling%20agentic%20coding%20across%20your%20organization.pdf?hsLang=en">Scaling Agentic Coding Across Your Organization</a></li>
 <li><a href="https://claude.com/resources/articles/introduction-to-agentic-coding">Introduction to Agentic Coding</a></li>
 </ul>
@@ -1249,52 +1348,6 @@
 
  ]]></description>
   <guid>https://agileotter.dev/posts/2026-02-03-the-big-release-downward-spiral.html</guid>
-  <pubDate>Tue, 03 Feb 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Working in Groups: Compromises or Contributions?</title>
-  <link>https://agileotter.dev/posts/2026-02-03-working-in-groups-compromises-or.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Some time ago, on a social media platform, during a discussion about technology, a pundit posted a piece arguing that teamwork was a horrible idea.</p>
-<section id="the-compromise-theory" class="level2">
-<h2 class="anchored" data-anchor-id="the-compromise-theory">The Compromise Theory:</h2>
-<p>His thesis is that an individual can have a great idea. When other people get involved, they have differing ideas. To settle the differences, the group has to make compromises.</p>
-<p>Every compromise is a degradation of the original idea’s purity. By definition, he said, every compromise is a second-best choice.</p>
-<p>Eventually, the idea is so diluted and compromised that it is hardly worth implementing.</p>
-</section>
-<section id="the-contribution-theory" class="level2">
-<h2 class="anchored" data-anchor-id="the-contribution-theory">The Contribution Theory:</h2>
-<p>Cross-functional, diverse teams are well-documented and understood. They make better decisions, make rapid progress, and approach a problem from more angles.</p>
-<p>The thesis here is that “two heads are better than one” for problem-solving, and that the work of an individual (rather than being perfect and pure) is likely to have more flaws and a narrower vision than the work of several.</p>
-<p>There are plenty of examples of this in the world, including visual sensors that only recognise white skin, accessibility issues in which colour is used to denote information, and “tone deaf” uses of icons that confuse or anger people in different cultures.</p>
-</section>
-<section id="extra-context" class="level2">
-<h2 class="anchored" data-anchor-id="extra-context">Extra Context:</h2>
-<p>In practice, I’ve found that solo work <em>feels</em> more productive because one can push forward with extreme focus (AKA “tunnel vision”) and complete their vision for how a feature or system “should” work.</p>
-<p>If you want lines of code per day or the number of closed tickets, it’s hard to compete with the solo developer who is in their best-known stack and possibly even aided by LLMs.</p>
-<p>On the other hand, the solo programmer is unlikely to notice their own assumptions, tone-deaf choices, ignored nonfunctional requirements, and signature errors. They may have a misunderstanding of the user, the problem, or the technology. If so, this is noticed well after the author feels they’ve completed or perfected the work.</p>
-<p>A request for changes feels like an insult and a personal attack on someone highly invested in the purity of their concept and its implementation. There is no certainty that solo programmers will react defensively, but it has been observed many times in many places.</p>
-<p>Time spent pursuing the wrong idea is wasted.</p>
-<p>Teams help vet implementation and design ideas, rather than wasting time implementing them.</p>
-<p>Individuals may base decisions about the code’s design purely on what requires the least effort (or is more aesthetically pleasing) for them. In a group, ill-considered designs tend to be shot down quickly and better design alternatives suggested instead.</p>
-</section>
-<section id="which-is-it" class="level2">
-<h2 class="anchored" data-anchor-id="which-is-it">Which Is It?</h2>
-<p>Well, sometimes it can be either.</p>
-<p>It depends on the true purity of the original concept and the quality of the team’s input.</p>
-<p>I think a team is rarely composed of one brilliant person and a number of dullards with nothing to offer. If that is the case, then certainly solo work is the only reasonable choice. The dullards should not challenge the one brilliant and competent member of the team.</p>
-<p>Otherwise, perhaps we should consider operating in the Contribution theory rather than the Compromise theory…</p>
-<p>… even if one of the developers feels otherwise.</p>
-
-
-</section>
-
- ]]></description>
-  <guid>https://agileotter.dev/posts/2026-02-03-working-in-groups-compromises-or.html</guid>
   <pubDate>Tue, 03 Feb 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>

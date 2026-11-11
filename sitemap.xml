@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://agileotter.dev/posts/2026-11-10-listicle-ai-needs-craft.html</loc>
-    <lastmod>2026-11-11T12:55:26.879Z</lastmod>
+    <loc>https://agileotter.dev/posts/2026-11-11-why-not-waterfall.html</loc>
+    <lastmod>2026-11-11T21:06:25.497Z</lastmod>
+  </url>
+  <url>
+    <loc>https://agileotter.dev/posts/2026-11-10-ai-slowdown-listicle.html</loc>
+    <lastmod>2026-11-10T13:59:19.364Z</lastmod>
   </url>
   <url>
     <loc>https://agileotter.dev/posts/2026-09-29-why-redesign-doesnt-happen-enough.html</loc>
@@ -1957,7 +1961,7 @@
     <lastmod>2026-11-10T12:50:30.797Z</lastmod>
   </url>
   <url>
-    <loc>https://agileotter.dev/posts/2026-11-10-ai-slowdown-listicle.html</loc>
-    <lastmod>2026-11-10T13:59:19.364Z</lastmod>
+    <loc>https://agileotter.dev/posts/2026-11-10-listicle-ai-needs-craft.html</loc>
+    <lastmod>2026-11-11T15:00:29.286Z</lastmod>
   </url>
 </urlset>
