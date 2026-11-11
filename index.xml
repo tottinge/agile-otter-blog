@@ -58,6 +58,140 @@
   <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Listicle: Does AI Need Craft?</title>
+  <link>https://agileotter.dev/posts/2026-11-10-listicle-ai-needs-craft.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="has-craft-become-irrelevant" class="level2">
+<h2 class="anchored" data-anchor-id="has-craft-become-irrelevant">Has Craft become irrelevant?</h2>
+<p>There are, unsurprisingly, bursts of hyperbole in social media declaring that craft, process, tests, taste, quality, experience, or some other reason for hiring professional developers is no longer needed now that “coding is solved by AI”<sup>1</sup></p>
+<p>This is a perfectly reasonable assertion to make, a great start to a debate, but is it true? We shouldn’t just <em>assume</em> that AI is so perfect that it transcends all the limits and principles of software design.</p>
+<p>It’s been my understanding that when code is easy to read and understand, people are less likely to misunderstand it. While that goes to some basic naming and style, those are less important in human development than many other factors (see the <a href="https://agileotter.blogspot.com/2026/08/eight-code-virtues-draft.html">8 Code Virtues</a> which are non-subjective.</p>
+<p>Yet, here we are, with people claiming that agents don’t need the same “help.”</p>
+<p>So, what evidence do we have?</p>
+<p>This listicle is not presented as proof positive that the claims are wrong, but are merely collections of studies and papers, of varying degrees of authority, that might offer directions for further study.</p>
+</section>
+<section id="names-carry-intent" class="level2">
+<h2 class="anchored" data-anchor-id="names-carry-intent">Names carry intent</h2>
+<p>I’ve been studying naming of classes, functions, variables and modules for some time, and wrote not only the Clean Code chapter on naming, but also a <a href="https://leanpub.com/naming_shortguide">book on the topic</a>.</p>
+<p>I am pleased to find evidence that naming is valuable, but I am also aware the that the evidence is mixed. I’d like to see more research here.</p>
+<ul>
+<li><a href="https://arxiv.org/html/2508.06414v2">What Makes In-Context Examples Effective for Code Generation?</a></li>
+<li><a href="https://ar5iv.labs.arxiv.org/html/2504.10557">The Code Barrier: What LLMs Actually Understand?</a></li>
+<li><a href="https://arxiv.org/html/2510.03178">When Names Disappear: Revealing What LLMs Actually Understand About Code</a></li>
+<li><a href="https://agileotter.dev/naming-is-still-hard/">Naming Is Still Hard</a></li>
+<li><a href="https://agileotter.dev/wrong-naming-revisit/">Wrong Naming Revisit</a></li>
+</ul>
+</section>
+<section id="structure-makes-systems-navigable" class="level2">
+<h2 class="anchored" data-anchor-id="structure-makes-systems-navigable">Structure makes systems navigable</h2>
+<p>A coherent codebase gives both humans and agents a reliable way to infer where knowledge lives and what a change must preserve. Modularity is well described in classic software literature as a key feature for maintenance and understanding.</p>
+<ul>
+<li><a href="https://arxiv.org/html/2609.27891">Schrödinger’s Code Repository: Have LLMs Learned SWE-bench or Memorized It?</a></li>
+<li><a href="https://arxiv.org/html/2606.14061v4">LLM Agents Can See Code Repositories</a></li>
+<li><a href="https://arxiv.org/pdf/2506.24015v3">Hierarchical Knowledge Injection for Improving LLM-based Program Repair</a></li>
+<li><a href="https://agileotter.dev/time-for-an-8th-virtue-coherence/">Time for an 8th Virtue: Coherence</a></li>
+<li><a href="https://agileotter.dev/posts/2026-08-19-eight-code-virtues-draft.html">Eight Code Virtues</a></li>
+</ul>
+</section>
+<section id="duplication-hides-missing-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="duplication-hides-missing-concepts">Duplication hides missing concepts</h2>
+<p>Duplicated rules, validations, and error handling are not merely stylistic problems; They open the opportunity for divergent representations of the same intent.</p>
+<p>A lot of duplicated code phrases also represent scattered or distributed semantics - code in many places may be restating guards or operations that a human or agent would have to discover and rationalize, and might possibly repeat again.</p>
+<ul>
+<li><a href="https://arxiv.org/abs/1701.05472">Do Code Clones Matter?</a></li>
+<li><a href="https://arxiv.org/html/2603.24755v2">SlopCodeBench</a></li>
+<li><a href="https://arxiv.org/html/2606.21804v2">CodeThread</a></li>
+<li><a href="https://agileotter.dev/posts/2026-08-19-eight-code-virtues-draft.html">Eight Code Virtues</a></li>
+<li><a href="https://agileotter.dev/posts/2010-02-22-simple-v-clear-v-easy-v-primitive.html">Simple V. Clear V. Easy V. Primitive</a></li>
+</ul>
+</section>
+<section id="simplicity-reduces-future-risk" class="level2">
+<h2 class="anchored" data-anchor-id="simplicity-reduces-future-risk">Simplicity reduces future risk</h2>
+<ul>
+<li><a href="https://arxiv.org/html/2602.07882v2">Rethinking Code Complexity Through the Lens of Large Language Models</a></li>
+<li><a href="https://arxiv.org/html/2603.24755v2">SlopCodeBench</a></li>
+<li><a href="https://arxiv.org/html/2603.04177v2">CodeTaste</a></li>
+<li><a href="https://arxiv.org/html/2511.04824v2">Agentic Refactoring</a></li>
+<li><a href="https://agileotter.dev/why-redesign-doesnt-happen-enough/">Why Redesign Doesn’t Happen (Enough)</a></li>
+</ul>
+</section>
+<section id="tests-preserve-behavior" class="level2">
+<h2 class="anchored" data-anchor-id="tests-preserve-behavior">Tests preserve behavior</h2>
+<p>Tests describe the semantics and rules for a component (class, function, module). Are they read and understood as a basis for further development by agents? Do they protect against agentically-induced defects?</p>
+<ul>
+<li><a href="https://code.claude.com/docs/en/best-practices">Claude Code Best Practices</a></li>
+<li><a href="https://arxiv.org/html/2602.07900v2">Rethinking the Value of Agent-Generated Tests</a></li>
+<li><a href="https://arxiv.org/html/2603.13724v1">Testing with AI Agents</a></li>
+<li><a href="https://2026.msrconf.org/details/msr-2026-mining-challenge/58/Test-Coverage-of-Code-Changes-in-AI-Generated-Pull-Requests">Test Coverage of Code Changes in AI-Generated Pull Requests</a></li>
+<li><a href="https://newsletter.pragmaticengineer.com/p/tdd-ai-agents-and-coding-with-kent">TDD, AI Agents and Coding with Kent Beck</a></li>
+<li><a href="https://www.heavybit.com/library/podcasts/o11ycast/ep-80-augmented-coding-with-kent-beck">Augmented Coding with Kent Beck</a></li>
+</ul>
+</section>
+<section id="context-must-be-accurate" class="level2">
+<h2 class="anchored" data-anchor-id="context-must-be-accurate">Context must be accurate</h2>
+<p>The most obvious documentation in a codebase is literally documentation.</p>
+<p>How can documentation be best presented to agents, so that it informs decisions but does not overwhelm the context window?</p>
+<ul>
+<li><a href="https://arxiv.org/html/2404.03114">Testing the Effect of Code Documentation</a></li>
+<li><a href="https://arxiv.org/html/2601.16661v1">Revisiting the Role of Natural Language Code Comments in Code Translation</a></li>
+<li><a href="https://arxiv.org/html/2506.11007">Impact of Comments on LLM Comprehension of Legacy Code</a></li>
+<li><a href="https://aclanthology.org/2025.eval4nlp-1.4.pdf">Reliable Inline Code Documentation with LLMs</a></li>
+<li><a href="https://agileotter.dev/code-comments-are-not-code-theyre-not-executable/">Code Comments Are Not Code; They’re Not Executable</a></li>
+<li><a href="https://agileotter.dev/apologize-in-code/">Apologize in Code</a></li>
+</ul>
+</section>
+<section id="review-is-part-of-the-work" class="level2">
+<h2 class="anchored" data-anchor-id="review-is-part-of-the-work">Review is part of the work</h2>
+<p>Where do we stand on code reviews? Are they still necessary, and how may we best conduct them, and are humans even necessary in the review process?</p>
+<ul>
+<li><a href="https://arxiv.org/html/2509.14745v3">On the Use of Agentic Coding</a></li>
+<li><a href="https://arxiv.org/html/2601.15195">Where Do AI Coding Agents Fail?</a></li>
+<li><a href="https://arxiv.org/html/2607.13196v1">From Human-Centric to Agentic Code Review</a></li>
+<li><a href="https://arxiv.org/html/2609.17598v1">Not All Agents Are Equal</a></li>
+<li><a href="https://arxiv.org/html/2607.21832v1">How Do AI Coding Agents Contribute?</a></li>
+<li><a href="https://agileotter.dev/posts/2026-09-26-the-ticket-is-not-work.html">The Ticket Is Not the Work</a></li>
+<li><a href="http://agileotter.blogspot.com/2026/01/does-ai-help-us-care-less.html">Does AI Help Us Care Less?</a></li>
+</ul>
+</section>
+<section id="sooner-not-faster" class="level2">
+<h2 class="anchored" data-anchor-id="sooner-not-faster">Sooner, not faster</h2>
+<p>Here we have some articles (some by me) commenting on the famous slowdown some companies have reported.</p>
+<p>The most important idea here is that task completion (closing a ticket, generating code) is less important than whether the completed work can be promoted to production without “bouncing back” from CI or testing for rework.</p>
+<ul>
+<li><a href="https://agileotter.dev/posts/2026-06-06-sooner-and-sooner-still.html">Sooner — And Sooner Still</a></li>
+<li><a href="http://agileotter.blogspot.com/2025/09/why-is-working-faster-not-working.html">Why Is Working Faster Not Working?</a></li>
+<li><a href="https://agileotter.dev/the-faros-whiplash-and-the-systems-view/">The Faros Whiplash and the Systems View</a></li>
+<li><a href="https://resources.anthropic.com/hubfs/Scaling%20agentic%20coding%20across%20your%20organization.pdf?hsLang=en">Scaling Agentic Coding Across Your Organization</a></li>
+<li><a href="https://claude.com/resources/articles/introduction-to-agentic-coding">Introduction to Agentic Coding</a></li>
+</ul>
+</section>
+<section id="the-claim-isnt-settled" class="level2">
+<h2 class="anchored" data-anchor-id="the-claim-isnt-settled">The claim isn’t settled</h2>
+<p>Today, there are still differnet points of view and studies that seem contradictory.</p>
+<p>I am going to continue pursuing higher degrees of the 8 Code Virtues for better representation of knowledge in software until this shakes out one way or another; it’s my bet.</p>
+<p>Please feel free to offer additional studies, even contrary studies, in social media.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>an oft repeated phrase among ai <em>vendors</em>↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>AI</category>
+  <category>listicle</category>
+  <category>programming</category>
+  <guid>https://agileotter.dev/posts/2026-11-10-listicle-ai-needs-craft.html</guid>
+  <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Speculating on Challenges of Spec-Driven Development</title>
   <link>https://agileotter.dev/posts/2026-10-18-speculative-challenges-of-spec-driven.html</link>
   <description><![CDATA[ 
@@ -1162,48 +1296,6 @@
  ]]></description>
   <guid>https://agileotter.dev/posts/2026-02-03-working-in-groups-compromises-or.html</guid>
   <pubDate>Tue, 03 Feb 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Considering Spec Driven Development</title>
-  <link>https://agileotter.dev/posts/2026-01-20-considering-spec-driven-development.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>People are making a big deal about the new way of agentic working: Spec-Driven!!!</p>
-<p>But, wait…</p>
-<p>Big Design Up Front (BDUF) is something we tried for many years, in many companies, many times.</p>
-<p>It was proven to be a losing proposition and a bad idea. We did it in the 80s, and by 96 or so we had alternatives.</p>
-<p>If the idea of spec-driven is to fully detail a system up-front, and then use agents to implement it, then I think we’re about to repeat a historic mistake</p>
-<p>But, wait…</p>
-<p>BDD and TDD are also specification-driven, just in very tight loops with constant verification. The test acts as a specification, and we implement code to make all the tests pass. We do this incrementally and iteratively, adding tests as we go.</p>
-<p>If the idea of spec-driven is to iteratively and incrementally build software covered by the safety mechanism of tests, and the feedback loop is tight, then maybe we’re about to repeat one of the best ideas of the 20th and 21st centuries.</p>
-<p>But, wait…</p>
-<p>If the specification is not a deterministic test, then it may end up causing us to generate little more than technical debt and future headaches.</p>
-<p>But, wait…</p>
-<p>If the purpose of the specification is to generate tests, then it may be a much faster way to initiate BDD.</p>
-<p>But, wait…</p>
-<p>How do we know the generated tests are good? What if it generates a small raft of pointless tests and we can’t use them?</p>
-<p>But, wait…</p>
-<p>What if we examine the tests, and are able to quickly read them because they are business tests written from the specs, using something like playwright or gherkin? Then we have a human in the loop, and if we don’t like them we can re-generate them.</p>
-<p>After all, it only took minutes the first time, redoing it seems perfectly reasonable; then make sure the tests are reasonable. Then use the tests to make sure the code is written correctly. Then use mutation testing to make sure the tests are valid.</p>
-<p>But, wait…</p>
-<p>What about the visual elements? I guess they can be generated from wireframes and validated in storybook, and then we have humans in the loop validating the output. Then, of course the code has to be able to use the visual components, and the tests will check the code… maybe this isn’t too bad.</p>
-<p>And, of course…</p>
-<p>We have a lot of tools like SonarQube and Veracode and ruff and such, looking for problems and failings in the code which we may be able to mitigate with entries in AGENT.md files.</p>
-<p>Have we reached a point where we have the languages, tools, frameworks, and LLMs such that we can do work reliably, with humans in the loop, generating and reviewing everything up front and maybe it will turn out okay?</p>
-<p>It’s worth trying, whether one feels it’s promising or poppycock. The whole ecosystem make this something a bit different from the BDUF/Waterfall we did in the 80s and 90s.</p>
-<p>I don’t plan on abandoning the disciplines we’ve learned, but maybe there are new ways to support them.</p>
-<p>I’m no AI fanboy, but neither am I a stubborn detractor: we try to find ways to make the best use of all the tech available to us all, don’t we? Why would I oppose those experiments?</p>
-<p>There is a lot to learn from trying, I think.</p>
-
-
-
- ]]></description>
-  <category>AI</category>
-  <guid>https://agileotter.dev/posts/2026-01-20-considering-spec-driven-development.html</guid>
-  <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
