@@ -61,15 +61,63 @@
 <h2 class="anchored" data-anchor-id="documentation-makes-ai-reliable">Documentation makes AI Reliable?</h2>
 <p>A large corpus of detailed documentation has not been proven to make AI reliable. Agents can still misunderstand intent, miss constraints, optimise the letter of the spec rather than its purpose, or fail during long multi-step work.</p>
 <p>AI agents have limited context, and when there is too much documentation for them to manage, they lose context or else summarise to maintain context and lose detail. Sometimes they “guess” based on the existing code, and may or may not consider the tests.</p>
-<p>In addition, everything that isn’t given in detail in the agentic instruction is a dice roll. If it were “reliable” then regenerating off the same specs would always result in the same system. This has not been proven (or if it has, I’d love to see the specs).</p>
-<p>AI is (intentionally) not deterministic. You don’t get the same results, even when given the same input. That’s just not how it works.</p>
+<p>In addition, everything that isn’t given in detail in the agentic instruction is a “dice roll” of sorts. I don’t mean that it’s random, but that it’s chosen by the agent.</p>
+<p>If generating code from documents was deterministic then regenerating off the same specs would always result in the same system.</p>
+<p>AI is (intentionally) <em>not</em> deterministic. You don’t get the same results, even when given the same input. That’s just not how it works.</p>
 <p>There is also still a problem of interpretation with AI: if a spec says “the service must return results within 200 ms,” an AI could cache stale data, skip validation, or drop error handling to meet the timing requirement. The specification was met; the intended system was not.</p>
+</section>
+<section id="change-is-inevitable" class="level2">
+<h2 class="anchored" data-anchor-id="change-is-inevitable">Change is Inevitable</h2>
+<p>“if requirements legitimately don’t change” is a very difficult antecedent.</p>
+<p>Both the world and our understanding of the problem change.</p>
+<p>A specification can remain a correct description of yesterday’s intention while becoming an inadequate description of what is needed today.</p>
+<p><strong>Not every program</strong> must change. A bounded mathematical function with a fixed contract can remain unchanged indefinitely.</p>
+<p>The arguments against unchanging requirements concern long-lived software serving real-world activities.</p>
+<ol type="1">
+<li>Meir Lehman — the Law of Continuing Change</li>
+</ol>
+<blockquote class="blockquote">
+<p>“E-type systems must be continually adapted else they become progressively less satisfactory in use.” doc.ic.ac.uk</p>
+</blockquote>
+<p>“E-type” means software embedded in a real-world activity, whose adequacy depends on that changing context. His foundational paper is <em>Programs, Life Cycles, and Laws of Software Evolution (1980)</em>.</p>
+<p>The crucial point is that unchanged software can become less useful without developing any new internal defect. The mismatch grows between its assumptions and its environment. These “laws” are empirical generalisations about software evolution, rather than mathematical impossibility proofs applying to every program.</p>
+<ol type="1">
+<li>Frederick Brooks — change comes from successful use and changing surroundings</li>
+</ol>
+<blockquote class="blockquote">
+<p>“All successful software gets changed.”</p>
+</blockquote>
+<p>He identifies two pressures: useful software invites new applications and extensions, and successful software outlives the hardware and surrounding systems for which it was built. Users, institutions, laws, and technology keep moving.</p>
+<p>Brooks also directly challenges once-for-all requirements: he argues that customers and engineers cannot completely and correctly specify a substantial product before trying versions of it.</p>
+<p>Requirements definition therefore includes experimentation and iteration. Some requirements change because <em>we learn</em>, even when the external world stands still.</p>
+<ol type="1">
+<li>David Parnas and Paul Clements — design cannot be a purely forward derivation</li>
+</ol>
+<p>In <em>A Rational Design Process: How and Why to Fake It (1986)</em> they explain why actual development departs from the ideal of deriving a design from complete requirements:</p>
+<ul>
+<li>Customers cannot fully articulate what they want.</li>
+<li>Implementation reveals facts that invalidate earlier decisions.</li>
+<li>People cannot comprehend all the interacting details at once.</li>
+<li>External changes invalidate assumptions.</li>
+<li>Errors and practical reuse constraints require revision. laputan.org</li>
+</ul>
+<p>Importantly, they advocate <em>careful documentation</em>. Their proposal is to maintain a coherent explanation of the resulting design, including rejected alternatives and rationale, despite the untidy discovery process.</p>
+<p>“Fake it” means presenting a rational explanation—not pretending that learning and backtracking never occurred. This supports evolving documentation, not static documentation.</p>
+<p>This is the trick by which we made waterfall development (strictly gated phases) look like it was working when it really was not.</p>
+<ol type="1">
+<li>Peter Naur — maintenance requires understanding, not merely text transformation</li>
+</ol>
+<p>In <em>Programming as Theory Building (1985)</em>, Naur treats changing demands as a premise and argues that programming’s central product is the developers’ understanding of how the program addresses its subject matter.</p>
+<p>This understanding enables sensible modification.</p>
+<p>This is primarily an argument about what maintaining software requires, rather than independent proof that change is inevitable, but it is worth considering (see the quote above).</p>
 </section>
 <section id="but-now-its-fast" class="level2">
 <h2 class="anchored" data-anchor-id="but-now-its-fast">But Now It’s Fast</h2>
-<p>The hope is often that because it may take days or weeks to write code that may have taken months or years before, there isn’t time for the industry to change, or for requirements to change, or for anything to be discovered that might change the initial requirements.</p>
-<p>Some hope that because it was “easy” enough to generate the code in a few weeks, it would be just as easy to do it over with the changed specifications.</p>
+<p>The hope is often that because it may take days or weeks to write code that may have taken months or years before, there isn’t time for anything to change.</p>
 <p>It does seem more palatable if the period from specification to delivery is drastically shorter.</p>
+<p>That’s a legit blessing, by the way. It’s great to get inside the OODA loop and quickly execute on a decision while it’s still valid and fresh. I won’t be a nay-sayer.</p>
+<p>But that’s for the immediate change. That won’t necessarily hold for a large, comprehensive, and detailed set of specs. We might go obsolete generating a large specification (it happened in waterfall days just like that).</p>
+<p>Some hope that because it was “easy” enough to generate the code in a few weeks, it would be just as easy to do it over with the changed specifications.</p>
 <p>I suspect this is why people are keen on trying waterfall again, now that there is AI to speed some steps of the development process.</p>
 <p>The hope people have is that “taking it back to requirements” will be essentially free now, that it’s a matter of updating a document and regenerating the code.</p>
 <p>I have less faith that this is so easy; generating the code is not as safe, deterministic, and reliable as people may wish.</p>
