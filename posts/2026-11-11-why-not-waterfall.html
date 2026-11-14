@@ -223,26 +223,25 @@ ul.task-list li input[type="checkbox"] {
 <p>A specification can remain a correct description of yesterday’s intention while becoming an inadequate description of what is needed today.</p>
 <p><strong>Not every program</strong> must change. A bounded mathematical function with a fixed contract can remain unchanged indefinitely.</p>
 <p>The arguments against unchanging requirements concern long-lived software serving real-world activities.</p>
-<ol type="1">
-<li>Meir Lehman — the Law of Continuing Change</li>
-</ol>
+<section id="meir-lehman-the-law-of-continuing-change" class="level3">
+<h3 class="anchored" data-anchor-id="meir-lehman-the-law-of-continuing-change">Meir Lehman — the Law of Continuing Change</h3>
 <blockquote class="blockquote">
 <p>“E-type systems must be continually adapted else they become progressively less satisfactory in use.”</p>
 </blockquote>
 <p>“E-type” means software embedded in a real-world activity, whose adequacy depends on that changing context. His foundational paper is <em>Programs, Life Cycles, and Laws of Software Evolution (1980)</em>.</p>
 <p>The crucial point is that unchanged software can become less useful without developing any new internal defect. The mismatch grows between its assumptions and its environment. These “laws” are empirical generalisations about software evolution, rather than mathematical impossibility proofs applying to every program.</p>
-<ol type="1">
-<li>Frederick Brooks — change comes from successful use and changing surroundings</li>
-</ol>
+</section>
+<section id="frederick-brooks-change-comes-from-successful-use-and-changing-surroundings" class="level3">
+<h3 class="anchored" data-anchor-id="frederick-brooks-change-comes-from-successful-use-and-changing-surroundings">Frederick Brooks — change comes from successful use and changing surroundings</h3>
 <blockquote class="blockquote">
 <p>“All successful software gets changed.”</p>
 </blockquote>
 <p>He identifies two pressures: useful software invites new applications and extensions, and successful software outlives the hardware and surrounding systems for which it was built. Users, institutions, laws, and technology keep moving.</p>
 <p>Brooks also directly challenges once-for-all requirements: he argues that customers and engineers cannot completely and correctly specify a substantial product before trying versions of it.</p>
 <p>Requirements definition therefore includes experimentation and iteration. Some requirements change because <em>we learn</em>, even when the external world stands still.</p>
-<ol type="1">
-<li>David Parnas and Paul Clements — design cannot be a purely forward derivation</li>
-</ol>
+</section>
+<section id="david-parnas-and-paul-clements-design-cannot-be-a-purely-forward-derivation" class="level3">
+<h3 class="anchored" data-anchor-id="david-parnas-and-paul-clements-design-cannot-be-a-purely-forward-derivation">David Parnas and Paul Clements — design cannot be a purely forward derivation</h3>
 <p>In <em>A Rational Design Process: How and Why to Fake It (1986)</em> they explain why actual development departs from the ideal of deriving a design from complete requirements:</p>
 <ul>
 <li>Customers cannot fully articulate what they want.</li>
@@ -254,12 +253,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Importantly, they advocate <em>careful documentation</em>. Their proposal is to maintain a coherent explanation of the resulting design, including rejected alternatives and rationale, despite the untidy discovery process.</p>
 <p>“Fake it” means presenting a rational explanation—not pretending that learning and backtracking never occurred. This supports evolving documentation, not static documentation.</p>
 <p>This is the trick by which we made waterfall development (strictly gated phases) look like it was working when it really was not.</p>
-<ol type="1">
-<li>Peter Naur — maintenance requires understanding, not merely text transformation</li>
-</ol>
+</section>
+<section id="peter-naur-maintenance-requires-understanding-not-merely-text-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="peter-naur-maintenance-requires-understanding-not-merely-text-transformation">Peter Naur — maintenance requires understanding, not merely text transformation</h3>
 <p>In <em>Programming as Theory Building (1985)</em>, Naur treats changing demands as a premise and argues that programming’s central product is the developers’ understanding of how the program addresses its subject matter.</p>
 <p>This understanding enables sensible modification.</p>
 <p>This is primarily an argument about what maintaining software requires, rather than independent proof that change is inevitable, but it is worth considering (see the quote above).</p>
+</section>
 </section>
 <section id="but-now-its-fast" class="level2">
 <h2 class="anchored" data-anchor-id="but-now-its-fast">But Now It’s Fast</h2>

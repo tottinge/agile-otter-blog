@@ -17,7 +17,137 @@
 <width>144</width>
 </image>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Wed, 11 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 14 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Disguising and Unmasking Antipattern</title>
+  <link>https://agileotter.dev/posts/2026-11-14-disguising-and-unmasking-antipattern.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"></span>
+<span id="cb1-2">    x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> get_something()</span>
+<span id="cb1-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> x <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">is</span> none:</span>
+<span id="cb1-4">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> []</span>
+<span id="cb1-5">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">elif</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">isinstance</span>(x, Item):</span>
+<span id="cb1-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> [item]</span>
+<span id="cb1-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">elif</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">isinstance</span>(x, List):</span>
+<span id="cb1-8">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> x</span>
+<span id="cb1-9">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb1-10">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">raise</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Unknown type"</span></span></code></pre></div></div>
+<p>This made-up example is based on some actual agentically-written code.</p>
+<p>The get_something() method returns Any, essentially (it’s not that obvious, but the type union might as well be ‘Any’).</p>
+<p>There are a few things going wrong here - one being the sloppy typing, but the other being more crucial and appearing in many other forms in rather too much code in the wild.</p>
+<p>The actual antipattern is this:</p>
+<ul>
+<li>One method creates or discovers some knowledge.</li>
+<li>The knowledge is not passed on to the caller or called methods</li>
+<li>The upstream partners must unmask the data to determine its type/value, or in some cases must infer what was known in the other method.</li>
+</ul>
+<p>In this case the answer was rather simple – the get_something (whose name was changed to protect the original context) is capable of producing a list of Items (also a changed name), so it should return a <code>List[Item]</code> clearly, since having zero items or one item is a simple degenerate case of an empty or short list.</p>
+<p>If there is a reason the items cannot be collected (as opposed to searching and finding none) then the pythonic way of showing that is to raise an exceptoin. That is how python says “I can’t do that.”</p>
+<p>We see a lot of places where code is written with some <strong>unmasking</strong> of a <strong>disguised</strong> variable.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"></span>
+<span id="cb2-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> record_entry(entry: Entry): <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb2-3">   <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">isinstance</span>(entry, EntryType1):</span>
+<span id="cb2-4">      record(entry.type_1_data)</span>
+<span id="cb2-5">   <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">isinstance</span>(entry, EntryType2):</span>
+<span id="cb2-6">      record(entry.type_2_data)</span>
+<span id="cb2-7">   <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb2-8">      <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div></div>
+<p>This can also be understand that the <code>Entry</code> type is insufficiently abstract, if users receiving something of the <code>Entry</code> type must unmask it in order to access its data. O</p>
+<p>I’ve also seen it where a higher-level function retrieves an some item from a database, and only passes the items’s ID to a lower-level fucntion, which must re-retrieve the item from the database by ID.</p>
+<p>Also, I’ve seen one routine read a file and validate it, and then pass only the path to the next method, which passes it though its call tree, where the recipients have to re-validate that it’s a valid path and re-read the file.</p>
+<p>More extreme cases have been noted where a calculation was performed and the results of the calculation written to a database. Later another process reads the data and tries to figure out how the value was calculated.</p>
+<section id="but-its-simpler-this-way" class="level2">
+<h2 class="anchored" data-anchor-id="but-its-simpler-this-way">But it’s <a href="../posts/2026-08-19-eight-code-virtues-draft.html">simpler</a> this way!</h2>
+<p>This has been offered by humans and agents. It is nearly true. It does make the function itself easier - return Any object, and write a few simple return codes.</p>
+<p>The problem is that it makes the work <strong>less simple</strong> for all the callers. What isn’t carefully handled by the function itself must be done by each and every caller. That is duplication, and lowers the simplicity of each caller.</p>
+<p>It is a false simplification.</p>
+<p>Returning <code>Any</code> is generally a false simplification. The author doesn’t have to ‘waste’ time giving types ot the result, but every other author calling the method has to do it.</p>
+<p>Taking your advantage at other people’s expense is essentially unethical, and in code it is not only rude, but it creates a pattern of spreading the ‘unmasking’ duties around. Remember, the LLMs will follow your patterns (and their own) so you don’t want them learning to code unethical functions and considering it normal.</p>
+</section>
+<section id="some-q-n-a" class="level2">
+<h2 class="anchored" data-anchor-id="some-q-n-a">Some Q-n-A</h2>
+<p><strong>Is the typecast the problem?</strong></p>
+<p>No, that’s a symptom.</p>
+<p><strong>What’s wrong with writing defensive method code that chesk the params?</strong></p>
+<p>Nothing, when the caller is an unknown actor using unsanitized code</p>
+<p>** But My method can return multiple things!</p>
+<p>That MAY be a problem, but it may be the least-worse choice. Think hard on how you can avoid masking the type of the return and forcing all your callers to unmask them.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>programming</category>
+  <category>technical debt</category>
+  <category>CodeVirtues</category>
+  <guid>https://agileotter.dev/posts/2026-11-14-disguising-and-unmasking-antipattern.html</guid>
+  <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Why Not Waterfall</title>
   <link>https://agileotter.dev/posts/2026-11-11-why-not-waterfall.html</link>
@@ -73,26 +203,25 @@
 <p>A specification can remain a correct description of yesterday’s intention while becoming an inadequate description of what is needed today.</p>
 <p><strong>Not every program</strong> must change. A bounded mathematical function with a fixed contract can remain unchanged indefinitely.</p>
 <p>The arguments against unchanging requirements concern long-lived software serving real-world activities.</p>
-<ol type="1">
-<li>Meir Lehman — the Law of Continuing Change</li>
-</ol>
+<section id="meir-lehman-the-law-of-continuing-change" class="level3">
+<h3 class="anchored" data-anchor-id="meir-lehman-the-law-of-continuing-change">Meir Lehman — the Law of Continuing Change</h3>
 <blockquote class="blockquote">
 <p>“E-type systems must be continually adapted else they become progressively less satisfactory in use.”</p>
 </blockquote>
 <p>“E-type” means software embedded in a real-world activity, whose adequacy depends on that changing context. His foundational paper is <em>Programs, Life Cycles, and Laws of Software Evolution (1980)</em>.</p>
 <p>The crucial point is that unchanged software can become less useful without developing any new internal defect. The mismatch grows between its assumptions and its environment. These “laws” are empirical generalisations about software evolution, rather than mathematical impossibility proofs applying to every program.</p>
-<ol type="1">
-<li>Frederick Brooks — change comes from successful use and changing surroundings</li>
-</ol>
+</section>
+<section id="frederick-brooks-change-comes-from-successful-use-and-changing-surroundings" class="level3">
+<h3 class="anchored" data-anchor-id="frederick-brooks-change-comes-from-successful-use-and-changing-surroundings">Frederick Brooks — change comes from successful use and changing surroundings</h3>
 <blockquote class="blockquote">
 <p>“All successful software gets changed.”</p>
 </blockquote>
 <p>He identifies two pressures: useful software invites new applications and extensions, and successful software outlives the hardware and surrounding systems for which it was built. Users, institutions, laws, and technology keep moving.</p>
 <p>Brooks also directly challenges once-for-all requirements: he argues that customers and engineers cannot completely and correctly specify a substantial product before trying versions of it.</p>
 <p>Requirements definition therefore includes experimentation and iteration. Some requirements change because <em>we learn</em>, even when the external world stands still.</p>
-<ol type="1">
-<li>David Parnas and Paul Clements — design cannot be a purely forward derivation</li>
-</ol>
+</section>
+<section id="david-parnas-and-paul-clements-design-cannot-be-a-purely-forward-derivation" class="level3">
+<h3 class="anchored" data-anchor-id="david-parnas-and-paul-clements-design-cannot-be-a-purely-forward-derivation">David Parnas and Paul Clements — design cannot be a purely forward derivation</h3>
 <p>In <em>A Rational Design Process: How and Why to Fake It (1986)</em> they explain why actual development departs from the ideal of deriving a design from complete requirements:</p>
 <ul>
 <li>Customers cannot fully articulate what they want.</li>
@@ -104,12 +233,13 @@
 <p>Importantly, they advocate <em>careful documentation</em>. Their proposal is to maintain a coherent explanation of the resulting design, including rejected alternatives and rationale, despite the untidy discovery process.</p>
 <p>“Fake it” means presenting a rational explanation—not pretending that learning and backtracking never occurred. This supports evolving documentation, not static documentation.</p>
 <p>This is the trick by which we made waterfall development (strictly gated phases) look like it was working when it really was not.</p>
-<ol type="1">
-<li>Peter Naur — maintenance requires understanding, not merely text transformation</li>
-</ol>
+</section>
+<section id="peter-naur-maintenance-requires-understanding-not-merely-text-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="peter-naur-maintenance-requires-understanding-not-merely-text-transformation">Peter Naur — maintenance requires understanding, not merely text transformation</h3>
 <p>In <em>Programming as Theory Building (1985)</em>, Naur treats changing demands as a premise and argues that programming’s central product is the developers’ understanding of how the program addresses its subject matter.</p>
 <p>This understanding enables sensible modification.</p>
 <p>This is primarily an argument about what maintaining software requires, rather than independent proof that change is inevitable, but it is worth considering (see the quote above).</p>
+</section>
 </section>
 <section id="but-now-its-fast" class="level2">
 <h2 class="anchored" data-anchor-id="but-now-its-fast">But Now It’s Fast</h2>
@@ -1378,28 +1508,6 @@
  ]]></description>
   <guid>https://agileotter.dev/posts/2026-02-06-do-you-even-plan-bro.html</guid>
   <pubDate>Fri, 06 Feb 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>The Big Release Downward Spiral</title>
-  <link>https://agileotter.dev/posts/2026-02-03-the-big-release-downward-spiral.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>The riskiness of a release is proportionate to the number of potentially untested paths in the new code.</p>
-<p>If there are a thousand new possible paths and we’ve only tested 4, then it’s a significant risk to the installed base.</p>
-<p>If there are two, and we’ve tested both, then it’s not risky at all.</p>
-<p>The larger a release (the more stockpiled functionality) and the less complete the characterisation via tests (automatic and manual), the more a company must grow bureaucracy and processes around releasing.</p>
-<p>The harder it becomes to push a release through all the bureaucratic gates, the more work gets stockpiled before release.</p>
-<p>This is the self-eating mechanism that CD dismantles. When a release may be only a couple of lines of code, the risk comes down. When it’s one function, reached in only one way, then it’s a limited set of paths.</p>
-<p>Saving up for a big release stockpiles pain and risk.</p>
-
-
-
- ]]></description>
-  <guid>https://agileotter.dev/posts/2026-02-03-the-big-release-downward-spiral.html</guid>
-  <pubDate>Tue, 03 Feb 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
