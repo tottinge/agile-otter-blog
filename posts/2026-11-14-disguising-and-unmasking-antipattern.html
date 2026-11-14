@@ -222,15 +222,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="st">"Unknown type"</span></span></code></pre></div><button type="button" aria-label="Copy to Clipboard" title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This made-up example is based on some actual agentically-written code.</p>
-<p>The get_something() method returns Any, essentially (it’s not that obvious, but the type union might as well be ‘Any’).</p>
-<p>There are a few things going wrong here - one being the sloppy typing, but the other being more crucial and appearing in many other forms in rather too much code in the wild.</p>
+<p>The <code>get_something()</code> method returns <code>Any</code>, essentially (it’s not that obvious, but the type union might as well be <code>Any</code>).</p>
+<p>There are a few things going wrong here - one being the sloppy return types, but the other being more crucial and appearing in many other forms in rather too much code in the wild.</p>
 <p>The actual antipattern is this:</p>
 <ul>
 <li>One method creates or discovers some knowledge.</li>
 <li>The knowledge is not passed on to the caller or called methods</li>
-<li>The upstream partners must unmask the data to determine its type/value, or in some cases must infer what was known in the other method.</li>
+<li>Other functions must unmask the data to determine its type/value, or in some cases must infer what was known in the other method.</li>
 </ul>
-<p>In this case the answer was rather simple – the get_something (whose name was changed to protect the original context) is capable of producing a list of Items (also a changed name), so it should return a <code>List[Item]</code> clearly, since having zero items or one item is a simple degenerate case of an empty or short list.</p>
+<p>In this case the answer was rather simple – the <code>get_something</code> (whose name was changed to protect the original context) is capable of producing a list of Items (also a changed name), so it should return a <code>List[Item]</code> clearly, since having zero items or one item is a degenerate case. No unmasking required!</p>
 <p>If there is a reason the items cannot be collected (as opposed to searching and finding none) then the pythonic way of showing that is to raise an exceptoin. That is how python says “I can’t do that.”</p>
 <p>We see a lot of places where code is written with some <strong>unmasking</strong> of a <strong>disguised</strong> variable.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -241,16 +241,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      record(entry.type_2_data)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>   <span class="cf">else</span>:</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">raise</span> <span class="pp">ValueError</span>(unhandledEntry)</span></code></pre></div><button type="button" aria-label="Copy to Clipboard" title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This can also be understand that the <code>Entry</code> type is insufficiently abstract, if users receiving something of the <code>Entry</code> type must unmask it in order to access its data. O</p>
-<p>I’ve also seen it where a higher-level function retrieves an some item from a database, and only passes the items’s ID to a lower-level fucntion, which must re-retrieve the item from the database by ID.</p>
-<p>Also, I’ve seen one routine read a file and validate it, and then pass only the path to the next method, which passes it though its call tree, where the recipients have to re-validate that it’s a valid path and re-read the file.</p>
-<p>More extreme cases have been noted where a calculation was performed and the results of the calculation written to a database. Later another process reads the data and tries to figure out how the value was calculated.</p>
+<p>This indicates that the <code>Entry</code> type is insufficiently abstract, since3 users receiving something of the <code>Entry</code> type must unmask the real type in order to access its data. O</p>
+<p>I’ve also seen cases where a higher-level function retrieves some item from a database, and only passes the items’s ID to a lower-level fucntion, which must re-retrieve the item from the database by ID.</p>
+<p>Also, I’ve seen one routine read a file and validate it, and then pass only the path to the next method (as a string), which is passed though the call tree, where the recipients have to re-validate that it’s a valid path and re-read the file.</p>
+<p>More extreme cases have been seen where a calculation was performed and the results of the calculation written to a database. Later another process reads the data and tries to figure out how the value was calculated.</p>
 <section id="but-its-simpler-this-way" class="level2">
 <h2 class="anchored" data-anchor-id="but-its-simpler-this-way">But it’s <a href="../posts/2026-08-19-eight-code-virtues-draft.html">simpler</a> this way!</h2>
-<p>This has been offered by humans and agents. It is nearly true. It does make the function itself easier - return Any object, and write a few simple return codes.</p>
-<p>The problem is that it makes the work <strong>less simple</strong> for all the callers. What isn’t carefully handled by the function itself must be done by each and every caller. That is duplication, and lowers the simplicity of each caller.</p>
-<p>It is a false simplification.</p>
-<p>Returning <code>Any</code> is generally a false simplification. The author doesn’t have to ‘waste’ time giving types ot the result, but every other author calling the method has to do it.</p>
+<p>This has been offered by humans and agents. It is nearly true. It does make the function itself easier - add a return anywhere you like, and declare that the function’s result isn’t typed (<code>Any</code> or a union of possible types).</p>
+<p>The problem is that this makes the work <strong>less simple</strong> for all the callers. What isn’t carefully handled by the function itself must be done by each and every caller. That is duplication, and lowers the simplicity of each caller.</p>
+<p>Do we want the work done by the one function, or by it’s dozen callers? Which is “simpler” really?</p>
 <p>Taking your advantage at other people’s expense is essentially unethical, and in code it is not only rude, but it creates a pattern of spreading the ‘unmasking’ duties around. Remember, the LLMs will follow your patterns (and their own) so you don’t want them learning to code unethical functions and considering it normal.</p>
 </section>
 <section id="some-q-n-a" class="level2">
