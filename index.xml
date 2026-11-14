@@ -50,7 +50,7 @@ font-style: inherit;">isinstance</span>(x, Item):</span>
 <span id="cb1-6">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> [item]</span>
+font-style: inherit;">return</span> [x]</span>
 <span id="cb1-7">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
