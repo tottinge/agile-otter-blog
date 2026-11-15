@@ -5562,6 +5562,6 @@
     "href": "posts/2026-11-14-disguising-and-unmasking-antipattern.html#some-q-n-a",
     "title": "Disguising and Unmasking Antipattern",
     "section": "Some Q-n-A",
-    "text": "Some Q-n-A\nIs the typecast the problem?\nNo, that’s a symptom.\nWhat’s wrong with writing defensive method code that chesk the params?\nNothing, when the caller is an unknown actor using unsanitized code\n** But My method can return multiple things!\nThat MAY be a problem, but it may be the least-worse choice. Think hard on how you can avoid masking the type of the return and forcing all your callers to unmask them."
+    "text": "Some Q-n-A\nIs the typecast the problem?\nNo, that’s a symptom.\nWhat’s wrong with writing defensive method code that chesk the params?\nNothing, when the caller is an unknown actor using unsanitized code\nBut My method can return multiple things!\nThat MAY be a problem, but it may be the least-worse choice. Think hard on how you can avoid masking the type of the return and forcing all your callers to unmask them."
   }
 ]

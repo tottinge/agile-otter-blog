@@ -134,7 +134,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 <p>No, that’s a symptom.</p>
 <p><strong>What’s wrong with writing defensive method code that chesk the params?</strong></p>
 <p>Nothing, when the caller is an unknown actor using unsanitized code</p>
-<p>** But My method can return multiple things!</p>
+<p><strong>But My method can return multiple things!</strong></p>
 <p>That MAY be a problem, but it may be the least-worse choice. Think hard on how you can avoid masking the type of the return and forcing all your callers to unmask them.</p>
 
 
