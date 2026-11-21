@@ -17,7 +17,96 @@
 <width>144</width>
 </image>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Sat, 14 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 15 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Code as Knowledge</title>
+  <link>https://agileotter.dev/posts/2026-11-15-knowledge-in-code.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="how-is-source-code-the-truth" class="level2">
+<h2 class="anchored" data-anchor-id="how-is-source-code-the-truth">How is Source Code the Truth?</h2>
+<blockquote class="blockquote">
+<p>Code is the truth</p>
+</blockquote>
+<p>I’ve often repeated that line. I credit it to Ron Jeffries, though the very first use may be lost to time. I’ve heard it also from Bob Martin who was one of my key tech mentors in the late 1990s and early 2000s</p>
+<p>When I mention it in social media, I’m often greeted with “helpful corrections” by various people, who usually are strangers to me. They tell me that the real truth is not in the code, but in the documents, or the heads of subject matter experts, or some other place.</p>
+<p>I think we need to understand first that there is a big difference between “being true” and “being right.”</p>
+<p>The point here isn’t that code is perfect, and does all the right things, but rather that code is all that goes to the CPU of the computer(s).</p>
+<p>It is not accompanied by the expert’s opinion, the documentation, or the best intentions of the engineers<sup>1</sup>.</p>
+<p>For illustration, imagine there is a defect in the code. At runtime, it is observeed doing the wrong thing. While it may disappoint experts, designers, and probably even the programmer, at runtime that misbehavior actually happened. It is objectively true.</p>
+<p>In this sense, the code is truth and the specifications are the intentions. The specifications may even be <strong>right</strong> but the code is <strong>true</strong>.</p>
+<blockquote class="blockquote">
+<p>When our expection differs from reality, remember that reality is what really happened.</p>
+</blockquote>
+<p>It doesn’t do us any good to argue that reality is not real, but we can argue that it’s not right.</p>
+<p>Making a reality that fits our expectations as well as possible is what engineers of all sorts do for a living. It eventually comes down to physics.</p>
+</section>
+<section id="why-does-this-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-does-this-matter">Why does this matter?</h2>
+<p>There have been many attempts to treat documentation as the singular authority in projects, and code as a mere projection of the documentation. Some texts refer to programming as “translating the requirements into a programming language.” The documents-as-authority opinion is held primarily by the people writing the documents, especially those who don’t have to “get their hands dirty” in the work of making it actually run on a computer.</p>
+<p>The docs are probably right. I won’t say differently, but they’re not truth yet. In fact, the documents have no use and no market fit and potentially no value until they become source code and are eventually used by customers to do the customer’s work. Until then they are informed ideas, disembodied ideas.</p>
+<p>That doesn’t make them wrong. Let me reinforce that. It’s just that they’re not truth yet, and their value is expected and not yet proven.</p>
+<p>So far all of these attempts to make documentation the authoritative truth have struggled and failed, becuase there are <a href="https://agileotter.dev/posts/2026-10-18-speculative-challenges-of-spec-driven.html">certain issues with documentation</a> that are innate. The discipline from all actors to reconcile the documents and code in all aspects across many revisions is just not available from humans, even augmented with computer programs and LLM agents.</p>
+<p>The intention is right, though. You <strong>do</strong> need an accessible, relevant, meaningful expression of the system. You <strong>do</strong> need a coherent “view” of what it does, and what it should do.</p>
+<p>If you read Peter Naur’s “<a href="https://pages.cs.wisc.edu/~remzi/Naur.pdf">Programming as Theory Building</a>” you will see his definition of a “live” program is that where the theory of how and why it works is still present in the head(s) of the developer(s). When that theory is lost, the program is “dead” until the theory is painstakingly recreated (if ever).</p>
+<p>This makes some document-focused people feel that the answer is to document the entire theory so that we have all the information that matters all of the time, but at that point we need a more precise language to write the docs in and a more automated way of checking it – in essence, a computer programming language.</p>
+<p>Any document with sufficient detail to accurately describe a program <em>is</em> the program, and requires programming skill to properly create.</p>
+<p>And, FWIW, the evolution of programming languages for decades has been to clearer, cleaner, and higher-level description and frameworks for describing behavior quickly, neatly, and consistently. We <strong>already had that</strong> before AI became a thing.</p>
+</section>
+<section id="but-ai-is-like-a-compiler-and-loves-long-detailed-documents" class="level2">
+<h2 class="anchored" data-anchor-id="but-ai-is-like-a-compiler-and-loves-long-detailed-documents">But AI is like a compiler and loves long, detailed documents!</h2>
+<p>Sadly, no.</p>
+<p>It is <strong>not like a compiler</strong>. It is like an LLM, and while it can definitely produce good code, it’s not built to deterministically turn inputs into outputs. That’s not what they’re for, and it’s not how they work.</p>
+<p><strong>Big, detailed documents are a problem</strong>* for them. They only have so much context available. They are prone to “context rot”, distraction, structural parsing issues, high noise:signal ratio, tokenization issues, and variations due to their training set.</p>
+<p>The only things that are like compilers are compilers: deterministic input-to-output converters. LLMs are a newer (to us) and different technology. If we wanted compilers, we already had those.</p>
+</section>
+<section id="how-do-we-resolve-document-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-we-resolve-document-vs-code">How do we resolve document vs code?</h2>
+<p>They are different. Let’s go with that, and accept that documentation is correct in the moment, in some respects, and that the code is a different corpus that may have differences.</p>
+<p>If you can, imagine that the “as built” documents are an ephemeral projection of the code. It is produced on demand. It is accurate to the second, since it is read from the code on you desktop in your working directory or branch at the moment.</p>
+<p>The “as desired” is a user story, feature specification, or just a few sentences that describe an idea.</p>
+<p>That as-built document is more easily comparable to an as-desired document than the raw code artifacts, whether this is done by a person, an agent, or both.<sup>2</sup></p>
+<p>To do that, we need the code to have a particular set of qualities that make it easy to collect and assess it, and thereby produce a projection that is accurate (enough) and complete (enough) that we can make reliable changes.</p>
+<p>So, the job is to understand the choices and consequences of a change before choosing to make it.</p>
+</section>
+<section id="so-whats-in-the-code" class="level2">
+<h2 class="anchored" data-anchor-id="so-whats-in-the-code">So what’s in the code?</h2>
+<ul>
+<li>IaC - infrastructure declarations are key to seeing architecture</li>
+<li>Production code - the actual instructions themselves</li>
+<li>History - the version control record of how code is maintained and evolved</li>
+<li>Tests - current code behavior made real and provable</li>
+<li>Structure - the hierarchies, modules, and patterns of the system</li>
+<li>Scanner results - type checkers, error scanners, security scans, etc</li>
+</ul>
+<p>That leaves us two problems for projecting a document: 1) How to make it more extractable 2) How to extract it</p>
+</section>
+<section id="connect-evidence-to-representation-refactoring-review." class="level2">
+<h2 class="anchored" data-anchor-id="connect-evidence-to-representation-refactoring-review.">Connect evidence to representation-refactoring review.</h2>
+<p>If we can pull this off with the use of agents and deterministic tools and magic beans and infinite genie wishes, it will be the biggest step-up we’ve seen since the invention of high-level languages.</p>
+<p>If we can’t, well, we’ll have to wait for some other cool breakthrough in the future.</p>
+<p>Many of my blogs that follow will describe my efforts in this endeavor, including some failures and missteps, to be sure.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Admittedly, it goes through compilers, optimizers, JITters, virtual machines, microcode that slices it into pipelines and concurrent pieces and such, but it is essentially the code and certainly not those other things I mentioned.↩︎</p></li>
+<li id="fn2"><p>My preference is “both”: the “centaur developer”↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>programming</category>
+  <category>flow</category>
+  <category>technical debt</category>
+  <guid>https://agileotter.dev/posts/2026-11-15-knowledge-in-code.html</guid>
+  <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Disguising and Unmasking Antipattern</title>
   <link>https://agileotter.dev/posts/2026-11-14-disguising-and-unmasking-antipattern.html</link>
@@ -1445,68 +1534,6 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
   <category>learning</category>
   <guid>https://agileotter.dev/posts/2026-02-13-believing-in-people.html</guid>
   <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Do You Even Plan, Bro?</title>
-  <link>https://agileotter.dev/posts/2026-02-06-do-you-even-plan-bro.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="aint-no-plannin" class="level2">
-<h2 class="anchored" data-anchor-id="aint-no-plannin">Aint No Plannin’</h2>
-<p>I see a lot of “agile” teams and their “planning” meetings, but if you forgive me for saying so, I’ve not seen a planning meeting for a long time.</p>
-<p>Typically:</p>
-<ul>
-<li>No plan is presented</li>
-<li>No questions about the plan are surfaced</li>
-<li>No revisions to a plan are made</li>
-</ul>
-<p>What actually happens then? Usually, someone loads up a list of tasks, and the entire meeting is spent assigning people to the tasks.</p>
-<p>Does that in ANY way resemble planning? What was planned, other than individual workloads? How was the plan assessed, improved, revised, or confirmed? What was, even, the plan?</p>
-<p>So, what I have in mind is simple.</p>
-</section>
-<section id="dont-assign" class="level2">
-<h2 class="anchored" data-anchor-id="dont-assign">Don’t Assign</h2>
-<p>In your next planning meeting do not assign any work to any individuals.</p>
-<p>They can pull work as part of the sprint. They are cross-functional and self-managing, right? They are <a href="../posts/2015-03-30-can-scrum-teams-have-managers.html">professionals you trust and respect, and have autonomy</a>, so they can pull work.</p>
-<p>If you are the PO/PM, then you have an ordered backlog for them.</p>
-</section>
-<section id="show-your-plan" class="level2">
-<h2 class="anchored" data-anchor-id="show-your-plan">Show Your Plan</h2>
-<p>Put your plan up on the screen. No, really. Whatever it is you are trying to really do instead of a tasklist.</p>
-</section>
-<section id="ask-questions" class="level2">
-<h2 class="anchored" data-anchor-id="ask-questions">Ask Questions</h2>
-<p>What are you trying to accomplish?</p>
-<p>Are there risks to the timeline and the goal?</p>
-<p>Is this goal still valuable to the company?</p>
-<p>Are we likely to reach it with the scope we have now?</p>
-<p>Are there better ways to accomplish our goals now that we have done some of the work?</p>
-<p>Are the planned milestones still valid and well-placed?</p>
-<p>Do we have feedback from sponsors or users?</p>
-<p>Does it tie to any organisational goals or disruptions we should talk about?</p>
-<p>How should we change the plan?</p>
-</section>
-<section id="fix-it" class="level2">
-<h2 class="anchored" data-anchor-id="fix-it">Fix It</h2>
-<p>Change the plan.</p>
-<p>Now, that task list – is it still valid?</p>
-<p>Does it go too far or stop too short?</p>
-<p>Can we sacrifice something to make progress on something else?</p>
-</section>
-<section id="thats-all" class="level2">
-<h2 class="anchored" data-anchor-id="thats-all">That’s all?</h2>
-<p>Is that all we really need to do in planning? Sure. Pretty much. You might have a bit more or a bit less depending on your context and situation, but why not?</p>
-<p>I wonder what it would do for you and your team to use your planning meeting for actual planning, instead of just having a boring task assignment meeting. Maybe it will unlock the engagement and creativity of your staff, and they’ll start caring about the bigger picture if they’re not blinkered to seeing only a task list.</p>
-
-
-</section>
-
- ]]></description>
-  <guid>https://agileotter.dev/posts/2026-02-06-do-you-even-plan-bro.html</guid>
-  <pubDate>Fri, 06 Feb 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
