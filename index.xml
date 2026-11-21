@@ -31,15 +31,15 @@
 <blockquote class="blockquote">
 <p>Code is the truth</p>
 </blockquote>
-<p>I’ve often repeated that line. I credit it to Ron Jeffries, though the very first use may be lost to time. I’ve heard it also from Bob Martin who was one of my key tech mentors in the late 1990s and early 2000s</p>
+<p>I’ve often repeated that line. I credit it to Ron Jeffries, though the very first use may be lost to time. I’ve heard it also from Bob Martin who was one of my key tech mentors in the late 1990s and early 2000s.</p>
 <p>When I mention it in social media, I’m often greeted with “helpful corrections” by various people, who usually are strangers to me. They tell me that the real truth is not in the code, but in the documents, or the heads of subject matter experts, or some other place.</p>
 <p>I think we need to understand first that there is a big difference between “being true” and “being right.”</p>
 <p>The point here isn’t that code is perfect, and does all the right things, but rather that code is all that goes to the CPU of the computer(s).</p>
 <p>It is not accompanied by the expert’s opinion, the documentation, or the best intentions of the engineers<sup>1</sup>.</p>
-<p>For illustration, imagine there is a defect in the code. At runtime, it is observeed doing the wrong thing. While it may disappoint experts, designers, and probably even the programmer, at runtime that misbehavior actually happened. It is objectively true.</p>
+<p>For illustration, imagine there is a defect in the code. At runtime, it is observed doing the wrong thing. While it may disappoint experts, designers, and probably even the programmer, at runtime that misbehavior actually happened. It is objectively true.</p>
 <p>In this sense, the code is truth and the specifications are the intentions. The specifications may even be <strong>right</strong> but the code is <strong>true</strong>.</p>
 <blockquote class="blockquote">
-<p>When our expection differs from reality, remember that reality is what really happened.</p>
+<p>When our expectation differs from reality, remember that reality is what really happened.</p>
 </blockquote>
 <p>It doesn’t do us any good to argue that reality is not real, but we can argue that it’s not right.</p>
 <p>Making a reality that fits our expectations as well as possible is what engineers of all sorts do for a living. It eventually comes down to physics.</p>
@@ -49,7 +49,7 @@
 <p>There have been many attempts to treat documentation as the singular authority in projects, and code as a mere projection of the documentation. Some texts refer to programming as “translating the requirements into a programming language.” The documents-as-authority opinion is held primarily by the people writing the documents, especially those who don’t have to “get their hands dirty” in the work of making it actually run on a computer.</p>
 <p>The docs are probably right. I won’t say differently, but they’re not truth yet. In fact, the documents have no use and no market fit and potentially no value until they become source code and are eventually used by customers to do the customer’s work. Until then they are informed ideas, disembodied ideas.</p>
 <p>That doesn’t make them wrong. Let me reinforce that. It’s just that they’re not truth yet, and their value is expected and not yet proven.</p>
-<p>So far all of these attempts to make documentation the authoritative truth have struggled and failed, becuase there are <a href="https://agileotter.dev/posts/2026-10-18-speculative-challenges-of-spec-driven.html">certain issues with documentation</a> that are innate. The discipline from all actors to reconcile the documents and code in all aspects across many revisions is just not available from humans, even augmented with computer programs and LLM agents.</p>
+<p>So far all of these attempts to make documentation the authoritative truth have struggled and failed, because there are <a href="https://agileotter.dev/posts/2026-10-18-speculative-challenges-of-spec-driven.html">certain issues with documentation</a> that are innate. The discipline from all actors to reconcile the documents and code in all aspects across many revisions is just not available from humans, even augmented with computer programs and LLM agents.</p>
 <p>The intention is right, though. You <strong>do</strong> need an accessible, relevant, meaningful expression of the system. You <strong>do</strong> need a coherent “view” of what it does, and what it should do.</p>
 <p>If you read Peter Naur’s “<a href="https://pages.cs.wisc.edu/~remzi/Naur.pdf">Programming as Theory Building</a>” you will see his definition of a “live” program is that where the theory of how and why it works is still present in the head(s) of the developer(s). When that theory is lost, the program is “dead” until the theory is painstakingly recreated (if ever).</p>
 <p>This makes some document-focused people feel that the answer is to document the entire theory so that we have all the information that matters all of the time, but at that point we need a more precise language to write the docs in and a more automated way of checking it – in essence, a computer programming language.</p>
@@ -60,13 +60,14 @@
 <h2 class="anchored" data-anchor-id="but-ai-is-like-a-compiler-and-loves-long-detailed-documents">But AI is like a compiler and loves long, detailed documents!</h2>
 <p>Sadly, no.</p>
 <p>It is <strong>not like a compiler</strong>. It is like an LLM, and while it can definitely produce good code, it’s not built to deterministically turn inputs into outputs. That’s not what they’re for, and it’s not how they work.</p>
-<p><strong>Big, detailed documents are a problem</strong>* for them. They only have so much context available. They are prone to “context rot”, distraction, structural parsing issues, high noise:signal ratio, tokenization issues, and variations due to their training set.</p>
+<p><strong>Big, detailed documents are a problem</strong> for them. They only have so much context available. They are prone to “context rot”, distraction, structural parsing issues, high noise:signal ratio, tokenization issues, and variations due to their training set.</p>
 <p>The only things that are like compilers are compilers: deterministic input-to-output converters. LLMs are a newer (to us) and different technology. If we wanted compilers, we already had those.</p>
 </section>
 <section id="how-do-we-resolve-document-vs-code" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-we-resolve-document-vs-code">How do we resolve document vs code?</h2>
 <p>They are different. Let’s go with that, and accept that documentation is correct in the moment, in some respects, and that the code is a different corpus that may have differences.</p>
-<p>If you can, imagine that the “as built” documents are an ephemeral projection of the code. It is produced on demand. It is accurate to the second, since it is read from the code on you desktop in your working directory or branch at the moment.</p>
+<p>If you can, imagine that an “as-built” document is an ephemeral projection of the code, produced on demand. It is faithful to the implementation at this revision, since it is read from the code on your desktop in your working directory or branch at the moment.</p>
+<p>That projection is <strong>truthful about the implementation, including behavior nobody intended</strong>.</p>
 <p>The “as desired” is a user story, feature specification, or just a few sentences that describe an idea.</p>
 <p>That as-built document is more easily comparable to an as-desired document than the raw code artifacts, whether this is done by a person, an agent, or both.<sup>2</sup></p>
 <p>To do that, we need the code to have a particular set of qualities that make it easy to collect and assess it, and thereby produce a projection that is accurate (enough) and complete (enough) that we can make reliable changes.</p>
@@ -82,7 +83,11 @@
 <li>Structure - the hierarchies, modules, and patterns of the system</li>
 <li>Scanner results - type checkers, error scanners, security scans, etc</li>
 </ul>
-<p>That leaves us two problems for projecting a document: 1) How to make it more extractable 2) How to extract it</p>
+<p>That leaves us two problems for projecting a document:</p>
+<ol type="1">
+<li>How to make it more extractable</li>
+<li>How to extract it</li>
+</ol>
 </section>
 <section id="connect-evidence-to-representation-refactoring-review." class="level2">
 <h2 class="anchored" data-anchor-id="connect-evidence-to-representation-refactoring-review.">Connect evidence to representation-refactoring review.</h2>
