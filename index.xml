@@ -17,7 +17,379 @@
 <width>144</width>
 </image>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Sun, 15 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 28 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Amdahl’s Law and Parallel Work</title>
+  <link>https://agileotter.dev/posts/2026-11-28-amdahls-law-and-parallel-work.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>If four people each take a quarter of the work, shouldn’t it be done in a quarter of the time?</p>
+<p>Sometimes we get a very nice improvement. Sometimes we get four busy people and a delivery date that keeps moving away.</p>
+<p>I explored this in <a href="https://www.industriallogic.com/blog/parallel-efforts/">Shouldn’t It Be Faster?</a> at Industrial Logic. That blog is a reasonable introduction to Amdahl’s Law and certain pitfalls we face when trying to parallelise the work of humans.</p>
+<p>A team is not a multi-core CPU. People are not computers. But that doesn’t mean that Amdahl’s Law is not applicable. It just means that we have to consider context.</p>
+<p>For a process arranged as successive serial and parallel stages, elapsed time is the sum of those stages. Each parallel stage lasts from its first start to its last required finish.</p>
+<p><strong>Dividing the work adds coordination and integration effort.</strong> Where that effort must precede or follow the divided jobs, it enlarges the non-parallel part.</p>
+<p><strong>The parallel stage lasts from the start of the first job to the completion of the last job in the set.</strong> Whatever extends that time, all the delays and interruptions, can cause the parallel section to be longer than if it had been serialized.</p>
+<p>However, it seems that we should be able to win this game. Parallelism is a powerful technique and handling it well should give us a big advantage.</p>
+<section id="the-part-we-can-divide" class="level2">
+<h2 class="anchored" data-anchor-id="the-part-we-can-divide">The part we can divide</h2>
+<p>Suppose a job takes ten hours. One hour at the front and one hour at the end must happen in sequential time.</p>
+<p>Say the remaining eight hours can be divided into four entirely independent pieces.</p>
+<p>With capable workers, all available immediately, those eight hours might take only two hours of elapsed time. The two serial hours still take two hours.</p>
+<p>The job takes four hours. That’s a 2.5-fold speedup.</p>
+<div id="fig-fixed-work" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two stacked timelines: ten hours with one lane, four hours with four ideal lanes. Both retain two serial hours.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fixed-work-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../assets/amdahl/fixed-work.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The baseline has two serial hours and eight divisible hours, totaling ten. With four ideal parallel lanes, the divisible portion takes two hours, and the total is four."><img src="https://agileotter.dev/assets/amdahl/fixed-work.svg" class="img-fluid figure-img" alt="Two stacked timelines: ten hours with one lane, four hours with four ideal lanes. Both retain two serial hours."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fixed-work-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The baseline has two serial hours and eight divisible hours, totaling ten. With four ideal parallel lanes, the divisible portion takes two hours, and the total is four.
+</figcaption>
+</figure>
+</div>
+<p>The usual fixed-work form of Amdahl’s Law is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AS(N)%20=%20%5Cfrac%7B1%7D%7B(1-p)%20+%20p/N%7D%0A"></p>
+<p>Here, <img src="https://latex.codecogs.com/png.latex?p"> is the fraction of the <strong>original execution time</strong> that can benefit from parallel execution. <img src="https://latex.codecogs.com/png.latex?N"> is the number of ideal parallel workers, and <img src="https://latex.codecogs.com/png.latex?S(N)"> is the speedup of the whole job. This assumes the same work, perfect division of the parallel portion, and no added overhead. <a href="https://cvw.cac.cornell.edu/parallel/efficiency/amdahls-law">Cornell’s explanation</a> walks through the derivation.</p>
+<p>In this example, <img src="https://latex.codecogs.com/png.latex?p%20=%200.8">.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Ideal parallel workers</th>
+<th style="text-align: right;">Elapsed hours</th>
+<th style="text-align: right;">Overall speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1.00×</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.67×</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.50×</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.33×</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">4.00×</td>
+</tr>
+</tbody>
+</table>
+<p>Even unlimited parallel capacity cannot get this unchanged job below two hours. The speedup approaches five times the original rate.</p>
+<div id="fig-speedup" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Calculated Amdahl curves for 80 and 95 percent divisible work. At sixteen workers, speedups are 4 and 9.14 respectively.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-speedup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../assets/amdahl/speedup.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: With 80 percent divisible work, ideal speedup rises from one at one worker to four at sixteen workers, approaching a five-fold ceiling. A second curve with 95 percent divisible work reaches 9.14 at sixteen workers."><img src="https://agileotter.dev/assets/amdahl/speedup.svg" class="img-fluid figure-img" alt="Calculated Amdahl curves for 80 and 95 percent divisible work. At sixteen workers, speedups are 4 and 9.14 respectively."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-speedup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: With 80 percent divisible work, ideal speedup rises from one at one worker to four at sixteen workers, approaching a five-fold ceiling. A second curve with 95 percent divisible work reaches 9.14 at sixteen workers.
+</figcaption>
+</figure>
+</div>
+<p>Making the serial part smaller can change that limit. Adding more workers to the divisible part cannot.</p>
+</section>
+<section id="people-arent-processors" class="level2">
+<h2 class="anchored" data-anchor-id="people-arent-processors">People aren’t processors</h2>
+<p>This is a model of executing a fixed computation. Software development involves discovery, judgment, and changing our minds.</p>
+<p>The simple equation doesn’t represent delayed starts, interruptions, communication between people, or status reporting. Those are crucial to our comparison. Computer systems can also have scheduling delays and communication overhead; the ideal arithmetic leaves them out rather than making them disappear.</p>
+<p>We can’t count developers, substitute that number for <img src="https://latex.codecogs.com/png.latex?N">, and announce a delivery date. Nor can we infer <img src="https://latex.codecogs.com/png.latex?p"> from the percentage of tickets labelled “coding.”</p>
+<p>The useful question is: <strong>which time on the route to a usable result actually gets shorter when we divide the work?</strong></p>
+<p>Amdahl’s model makes us identify the part we expect to improve. It doesn’t establish how much parallelism a particular team can achieve, or whether pairing would improve that team’s work.</p>
+<p>For our practical decision, the alternative is <strong>two or three people collaborating on the whole job</strong>. The split must save enough time to cover its additional planning, communication, status reporting, integration, and disruptions, and still beat that alternative. Those comparisons need observation.</p>
+</section>
+<section id="we-can-enlarge-the-non-parallel-part" class="level2">
+<h2 class="anchored" data-anchor-id="we-can-enlarge-the-non-parallel-part">We can enlarge the non-parallel part</h2>
+<p>There is another catch. Dividing the job can create work that wasn’t in the original ten hours.</p>
+<p>Before the divided jobs can start, we may have to negotiate interfaces, decompose the work, and arrange assignments. Afterward, we may have to assemble the results, reconcile incompatible assumptions, and verify the whole. To the extent these activities must precede or follow the divided jobs, they enlarge the non-parallel part of the process.</p>
+<p>Those costs need their own accounting. They aren’t magically included in a fraction measured before we changed the process.</p>
+<p><a href="https://static.usenix.org/publications/library/proceedings/als00/2000papers/papers/full_papers/brownrobert/brownrobert_html/node3.html">Robert G. Brown’s parallel-performance treatment</a> explicitly adds setup, communication, and idle-time costs to the simple model.</p>
+<p>For a simple process with preparation before the divided jobs and final integration after them, we can account for the elapsed time as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AT_%7B%5Ctext%7Bsplit%7D%7D%20=%20B%20+%20E%20+%20A%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?B"> is the time before the first divided job starts. <img src="https://latex.codecogs.com/png.latex?E"> is the elapsed interval from the first start to the last required completion. <img src="https://latex.codecogs.com/png.latex?A"> is the remaining time to integrate, verify, and finish afterward.</p>
+<p>In our ten-hour example, the original serial time totals two hours. Four ideal lanes reduce the eight-hour portion to two hours, giving us four hours overall. If division and final integration add three more hours outside that stage, we now take seven. If they add six, we’re back to ten. Add more and the split loses time, even with perfect parallel execution.</p>
+<p>For this simple arrangement, the split wins only when <strong>the saving inside the divided-work stage exceeds the extra time outside it</strong>.</p>
+<p>This is elapsed-time accounting, not a sum of person-hours. If preparation or integration overlaps the jobs, count that time once, where it occurs on the timeline. More complex workflows need their actual dependency schedules. These are illustrative calculations, not measured team data.</p>
+</section>
+<section id="the-parallel-stage-is-first-start-to-last-finish" class="level2">
+<h2 class="anchored" data-anchor-id="the-parallel-stage-is-first-start-to-last-finish">The parallel stage is first start to last finish</h2>
+<p>The clock for the parallel stage starts when the first divided job starts. It stops when the last required job is actually complete, including any corrections needed for that piece to be accepted. It keeps running when one worker is waiting, interrupted, or doing something else.</p>
+<p>Time between assignment and the first start still counts toward delivery; it falls before this interval. Unfinished integration after the last piece falls after it. Moving a delay across those boundaries doesn’t make it disappear.</p>
+<p>Imagine four independent pieces, each needing two hours. They are assigned together, but one specialist can’t start until hour six.</p>
+<div id="fig-waiting" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two schedules of four two-hour pieces. All start together and finish at hour two; one delayed start moves completion to hour eight.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-waiting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../assets/amdahl/waiting.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Four two-hour tasks finish at hour two when all start together. If the fourth waits six hours, the last task finishes at hour eight. In this example, final integration waits until all four pieces are ready."><img src="https://agileotter.dev/assets/amdahl/waiting.svg" class="img-fluid figure-img" alt="Two schedules of four two-hour pieces. All start together and finish at hour two; one delayed start moves completion to hour eight."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-waiting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Four two-hour tasks finish at hour two when all start together. If the fourth waits six hours, the last task finishes at hour eight. In this example, final integration waits until all four pieces are ready.
+</figcaption>
+</figure>
+</div>
+<p>The gathering point is governed by the last required result. Closing three tickets early doesn’t move that point. The stage took eight hours, even though each job needed only two hours of active work.</p>
+<p>Now combine the two ways to lose. Keep the original two serial hours, add three hours for division and final integration, and let the supposedly parallel stage stretch to eight hours. Our ten-hour job now takes thirteen hours.</p>
+<p>Everyone can have worked quickly on their own piece, and we can still have made delivery slower.</p>
+<p>This timeline shows only the divided-work stage. Any required work before or after it extends the delivery time further.</p>
+<p>My <a href="https://www.industriallogic.com/blog/scatter-gather/">Scatter-Gather article</a> illustrates another important detail: the workers can be busy with other jobs while this feature’s pieces occur at different places in their individual queues. <strong>The feature is waiting even when nobody is idle.</strong> The interval we must shorten belongs to the feature, not to an individual’s task list.</p>
+</section>
+<section id="how-we-lose-time-inside-the-parallel-stage" class="level2">
+<h2 class="anchored" data-anchor-id="how-we-lose-time-inside-the-parallel-stage">How we lose time inside the parallel stage</h2>
+<p>We need to distinguish work that <strong>cannot overlap under the present constraints</strong>, work that <strong>could overlap but doesn’t</strong>, and work that <strong>overlaps without saving much time</strong>. All three can spoil our plan, but they call for different improvements.</p>
+<p>A blocker is a cause of delay: it can prevent a job from starting or interrupt one already underway. It isn’t another duration to add to the interruption or wait it causes. The examples below explain why the interval stretches; they aren’t separate penalties to sum.</p>
+<section id="two-jobs-one-worker" class="level3">
+<h3 class="anchored" data-anchor-id="two-jobs-one-worker">Two jobs, one worker</h3>
+<p>Suppose two independent jobs each require two hours of a person’s active attention. Assign both to the same person and they need four hours of that person’s time. Alternating between them doesn’t create a second worker.</p>
+<p>The jobs might be logically independent, but their staffing makes them compete. The same applies when several jobs need the same reviewer, test rig, or exclusive environment.</p>
+<p>Suppose we divide a job into seven pieces. One needs eight hours; the other six need one hour each. We assign the eight-hour piece and one of the one-hour pieces to the same worker, and distribute the remaining five among five other available workers.</p>
+<p>That worker has to serialize their two pieces. Even if everybody starts immediately, with no interruptions or rework, their assigned work needs nine hours. The other five workers finish at hour one, but the divided-work stage cannot finish before hour nine.</p>
+<p>For this illustration, suppose the same work would have taken fourteen hours without the split, and the durations don’t change when we divide it. Our best possible saving inside the stage is five hours. That is the entire budget for the additional division and final integration if we want to break even.</p>
+<p>That fourteen-hour baseline is an arithmetic assumption for this example. It doesn’t tell us how long two or three collaborators would take. The split must beat their actual alternative, including a reasonable allowance for disruptions, before we can call it a practical win.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 36%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Added division and integration time</th>
+<th style="text-align: right;">Earliest overall completion</th>
+<th>Compared with fourteen hours</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2 hours</td>
+<td style="text-align: right;">11 hours</td>
+<td>3 hours saved</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5 hours</td>
+<td style="text-align: right;">14 hours</td>
+<td>No saving</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6 hours</td>
+<td style="text-align: right;">15 hours</td>
+<td>1 hour lost</td>
+</tr>
+</tbody>
+</table>
+<p>The two jobs could be done in either order, but changing their order doesn’t reduce their combined nine hours. Adding another worker helps only if some of that work can actually be transferred or divided. The question is whether we can finish the last worker’s required work soon enough to pay for the split.</p>
+<p>There is a substantial literature on scheduling around these constraints. For example, <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CP.2023.31">Povéda, Alvarez, and Artigues (2023)</a> explicitly model worker skills, calendars, precedence, and which activities can be interrupted. A list of assignments isn’t yet a feasible schedule.</p>
+</section>
+<section id="one-job-needs-anothers-result" class="level3">
+<h3 class="anchored" data-anchor-id="one-job-needs-anothers-result">One job needs another’s result</h3>
+<p>If B needs a result from A, that part of B must wait for that result. Adding people to B doesn’t make A’s result arrive earlier.</p>
+<p>Sometimes B needs only part of A’s output, so some overlap is possible. We need to identify the actual information dependency rather than automatically waiting for the whole ticket to close.</p>
+<p>The <strong>critical path</strong> is the longest chain of dependent work. <a href="https://www.opencilk.org/doc/tutorials/opencilk-concepts/">The work-and-span model</a> makes this limit explicit: even unlimited workers cannot finish a fixed computation sooner than its longest dependency chain permits. In development, we also have to account for resource conflicts and waits, which can extend the schedule beyond that bound.</p>
+</section>
+<section id="the-worker-isnt-available-or-becomes-unavailable" class="level3">
+<h3 class="anchored" data-anchor-id="the-worker-isnt-available-or-becomes-unavailable">The worker isn’t available, or becomes unavailable</h3>
+<p>Someone may have the necessary skill but be on another job, on leave, or waiting for access. The work is ready; its worker isn’t. A task requiring several people together needs a common period of availability.</p>
+<p>Availability can also change after the work starts. Someone is pulled into an incident, becomes ill, or is reassigned. Their piece pauses while the clock for the parallel stage keeps running.</p>
+<p>For example, all four two-hour jobs start together. One worker completes an hour, becomes unavailable for four hours, and then returns to finish the remaining hour. The other jobs finish at hour two; this one finishes at hour six. The parallel stage takes six hours, despite everyone having been available at the start.</p>
+<p>Handing the job to someone else may help, but the replacement needs enough understanding to continue and verify it. Shared knowledge, recoverable work, and someone able to take over give us options. A name on a ticket doesn’t guarantee continuing capacity.</p>
+<p>That makes personal queues, competing priorities, and calendars part of the delivery timeline. It also means an idle developer doesn’t necessarily provide capacity for a job requiring a different skill or authority.</p>
+<p>These are constraints of our current arrangement. We may be able to change assignments, share knowledge, or remove an access restriction. They aren’t necessarily inherent properties of the work.</p>
+</section>
+<section id="the-pieces-arent-the-same-size" class="level3">
+<h3 class="anchored" data-anchor-id="the-pieces-arent-the-same-size">The pieces aren’t the same size</h3>
+<p>Divide eight hours into four independent, indivisible jobs of five, one, one, and one hour. With four suitable workers starting together, the stage takes five hours. It cannot take the two hours suggested by dividing eight by four.</p>
+<p>The five-hour piece sets the finish. Splitting it further might help, if it really can be divided independently. Just adding people doesn’t establish that.</p>
+<p>The <a href="https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial">Lawrence Livermore parallel-computing tutorial</a> treats load imbalance and synchronization as distinct performance concerns. Unequal pieces can run in parallel; they simply don’t give us perfectly balanced parallel execution.</p>
+</section>
+<section id="work-comes-back" class="level3">
+<h3 class="anchored" data-anchor-id="work-comes-back">Work comes back</h3>
+<p>A piece isn’t finished merely because someone submitted it. Failed tests, review findings, and incompatible assumptions can send it back through development and verification. Other pieces may need to change too.</p>
+<p>There is a particular risk when B starts using a preliminary result from A. If A changes, some of B may need to be redone. <a href="https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/P19.pdf">Loch and Terwiesch’s concurrent-engineering model (1998)</a> weighs overlap savings against rework and communication time.</p>
+<p>Their <a href="https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/P16.pdf">subsequent study of 140 electronics-development projects (1999)</a> found that resolving uncertainty early influenced the benefit of overlap. This is evidence from product development, rather than a software-team speedup formula, but it gives us a useful question: how stable is the information we’re asking someone else to build on?</p>
+</section>
+<section id="one-implementation-changes-another-job" class="level3">
+<h3 class="anchored" data-anchor-id="one-implementation-changes-another-job">One implementation changes another job</h3>
+<p>There is a more troublesome interaction than waiting for a known prerequisite. Implementing A can reveal something that changes B, even though we planned to develop them independently.</p>
+<p>For example, implementing authorization might reveal that the operation needs a tenant identifier. That discovery changes the API, the client, and the audit record. Some of those pieces may already have been declared complete.</p>
+<p>Now they need to be reopened, changed, and checked together. A change in B may reveal another consequence for A. We have a feedback loop across the divided work, rather than a fixed sequence of independent jobs.</p>
+<p>The loss can be larger than the effort of making the extra edits. People may have moved on, so we must regain their availability and understanding. Earlier tests and integration results may no longer establish that the changed combination works.</p>
+<p>This can hurt both parts of our accounting. Discovered during the jobs, it can push out the last required completion. Discovered during final integration, it can enlarge the time spent reconciling the pieces. Count that time once, wherever it occurs; calling it an integration problem doesn’t make it disappear.</p>
+<p><a href="https://herbsleb.org/web-pubs/pdfs/Cataldo-Coordination-2013.pdf">Cataldo and Herbsleb’s software study</a> is relevant here: coordination needs evolve with technical dependencies. The authorization example is illustrative, but the risk of treating those dependencies as fixed is central to their research.</p>
+<p>We can look for shared decisions before splitting, bring uncertain interactions together early, and integrate small changes while the people involved still have the work in mind. When every discovery in one piece keeps reopening the others, that is evidence to reconsider the division itself. Those pieces may be better developed together until the shared decision settles.</p>
+</section>
+<section id="other-constraints-worth-looking-for" class="level3">
+<h3 class="anchored" data-anchor-id="other-constraints-worth-looking-for">Other constraints worth looking for</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constraint</th>
+<th>How it limits the saving</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shared mutable state</td>
+<td>Two changes to the same underlying state may require an order or reconciliation. Separate files don’t guarantee independent changes.</td>
+</tr>
+<tr class="even">
+<td>Required gathering points</td>
+<td>A test, decision, or release may require several results together. Early finishes wait for the last required result.</td>
+</tr>
+<tr class="odd">
+<td>Limited shared capacity</td>
+<td>Parallel producers can converge on a constrained review, build, test, or deployment service.</td>
+</tr>
+<tr class="even">
+<td>Pieces too small to justify the split</td>
+<td>Assignment, setup, communication, and assembly can consume the saving from dividing the work.</td>
+</tr>
+<tr class="odd">
+<td>Required uninterrupted time</td>
+<td>A free half hour is insufficient for a step that needs an uninterrupted two-hour window.</td>
+</tr>
+<tr class="even">
+<td>Unknown or changing dependencies</td>
+<td>Discovery can reveal that supposedly independent jobs need to exchange results or revise a common decision.</td>
+</tr>
+</tbody>
+</table>
+<p>The computing examples of state dependencies, synchronization, and granularity are discussed in the Livermore tutorial. The software examples here are applications of those mechanisms, not measured equivalences between developers and processors.</p>
+</section>
+<section id="finding-out-where-everything-stands" class="level3">
+<h3 class="anchored" data-anchor-id="finding-out-where-everything-stands">Finding out where everything stands</h3>
+<p>Divided work also creates a status-reporting job. Someone has to find out which pieces have started, which are waiting, which have passed verification, and which have been reopened. Updates, dashboards, meetings, and chasing answers take effort from the people doing and coordinating the work.</p>
+<p>That effort can extend the schedule when it takes people away from required work, or when decisions wait for an accurate picture of progress. Coordination can itself compete for a specialist’s availability.</p>
+<p>A whole outcome being developed together still needs coordination and reporting. The comparison is whether scattering its status across people, queues, and branches adds a burden that the collaborative approach avoids. Count the elapsed consequences once on the timeline, and count the reporting effort in the labor comparison too.</p>
+<p>Dependencies also change as we learn. <a href="https://herbsleb.org/web-pubs/pdfs/Cataldo-Coordination-2013.pdf">Cataldo and Herbsleb’s study of two software projects (2013)</a> found that gaps between required and actual coordination were associated with more failures, while better alignment was associated with improved productivity. Drawing module boundaries doesn’t remove the need to notice and manage dependencies.</p>
+<p>For each delayed job, ask: <strong>what result, person, shared resource, decision, or correction is it waiting for?</strong> Then ask whether that constraint is necessary, or something about the way we’ve organized the work.</p>
+</section>
+</section>
+<section id="the-bricks-can-be-finished-before-the-building-works" class="level2">
+<h2 class="anchored" data-anchor-id="the-bricks-can-be-finished-before-the-building-works">The bricks can be finished before the building works</h2>
+<p>Completing the separate pieces doesn’t establish that they work together. If we defer that discovery until final integration, the finishing stage still contains uncertain work.</p>
+<p><a href="https://cs.uwaterloo.ca/~rtholmes/papers/fse_2011_brun.pdf">Brun and colleagues (2011)</a> studied nine open-source systems and found conflicts beyond overlapping text edits: changes could merge but then fail to build or pass tests. A clean merge isn’t evidence of a working combination.</p>
+<p><a href="https://www.se.cs.uni-saarland.de/publications/docs/VHF%2B22.pdf">Vale and colleagues (2022)</a> examined about 81,000 merge scenarios and surveyed 140 developers. Dependencies involving both conflicting and non-conflicting code contributed to the difficulty of resolution. Integration requires understanding the changes, not merely removing conflict markers.</p>
+<p>There is a quality risk too. In <a href="https://epiclab.github.io/publications/emse20-brindescu.pdf">Brindescu and colleagues’ study of 143 projects (2020)</a>, code associated with merge conflicts was about twice as likely to be associated with bugs. This is an observational association, not proof that delaying integration doubles defects.</p>
+<p>These studies support treating final integration as substantive work with uncertain cost. They don’t establish a fixed penalty for each day we postpone it, or a numerical advantage over two or three collaborators. For our comparison, however, “all the pieces are done” is plainly too early to stop the clock.</p>
+</section>
+<section id="can-we-plan-our-way-out-of-this" class="level2">
+<h2 class="anchored" data-anchor-id="can-we-plan-our-way-out-of-this">Can we plan our way out of this?</h2>
+<p>Looking at these risks, we might decide to spend more time up front: settle every interface, anticipate interactions, balance the assignments, and secure everyone’s availability.</p>
+<p>But that preparation enlarges the non-parallel part. We are spending some of the possible saving before the parallel jobs even start.</p>
+<p>Can that win? Yes, if the added preparation prevents more elapsed delay than it introduces. Suppose two extra hours of preparation remove four hours from the first-start-to-last-finish interval, with everything else unchanged. We gain two hours. If they remove only one hour, we lose an hour.</p>
+<p>The cost is incurred before we know whether the hoped-for saving will materialize. Planning may resolve an uncertainty, but implementation can still reveal something we didn’t anticipate, and availability can still change.</p>
+<p>There is also a limit to what remains available to save. In our ten-hour example, perfect parallel execution already leaves only two hours inside the divided-work stage. More preparation cannot reduce that stage below its feasible minimum. Every extra serial hour uses more of the margin that could have made dividing the work worthwhile.</p>
+<p><strong>Expanding the non-parallel part can help us win, but it raises the saving we must achieve elsewhere.</strong> We shouldn’t mistake a more orderly parallel stage for an earlier delivery.</p>
+<p>Before paying for more preparation, ask what specific delay it is likely to prevent. Could we instead make the split simpler, reduce the size of the outcome, or work through the uncertain interaction together? Those options also have costs, but they may require less advance coordination.</p>
+</section>
+<section id="how-can-we-win-the-parallel-game" class="level2">
+<h2 class="anchored" data-anchor-id="how-can-we-win-the-parallel-game">How can we win the parallel game?</h2>
+<p>The two realizations suggest two kinds of improvement: keep division and integration inexpensive, and shorten the interval from first start to last finish.</p>
+<p>For the same usable outcome, at the same required quality, separately scheduled split work finishes sooner than working together when:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AB%20+%20E%20+%20A%20%3C%20T_%7B%5Ctext%7Bcollaborating%7D%7D%0A"></p>
+<p>Here, <img src="https://latex.codecogs.com/png.latex?T_%7B%5Ctext%7Bcollaborating%7D%7D"> is the elapsed time for two or three people to complete the whole outcome together at the same required quality. It isn’t the sum of estimates for solo tasks, divided by the number of collaborators. We need evidence from how the people actually work. Count preparation, communication, reporting, interruptions, verification, and finishing on both sides.</p>
+<p>For a decision made before starting, an ideal-case advantage isn’t enough. The expected speedup must leave enough margin that, under credible delayed-start and interruption scenarios, the split still finishes sooner. A split that wins only if everybody starts immediately and nothing interrupts them has not made a convincing case.</p>
+<p>This is confidence based on observed conditions, not a guarantee against every possible disruption. If the comparison is too close to call, the ideal equation gives us no reason to be sure that splitting will help.</p>
+<p>The conditions that make this inequality easier to satisfy are quite concrete:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Favorable condition</th>
+<th>What it gives us</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Substantial independent work</td>
+<td>Enough work can actually overlap to produce a useful saving. Necessary inputs and shared decisions are sufficiently settled.</td>
+</tr>
+<tr class="even">
+<td>Inexpensive division</td>
+<td>Useful boundaries are easy to identify and explain, without extensive advance design or assignment work.</td>
+</tr>
+<tr class="odd">
+<td>Suitable people available together</td>
+<td>Jobs can overlap in practice, with few competing priorities, personal queues, or exclusive-resource conflicts.</td>
+</tr>
+<tr class="even">
+<td>A manageable longest workload</td>
+<td>No worker’s combined assignments or dependency chain consumes nearly the whole serial duration. Exact equality between pieces isn’t required.</td>
+</tr>
+<tr class="odd">
+<td>Cheap communication and integration</td>
+<td>People can resolve questions quickly and combine small changes frequently, keeping final assembly short.</td>
+</tr>
+<tr class="even">
+<td>Limited propagation of changes</td>
+<td>Discoveries and defects usually stay local, rather than repeatedly reopening other pieces. Fast feedback helps reveal when this assumption is wrong.</td>
+</tr>
+<tr class="odd">
+<td>Capacity to adapt</td>
+<td>When someone becomes unavailable or a piece grows, others can help or take over at an acceptable handover cost.</td>
+</tr>
+</tbody>
+</table>
+<p>Each condition protects the margin between the possible saving and the cost of obtaining it. None requires perfect foresight or zero overhead; we need enough saving left after the actual costs.</p>
+<p>In Scatter-Gather, I suggest gathering the people around a whole outcome. They can still divide work, but with a common priority, direct communication, and frequent integration. This gives us a way to address both losses together, rather than paying for increasingly elaborate advance coordination of separate schedules.</p>
+<p>My <a href="../posts/2026-08-11-progressive-admission-pattern-for-data.html">Progressive Admission Pattern</a> gives us one concrete way to proceed. Start with an end-to-end system that explicitly rejects unsupported cases. Then admit one input shape or behavior at a time, implementing and testing its whole path. The first closed skeleton establishes the path; subsequent admissions make it useful without waiting for every planned case.</p>
+<p>This fits <a href="https://dora.dev/capabilities/working-in-small-batches/">DORA’s guidance on small batches</a> and frequent integration. DORA also warns against making small batches and then gathering them into a large batch for downstream testing or release. Our admissions should remain integrated and testable, with deployment and feedback as appropriate. An admission may build on earlier admissions; it doesn’t have to be an independently schedulable job.</p>
+<p>For this approach, two or three collaborators can complete the next admission together, dividing work briefly where it helps. We can exploit useful overlap while keeping the amount of work awaiting integration small. That changes the size of the gamble: we don’t need the entire large job’s pieces to converge before we have a working result.</p>
+<p>The coordination and status-reporting burden belongs among those costs. A worker who spends time reporting or chasing an answer has less time available for the required implementation; account for the resulting schedule rather than adding the same interruption again under another label.</p>
+<p>In the seven-piece example, the worker with nine hours of assignments leaves at most five hours to cover added costs against the fourteen-hour baseline. Transferring their one-hour piece could shorten the stage to eight hours, if another suitable worker can do it in time. That buys one hour, less any transfer cost. It doesn’t solve an eight-hour piece that dominates the schedule.</p>
+<p>Making the last required job finish sooner matters more than making an already early job finish earlier. Sometimes the best contribution from someone who has finished is to help remove what is holding up that last completion.</p>
+<p><a href="https://dora.dev/capabilities/loosely-coupled-teams/">DORA’s guidance on loosely coupled teams</a> emphasizes the ability to change, test, and deploy independently. That’s a useful test of independence: can this piece reach use without waiting for another team’s coordinated release?</p>
+<p>For people contributing to the same delivery, <a href="https://dora.dev/capabilities/continuous-integration/">continuous integration</a> brings changes together frequently and uses fast automated feedback. That gives us opportunities to discover incompatible changes while they are still small.</p>
+<p>Neither source proves that a particular staffing arrangement will win. They give us practices to try and outcomes to inspect.</p>
+<p>Pick a small delivery. Record when it becomes available to work on, when each required piece starts and finishes, and when the integrated result reaches use. Include waits and rework. Compare similar deliveries, watching for differences in scope and difficulty.</p>
+<p>Compare the time before the first start, the first-start-to-last-finish interval, and the time remaining afterward. Try reducing one delay and see whether the whole delivery improves. An earlier start alone is no victory if it merely creates a longer wait inside the interval.</p>
+<p>We need to know whether the result arrives sooner, not merely whether more work starts.</p>
+<section id="faster-and-more-efficient-are-separate-wins" class="level3">
+<h3 class="anchored" data-anchor-id="faster-and-more-efficient-are-separate-wins">Faster and more efficient are separate wins</h3>
+<p>A job can finish sooner while consuming more total effort. Parallel execution overlaps work; it doesn’t by itself remove any of it. Added planning, coordination, integration, and rework still consume people’s time.</p>
+<p>If we mean efficiency as less total labor for the same outcome and quality, that needs a separate comparison of person-hours, including those added activities. Parallel work can improve that measure if, for example, it avoids enough waiting-related recovery, duplicated investigation, or rework to outweigh its extra effort. The timing inequality alone doesn’t establish that.</p>
+<p>An earlier delivery may be worth extra effort. That’s a choice we can make explicitly, rather than calling every shorter schedule more efficient.</p>
+</section>
+</section>
+<section id="more-work-in-the-same-time" class="level2">
+<h2 class="anchored" data-anchor-id="more-work-in-the-same-time">More work in the same time?</h2>
+<p>There is a useful companion to this argument. In <a href="https://doi.org/10.1145/42411.42415">Reevaluating Amdahl’s Law (1988)</a>, John Gustafson considers growing a computation to use the available parallel capacity within a time budget.</p>
+<p>Finishing the same calculation sooner and doing a larger calculation in the same time are different goals. Parallel capacity may be valuable for the second even when the first has a stubborn limit.</p>
+<p>For teams, that distinction suggests another measurement question. Did we shorten the time to one usable outcome, or increase the number of independent outcomes delivered over a period? Either can be valuable. Starting more interdependent pieces doesn’t demonstrate either result.</p>
+<p>Before dividing the next job, ask where the saving will come from, what the split will cost, and how we’ll know whether it worked.</p>
+<p>Then follow the delivery all the way through.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>flow</category>
+  <category>teamwork</category>
+  <category>productivity</category>
+  <category>continuousIntegration</category>
+  <guid>https://agileotter.dev/posts/2026-11-28-amdahls-law-and-parallel-work.html</guid>
+  <pubDate>Sat, 28 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://agileotter.dev/assets/amdahl/fixed-work.png" medium="image" type="image/png" height="74" width="144"/>
+</item>
 <item>
   <title>Code as Knowledge</title>
   <link>https://agileotter.dev/posts/2026-11-15-knowledge-in-code.html</link>
@@ -108,7 +480,7 @@
 </section></div> ]]></description>
   <category>programming</category>
   <category>flow</category>
-  <category>technical debt</category>
+  <category>technicalDebt</category>
   <guid>https://agileotter.dev/posts/2026-11-15-knowledge-in-code.html</guid>
   <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
 </item>
@@ -236,8 +608,8 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
  ]]></description>
   <category>programming</category>
-  <category>technical debt</category>
-  <category>CodeVirtues</category>
+  <category>technicalDebt</category>
+  <category>codeVirtues</category>
   <guid>https://agileotter.dev/posts/2026-11-14-disguising-and-unmasking-antipattern.html</guid>
   <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
 </item>
@@ -420,7 +792,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
 
  ]]></description>
-  <category>AI</category>
+  <category>ai</category>
   <category>flow</category>
   <category>productivity</category>
   <category>listicle</category>
@@ -555,7 +927,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 <li id="fn1"><p>an oft repeated phrase among ai <em>vendors</em>↩︎</p></li>
 </ol>
 </section></div> ]]></description>
-  <category>AI</category>
+  <category>ai</category>
   <category>listicle</category>
   <category>programming</category>
   <guid>https://agileotter.dev/posts/2026-11-10-listicle-ai-needs-craft.html</guid>
@@ -633,7 +1005,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 </section>
 
  ]]></description>
-  <category>AI</category>
+  <category>ai</category>
   <guid>https://agileotter.dev/posts/2026-10-18-speculative-challenges-of-spec-driven.html</guid>
   <pubDate>Sat, 17 Oct 2026 23:00:00 GMT</pubDate>
 </item>
@@ -674,7 +1046,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
  ]]></description>
   <category>teams</category>
-  <category>clean code</category>
+  <category>cleanCode</category>
   <category>safety</category>
   <guid>https://agileotter.dev/posts/2026-09-29-why-redesign-doesnt-happen-enough.html</guid>
   <pubDate>Mon, 28 Sep 2026 23:00:00 GMT</pubDate>
@@ -747,8 +1119,8 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
  ]]></description>
   <category>flow</category>
-  <category>AI</category>
-  <category>XP</category>
+  <category>ai</category>
+  <category>xp</category>
   <category>continuousDelivery</category>
   <guid>https://agileotter.dev/posts/2026-09-26-the-ticket-is-not-work.html</guid>
   <pubDate>Fri, 25 Sep 2026 23:00:00 GMT</pubDate>
@@ -789,7 +1161,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
 
  ]]></description>
-  <category>AI</category>
+  <category>ai</category>
   <guid>https://agileotter.dev/posts/2026-08-26-spreadsheets.html</guid>
   <pubDate>Tue, 25 Aug 2026 23:00:00 GMT</pubDate>
 </item>
@@ -1059,8 +1431,8 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 </section>
 
  ]]></description>
-  <category>CodeVirtues</category>
-  <category>AI</category>
+  <category>codeVirtues</category>
+  <category>ai</category>
   <guid>https://agileotter.dev/posts/2026-08-19-eight-code-virtues-draft.html</guid>
   <pubDate>Tue, 18 Aug 2026 23:00:00 GMT</pubDate>
 </item>
@@ -1200,7 +1572,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
  ]]></description>
   <category>flow</category>
-  <category>AI</category>
+  <category>ai</category>
   <category>scrum</category>
   <category>teams</category>
   <guid>https://agileotter.dev/posts/2026-06-15-do-agents-think-youre-doing-agile-wrong.html</guid>
@@ -1249,7 +1621,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
  ]]></description>
   <category>flow</category>
-  <category>AI</category>
+  <category>ai</category>
   <category>continuousDelivery</category>
   <guid>https://agileotter.dev/posts/2026-06-06-sooner-and-sooner-still.html</guid>
   <pubDate>Fri, 05 Jun 2026 23:00:00 GMT</pubDate>
@@ -1393,7 +1765,7 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
  ]]></description>
   <category>flow</category>
-  <category>AI</category>
+  <category>ai</category>
   <category>teams</category>
   <guid>https://agileotter.dev/posts/2026-06-03-draft-faros-whiplash-and-systems-view.html</guid>
   <pubDate>Tue, 02 Jun 2026 23:00:00 GMT</pubDate>
@@ -1433,8 +1805,8 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
 
 
  ]]></description>
-  <category>CodeVirtues</category>
-  <category>AI</category>
+  <category>codeVirtues</category>
+  <category>ai</category>
   <guid>https://agileotter.dev/posts/2026-06-03-time-for-8th-virtue-coherence.html</guid>
   <pubDate>Tue, 02 Jun 2026 23:00:00 GMT</pubDate>
 </item>
@@ -1506,39 +1878,6 @@ font-style: inherit;">ValueError</span>(unhandledEntry)</span></code></pre></div
   <category>teams</category>
   <guid>https://agileotter.dev/posts/2026-03-28-pipeline-gates-populator.html</guid>
   <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Believing In People</title>
-  <link>https://agileotter.dev/posts/2026-02-13-believing-in-people.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>I believe in people.</p>
-<p>People are amazingly strange creatures. They walk this ridge between depression and anxiety, and walk it with joy.</p>
-<p>The world need to be stable enough that they can grow competence and skill. When it’s too stable then they become bored and depressed, because it’s all easily within their skillset and there is no growth or learning; they’ve been there and done that. When things are not stable enough that they can develop competence, that’s chaos and anxiety. The stress of constant change burns them out; they will often just quit trying and then submit to boredom again.</p>
-<p>In many people, chronic anxiety seems to me (a layman without special training) to be defined as being afraid that they might become afraid. It’s weird how we can be like that - fearing fear so much. Of course, we tend to fear most overly-strong emotions, and I have to wonder how much other animals fear themselves.</p>
-<p>When they do what they’re good at, people are beautiful. Watch an expert at work, skilled and focused, all-in on their craft. It may be singing, acting, coding, pottery, plumbing, carpentry, drywall, or just about anything that they excel in. They take on a kind of “light” or “shine” they don’t have in casual conversation or on the daily commute.</p>
-<p>People aren’t made to park their lives repeating one little skill. They’re made to progress in mastery and wisdom, but typically only in a few areas.</p>
-<p>Will Rogers said “Everybody is ignorant; just about different things.” Outside of their speciality in this complicated world, brilliant experts are as ill-informed as anyone else.</p>
-<p>Look at the absurd debates where a retired or disbarred <em>chiropractor</em> rants on the “risks” of 5G transmissions, the “deadly” vaccination needle, or the “emasculating effects” of soy products well outside their expertise. Over time, they develop a kind of mastery at convincingly arguing nonsense with made-up statistics and “it just seems logical that…” arguments.</p>
-<p>Yes, people are a mess. Logical, compliant machines (and now, encouraging and complimentary AIs) may seem more appealing at times.</p>
-<p>I definitely have been seduced by working on software, where every effect has a reason and root causes can be corrected. Every problem you understand can be fixed.</p>
-<p>Then I find that the inner life of another human individual is more alien and inscrutable to me than a foreign culture or a foreign language. Maybe things make a kind of chemical “sense” that my intuition is not tuned for or prepared for – I don’t want to be a hack, well outside my guardrails and well in front of my skis.</p>
-<p>But I believe in people. I believe the role of machines and even AI must be to <a href="../posts/2017-03-13-make-people-awesome-give-them.html">augment and inform us, not merely to sway us</a> (as hack conspiracy theorists and many political activists do). If we can use all the new (in evolutionary terms) technologies of information, social media, always-on “news”, LLMs, and dehumanising theories of work, we will turn out just fine.</p>
-<p>Sure, it’s taking us a while to get our “sea legs”, but in a wider historical context of the human race, the internet happened 12 seconds ago, social media maybe 6 seconds ago, and AI is just happening now.</p>
-<p>We are humans. We need just enough stability to develop competence, and just enough change to avoid boredom or withdrawal. We sail a course between the cliffs of anxiety and depression, and as long as we’re sailing between them, we sail in joy.</p>
-<p>I believe in people. For all the mess and oddness we represent, we are machines of survival and change. We will work this out.</p>
-<p>And, even if we don’t, we’ll do better at figuring this out than the flawed machines we’ve created in our own flawed image.</p>
-
-
-
- ]]></description>
-  <category>AI</category>
-  <category>learning</category>
-  <guid>https://agileotter.dev/posts/2026-02-13-believing-in-people.html</guid>
-  <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

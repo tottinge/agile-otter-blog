@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="604.8pt" viewBox="0 0 864 604.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>The last required piece sets the finish</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>The last required piece sets the finish</dc:title>
+    <dc:date>2026-11-20T17:04:12.153702</dc:date>
+    <dc:description>Four two-hour pieces finish at hour two together, or hour eight if one starts at hour six.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Agile Otter Blog</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 604.8 
+L 864 604.8 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 129.6 272.592 
+L 820.8 272.592 
+L 820.8 145.152 
+L 129.6 145.152 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 129.6 153.951429 
+L 261.257143 153.951429 
+L 261.257143 172.764 
+L 129.6 172.764 
+z
+" clip-path="url(#p77b128fffa)" style="fill: #128474"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 129.6 184.294286 
+L 261.257143 184.294286 
+L 261.257143 203.106857 
+L 129.6 203.106857 
+z
+" clip-path="url(#p77b128fffa)" style="fill: #128474"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 129.6 214.637143 
+L 261.257143 214.637143 
+L 261.257143 233.449714 
+L 129.6 233.449714 
+z
+" clip-path="url(#p77b128fffa)" style="fill: #128474"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 129.6 244.98 
+L 261.257143 244.98 
+L 261.257143 263.792571 
+L 129.6 263.792571 
+z
+" clip-path="url(#p77b128fffa)" style="fill: #128474"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m7cb3a2f42b" d="M 0 0 
+L 0 3.5 
+" style="stroke: #16212b; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="129.6" y="272.592" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="261.257143" y="272.592" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="392.914286" y="272.592" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="524.571429" y="272.592" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="656.228571" y="272.592" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="787.885714" y="272.592" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_7"/>
+     <g id="text_1">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: end" x="119.6" y="168.676621" transform="rotate(-0 119.6 168.676621)">Piece A</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_8"/>
+     <g id="text_2">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: end" x="119.6" y="199.019478" transform="rotate(-0 119.6 199.019478)">Piece B</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_9"/>
+     <g id="text_3">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: end" x="119.6" y="229.362335" transform="rotate(-0 119.6 229.362335)">Piece C</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_10"/>
+     <g id="text_4">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: end" x="119.6" y="259.705192" transform="rotate(-0 119.6 259.705192)">Piece D</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_11">
+    <path d="M 261.257143 272.592 
+L 261.257143 145.152 
+" clip-path="url(#p77b128fffa)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #b65819; stroke-width: 2"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 129.6 272.592 
+L 820.8 272.592 
+" style="fill: none; stroke: #a9b5ba; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_5">
+    <text style="fill: #b65819; font: 13px 'DejaVu Sans'" transform="translate(271.131429 202.146324)">All ready</text>
+    <text style="fill: #b65819; font: 13px 'DejaVu Sans'" transform="translate(271.131429 216.70348)">at hour 2</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #16212b; font: 700 17px 'DejaVu Sans'; text-anchor: start" x="129.6" y="131.152" transform="rotate(-0 129.6 131.152)">All start together</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_8">
+    <path d="M 129.6 501.984 
+L 820.8 501.984 
+L 820.8 374.544 
+L 129.6 374.544 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 129.6 383.343429 
+L 261.257143 383.343429 
+L 261.257143 402.156 
+L 129.6 402.156 
+z
+" clip-path="url(#p432ea1c4ad)" style="fill: #128474"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 129.6 413.686286 
+L 261.257143 413.686286 
+L 261.257143 432.498857 
+L 129.6 432.498857 
+z
+" clip-path="url(#p432ea1c4ad)" style="fill: #128474"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 129.6 444.029143 
+L 261.257143 444.029143 
+L 261.257143 462.841714 
+L 129.6 462.841714 
+z
+" clip-path="url(#p432ea1c4ad)" style="fill: #128474"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 129.6 474.372 
+L 524.571429 474.372 
+L 524.571429 493.184571 
+L 129.6 493.184571 
+z
+" clip-path="url(#p432ea1c4ad)" style="fill: url(#h753a3d3c10); stroke: #a9b5ba; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 524.571429 474.372 
+L 656.228571 474.372 
+L 656.228571 493.184571 
+L 524.571429 493.184571 
+z
+" clip-path="url(#p432ea1c4ad)" style="fill: #128474"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_7">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="129.6" y="501.984" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: middle" x="129.6" y="519.621813" transform="rotate(-0 129.6 519.621813)">0</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="261.257143" y="501.984" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: middle" x="261.257143" y="519.621813" transform="rotate(-0 261.257143 519.621813)">2</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="392.914286" y="501.984" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: middle" x="392.914286" y="519.621813" transform="rotate(-0 392.914286 519.621813)">4</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="524.571429" y="501.984" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: middle" x="524.571429" y="519.621813" transform="rotate(-0 524.571429 519.621813)">6</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="656.228571" y="501.984" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: middle" x="656.228571" y="519.621813" transform="rotate(-0 656.228571 519.621813)">8</text>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#m7cb3a2f42b" x="787.885714" y="501.984" style="fill: #16212b; stroke: #16212b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: middle" x="787.885714" y="519.621813" transform="rotate(-0 787.885714 519.621813)">10</text>
+     </g>
+    </g>
+    <g id="text_13">
+     <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: middle" x="475.2" y="537.171188" transform="rotate(-0 475.2 537.171188)">Hours since the pieces were assigned</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_5">
+     <g id="line2d_18"/>
+     <g id="text_14">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: end" x="119.6" y="398.068621" transform="rotate(-0 119.6 398.068621)">Piece A</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_19"/>
+     <g id="text_15">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: end" x="119.6" y="428.411478" transform="rotate(-0 119.6 428.411478)">Piece B</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_20"/>
+     <g id="text_16">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: end" x="119.6" y="458.754335" transform="rotate(-0 119.6 458.754335)">Piece C</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_21"/>
+     <g id="text_17">
+      <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: end" x="119.6" y="489.097192" transform="rotate(-0 119.6 489.097192)">Piece D</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_22">
+    <path d="M 656.228571 501.984 
+L 656.228571 374.544 
+" clip-path="url(#p432ea1c4ad)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #b65819; stroke-width: 2"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 129.6 501.984 
+L 820.8 501.984 
+" style="fill: none; stroke: #a9b5ba; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_18">
+    <text style="fill: #16212b; font: 12px 'DejaVu Sans'; text-anchor: middle" x="327.085714" y="487.089536" transform="rotate(-0 327.085714 487.089536)">Waiting for availability</text>
+   </g>
+   <g id="text_19">
+    <text style="fill: #b65819; font: 13px 'DejaVu Sans'" transform="translate(666.102857 431.538324)">All ready</text>
+    <text style="fill: #b65819; font: 13px 'DejaVu Sans'" transform="translate(666.102857 446.09548)">at hour 8</text>
+   </g>
+   <g id="text_20">
+    <text style="fill: #16212b; font: 700 17px 'DejaVu Sans'; text-anchor: start" x="129.6" y="360.544" transform="rotate(-0 129.6 360.544)">One delayed start</text>
+   </g>
+  </g>
+  <g id="text_21">
+   <text style="fill: #16212b; font: 700 24px 'DejaVu Sans'; text-anchor: start" x="51.84" y="42.336" transform="rotate(-0 51.84 42.336)">The last required piece sets the finish</text>
+  </g>
+  <g id="text_22">
+   <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: start" x="51.84" y="75.6" transform="rotate(-0 51.84 75.6)">Four independent pieces · two hours each · divided-work stage only</text>
+  </g>
+  <g id="legend_1">
+   <g id="patch_15">
+    <path d="M 311.703906 574.168438 
+L 339.703906 574.168438 
+L 339.703906 564.368438 
+L 311.703906 564.368438 
+z
+" style="fill: #128474; stroke: #128474; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_23">
+    <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: start" x="350.903906" y="574.168438" transform="rotate(-0 350.903906 574.168438)">Active work</text>
+   </g>
+   <g id="patch_16">
+    <path d="M 460.539219 574.168438 
+L 488.539219 574.168438 
+L 488.539219 564.368438 
+L 460.539219 564.368438 
+z
+" style="fill: url(#h753a3d3c10); stroke: #a9b5ba; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_24">
+    <text style="fill: #16212b; font: 14px 'DejaVu Sans'; text-anchor: start" x="499.739219" y="574.168438" transform="rotate(-0 499.739219 574.168438)">Waiting</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p77b128fffa">
+   <rect x="129.6" y="145.152" width="691.2" height="127.44"/>
+  </clipPath>
+  <clipPath id="p432ea1c4ad">
+   <rect x="129.6" y="374.544" width="691.2" height="127.44"/>
+  </clipPath>
+ </defs>
+ <defs>
+  <pattern id="h753a3d3c10" patternUnits="userSpaceOnUse" x="0" y="0" width="72" height="72">
+   <rect x="0" y="0" width="73" height="73" fill="#e7edef"/>
+   <path d="M -36 36 
+L 36 -36 
+M -32 40 
+L 40 -32 
+M -28 44 
+L 44 -28 
+M -24 48 
+L 48 -24 
+M -20 52 
+L 52 -20 
+M -16 56 
+L 56 -16 
+M -12 60 
+L 60 -12 
+M -8 64 
+L 64 -8 
+M -4 68 
+L 68 -4 
+M 0 72 
+L 72 0 
+M 4 76 
+L 76 4 
+M 8 80 
+L 80 8 
+M 12 84 
+L 84 12 
+M 16 88 
+L 88 16 
+M 20 92 
+L 92 20 
+M 24 96 
+L 96 24 
+M 28 100 
+L 100 28 
+M 32 104 
+L 104 32 
+M 36 108 
+L 108 36 
+" style="fill: #a9b5ba; stroke: #a9b5ba; stroke-width: 1.0; stroke-linecap: butt; stroke-linejoin: miter"/>
+  </pattern>
+ </defs>
+</svg>

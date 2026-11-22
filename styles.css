@@ -43,6 +43,18 @@
   margin-block: 1.5rem 2.5rem;
 }
 
+.quarto-title .quarto-categories .quarto-category,
+.quarto-grid-item .listing-categories .listing-category,
+div.quarto-post .listing-categories .listing-category {
+  text-transform: none;
+}
+
+.quarto-category::before,
+.listing-category::before,
+.quarto-listing-category .category:not([data-category=""])::before {
+  content: "#";
+}
+
 .about-photo {
   display: block;
   width: 100%;

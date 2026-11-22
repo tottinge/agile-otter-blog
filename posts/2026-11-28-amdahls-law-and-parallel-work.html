@@ -1,2 +1,1087 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"></html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-11-28">
+<meta name="description" content="Dividing work can enlarge the serial part, while the parallel stage lasts from the first start to the last finish. Either can consume the saving.">
+
+<title>Amdahl’s Law and Parallel Work – Agile Otter Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2204aace14fee31056958f356ac18f57.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Amdahl’s Law and Parallel Work – Agile Otter Blog">
+<meta property="og:description" content="Dividing work can enlarge the serial part, while the parallel stage lasts from the first start to the last finish. Either can consume the saving.">
+<meta property="og:image" content="https://agileotter.dev/assets/amdahl/fixed-work.png">
+<meta property="og:site_name" content="Agile Otter Blog">
+<meta property="og:image:height" content="992">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:alt" content="A ten-hour job takes four hours with four ideal parallel lanes, because two hours remain serial.">
+<meta name="twitter:title" content="Amdahl’s Law and Parallel Work – Agile Otter Blog">
+<meta name="twitter:description" content="Dividing work can enlarge the serial part, while the parallel stage lasts from the first start to the last finish. Either can consume the saving.">
+<meta name="twitter:image" content="https://agileotter.dev/assets/amdahl/fixed-work.png">
+<meta name="twitter:image:alt" content="A ten-hour job takes four hours with four ideal parallel lanes, because two hours remain serial.">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Agile Otter Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About Tim Ottinger</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img" aria-label="RSS feed">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Amdahl’s Law and Parallel Work</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">flow</div>
+    <div class="quarto-category">teamwork</div>
+    <div class="quarto-category">productivity</div>
+    <div class="quarto-category">continuousIntegration</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Dividing work can enlarge the serial part, while the parallel stage lasts from the first start to the last finish. Either can consume the saving.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 28, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>If four people each take a quarter of the work, shouldn’t it be done in a quarter of the time?</p>
+<p>Sometimes we get a very nice improvement. Sometimes we get four busy people and a delivery date that keeps moving away.</p>
+<p>I explored this in <a href="https://www.industriallogic.com/blog/parallel-efforts/">Shouldn’t It Be Faster?</a> at Industrial Logic. That blog is a reasonable introduction to Amdahl’s Law and certain pitfalls we face when trying to parallelise the work of humans.</p>
+<p>A team is not a multi-core CPU. People are not computers. But that doesn’t mean that Amdahl’s Law is not applicable. It just means that we have to consider context.</p>
+<p>For a process arranged as successive serial and parallel stages, elapsed time is the sum of those stages. Each parallel stage lasts from its first start to its last required finish.</p>
+<p><strong>Dividing the work adds coordination and integration effort.</strong> Where that effort must precede or follow the divided jobs, it enlarges the non-parallel part.</p>
+<p><strong>The parallel stage lasts from the start of the first job to the completion of the last job in the set.</strong> Whatever extends that time, all the delays and interruptions, can cause the parallel section to be longer than if it had been serialized.</p>
+<p>However, it seems that we should be able to win this game. Parallelism is a powerful technique and handling it well should give us a big advantage.</p>
+<section id="the-part-we-can-divide" class="level2">
+<h2 class="anchored" data-anchor-id="the-part-we-can-divide">The part we can divide</h2>
+<p>Suppose a job takes ten hours. One hour at the front and one hour at the end must happen in sequential time.</p>
+<p>Say the remaining eight hours can be divided into four entirely independent pieces.</p>
+<p>With capable workers, all available immediately, those eight hours might take only two hours of elapsed time. The two serial hours still take two hours.</p>
+<p>The job takes four hours. That’s a 2.5-fold speedup.</p>
+<div id="fig-fixed-work" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two stacked timelines: ten hours with one lane, four hours with four ideal lanes. Both retain two serial hours.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fixed-work-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../assets/amdahl/fixed-work.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The baseline has two serial hours and eight divisible hours, totaling ten. With four ideal parallel lanes, the divisible portion takes two hours, and the total is four."><img src="../assets/amdahl/fixed-work.svg" class="img-fluid figure-img" alt="Two stacked timelines: ten hours with one lane, four hours with four ideal lanes. Both retain two serial hours."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fixed-work-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The baseline has two serial hours and eight divisible hours, totaling ten. With four ideal parallel lanes, the divisible portion takes two hours, and the total is four.
+</figcaption>
+</figure>
+</div>
+<p>The usual fixed-work form of Amdahl’s Law is:</p>
+<p><span class="math display">\[
+S(N) = \frac{1}{(1-p) + p/N}
+\]</span></p>
+<p>Here, <span class="math inline">\(p\)</span> is the fraction of the <strong>original execution time</strong> that can benefit from parallel execution. <span class="math inline">\(N\)</span> is the number of ideal parallel workers, and <span class="math inline">\(S(N)\)</span> is the speedup of the whole job. This assumes the same work, perfect division of the parallel portion, and no added overhead. <a href="https://cvw.cac.cornell.edu/parallel/efficiency/amdahls-law">Cornell’s explanation</a> walks through the derivation.</p>
+<p>In this example, <span class="math inline">\(p = 0.8\)</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Ideal parallel workers</th>
+<th style="text-align: right;">Elapsed hours</th>
+<th style="text-align: right;">Overall speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1.00×</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.67×</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.50×</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.33×</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">4.00×</td>
+</tr>
+</tbody>
+</table>
+<p>Even unlimited parallel capacity cannot get this unchanged job below two hours. The speedup approaches five times the original rate.</p>
+<div id="fig-speedup" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Calculated Amdahl curves for 80 and 95 percent divisible work. At sixteen workers, speedups are 4 and 9.14 respectively.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-speedup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../assets/amdahl/speedup.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: With 80 percent divisible work, ideal speedup rises from one at one worker to four at sixteen workers, approaching a five-fold ceiling. A second curve with 95 percent divisible work reaches 9.14 at sixteen workers."><img src="../assets/amdahl/speedup.svg" class="img-fluid figure-img" alt="Calculated Amdahl curves for 80 and 95 percent divisible work. At sixteen workers, speedups are 4 and 9.14 respectively."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-speedup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: With 80 percent divisible work, ideal speedup rises from one at one worker to four at sixteen workers, approaching a five-fold ceiling. A second curve with 95 percent divisible work reaches 9.14 at sixteen workers.
+</figcaption>
+</figure>
+</div>
+<p>Making the serial part smaller can change that limit. Adding more workers to the divisible part cannot.</p>
+</section>
+<section id="people-arent-processors" class="level2">
+<h2 class="anchored" data-anchor-id="people-arent-processors">People aren’t processors</h2>
+<p>This is a model of executing a fixed computation. Software development involves discovery, judgment, and changing our minds.</p>
+<p>The simple equation doesn’t represent delayed starts, interruptions, communication between people, or status reporting. Those are crucial to our comparison. Computer systems can also have scheduling delays and communication overhead; the ideal arithmetic leaves them out rather than making them disappear.</p>
+<p>We can’t count developers, substitute that number for <span class="math inline">\(N\)</span>, and announce a delivery date. Nor can we infer <span class="math inline">\(p\)</span> from the percentage of tickets labelled “coding.”</p>
+<p>The useful question is: <strong>which time on the route to a usable result actually gets shorter when we divide the work?</strong></p>
+<p>Amdahl’s model makes us identify the part we expect to improve. It doesn’t establish how much parallelism a particular team can achieve, or whether pairing would improve that team’s work.</p>
+<p>For our practical decision, the alternative is <strong>two or three people collaborating on the whole job</strong>. The split must save enough time to cover its additional planning, communication, status reporting, integration, and disruptions, and still beat that alternative. Those comparisons need observation.</p>
+</section>
+<section id="we-can-enlarge-the-non-parallel-part" class="level2">
+<h2 class="anchored" data-anchor-id="we-can-enlarge-the-non-parallel-part">We can enlarge the non-parallel part</h2>
+<p>There is another catch. Dividing the job can create work that wasn’t in the original ten hours.</p>
+<p>Before the divided jobs can start, we may have to negotiate interfaces, decompose the work, and arrange assignments. Afterward, we may have to assemble the results, reconcile incompatible assumptions, and verify the whole. To the extent these activities must precede or follow the divided jobs, they enlarge the non-parallel part of the process.</p>
+<p>Those costs need their own accounting. They aren’t magically included in a fraction measured before we changed the process.</p>
+<p><a href="https://static.usenix.org/publications/library/proceedings/als00/2000papers/papers/full_papers/brownrobert/brownrobert_html/node3.html">Robert G. Brown’s parallel-performance treatment</a> explicitly adds setup, communication, and idle-time costs to the simple model.</p>
+<p>For a simple process with preparation before the divided jobs and final integration after them, we can account for the elapsed time as:</p>
+<p><span class="math display">\[
+T_{\text{split}} = B + E + A
+\]</span></p>
+<p><span class="math inline">\(B\)</span> is the time before the first divided job starts. <span class="math inline">\(E\)</span> is the elapsed interval from the first start to the last required completion. <span class="math inline">\(A\)</span> is the remaining time to integrate, verify, and finish afterward.</p>
+<p>In our ten-hour example, the original serial time totals two hours. Four ideal lanes reduce the eight-hour portion to two hours, giving us four hours overall. If division and final integration add three more hours outside that stage, we now take seven. If they add six, we’re back to ten. Add more and the split loses time, even with perfect parallel execution.</p>
+<p>For this simple arrangement, the split wins only when <strong>the saving inside the divided-work stage exceeds the extra time outside it</strong>.</p>
+<p>This is elapsed-time accounting, not a sum of person-hours. If preparation or integration overlaps the jobs, count that time once, where it occurs on the timeline. More complex workflows need their actual dependency schedules. These are illustrative calculations, not measured team data.</p>
+</section>
+<section id="the-parallel-stage-is-first-start-to-last-finish" class="level2">
+<h2 class="anchored" data-anchor-id="the-parallel-stage-is-first-start-to-last-finish">The parallel stage is first start to last finish</h2>
+<p>The clock for the parallel stage starts when the first divided job starts. It stops when the last required job is actually complete, including any corrections needed for that piece to be accepted. It keeps running when one worker is waiting, interrupted, or doing something else.</p>
+<p>Time between assignment and the first start still counts toward delivery; it falls before this interval. Unfinished integration after the last piece falls after it. Moving a delay across those boundaries doesn’t make it disappear.</p>
+<p>Imagine four independent pieces, each needing two hours. They are assigned together, but one specialist can’t start until hour six.</p>
+<div id="fig-waiting" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two schedules of four two-hour pieces. All start together and finish at hour two; one delayed start moves completion to hour eight.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-waiting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../assets/amdahl/waiting.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Four two-hour tasks finish at hour two when all start together. If the fourth waits six hours, the last task finishes at hour eight. In this example, final integration waits until all four pieces are ready."><img src="../assets/amdahl/waiting.svg" class="img-fluid figure-img" alt="Two schedules of four two-hour pieces. All start together and finish at hour two; one delayed start moves completion to hour eight."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-waiting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Four two-hour tasks finish at hour two when all start together. If the fourth waits six hours, the last task finishes at hour eight. In this example, final integration waits until all four pieces are ready.
+</figcaption>
+</figure>
+</div>
+<p>The gathering point is governed by the last required result. Closing three tickets early doesn’t move that point. The stage took eight hours, even though each job needed only two hours of active work.</p>
+<p>Now combine the two ways to lose. Keep the original two serial hours, add three hours for division and final integration, and let the supposedly parallel stage stretch to eight hours. Our ten-hour job now takes thirteen hours.</p>
+<p>Everyone can have worked quickly on their own piece, and we can still have made delivery slower.</p>
+<p>This timeline shows only the divided-work stage. Any required work before or after it extends the delivery time further.</p>
+<p>My <a href="https://www.industriallogic.com/blog/scatter-gather/">Scatter-Gather article</a> illustrates another important detail: the workers can be busy with other jobs while this feature’s pieces occur at different places in their individual queues. <strong>The feature is waiting even when nobody is idle.</strong> The interval we must shorten belongs to the feature, not to an individual’s task list.</p>
+</section>
+<section id="how-we-lose-time-inside-the-parallel-stage" class="level2">
+<h2 class="anchored" data-anchor-id="how-we-lose-time-inside-the-parallel-stage">How we lose time inside the parallel stage</h2>
+<p>We need to distinguish work that <strong>cannot overlap under the present constraints</strong>, work that <strong>could overlap but doesn’t</strong>, and work that <strong>overlaps without saving much time</strong>. All three can spoil our plan, but they call for different improvements.</p>
+<p>A blocker is a cause of delay: it can prevent a job from starting or interrupt one already underway. It isn’t another duration to add to the interruption or wait it causes. The examples below explain why the interval stretches; they aren’t separate penalties to sum.</p>
+<section id="two-jobs-one-worker" class="level3">
+<h3 class="anchored" data-anchor-id="two-jobs-one-worker">Two jobs, one worker</h3>
+<p>Suppose two independent jobs each require two hours of a person’s active attention. Assign both to the same person and they need four hours of that person’s time. Alternating between them doesn’t create a second worker.</p>
+<p>The jobs might be logically independent, but their staffing makes them compete. The same applies when several jobs need the same reviewer, test rig, or exclusive environment.</p>
+<p>Suppose we divide a job into seven pieces. One needs eight hours; the other six need one hour each. We assign the eight-hour piece and one of the one-hour pieces to the same worker, and distribute the remaining five among five other available workers.</p>
+<p>That worker has to serialize their two pieces. Even if everybody starts immediately, with no interruptions or rework, their assigned work needs nine hours. The other five workers finish at hour one, but the divided-work stage cannot finish before hour nine.</p>
+<p>For this illustration, suppose the same work would have taken fourteen hours without the split, and the durations don’t change when we divide it. Our best possible saving inside the stage is five hours. That is the entire budget for the additional division and final integration if we want to break even.</p>
+<p>That fourteen-hour baseline is an arithmetic assumption for this example. It doesn’t tell us how long two or three collaborators would take. The split must beat their actual alternative, including a reasonable allowance for disruptions, before we can call it a practical win.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 36%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Added division and integration time</th>
+<th style="text-align: right;">Earliest overall completion</th>
+<th>Compared with fourteen hours</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2 hours</td>
+<td style="text-align: right;">11 hours</td>
+<td>3 hours saved</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5 hours</td>
+<td style="text-align: right;">14 hours</td>
+<td>No saving</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6 hours</td>
+<td style="text-align: right;">15 hours</td>
+<td>1 hour lost</td>
+</tr>
+</tbody>
+</table>
+<p>The two jobs could be done in either order, but changing their order doesn’t reduce their combined nine hours. Adding another worker helps only if some of that work can actually be transferred or divided. The question is whether we can finish the last worker’s required work soon enough to pay for the split.</p>
+<p>There is a substantial literature on scheduling around these constraints. For example, <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CP.2023.31">Povéda, Alvarez, and Artigues (2023)</a> explicitly model worker skills, calendars, precedence, and which activities can be interrupted. A list of assignments isn’t yet a feasible schedule.</p>
+</section>
+<section id="one-job-needs-anothers-result" class="level3">
+<h3 class="anchored" data-anchor-id="one-job-needs-anothers-result">One job needs another’s result</h3>
+<p>If B needs a result from A, that part of B must wait for that result. Adding people to B doesn’t make A’s result arrive earlier.</p>
+<p>Sometimes B needs only part of A’s output, so some overlap is possible. We need to identify the actual information dependency rather than automatically waiting for the whole ticket to close.</p>
+<p>The <strong>critical path</strong> is the longest chain of dependent work. <a href="https://www.opencilk.org/doc/tutorials/opencilk-concepts/">The work-and-span model</a> makes this limit explicit: even unlimited workers cannot finish a fixed computation sooner than its longest dependency chain permits. In development, we also have to account for resource conflicts and waits, which can extend the schedule beyond that bound.</p>
+</section>
+<section id="the-worker-isnt-available-or-becomes-unavailable" class="level3">
+<h3 class="anchored" data-anchor-id="the-worker-isnt-available-or-becomes-unavailable">The worker isn’t available, or becomes unavailable</h3>
+<p>Someone may have the necessary skill but be on another job, on leave, or waiting for access. The work is ready; its worker isn’t. A task requiring several people together needs a common period of availability.</p>
+<p>Availability can also change after the work starts. Someone is pulled into an incident, becomes ill, or is reassigned. Their piece pauses while the clock for the parallel stage keeps running.</p>
+<p>For example, all four two-hour jobs start together. One worker completes an hour, becomes unavailable for four hours, and then returns to finish the remaining hour. The other jobs finish at hour two; this one finishes at hour six. The parallel stage takes six hours, despite everyone having been available at the start.</p>
+<p>Handing the job to someone else may help, but the replacement needs enough understanding to continue and verify it. Shared knowledge, recoverable work, and someone able to take over give us options. A name on a ticket doesn’t guarantee continuing capacity.</p>
+<p>That makes personal queues, competing priorities, and calendars part of the delivery timeline. It also means an idle developer doesn’t necessarily provide capacity for a job requiring a different skill or authority.</p>
+<p>These are constraints of our current arrangement. We may be able to change assignments, share knowledge, or remove an access restriction. They aren’t necessarily inherent properties of the work.</p>
+</section>
+<section id="the-pieces-arent-the-same-size" class="level3">
+<h3 class="anchored" data-anchor-id="the-pieces-arent-the-same-size">The pieces aren’t the same size</h3>
+<p>Divide eight hours into four independent, indivisible jobs of five, one, one, and one hour. With four suitable workers starting together, the stage takes five hours. It cannot take the two hours suggested by dividing eight by four.</p>
+<p>The five-hour piece sets the finish. Splitting it further might help, if it really can be divided independently. Just adding people doesn’t establish that.</p>
+<p>The <a href="https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial">Lawrence Livermore parallel-computing tutorial</a> treats load imbalance and synchronization as distinct performance concerns. Unequal pieces can run in parallel; they simply don’t give us perfectly balanced parallel execution.</p>
+</section>
+<section id="work-comes-back" class="level3">
+<h3 class="anchored" data-anchor-id="work-comes-back">Work comes back</h3>
+<p>A piece isn’t finished merely because someone submitted it. Failed tests, review findings, and incompatible assumptions can send it back through development and verification. Other pieces may need to change too.</p>
+<p>There is a particular risk when B starts using a preliminary result from A. If A changes, some of B may need to be redone. <a href="https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/P19.pdf">Loch and Terwiesch’s concurrent-engineering model (1998)</a> weighs overlap savings against rework and communication time.</p>
+<p>Their <a href="https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/P16.pdf">subsequent study of 140 electronics-development projects (1999)</a> found that resolving uncertainty early influenced the benefit of overlap. This is evidence from product development, rather than a software-team speedup formula, but it gives us a useful question: how stable is the information we’re asking someone else to build on?</p>
+</section>
+<section id="one-implementation-changes-another-job" class="level3">
+<h3 class="anchored" data-anchor-id="one-implementation-changes-another-job">One implementation changes another job</h3>
+<p>There is a more troublesome interaction than waiting for a known prerequisite. Implementing A can reveal something that changes B, even though we planned to develop them independently.</p>
+<p>For example, implementing authorization might reveal that the operation needs a tenant identifier. That discovery changes the API, the client, and the audit record. Some of those pieces may already have been declared complete.</p>
+<p>Now they need to be reopened, changed, and checked together. A change in B may reveal another consequence for A. We have a feedback loop across the divided work, rather than a fixed sequence of independent jobs.</p>
+<p>The loss can be larger than the effort of making the extra edits. People may have moved on, so we must regain their availability and understanding. Earlier tests and integration results may no longer establish that the changed combination works.</p>
+<p>This can hurt both parts of our accounting. Discovered during the jobs, it can push out the last required completion. Discovered during final integration, it can enlarge the time spent reconciling the pieces. Count that time once, wherever it occurs; calling it an integration problem doesn’t make it disappear.</p>
+<p><a href="https://herbsleb.org/web-pubs/pdfs/Cataldo-Coordination-2013.pdf">Cataldo and Herbsleb’s software study</a> is relevant here: coordination needs evolve with technical dependencies. The authorization example is illustrative, but the risk of treating those dependencies as fixed is central to their research.</p>
+<p>We can look for shared decisions before splitting, bring uncertain interactions together early, and integrate small changes while the people involved still have the work in mind. When every discovery in one piece keeps reopening the others, that is evidence to reconsider the division itself. Those pieces may be better developed together until the shared decision settles.</p>
+</section>
+<section id="other-constraints-worth-looking-for" class="level3">
+<h3 class="anchored" data-anchor-id="other-constraints-worth-looking-for">Other constraints worth looking for</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constraint</th>
+<th>How it limits the saving</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shared mutable state</td>
+<td>Two changes to the same underlying state may require an order or reconciliation. Separate files don’t guarantee independent changes.</td>
+</tr>
+<tr class="even">
+<td>Required gathering points</td>
+<td>A test, decision, or release may require several results together. Early finishes wait for the last required result.</td>
+</tr>
+<tr class="odd">
+<td>Limited shared capacity</td>
+<td>Parallel producers can converge on a constrained review, build, test, or deployment service.</td>
+</tr>
+<tr class="even">
+<td>Pieces too small to justify the split</td>
+<td>Assignment, setup, communication, and assembly can consume the saving from dividing the work.</td>
+</tr>
+<tr class="odd">
+<td>Required uninterrupted time</td>
+<td>A free half hour is insufficient for a step that needs an uninterrupted two-hour window.</td>
+</tr>
+<tr class="even">
+<td>Unknown or changing dependencies</td>
+<td>Discovery can reveal that supposedly independent jobs need to exchange results or revise a common decision.</td>
+</tr>
+</tbody>
+</table>
+<p>The computing examples of state dependencies, synchronization, and granularity are discussed in the Livermore tutorial. The software examples here are applications of those mechanisms, not measured equivalences between developers and processors.</p>
+</section>
+<section id="finding-out-where-everything-stands" class="level3">
+<h3 class="anchored" data-anchor-id="finding-out-where-everything-stands">Finding out where everything stands</h3>
+<p>Divided work also creates a status-reporting job. Someone has to find out which pieces have started, which are waiting, which have passed verification, and which have been reopened. Updates, dashboards, meetings, and chasing answers take effort from the people doing and coordinating the work.</p>
+<p>That effort can extend the schedule when it takes people away from required work, or when decisions wait for an accurate picture of progress. Coordination can itself compete for a specialist’s availability.</p>
+<p>A whole outcome being developed together still needs coordination and reporting. The comparison is whether scattering its status across people, queues, and branches adds a burden that the collaborative approach avoids. Count the elapsed consequences once on the timeline, and count the reporting effort in the labor comparison too.</p>
+<p>Dependencies also change as we learn. <a href="https://herbsleb.org/web-pubs/pdfs/Cataldo-Coordination-2013.pdf">Cataldo and Herbsleb’s study of two software projects (2013)</a> found that gaps between required and actual coordination were associated with more failures, while better alignment was associated with improved productivity. Drawing module boundaries doesn’t remove the need to notice and manage dependencies.</p>
+<p>For each delayed job, ask: <strong>what result, person, shared resource, decision, or correction is it waiting for?</strong> Then ask whether that constraint is necessary, or something about the way we’ve organized the work.</p>
+</section>
+</section>
+<section id="the-bricks-can-be-finished-before-the-building-works" class="level2">
+<h2 class="anchored" data-anchor-id="the-bricks-can-be-finished-before-the-building-works">The bricks can be finished before the building works</h2>
+<p>Completing the separate pieces doesn’t establish that they work together. If we defer that discovery until final integration, the finishing stage still contains uncertain work.</p>
+<p><a href="https://cs.uwaterloo.ca/~rtholmes/papers/fse_2011_brun.pdf">Brun and colleagues (2011)</a> studied nine open-source systems and found conflicts beyond overlapping text edits: changes could merge but then fail to build or pass tests. A clean merge isn’t evidence of a working combination.</p>
+<p><a href="https://www.se.cs.uni-saarland.de/publications/docs/VHF%2B22.pdf">Vale and colleagues (2022)</a> examined about 81,000 merge scenarios and surveyed 140 developers. Dependencies involving both conflicting and non-conflicting code contributed to the difficulty of resolution. Integration requires understanding the changes, not merely removing conflict markers.</p>
+<p>There is a quality risk too. In <a href="https://epiclab.github.io/publications/emse20-brindescu.pdf">Brindescu and colleagues’ study of 143 projects (2020)</a>, code associated with merge conflicts was about twice as likely to be associated with bugs. This is an observational association, not proof that delaying integration doubles defects.</p>
+<p>These studies support treating final integration as substantive work with uncertain cost. They don’t establish a fixed penalty for each day we postpone it, or a numerical advantage over two or three collaborators. For our comparison, however, “all the pieces are done” is plainly too early to stop the clock.</p>
+</section>
+<section id="can-we-plan-our-way-out-of-this" class="level2">
+<h2 class="anchored" data-anchor-id="can-we-plan-our-way-out-of-this">Can we plan our way out of this?</h2>
+<p>Looking at these risks, we might decide to spend more time up front: settle every interface, anticipate interactions, balance the assignments, and secure everyone’s availability.</p>
+<p>But that preparation enlarges the non-parallel part. We are spending some of the possible saving before the parallel jobs even start.</p>
+<p>Can that win? Yes, if the added preparation prevents more elapsed delay than it introduces. Suppose two extra hours of preparation remove four hours from the first-start-to-last-finish interval, with everything else unchanged. We gain two hours. If they remove only one hour, we lose an hour.</p>
+<p>The cost is incurred before we know whether the hoped-for saving will materialize. Planning may resolve an uncertainty, but implementation can still reveal something we didn’t anticipate, and availability can still change.</p>
+<p>There is also a limit to what remains available to save. In our ten-hour example, perfect parallel execution already leaves only two hours inside the divided-work stage. More preparation cannot reduce that stage below its feasible minimum. Every extra serial hour uses more of the margin that could have made dividing the work worthwhile.</p>
+<p><strong>Expanding the non-parallel part can help us win, but it raises the saving we must achieve elsewhere.</strong> We shouldn’t mistake a more orderly parallel stage for an earlier delivery.</p>
+<p>Before paying for more preparation, ask what specific delay it is likely to prevent. Could we instead make the split simpler, reduce the size of the outcome, or work through the uncertain interaction together? Those options also have costs, but they may require less advance coordination.</p>
+</section>
+<section id="how-can-we-win-the-parallel-game" class="level2">
+<h2 class="anchored" data-anchor-id="how-can-we-win-the-parallel-game">How can we win the parallel game?</h2>
+<p>The two realizations suggest two kinds of improvement: keep division and integration inexpensive, and shorten the interval from first start to last finish.</p>
+<p>For the same usable outcome, at the same required quality, separately scheduled split work finishes sooner than working together when:</p>
+<p><span class="math display">\[
+B + E + A &lt; T_{\text{collaborating}}
+\]</span></p>
+<p>Here, <span class="math inline">\(T_{\text{collaborating}}\)</span> is the elapsed time for two or three people to complete the whole outcome together at the same required quality. It isn’t the sum of estimates for solo tasks, divided by the number of collaborators. We need evidence from how the people actually work. Count preparation, communication, reporting, interruptions, verification, and finishing on both sides.</p>
+<p>For a decision made before starting, an ideal-case advantage isn’t enough. The expected speedup must leave enough margin that, under credible delayed-start and interruption scenarios, the split still finishes sooner. A split that wins only if everybody starts immediately and nothing interrupts them has not made a convincing case.</p>
+<p>This is confidence based on observed conditions, not a guarantee against every possible disruption. If the comparison is too close to call, the ideal equation gives us no reason to be sure that splitting will help.</p>
+<p>The conditions that make this inequality easier to satisfy are quite concrete:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Favorable condition</th>
+<th>What it gives us</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Substantial independent work</td>
+<td>Enough work can actually overlap to produce a useful saving. Necessary inputs and shared decisions are sufficiently settled.</td>
+</tr>
+<tr class="even">
+<td>Inexpensive division</td>
+<td>Useful boundaries are easy to identify and explain, without extensive advance design or assignment work.</td>
+</tr>
+<tr class="odd">
+<td>Suitable people available together</td>
+<td>Jobs can overlap in practice, with few competing priorities, personal queues, or exclusive-resource conflicts.</td>
+</tr>
+<tr class="even">
+<td>A manageable longest workload</td>
+<td>No worker’s combined assignments or dependency chain consumes nearly the whole serial duration. Exact equality between pieces isn’t required.</td>
+</tr>
+<tr class="odd">
+<td>Cheap communication and integration</td>
+<td>People can resolve questions quickly and combine small changes frequently, keeping final assembly short.</td>
+</tr>
+<tr class="even">
+<td>Limited propagation of changes</td>
+<td>Discoveries and defects usually stay local, rather than repeatedly reopening other pieces. Fast feedback helps reveal when this assumption is wrong.</td>
+</tr>
+<tr class="odd">
+<td>Capacity to adapt</td>
+<td>When someone becomes unavailable or a piece grows, others can help or take over at an acceptable handover cost.</td>
+</tr>
+</tbody>
+</table>
+<p>Each condition protects the margin between the possible saving and the cost of obtaining it. None requires perfect foresight or zero overhead; we need enough saving left after the actual costs.</p>
+<p>In Scatter-Gather, I suggest gathering the people around a whole outcome. They can still divide work, but with a common priority, direct communication, and frequent integration. This gives us a way to address both losses together, rather than paying for increasingly elaborate advance coordination of separate schedules.</p>
+<p>My <a href="../posts/2026-08-11-progressive-admission-pattern-for-data.html">Progressive Admission Pattern</a> gives us one concrete way to proceed. Start with an end-to-end system that explicitly rejects unsupported cases. Then admit one input shape or behavior at a time, implementing and testing its whole path. The first closed skeleton establishes the path; subsequent admissions make it useful without waiting for every planned case.</p>
+<p>This fits <a href="https://dora.dev/capabilities/working-in-small-batches/">DORA’s guidance on small batches</a> and frequent integration. DORA also warns against making small batches and then gathering them into a large batch for downstream testing or release. Our admissions should remain integrated and testable, with deployment and feedback as appropriate. An admission may build on earlier admissions; it doesn’t have to be an independently schedulable job.</p>
+<p>For this approach, two or three collaborators can complete the next admission together, dividing work briefly where it helps. We can exploit useful overlap while keeping the amount of work awaiting integration small. That changes the size of the gamble: we don’t need the entire large job’s pieces to converge before we have a working result.</p>
+<p>The coordination and status-reporting burden belongs among those costs. A worker who spends time reporting or chasing an answer has less time available for the required implementation; account for the resulting schedule rather than adding the same interruption again under another label.</p>
+<p>In the seven-piece example, the worker with nine hours of assignments leaves at most five hours to cover added costs against the fourteen-hour baseline. Transferring their one-hour piece could shorten the stage to eight hours, if another suitable worker can do it in time. That buys one hour, less any transfer cost. It doesn’t solve an eight-hour piece that dominates the schedule.</p>
+<p>Making the last required job finish sooner matters more than making an already early job finish earlier. Sometimes the best contribution from someone who has finished is to help remove what is holding up that last completion.</p>
+<p><a href="https://dora.dev/capabilities/loosely-coupled-teams/">DORA’s guidance on loosely coupled teams</a> emphasizes the ability to change, test, and deploy independently. That’s a useful test of independence: can this piece reach use without waiting for another team’s coordinated release?</p>
+<p>For people contributing to the same delivery, <a href="https://dora.dev/capabilities/continuous-integration/">continuous integration</a> brings changes together frequently and uses fast automated feedback. That gives us opportunities to discover incompatible changes while they are still small.</p>
+<p>Neither source proves that a particular staffing arrangement will win. They give us practices to try and outcomes to inspect.</p>
+<p>Pick a small delivery. Record when it becomes available to work on, when each required piece starts and finishes, and when the integrated result reaches use. Include waits and rework. Compare similar deliveries, watching for differences in scope and difficulty.</p>
+<p>Compare the time before the first start, the first-start-to-last-finish interval, and the time remaining afterward. Try reducing one delay and see whether the whole delivery improves. An earlier start alone is no victory if it merely creates a longer wait inside the interval.</p>
+<p>We need to know whether the result arrives sooner, not merely whether more work starts.</p>
+<section id="faster-and-more-efficient-are-separate-wins" class="level3">
+<h3 class="anchored" data-anchor-id="faster-and-more-efficient-are-separate-wins">Faster and more efficient are separate wins</h3>
+<p>A job can finish sooner while consuming more total effort. Parallel execution overlaps work; it doesn’t by itself remove any of it. Added planning, coordination, integration, and rework still consume people’s time.</p>
+<p>If we mean efficiency as less total labor for the same outcome and quality, that needs a separate comparison of person-hours, including those added activities. Parallel work can improve that measure if, for example, it avoids enough waiting-related recovery, duplicated investigation, or rework to outweigh its extra effort. The timing inequality alone doesn’t establish that.</p>
+<p>An earlier delivery may be worth extra effort. That’s a choice we can make explicitly, rather than calling every shorter schedule more efficient.</p>
+</section>
+</section>
+<section id="more-work-in-the-same-time" class="level2">
+<h2 class="anchored" data-anchor-id="more-work-in-the-same-time">More work in the same time?</h2>
+<p>There is a useful companion to this argument. In <a href="https://doi.org/10.1145/42411.42415">Reevaluating Amdahl’s Law (1988)</a>, John Gustafson considers growing a computation to use the available parallel capacity within a time budget.</p>
+<p>Finishing the same calculation sooner and doing a larger calculation in the same time are different goals. Parallel capacity may be valuable for the second even when the first has a stubborn limit.</p>
+<p>For teams, that distinction suggests another measurement question. Did we shorten the time to one usable outcome, or increase the number of independent outcomes delivered over a period? Either can be valuable. Starting more interdependent pieces doesn’t demonstrate either result.</p>
+<p>Before dividing the next job, ask where the saving will come from, what the split will cost, and how we’ll know whether it worked.</p>
+<p>Then follow the delivery all the way through.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/agileotter\.dev");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
