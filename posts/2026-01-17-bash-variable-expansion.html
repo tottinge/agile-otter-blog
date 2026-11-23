@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-01-17">
-<meta name="description" content="A compact reference for useful Bash parameter expansions: required variables, defaults, substrings, lengths, case conversion, and related forms.">
+<meta name="description" content="Ten useful Bash parameter expansions, with examples of defaults, required arguments, substrings, case conversion, and filename manipulation.">
 
 <title>Bash Variable Expansion – Agile Otter Blog</title>
 <style>
@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -81,14 +116,14 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Bash Variable Expansion – Agile Otter Blog">
-<meta property="og:description" content="A compact reference for useful Bash parameter expansions: required variables, defaults, substrings, lengths, case conversion, and related forms.">
+<meta property="og:description" content="Ten useful Bash parameter expansions, with examples of defaults, required arguments, substrings, case conversion, and filename manipulation.">
 <meta property="og:image" content="https://agileotter.dev/assets/agile-otter-watermark.jpg">
 <meta property="og:site_name" content="Agile Otter Blog">
 <meta property="og:image:alt" content="Agile Otter: @tottinge">
 <meta property="og:image:height" content="1600">
 <meta property="og:image:width" content="1297">
 <meta name="twitter:title" content="Bash Variable Expansion – Agile Otter Blog">
-<meta name="twitter:description" content="A compact reference for useful Bash parameter expansions: required variables, defaults, substrings, lengths, case conversion, and related forms.">
+<meta name="twitter:description" content="Ten useful Bash parameter expansions, with examples of defaults, required arguments, substrings, case conversion, and filename manipulation.">
 <meta name="twitter:image" content="https://agileotter.dev/assets/agile-otter-watermark.jpg">
 <meta name="twitter:image:alt" content="Agile Otter: @tottinge">
 <meta name="twitter:card" content="summary_large_image">
@@ -144,11 +179,15 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Bash Variable Expansion</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">programming</div>
+    <div class="quarto-category">listicle</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    A compact reference for useful Bash parameter expansions: required variables, defaults, substrings, lengths, case conversion, and related forms.
+    Ten useful Bash parameter expansions, with examples of defaults, required arguments, substrings, case conversion, and filename manipulation.
   </div>
 </div>
 
@@ -172,22 +211,35 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>This is one of those things that just doesn’t stick in my head, so I’m dropping this note to remind myself.</p>
-<p>I often have trouble recalling cryptic variable names in bash, make, and perl. For my own sake, I thought I’d make a quick list of favorites and refer some sources.</p>
+<p>I often have trouble recalling Bash’s cryptic parameter expansion syntax. For my own sake, here’s a quick list of favorites, with examples and links to the manual.</p>
 <p>Maybe you’ll find this useful too.</p>
-<ul>
-<li>Variable value, but exit if no such variable: <em>${var:?“error message”}</em></li>
-<li>Use default if variable isn’t set: <em>${var:=“default”}</em></li>
-<li>Get a substring<em>: ${var: start: length}</em></li>
-<li>Length: <em>${#var}</em></li>
-<li>Uppercase: <em>${var@U}</em></li>
-<li>Lowercase<em>: ${var@L}</em></li>
-</ul>
-<p>The first one is quite helpful when you expect a particular set of parameters and don’t want to write if/then logic about each of them.</p>
-<pre class="text"><code>#/bin/env bash
-directory=${1:? You must provide a directory to search}
-pattern=${2:? You must provide a search term for filenames}
-find ${directory} -name ${pattern}</code></pre>
-<p><em>See more at the <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">gnu shell expansion</a> page.</em></p>
+<ol type="1">
+<li><strong>Require a value:</strong> <code>${var:?error message}</code> reports an error if <code>var</code> is unset or empty; a noninteractive shell exits with a nonzero status.</li>
+<li><strong>Use a default:</strong> <code>${var:-default}</code> supplies <code>default</code> if <code>var</code> is unset or empty, without assigning to <code>var</code>.</li>
+<li><strong>Assign a default:</strong> <code>${var:=default}</code> also stores the fallback in <code>var</code>. This cannot assign to positional parameters such as <code>$1</code>.</li>
+<li><strong>Get a substring:</strong> <code>${var:offset:length}</code> uses a zero-based offset. With <code>var=abcdef</code>, <code>"${var:2:3}"</code> gives <code>cde</code>. Omit <code>:length</code> to take the rest.</li>
+<li><strong>Get the length:</strong> <code>${#var}</code> counts characters. With <code>var=abcdef</code>, it gives <code>6</code>.</li>
+<li><strong>Convert to uppercase:</strong> <code>${var^^}</code> turns <code>Hello</code> into <code>HELLO</code>.</li>
+<li><strong>Convert to lowercase:</strong> <code>${var,,}</code> turns <code>Hello</code> into <code>hello</code>.</li>
+<li><strong>Remove a prefix:</strong> <code>${path##*/}</code> turns <code>docs/notes/todo.txt</code> into <code>todo.txt</code>.</li>
+<li><strong>Remove a suffix:</strong> <code>${file%.txt}</code> turns <code>todo.txt</code> into <code>todo</code>.</li>
+<li><strong>Replace text:</strong> <code>${var/old/new}</code> replaces the first match; <code>${var//old/new}</code> replaces all matches. With <code>var=red-red</code>, <code>"${var//red/blue}"</code> gives <code>blue-blue</code>.</li>
+</ol>
+<p>The prefix, suffix, and replacement forms use shell patterns, not regular expressions. For removal, <code>#</code> and <code>%</code> take the shortest matching prefix or suffix; <code>##</code> and <code>%%</code> take the longest. These expansions return a result; only <code>:=</code> in this list assigns back to the variable.</p>
+<p>Case conversion with <code>^^</code> and <code>,,</code> requires Bash 4 or later. The alternative <code>${var@U}</code> and <code>${var@L}</code> forms require Bash 5.1 or later. These are Bash examples; don’t assume every form works in <code>/bin/sh</code>.</p>
+<p>The default-value distinction is easier to see in use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">name</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">${name</span><span class="op">:-</span>friend<span class="va">}</span><span class="st">"</span>   <span class="co"># friend; name is still unset</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">${name</span><span class="op">:=</span>friend<span class="va">}</span><span class="st">"</span>   <span class="co"># friend; name is now set to friend</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">printf</span> <span class="st">'%s\n'</span> <span class="st">"</span><span class="va">$name</span><span class="st">"</span>            <span class="co"># friend</span></span></code></pre></div><button type="button" aria-label="Copy to Clipboard" title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For the default and required-value forms, the colon means “unset or empty.” Without it, only an unset parameter triggers the fallback, assignment, or error. For example, with <code>name=''</code>, <code>"${name:-friend}"</code> gives <code>friend</code>, while <code>"${name-friend}"</code> stays empty.</p>
+<p>The required-value form is quite helpful when you expect a particular set of arguments and don’t want to write if/then logic about each of them:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">directory</span><span class="op">=</span><span class="va">${1</span><span class="op">:?</span>You must provide a directory to search<span class="va">}</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">pattern</span><span class="op">=</span><span class="va">${2</span><span class="op">:?</span>You must provide a filename pattern<span class="va">}</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> <span class="st">"</span><span class="va">$directory</span><span class="st">"</span> <span class="at">-name</span> <span class="st">"</span><span class="va">$pattern</span><span class="st">"</span></span></code></pre></div><button type="button" aria-label="Copy to Clipboard" title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For example, <code>bash find-files.sh './project notes' '*.md'</code> searches that directory for Markdown filenames. Quote the pattern when calling the script so the calling shell doesn’t expand it first. Inside the script, quoting keeps the directory and pattern as one argument each; <code>find</code> interprets the pattern.</p>
+<p>For authoritative explanations, see the GNU Bash manual’s <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">Shell Parameter Expansion</a>, <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html">Shell Expansions</a>, and <a href="https://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html">Double Quotes</a> sections.</p>
 
 
 
